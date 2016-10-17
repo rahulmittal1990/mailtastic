@@ -1,0 +1,111 @@
+<div class="container-fluid dashboard-top-area">
+    <div class="row row-eq-height-lg row-eq-height-md margin-hor-0">
+        <div class="col-lg-5 col-md-5">
+
+            <div class="top-wrapper flex-center-left full-width">
+
+
+                <div class="companynamearea ">
+                    <h1 class="companyname">{{overAllStats.companyName}}</h1>
+                    <p class="username">{{!overAllStats.userName ? overAllStats.userMail : overAllStats.userName}}</p>
+                </div>
+
+<!--                <img class="margin-auto visible-lg-block" src="img/dashboard/Kontakt_Tao.png">
+                <div class="margin-auto berater-area visible-lg-block">
+
+                    <div class="berater visible-lg-block" translate="Youradvisor"></div>
+                    <div class="kontakt-name visible-lg-block" translate="TaoBauer"></div>
+                    <div class="tel visible-lg-block"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> {{strings.supportdata.supporttelnr}}</div>
+
+                </div>-->
+                
+            </div>
+           
+        </div>
+        <div class="col-lg-7 col-md-7">
+
+            <div class="top-wrapper stats full-width" style="position:relative;">
+                <div class="display" tooltip-class="status-info-tooltip" tooltip-placement="bottom" uib-tooltip="In diesem Bereich sehen Sie die Zusammenfassung Ihrer aktiven Kampagnen. Aktiv sind solche Kampagnen, die mindestens einer Abteilung zugeordnet sind." translate="Current"></div>
+
+                <div class="stats_entry">
+                    <h1>{{overAllStats.amountOfCampaigns}}</h1>
+                    <p translate="campaigns"></p>
+                </div>
+                <div class='stats_entry spacer hidden-xs visible-lg-block'></div>
+                <div class="stats_entry visible-lg-block">
+                    <h1>{{overAllStats.amountOfUsers}}</h1>
+                    <p translate="Employee"></p>
+                </div>
+                <div class='stats_entry spacer hidden-xs'></div>
+                <div class="stats_entry">
+                    <h1>{{overAllStats.amountOfViews}}</h1>
+                    <p>{{labels.views}}</p>
+                </div>
+                <div class='stats_entry spacer hidden-xs'></div>
+                <div class="stats_entry">
+                    <h1>{{overAllStats.amountOfClicks}}</h1>
+                    <p>{{labels.clicks}}</p>
+                </div>
+                <div class='stats_entry spacer hidden-xs'></div>
+                <div class="stats_entry">
+                    <h1>{{(overAllStats.amountOfViews===0 || overAllStats.amountOfClicks===0) ? 0 : (overAllStats.amountOfClicks / overAllStats.amountOfViews)*100 | number:2}}%</h1>
+                    <p>{{labels.rate}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div ng-controller="DashboardCtrl.campaignStatistics" class="container-fluid martop15">
+    <div class="row margin-hor-0 row-eq-height-lg">
+        <div class="col-lg-5 col-md-12" ng-include src="'dashboard/snippets/campaignlist.html'">
+            <!--            <div class="area" ng-include src="'dashboard/snippets/campaignlist.html'" >
+                        </div>-->
+        </div>
+        <div class="col-lg-7 col-md-12" ng-include src="'dashboard/snippets/linegraph.html'">
+            <!--            <div class="area"  >
+                        </div>-->
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container-fluid martop75">
+
+    <div class="row row-eq-height-lg row-eq-height-md  margin-hor-0">
+
+        <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 area " ng-include src="'dashboard/snippets/groupCompare.html'">
+            <!--            <div class="area" ng-include src="'dashboard/snippets/groupCompare.html'" >
+                        </div>-->
+        </div>
+        <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12  area " ng-include src="'dashboard/snippets/bestEmployees.html'">
+            <!--            <div class="area" ng-include  >
+                        </div>-->
+        </div>
+
+
+    </div>
+
+
+</div>
+<div class="container-fluid martop75">
+
+    <div class="row  margin-hor-0">
+
+        <div class="col-lg-5  col-md-6 col-sm-12 col-xs-12" ng-include src="'dashboard/snippets/feedback.html'">
+            <!--            <div class="area" ng-include src="'dashboard/snippets/feedback.html'" >
+                        </div>-->
+        </div>
+
+
+    </div>
+
+
+</div>

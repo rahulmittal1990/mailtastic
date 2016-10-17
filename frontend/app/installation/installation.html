@@ -1,0 +1,276 @@
+<div ng-show="mode === 'employee'" class="container logintopnav flex" style="padding-right : 30px;">
+
+    <!--<div class="row">-->
+        <div style="margin:auto;margin-left : 0;" class="loginlogo">
+            <img src="../img/navigation/logo.png">
+        </div>
+        <div style="margin:auto;margin-right : 0;" class=" tel-col">
+           <a class="loginimprlink" target="blank" href="https://www.mailtastic.de">www.mailtastic.de</a>  |   <strong class="url"><a class="loginimprlink" target="blank" href="https://www.mailtastic.de/#/impressum" translate="imprint"></a></strong>
+        </div>
+
+    <!--</div>-->
+</div>
+
+
+<div class="container installationcontainer">
+    <!--<div class="row">-->
+
+
+    <div class="panel">
+        <div class="panel-heading clearfix">
+            <!--<div class="row">-->
+
+            <div ng-show="mode === 'admin'" class="heading-area">
+                <h1 class="roboto_slap_light" translate="Sothecampaignscomeemailsoftheiremployees"></h1>
+                <div style="width:50px;" role="separator" class="divider"></div>        
+            </div>
+            <div ng-show="mode === 'admin'" class="col-lg-4 col-md-4">
+                <p class="schrift_blau" translate="THEPRINCIPLE"></p>
+                <normal translate="Ofthe"></normal><span class="" translate="campaignbanner"></span> <normal translate="appearintheemailsoftheirStaffonceour"></normal>
+                <span class="">Code-Snippet</span> <normal translate="HumanTranslationTranslateintegratedautomaticallyemployee"></normal>
+            </div>
+            <div ng-show="mode === 'admin'" class="col-lg-4 col-md-4 middlecol">
+                  <p class="schrift_blau" translate="WHATSHOULDIDO"></p>
+                  <normal translate="Asaruleviathecodesnippet"></normal> <span class="">E-Mail-Client</span> <normal translate="followingareabystepthroughtheprocess"></normal>
+            </div>
+            <div ng-show="mode === 'admin'" class="col-lg-4 col-md-4 questionlinkcol">
+                  <p class="schrift_blau" translate="YOUMANAGEYOURSIGNATURESCENTRAL"></p>
+                  <normal translate="Iwouldbegladtohelptheinvolvecentral"></normal>
+                
+                <div class="flex contactcentral">
+                    <img class="margin-vert-auto beraterimage"  src="img/profile/Avatar_Andi.png" >
+                    <div class="margin-vert-auto kontaktdetails">
+                        <span class="kontakt-name roboto_bold">Andreas Schröder</span><br />
+                        <span class="">Technische Leitung</span><br />
+                        <span><span class="glyphicon glyphicon-earphone"></span> (0) 6131 698 2930</span><br />
+                        <span><span class="glyphicon glyphicon-envelope"></span><a class="link schrift_blau_imp" href="mailto:support@mailtastic.de"> support@mailtastic.de</a></span>
+               
+                    </div>
+                </div>
+  
+            </div>
+            
+            
+            
+            
+            
+                        <div ng-show="mode === 'employee'" class="heading-area">
+                <h1 class="roboto_slap_light" translate="Comeaboard"></h1>
+                <div style="width:50px;" role="separator" class="divider"></div>        
+            </div>
+            <div ng-show="mode === 'employee'" class="col-lg-4 col-md-4">
+                <p class="schrift_blau" translate="WHATTHEMATTER"></p>
+                <normal translate="FortheserviceofMailtastic"></normal>
+                {{admindata.firstname + ' ' + admindata.lastname}} <normal translate="TranslateWouldadministrationyourhelp"></normal>
+            </div>
+            <div ng-show="mode === 'employee'" class="col-lg-4 col-md-4 middlecol">
+                  <p class="schrift_blau" translate="WHATSHOULDIDO"></p>
+                 <normal translate="Tosignaturewillyoumusthaveyourunique"></normal> <span class="">Code-Snippet</span> <normal translate="Integrateintoyouroneofthefollowingarea"></normal> 
+                <span class="">E-Mail-Client</span> <normal translate="Andstepthroughintegratedthesnippetyou"></normal> 
+{{admindata.firstname + ' ' + admindata.lastname}} <normal translate="asactivedot"></normal>
+            </div>
+            <div ng-show="mode === 'employee'" class="col-lg-4 col-md-4 questionlinkcol">
+                  <p class="schrift_blau" translate="Anyquestions"></p>
+                  <normal translate="Yourcontactpersoninyourcompany"></normal>
+                  <span class="text-bold">{{admindata.firstname + ' ' + admindata.lastname}}</span><br><br>
+                  <p translate="disposalavailableatanytime"></p>
+                <div class="flex contactcentral">
+                    <img class="margin-vert-auto beraterimage"  src="img/profile/Avatar_Andi.png" >
+                    <div class="margin-vert-auto kontaktdetails">
+                        <span class="kontakt-name roboto_bold">Andreas Schröder</span><br />
+                        <span class="" translate="TechnicalDirection"></span><br />
+                        <span><span class="glyphicon glyphicon-earphone"></span> (0) 6131 698 2930</span><br />
+                    </div>
+                </div>
+  
+            </div>
+            
+            
+            
+           
+        </div>
+
+
+        <div class="" ng-include src="'installation/snippets/navigation.html'">
+        </div>
+
+
+        <div cg-busy="loadingPromise" style="padding-bottom : 0;"  class="panel-body">
+
+
+
+<!--            <div class="col-lg-4 padding-30">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" ng-src="{{currentManual.video| trusted}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                
+            </div>-->
+            <div class="col-lg-7 padding-30">
+<!--                <div ng-show="currentManual.title !== 'Mac Mail' && currentManual.title !== 'Thunderbird' && currentManual.title !== 'Outlook (Win)'" ng-repeat="item in currentManual.steps track by $index">
+                    <p ng-show="$index < currentManual.steps.length-1" class="schrift_blau text-bold">SCHRITT {{$index + 1}}</p>
+                     <p ng-show="$index === currentManual.steps.length -1" class="schrift_blau text-bold">GESCHAFFT!</p>
+                    <div class="explain-step-text">{{item.text}}</div>
+                     <img ng-show="item.image" class="explain-step-img" ng-src="{{item.image}}">
+                    
+
+                </div>-->
+                
+                
+                <div ng-show="currentManual.title === 'Andere'" ng-include src="'installation/snippets/other.html'"></div>
+                <div ng-show="currentManual.title === 'Gmail'" ng-include src="'installation/snippets/gmail.html'"></div>
+                <div ng-show="currentManual.title === 'Mac Mail'" ng-include src="'installation/snippets/macmail.html'"></div>
+                <div ng-show="currentManual.title === 'Thunderbird'" ng-include src="'installation/snippets/thunderbird.html'"></div>
+                <div ng-show="currentManual.title === 'Outlook (Win)'" ng-include src="'installation/snippets/outlookwin.html'"></div>
+                <div ng-show="currentManual.title === 'Outlook (Mac)'" ng-include src="'installation/snippets/outlookmac.html'"></div>
+                <div ng-show="currentManual.title === 'Mac Mail (alt)'" ng-include src="'installation/snippets/macmail_altev.html'"></div>
+                <div ng-show="currentManual.title === 'Web-Tools'" ng-include src="'installation/snippets/webtools.html'"></div>
+                <div ng-show="currentManual.title === 'Outlook (Windows - EasyIntegrate)'" ng-include src="'installation/snippets/outlookwin_easyintegrate.html'"></div>
+                
+               
+                
+            
+            </div>
+            <div class="col-lg-5">
+                <div class="panel-body sig-image-area" ng-show="currentManual.showBanner">
+                    <div>
+                         <p  class="schrift_blau text-bold" translate="CAMPAIGNBANNER"></p>
+                        <div class="image_wrapper">
+                                                      <a ng-click="imageClicked($event)" id="image_installation_link"  href="https://www.app.mailtastic.de/api/li/{{userId}}" style="outline:0 !important;margin:auto;"> <img src="http://www.app.mailtastic.de/api/im/{{userId}}/ad" border="0" style="max-width:100%;color:blue;font-size:12px;" alt="Bitte aktivieren Sie externe Inhalte, um diese E-Mail vollständig sehen zu können." > </a>
+
+
+                        </div>
+                        <div>
+                            <!--<p>-->
+                            <ol class="bannerclickmanual">
+                                <li translate="Leftclickonthebannertomark">
+                                   
+                                </li>
+                                 <li translate="CopMarkedBannerCtrlMac">                                   
+                                </li>
+                            </ol>
+                            <!--</p>-->
+                            <p class="bannermanual">
+                                <strong translate="Theyseenobanners"></strong> <normal translate="Thismakesstillquiteinvisiblebannerignature"></normal>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel-body sig-image-area" ng-show="currentManual.showSnippet && currentManual.title === 'Thunderbird'">
+                    <div class="no_padding full-width">
+                         <p  class="schrift_blau text-bold">Code-Snippet / HTML-Snippet</p>
+                        <div  class="image_wrapper full-width">
+                            <!--<a ng-click="imageClicked($event)"   style="outline:0 !important;margin:auto;">--> 
+                                <textarea style="cursor:pointer;"  ng-model="htmlSnippet" class="form-control" rows="15" readonly select-on-click></textarea>
+                            <!--</a>-->
+
+                        </div>
+                        <div>
+                            <ol class="bannerclickmanual">
+                                <li translate="Leftclickonthetextformarking">                                 
+
+                                </li>
+                                 <li translate="CopMarkedBannerCtrlMac">
+                                   
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-body sig-image-area" ng-show="currentManual.showSnippet && currentManual.title === 'Web-Tools'">
+                    <div class="no_padding full-width">
+                         <p  class="schrift_blau text-bold">Code-Snippet / HTML-Snippet</p>
+                        <div  class="image_wrapper full-width">
+                            <!--<a ng-click="imageClicked($event)"   style="outline:0 !important;margin:auto;">--> 
+                                <textarea style="cursor:pointer;"  ng-model="htmlSnippetRaw" class="form-control" rows="10" readonly select-on-click></textarea>
+                            <!--</a>-->
+
+                        </div>
+                        <div>
+                            <ol class="bannerclickmanual">
+                                <li translate="Leftclickonthetextformarking">                                 
+
+                                </li>
+                                 <li translate="CopMarkedBannerCtrlMac">
+                                   
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-body sig-image-area" ng-show="outlookWin.showOutlookSnippetInstallCode == 'false' && currentManual.title === 'Outlook (Win)'">
+                    <div class="no_padding full-width">
+                         <p  class="schrift_blau text-bold">Link 1</p>
+                        <div  class="image_wrapper full-width">
+                            <!--<a ng-click="imageClicked($event)"   style="outline:0 !important;margin:auto;">--> 
+                                <textarea style="cursor:pointer;"  ng-model="outlooklink1" class="form-control" rows="3" readonly select-on-click></textarea>
+                            <!--</a>-->
+
+                        </div>
+                         <p  class="schrift_blau text-bold link2">Link 2</p>
+                        <div  class="image_wrapper full-width">
+                            <!--<a ng-click="imageClicked($event)"   style="outline:0 !important;margin:auto;">--> 
+                                <textarea style="cursor:pointer;"  ng-model="outlooklink2" class="form-control" rows="3" readonly select-on-click></textarea>
+                            <!--</a>-->
+
+                        </div>
+                        <div>
+                            <ol class="bannerclickmanual">
+                                <li translate="Leftclickonthetextformarking">                                 
+
+                                </li>
+                                 <li translate="CopMarkedBannerCtrlMac">                                   
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="panel-body sig-image-area" ng-show="outlookWin.showOutlookSnippetInstallCode == 'true' && currentManual.title === 'Outlook (Win)'">
+                    <div class="no_padding full-width">
+                         <p  class="schrift_blau text-bold">Integrations-Code</p>
+                        <div  class="image_wrapper full-width">
+                                <textarea style="cursor:pointer;text-align:center;"  ng-model="outlookInstallationCode" class="form-control" rows="1" readonly select-on-click></textarea>
+                        </div>
+                        <div>
+                            <ol class="bannerclickmanual">
+                                <li translate="Leftclickonthetextformarking">                                 
+
+                                </li>
+                                 <li translate="CopMarkedBannerCtrlMac">
+                                   
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+ </div>
+
+
+        </div>
+        <!--</div>-->
+       
+
+        <div ng-hide="currentManual.title === 'Web-Tools'" class="contactdown">
+             <div style="width:50px;" role="separator" class="divider"></div>        
+                <p class="schrift_blau text-bold" translate="YOUNEEDPERSONALASSISTANCE"></p>
+                <p translate="Justcallmeoruseourfreelivechat"></p>
+                <div class="flex">
+                    <img class="margin-vert-auto beraterimage"  src="img/profile/Avatar_Andi.png" >
+                    <div class="margin-vert-auto kontaktdetails">
+                        <span class="kontakt-name roboto_bold">Andreas Schröder</span><br />
+                        <span class="" translate="TechnicalDirection"></span><br />
+                        <span><span class="glyphicon glyphicon-earphone"></span> (0) 6131 698 2930</span><br />
+                        <span><span class="glyphicon glyphicon-envelope"></span><a class="link" href="mailto:support@mailtastic.de"> support@mailtastic.de</a></span>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+

@@ -1,0 +1,195 @@
+<div class="baseonecolumn signature" >
+
+    <div class="container sigdetails topdetails">
+        <div class="flex-center-left">
+            <div class="headline format0 leftbutton" translate="signature">
+                
+            </div> 
+
+            <div class="signaturetitle leftbutton">
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <span class="title">{{data.signatureTitle}}</span>
+            </div> 
+            
+         <!--<div class="margin-auto">-->
+            <div class="btn-group ownddbtn dddarkgrey" uib-dropdown >
+                <button  type="button" class="btn btn-sm" uib-dropdown-toggle  >
+                    <span class="glyphicon own-glyph glyphicon-cog" aria-hidden="true"></span>
+                    <normal translate="Edit"></normal> <span class="caret"></span>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li role="menuitem"> <a ng-click="editSignature()" translate="Edit"></a>  </li>
+                    <li role="menuitem"> <a ng-click="deleteSig()" translate="Delete"></a>  </li>
+                    <li role="menuitem"> <a ng-click="sortList('rate')" translate="rollout"></a> </li>
+                </ul>
+            </div>
+         
+         
+         
+         
+     
+         
+        </div>
+
+        <div class="flex-center-left topbuttonrow">
+            <div ng-show="data.activeInGroups.length > 0 && data.signatureTitle" class="leftbutton buttonlikediv flex-center-all"> <span class="glyphicon glyphicon-ok " aria-hidden="true"></span> <normal translate="activein"></normal> {{data.activeInGroups.length}} <normal translate="Departments"></normal></div>
+            <!--<button ng-show="data.activeInGroups.length === 0 && data.signatureTitle" class="ownbtn btn-lg btnrot leftbutton"> <span class="glyphicon glyphicon-alert " aria-hidden="true"></span> Diese Signatur ist in keiner Abteilung aktiv</button>-->
+        
+            <div ng-show="data.activeInGroups.length === 0" class="btn-group ownddbtn ddrot leftbutton" uib-dropdown >
+                <button  type="button" class="btn "  uib-dropdown-toggle  >
+                    <span class="glyphicon own-glyph glyphicon-alert" aria-hidden="true"></span>
+                    <normal translate="Thissignatureisnotactive"></normal>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li role="menuitem"> <a ng-controller="GroupSignatureModalCtrl" ng-click="open(data.signatureId, 'new')" translate="CreateNew"></a>  </li>
+                    <li role="menuitem"> <a ng-controller="GroupSignatureModalCtrl" ng-click="open(data.signatureId, 'existing')" ng-click="deleteSig()" translate="Chooseexisting"></a>  </li>
+                </ul>
+            </div>
+            
+            
+             <div class="btn-group ownddbtn ddblau" uib-dropdown >
+                <button  type="button" class="btn "  uib-dropdown-toggle  >
+                    <span class="glyphicon own-glyph glyphicon-plus" aria-hidden="true"></span>
+                    <normal translate="Assigningadepartment"></normal> <span class="caret"></span>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li role="menuitem"> <a ng-controller="GroupSignatureModalCtrl" ng-click="open(data.signatureId, 'new')" translate="CreateNew"></a>  </li>
+                    <li role="menuitem"> <a ng-controller="GroupSignatureModalCtrl" ng-click="open(data.signatureId, 'existing')" ng-click="deleteSig()" translate="Chooseexisting"></a>  </li>
+                </ul>
+            </div>
+            
+            
+        </div>
+        <div  class="detailpanel preview" >
+            <div class="header">
+                <span translate="preview"></span>
+            </div>
+            <div class="content">
+                <div  class="flex topnavrow">
+                    <select ng-change="updateSelectedUser()" ng-model="data.selectedEmployee" class="form-control exampleempselect input-sm  leftbutton">
+                        <option ng-repeat="item in data.employees" value="{{item.id}}">{{item.firstname}} {{item.lastname}}</option>
+                    </select>
+
+                    <button  ng-click="editSignature()" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-cog" aria-hidden="true"></span> <normal translate="Editsignature"></normal></button>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-7 leftcol">
+                        <div class="previewarea" ng-bind-html="data.preview">
+
+                        </div>
+                        
+                         <!--<previewiniframe  content="data.preview"></previewiniframe>-->
+                    </div>
+                    <div class="col-lg-5 rightcol">
+                        <div ng-show="data.rolloutStatus === 'outdated'" class="infobox infobox-error martop0imp" >
+                            <span class="symbol glyphicon glyphicon-alert"></span>
+                            <div>
+                                <div class="text"><strong translate="Thesignaturehasnotyetbeenrolledmodification"></strong></div>
+                                <div class="additionaltext" translate="Someemployeeshaveinvolvedversionsignature">
+                                </div>
+                                <button style="margin-top : 20px;" ng-click="rolloutSignature()" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-cog" aria-hidden="true"></span> <normal translate="rollsignature"></normal></button>
+                            </div>
+                        </div>
+                        
+                        
+                        <div ng-show="data.rolloutStatus === 'latest'" class="infobox infobox-success martop0imp" >
+                            <span class="symbol glyphicon glyphicon-check"></span>
+                            <div>
+                                <div class="text"><normal translate="Thesignaturewason"></normal> {{data.lastRollout |  date:'dd.MM.yyyy'}} um {{data.lastRollout |  date:'HH:mm'}} <normal translate="rolledpmandsinceneitherthesignaturenoramended"></normal></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+        
+         <div  class="detailpanel grouplist" >
+            <div class="header">
+                <span translate="Departmentsthatareassignedtothissignature"></span>
+            </div>
+            <div class="content">
+                
+                    <div class="flex" style="justify-content : space-between;">
+                    <div class="flex">
+
+                        <div ng-click="selectAllOuter()"
+                             class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px">
+                            <!--<div class="checkbox no-margin">-->
+                            <!--<label>-->
+                            <input ng-click="selectAll($event);
+                                $event.stopPropagation();" ng-checked="isSelectedAll()" class="innercheckbox" type="checkbox" >
+                            <!--</label>-->
+                            <!--</div>-->
+                            <span class="margin-auto" translate="selectall"></span> 
+                        </div>
+                        <!--<div class="margin-auto">-->
+
+                        <div ng-show="data.selectedGroups.length > 1 && data.activeInGroups.length > 0"  class="btn-group margin-auto optionbutton actiondropdown btnblau" uib-dropdown>
+                            <button ng-disabled="data.selectedGroups.length === 0"  type="button" class="btn btn-sm actiondropdown btnblau" uib-dropdown-toggle ng-disabled="disabled">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+                            </button>
+                            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                <li ng-click="removeSignaturefromGroups()"><a translate="Removeassignmentforsignature"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div  class="input-group searchfield leftbutton">
+                            <input  ng-model="data.filterText" type="text" class="form-control input-sm nooutline" placeholder="Signatur suchen" aria-describedby="basic-addon2">
+                            <span class="input-group-addon glyphicon glyphicon-search" ></span>
+                        </div>
+                        <div class="btn-group sort" uib-dropdown >
+                            <button  type="button" class="btn btn-sm nooutline leftbutton" uib-dropdown-toggle ng-disabled="disabled">
+                                <normal translate="sort"></normal> <span class="caret"></span>
+                            </button>
+                            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                <li role="menuitem">
+                                    <a ng-click="order('title')" translate="title"></a>
+                                </li>
+                                <li role="menuitem">
+                                    <a  ng-click="order('rolledOut')" translate="rolledout"></a>
+                                </li>
+                                <li role="menuitem">
+                                    <a ng-click="order('active')" translate="active"></a>
+                                </li>
+                            </ul>
+                        </div>
+                
+                        
+                        <div class="btn-group" uib-dropdown >
+                            <button  type="button" class="btn-group btnblau ownbtn"  uib-dropdown-toggle  >
+                                <span style="top : 1px;" class="glyphicon own-glyph glyphicon-plus" aria-hidden="true"></span>
+                                <normal translate="Assigningadepartment"></normal> <span class="caret"></span>
+                            </button>
+                            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                <li role="menuitem"> <a ng-controller="GroupSignatureModalCtrl" ng-click="open(data.signatureId, 'new')" translate="CreateNew"></a>  </li>
+                                <li role="menuitem"> <a ng-controller="GroupSignatureModalCtrl" ng-click="open(data.signatureId, 'existing')" ng-click="deleteSig()" translate="Chooseexisting"></a>  </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                <ul ng-show="data.activeInGroups.length > 0" style="min-height : {{config.listheight}}px;max-height : {{config.listheight}}px;" class="tablewrapper" ng-include src="'signature/details/snippets/grouprow.html'">
+                      
+                </ul>
+                
+                
+                  <div class="full-width flex-center-all" style="margin-top: 50px;"  ng-show="data.activeInGroups.length === 0">
+                    <div class="nodataarea">
+                          <img src="img/emptystates/redonwhite/r_Group_Missing.png" >
+                          <div class="rightside">
+                              <div class="placeholderheadlinetext schrift_weis"  style="color : #fc5242 !important;" translate="Thissignatureisnotactiveinanydepartment"></div>
+                              <div class="placeholderdesc" style="color : #5d6267 !important;" translate="Assignthissignatureemailsdepartmentmembers"></div>
+                          </div>
+                      </div>
+                </div>
+                
+                
+                
+            </div>
+        </div> 
+    </div>

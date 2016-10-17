@@ -1,0 +1,45 @@
+    <!--table-->
+    <div ng-click="listHandler.rowClicked(item)"   ng-class="listHandler.getSelectedClass(item)" class="tablerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in employeeData.filteredEmployees | filter:filterText">
+        <div class="cell select">
+            <input name="selected" class="link" ng-checked="listHandler.isSelected(item)" ng-click="listHandler.updateSelection($event, item);
+                $event.stopPropagation();"  type="checkbox">
+        </div>
+        <div class="cell emp  empnamecol">
+            <div class=" flex-center-left">
+            <img class="img-circle profile-picture-list hidden-xs" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1))}}" />
+
+                <div>
+                    <div class="upper schrift_blau">
+                      {{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}
+
+                    </div>
+
+                    <div class="down">{{item.email}}</div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="cell emp empgroup">
+            <div class="upper">{{item.groupTitle}}</div>
+            <div class="down" translate="Department"></div>
+        </div>
+        <div class="cell emp  cmptitlecol emp">
+            <div>
+                <div class="color-rect" style="background-color : {{item.campaignColor}}"></div>
+                <div  class="title">{{item.campaignTitle}}</div>
+            </div>
+            <div class="down" translate="campaign"></div>
+        </div>
+        <div class="cell emp  status">
+            <div style="white-space: nowrap;margin-left : 0;" ng-show="item.views > 0" class="schrift_gruen margin-auto upper"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="active"></normal></div>
+            <div style="white-space: nowrap;margin-left : 0;" ng-show="item.views === 0" class="schrift_rot margin-auto upper"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <normal translate="Inactive"></normal></div>
+            <div class="down">Status</div>
+        </div>
+        
+       
+    </div>
+        <div style="width : 100%;" ng-show="data.employees.length === 0" class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text"><normal translate="Thereemployeewhocanbeassignedtothegroup"></normal> <div class="additionaltext"><normal translate="NoteEmployeeswhothegrouparenotdisplayed"></normal></div></div>
+
+        </div>

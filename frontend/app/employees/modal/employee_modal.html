@@ -1,0 +1,39 @@
+
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+<div cg-busy="loadingPromise" class="assistant employeemodal" ng-class="{ 'employeemodalimport':  (modaloptions.currentStep ==='import')}" >
+<!--    <div class="modal-header">
+        <h3 ng-show="modaloptions.currentStep ==='new'" class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>{{modaloptions.heading}}</h3>
+        <h3 ng-show="modaloptions.currentStep ==='existing'" class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Vorhandene Mitarbeiter hinzufügen</h3>
+        <h3 ng-show="modaloptions.currentStep ==='import'" class="modal-title"><span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>Benutzer Importieren</h3>
+        <h3 ng-show="modaloptions.currentStep ==='choose'" class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Fügen Sie dieser Abteilung Mitarbeiter hinzu</h3>
+     
+    </div>-->
+    <div class="modal-body" >
+       <div ng-show="modaloptions.currentStep ==='new'" ng-include src="'employees/modal/snippets/createnew.html'">
+
+        </div>
+         <div class="existing" ng-show="modaloptions.currentStep ==='existing'"  ng-include src="'employees/modal/snippets/selectexisting.html'">
+
+        </div>
+            <div ng-show="modaloptions.currentStep ==='import'"  ng-include src="'employees/modal/snippets/import.html'">
+
+        </div>
+           <div ng-show="modaloptions.currentStep ==='choose'"  ng-include src="'employees/modal/snippets/selectmethod.html'">
+
+        </div>
+    </div>
+<!--    <div ng-show="modaloptions.currentStep ==='existing'" class="modal-footer">
+        <button ng-show="modaloptions.cameFromChoose === true && modaloptions.currentStep !=='choose'" ng-click="(modaloptions.currentStep = 'choose')" class="btn btn-error" type="button" >Zurück</button>
+        <button ng-hide="modaloptions.currentStep ==='choose'" class="btn btn-error" type="button" ng-click="cancel()">Abbrechen</button>
+          <button ng-show="modaloptions.currentStep ==='choose'" class="btn actionbutton" type="button" ng-click="cancel()">Später</button>
+        <button ng-show="modaloptions.currentStep ==='new'" id="employee_modal_button_createsave" class="btn actionbutton" ng-disabled="(!employeedata.email)" type="button" ng-click="createEmployee()">{{modaloptions.saveButtonText}}</button>
+        
+        <button ng-disabled="data.employees.length === 0" class="btn btn-error actionbutton" type="button" ng-click="addUsersToGroup()">Mitarbeiter zuweisen</button>
+      
+ 
+    </div>-->
+
+</div>
+<!-- </script> -->

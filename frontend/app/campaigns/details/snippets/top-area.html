@@ -1,0 +1,124 @@
+
+
+
+
+
+
+<div class="row row-eq-height-lg row-eq-height-md cmp-det-top-area">
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+        <div class="">
+  <div class="panelheading" translate="campaign"></div>
+                
+            <div class="campaigndetails">
+                <span class="graph-dot" style="background-color : {{campaignDetailData.color}}"></span>
+
+                <h1>{{campaignDetailData.title}}</h1> 
+            </div>
+            <div class="wann"> <normal translate="CreatedOn"></normal> {{campaignDetailData.createdAt| date:"dd.MM.yyyy"}}</div>
+
+
+            <div class="button_area">
+                <!--<button ng-click="open(campaignDetailData.id)" ng-controller="CampaignModalCtrl"  class="btn actionbutton"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Bearbeiten</button>-->
+                <!--<button ng-click="deleteCampaign(campaignDetailData.id)" class="btn actionbutton"><span class="glyphicon glyphicon-trash " aria-hidden="true"></span></button>-->
+
+                <div class="btn-group" uib-dropdown>
+                    <button id="sort-button" type="button" class="btn actionbutton" uib-dropdown-toggle   ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-controller="CampaignModalCtrl" ng-click="open(campaignDetailData.id)"><a translate="Edit"></a></li>
+                        <li  ng-click="deleteCampaign(campaignDetailData.id)"><a translate="Delete"></a></li>
+
+                    </ul>
+                </div>
+                <!--            <button onclick="alert('Zum Hinzufügen einer Abteilung geben sie den Namen der Abteilung bitte im Suchfeld &quot;Abteilung suchen&quot; links ein.')"   class="btn actionbutton  margin-auto" type="button">
+                                 <span class="glyphicon glyphicon-plus" "></span>     Abteilung hinzufügen
+                            </button>-->
+
+
+                <div class="btn-group margin-auto optionbutton actiondropdown down" uib-dropdown>
+                    <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <normal translate="Assigningadepartment"></normal> 
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-controller="GroupModalCtrl" ng-click="open(null, campaignDetailData.id, 'new')"><a translate="Createnew"></a></li>
+                        <li ng-controller="GroupModalCtrl" ng-click="open(null, campaignDetailData.id, 'existing')"><a translate="existing"></a></li>
+
+                    </ul>
+                </div>
+
+
+
+
+            </div> 
+
+            <div role="separator" class="divider"></div>  
+            <div class="groups"> <normal translate="activein"></normal> {{campaignDetailData.activegroups.length}} <normal translate="departments"></normal> {{campaignDetailData.amountOfActiveUsers}} <normal translate="Employee"></normal></div>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 middle-col">
+        <div class="">
+            <div class="panelheading">Banner</div>
+
+            <div class="url">
+
+                <a  style="max-width : 100%;"  >
+                    <img ng-controller="CampaignModalCtrl"  ng-click="open(campaignDetailData.id)" class="img-responsive block link" ng-src="{{campaignDetailData.image}}" /><br>
+                </a>
+                <span class="glyphicon  glyphicon-link" aria-hidden="true"></span> 
+                <span><a target=”_blank”  href="{{(campaignDetailData.url.indexOf('http://') === 0 || campaignDetailData.url.indexOf('https://') === 0)  ? campaignDetailData.url : 'http://' + campaignDetailData.url}}">{{campaignDetailData.url}}</a></span>
+            </div>
+        </div>
+          <div role="separator" class="divider divider-md"></div>  
+    </div>
+    <div class="col-lg-4  col-md-4 col-sm-12 col-xs-12">
+
+        <div class="panel-header">
+
+        </div>
+        <div class="panelheading  absheader" translate="statistics"></div>
+        <div ng-show="campaignDetailData.views > 0 || campaignDetailData.clicks > 0" cg-busy="loadingPromise"  class="flex full-width">
+
+
+            <div class="wrapper flex-center-all">
+
+                <div  class="text-center statsitem">
+                    <span class="upper">{{campaignDetailData.views}}</span>
+                    <br />
+                    <span class="down">{{labels.views}}</span>
+                </div>
+                <div  class="statsitem text-center">
+                    <span class="upper">{{campaignDetailData.clicks}}</span>
+                    <br />
+                    <span class="down">{{labels.clicks}}</span>
+                </div>
+                <div  class="statsitem text-center">
+                    <span class="upper">{{(campaignDetailData.views === 0|| campaignDetailData.clicks===0) ? 0 : (campaignDetailData.clicks / campaignDetailData.views)*100 | number:2}}%</span>
+                    <br />
+                    <span class="down">{{labels.rate}}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nodataarea_hor flex-center-left" ng-show="campaignDetailData.views === 0 && campaignDetailData.clicks === 0">
+            <img src="img/emptystates/lightonwhite/w_Statistic_Missing.png" >
+            <div class="rightside">
+                <div class="placeholderheadlinetext" translate="nofiguresareyetavailableforthiscampaignbefore"></div>
+                <div class="placeholderdesc" translate="Assignthiscampaignepointto"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>                 
+

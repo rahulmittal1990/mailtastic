@@ -1,0 +1,128 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03.11.2015, 20:30:04
+    Author     : kippple
+*/
+
+
+
+
+/**
+ * 	FONTS
+ */
+@font-face {
+font-family: 'roboto_light';
+ src: url(ROBOTO-LIGHT.TTF);
+
+}
+
+@font-face {
+font-family: 'roboto_slap_light';
+ src: url(ROBOTOSLAB-LIGHT_0.TTF);
+
+}
+@font-face {
+font-family: 'roboto_regular';
+ src: url(ROBOTO-REGULAR.TTF);
+
+}
+@font-face {
+font-family: 'roboto_bold';
+ src: url(ROBOTO-BOLD.TTF);
+
+}
+@font-face {
+font-family: 'roboto_slap_bold';
+ src: url(ROBOTOSLAB-BOLD_0.TTF);
+
+}
+@font-face {
+font-family: 'roboto_medium';
+  src: url(ROBOTO-MEDIUM.TTF);
+
+}
+
+@font-face {
+font-family: 'roboto_slap_regular';
+  src: url(ROBOTOSLAB-REGULAR_0.TTF);
+
+}
+
+
+@font-face {
+font-family: 'roboto_condensed_regular';
+  src: url(ROBOTOCONDENSED-REGULAR.TTF);
+
+}
+@font-face {
+font-family: 'roboto_condensed_bold';
+  src: url(ROBOTOCONDENSED-BOLD.TTF);
+
+}
+
+@font-face {
+font-family: 'roboto_condensed_italic';
+  src: url(ROBOTOCONDENSED-ITALIC.TTF);
+
+}
+
+@font-face {
+font-family: 'roboto_condensed_bold_italic';
+  src: url(ROBOTOCONDENSED-BOLDITALIC.TTF);
+
+}
+
+@font-face {
+font-family: 'roboto_condensed_light';
+  src: url(ROBOTOCONDENSED-LIGHT.TTF);
+
+}
+
+.roboto_bold{
+	
+	font-family: roboto_bold !important;
+}
+
+.roboto_slap_regular{
+	font-family: roboto_slap_regular !important;
+}
+
+.roboto_slap_bold{
+	
+	font-family: roboto_slap_bold !important;
+}
+
+.roboto_slap_light{
+	
+	font-family: roboto_slap_light !important;
+}
+
+.roboto_regular{
+	
+	font-family: roboto_regular !important;
+}
+
+.roboto_light{
+	
+	font-family: roboto_light !important;
+}
+
+.roboto_medium{
+	
+	font-family: roboto_medium !important;
+}
+
+
+.roboto_condensed_regular{
+    
+    font-family : roboto_condensed_regular !important;
+}
+
+.roboto_condensed_bold{
+    
+    font-family : roboto_condensed_bold !important;
+}

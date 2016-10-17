@@ -1,0 +1,9 @@
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\bin\Debug\Mailtastic.exe.config
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\bin\Debug\Mailtastic.exe
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\bin\Debug\Mailtastic.pdb
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\obj\Debug\Mailtastic.csprojResolveAssemblyReference.cache
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\obj\Debug\Mailtastic.Properties.Resources.resources
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\obj\Debug\Mailtastic.csproj.GenerateResource.Cache
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\obj\Debug\Mailtastic.exe
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\obj\Debug\Mailtastic.pdb
+c:\users\netstag\documents\visual studio 2015\Projects\Mailtastic\Mailtastic\obj\Debug\Mailtastic.MainForm.resources

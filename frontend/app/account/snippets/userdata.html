@@ -1,0 +1,81 @@
+<div> 
+
+
+<div class="format2" translate="company"></div>
+        <form name="empform" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label-account format3" translate="Companyname"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input type="text" ng-model="userdata.companyName" required="true"   class="form-control input-sm"  placeholder="">
+                </div>
+            </div>
+            
+            
+             <div  role="separator" class="line"></div>  
+             
+             <div class="format2">Administration</div>
+            
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label-account  format3" translate="firstgivenname"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <input  ng-model="userdata.firstname" required="true"    type="text" class="form-control input-sm" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label-account  format3" translate="Surname"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input ng-model="userdata.lastname" required="true"   type="text" class="form-control form input-sm"  placeholder="">
+                </div>
+            </div>
+             
+               
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label-account   format3" translate="Emailaddress"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input ng-model="userdata.email" required="true"   type="text" class="form-control form input-sm"  placeholder="" ng-disabled="true">
+                </div>
+            </div>
+    
+      <div class="form-group last">
+                <label for="inputPassword" class="col-sm-3 control-label-account   format3" translate="password"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input  required="true"  ng-disabled="true" value="*******" type="text" class="form-control form input-sm"  placeholder="">
+                    
+                </div>
+            </div>
+    
+    <div class="hint" style="margin-left : 180px;margin-top : 5px;"><normal translate="ForgotPassword"></normal> <span  ng-click="resetPassword()" class="link text-underline schrift_blau" translate="Resetnow"></span></div>
+     <div class="hint" style="margin-left : 180px;margin-bottom: 10px;" translate="Enterthecurrentpasswordtochangethepassword"> </div>
+      <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label-account  format3" translate="currentpassword"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input ng-model="userdata.password" required="true"   type="text" class="form-control form input-sm"  placeholder="">
+                </div>
+            </div>
+    
+    
+      <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label-account  format3" translate="NewPassword"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input ng-model="userdata.newpassword"    type="text" class="form-control form input-sm"  placeholder="">
+                </div>
+            </div>
+    
+      <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label-account  format3" translate="Repeatpassword"></label>
+                <div class="col-sm-10 col-lg-4  formcontrolright">
+                    <input ng-model="userdata.newpasswordrep"    type="text" class="form-control form input-sm"  placeholder="">
+                </div>
+            </div>
+            
+            <div role="separator" class="line"></div> 
+
+            <div class="flex-center-left">
+
+                
+                <button type="submit" ng-click="empform.$valid && updateAccountData()" class="btn ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="saveChanges"></normal></button> 
+            </div>
+        </form>
+
+
+</div> 

@@ -1,0 +1,344 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30.12.2015, 21:18:55
+    Author     : kippple
+*/
+
+.firststep{
+       @media(max-width : $screen-sm-min){
+           padding-bottom : 30px;
+           margin-top : 30px;
+        }
+        
+        
+        .container.vertical-center-o-xs{
+            @media(max-width : $screen-sm-min){
+              margin-top : 30px;
+            }
+        }
+        
+    
+    
+    
+    .row.flex{
+        @media(max-width : $screen-sm-min){
+            margin-left : 0;
+            margin-right : 0;
+        }
+    }
+    
+    .leftcol{
+        background-color : #f5f5f5;;
+        border-top-left-radius : 3px;
+        border-bottom-left-radius : 3px;
+        
+          @media(max-width : $screen-md-min){
+           border-top-right-radius : 3px;
+        border-bottom-right-radius : 3px;
+        }
+        
+        color : $dunkelgrau;
+        padding : 40px;
+        padding-bottom : 15px;
+        
+    }
+    
+    .rightcol{
+          background-color : white;
+          border-top-right-radius : 3px;
+        border-bottom-right-radius : 3px;
+         padding : 40px;
+         padding-bottom : 80px;
+         
+         
+         .slidernavi{
+             margin-top : 30px;
+             .point{
+                 cursor: pointer;
+                 margin-right : 10px;
+                 $pointsize : 15px;
+                 width : $pointsize;
+                 height : $pointsize;
+                 min-height : $pointsize;
+                 min-width : $pointsize;
+                 max-width : $pointsize;
+                 max-height : $pointsize;
+                 border-radius : 50%;
+                 
+               background-color : $hellgrau;  
+             }
+              .point.active{
+               background-color : $grau;  
+             }
+         }
+        
+    }
+    
+    
+    .headline{
+        font-family : roboto_condensed_light !important;
+        font-size : 25px !important;
+        
+        /*@media(min-width : $screen-sm-min){*/
+             margin-top : 0 !important;
+        /*}*/
+        
+/*        @media(max-width : $screen-sm-min){
+             margin-top : 50px !important;
+        }*/
+        
+       
+    }
+    
+    .benefits{
+        
+        margin-top : 25px;
+        .onebenefit{
+            margin-top : 13px;
+            img{
+                max-width : 25px;
+                max-height : 25px;
+                height : 25px;
+                width : 25px;
+                min-width : 25px;
+                min-height : 25px;
+                margin-right : 20px;
+                
+            }
+            .text{
+                
+                font-family : roboto_condensed_bold;
+                font-size : 20px;
+            }
+            
+        }
+        
+    }
+    
+    .form{
+        margin-top : 35px;
+        
+        .secondinput{
+            margin-top : 18px !important;
+        }
+        
+        .input-lg{
+            height : 57px;
+        }
+        
+       
+    }
+    
+    button{
+            margin-top : 18px !important;
+             height : 55px !important;
+             font-size : 20px;
+             background-color : $green;
+             color : white;
+             font-family : roboto_light;
+        }
+        
+        button:hover{
+            background-color : $greenHover;
+            color : white;
+        }
+        
+        .underformregister{
+            flex-wrap : wrap;
+            
+            margin-top:15px;
+            margin-bottom : 30px;
+           
+            letter-spacing : 0;
+            font-size : 90%;
+            font-family : roboto_light;
+            justify-content : space-between;
+        
+        input{
+            position : relative;
+            margin-right : 5px;
+        }
+        
+       
+        
+       
+        .checkbox{
+            
+        }
+         .nobetatester{
+                text-decoration: underline;
+            }
+            a{
+                color : black !important;
+            }
+            
+        }
+    
+}
+
+
+
+
+
+
+
+
+.secondstepwrapper, .thirdwrapper{
+    @media(max-width : $screen-sm-min){
+        padding : 15px;
+        padding-top : 0;
+    }
+}
+
+.middlecontainer{
+     width : 600px;
+    max-width : 100%;
+    background-color : white;
+    border-radius : 4px;
+   
+    
+   
+    .toparea{
+        border-top-left-radius:  3px;
+        border-top-right-radius : 3px;
+        background-color : #f5f5f5;
+        padding : 30px;
+        text-align: center;
+        
+        img{
+            margin : auto;
+        }
+        
+    }
+    
+    .formarea{
+        padding : 30px;
+        
+        
+        
+         .headline{
+       
+        font-size : 32px;
+        font-family : roboto_condensed_bold;
+        font-weight : bold;
+        text-align : center;
+        }
+        
+        .topformrow{
+            
+            @media(min-width : $screen-sm-min){
+                    .leftcol{
+                padding-right : 5px;
+            }
+            .rightcol{
+                padding-left : 5px;
+            }
+                
+            }
+        
+        }
+        
+        
+    
+    .formlabel{
+        margin-bottom : 3px;
+        margin-top : 15px;
+        font-size : 15px;
+        color : $hellgrau;
+        font-family : roboto_condensed_light;
+    }
+    
+    
+    .form-control{
+        height : 55px;
+    }
+    
+    .row{
+        margin-left : 0;
+        margin-right :0;
+    }
+   
+        
+/*        @media(min-width : $screen-lg-min){
+            .leftcol{
+               padding-right : 7.5px;
+            }
+             .rightcol{
+                padding-left : 7.5px;
+            }
+        }*/
+     
+        @media(max-width : $screen-lg-min){
+             .rightcol{
+               margin-top : 15px;
+            }
+        }
+    
+   
+    
+    button{
+        margin-top : 20px;
+        border-radius : 4px;
+        font-family : roboto_light;
+        height : 70px;
+        font-size : 20px;
+        background-color : $green;
+        color : white
+        
+    }
+    button:hover{
+        color : white;
+        background-color : $greenHover;
+    }
+        
+        
+    }
+    
+     //second step
+    @media(min-width : $screen-sm-min){ //center container
+         position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        /*padding : 30px;*/
+       
+    }
+    
+/*      @media(max-width : $screen-sm-min){ //center container
+       padding : 30px;
+      
+      }*/
+    
+   
+    
+    
+    
+    
+    
+    //third step
+    
+    
+    .formarea.third{
+        text-align : center;
+        max-width : 540px;
+        margin : auto;
+        img{
+            margin-top : 25px;
+        }
+    };
+    
+    .upperdesc{
+        font-size : 18px;
+        margin-top : 25px;
+    }
+    
+     .lowerdesc{
+        font-size : 14px;
+        margin-top : 15px;
+    }
+   
+}

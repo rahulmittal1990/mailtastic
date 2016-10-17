@@ -1,0 +1,61 @@
+﻿<div class="googleappssync">
+
+    <div class="container">
+        <!-- ng-controller="GoogleSyncCtrl"-->
+
+        <div class="headline format0 " style="margin-top : 30px !important; margin-bottom : 30px !important; ">
+            GoogleMail EasySync
+        </div>
+
+        <div class="panel2" ng-show="companyInfo.syncInfoId != null  &&  step.startSync == ''">
+            <div class="campaign" ng-include src="'googlesync/snippets/syncInfo.html'">
+            </div>
+        </div>
+
+        <div class="panel" ng-show="companyInfo.syncInfoId == null &&  object.currentPage  == 'newgooglesync'">
+
+            <div>
+
+                <div class="flex">
+
+                    <div class="campaign" ng-include src="'googlesync/snippets/newgooglesync.html'">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="campaign" ng-include src="'googlesync/snippets/syncemployeemanual.html'" ng-show="companyInfo.syncInfoId == null &&  object.currentPage  == 'manualSync'">
+        </div>
+
+
+
+        <div class="panel" ng-show="object.currentPage  == 'googlesync'">
+
+            <div>
+
+                <div class="flex">
+
+                    <div class="campaign" ng-show="step.startSync == 'processStart'" ng-include src="'googlesync/snippets/googlesync.html'">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="panel2" ng-show="companyInfo.syncInfoId != null">
+            <!--ng-show="companyInfo.syncInfoId > 0 " -->
+
+            <div class="campaign" ng-include src="'googlesync/list/syncemployeelist.html'">
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

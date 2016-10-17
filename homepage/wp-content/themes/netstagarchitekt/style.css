@@ -1,0 +1,13 @@
+/*
+Theme Name: Netstag Architekt
+Theme URI: https://wordpress.org/themes/twentyfifteen/
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Individuell entwickelter Wordpress Theme für das Architekturbüro 
+Version: 1.0
+*/
+
+@import url(css/bootstrap.min.css);
+@import url(css/bootstrap-theme.min.css);
+@import url(css/main.css);
+

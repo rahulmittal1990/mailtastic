@@ -1,0 +1,462 @@
+@import "bourbon";
+
+$experimental-support-for-svg: true;
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,700&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Cabin:600&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600&subset=latin,latin-ext);
+
+@font-face {
+  font-family: 'performag-icomoon';
+  src: url('../fonts/performag-icomoon.eot?4seflc');
+  src: url('../fonts/performag-icomoon.eot?#iefix4seflc') format('embedded-opentype'),
+  url('../fonts/performag-icomoon.woff?4seflc') format('woff'),
+  url('../fonts/performag-icomoon.ttf?4seflc') format('truetype'),
+  url('../fonts/performag-icomoon.svg?4seflc#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "variables.scss";
+@import "mixins.scss";
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix {
+  &:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrp {
+  margin: 0 auto;
+  width: 1060px;
+}
+
+@each $color in $color-pallete {
+  .fat.#{nth($color, 1)} {
+    &.f1 {
+      background: nth($color, 3);
+      &:hover {
+        background: rgba(nth($color, 3), .5);
+      }
+    }
+    &.f2 {
+      background: nth($color, 3);
+      &:hover {
+        background: rgba(nth($color, 3), .5);
+      }
+      .fob {
+        background: nth($color, 3);
+        &:hover {
+          input[type="submit"] {
+            color: nth($color, 3);
+          }
+        }
+      }
+      &.fof {
+        background: nth($color, 2);
+      }
+    }
+  }
+  .fab.#{nth($color, 1)} {
+    &.f3 {
+      background: nth($color, 3);
+      .fob {
+        background: nth($color, 5);
+        &:hover {
+          span {
+            color: nth($color, 5);
+          }
+        }
+      }
+    }
+    &.f4 {
+      h3 {
+        color: nth($color, 3);
+      }
+    }
+  }
+  .btn.#{nth($color, 1)} {
+    background: nth($color, 3);
+    &:hover {
+      @include linear-gradient(nth($color, 5) 0%, nth($color, 6) 100%);
+    }
+    &:active {
+      @include linear-gradient(nth($color, 6) 0%, nth($color, 5) 100%);
+    }
+  }
+}
+
+.fat {
+  position: relative;
+  z-index: 2;
+  &.f1 {
+    @include transition(background, .5s, ease-in-out);
+    background: #ededed;
+    display: block;
+    a {
+      display: block;
+      padding: 20px 0px;
+    }
+    .wrp {
+      text-align: center;
+      h4 {
+        color: $white;
+        font-size: $normal-size * 1.467;
+        margin: 0;
+      }
+    }
+    &.light {
+      .wrp {
+        h4 {
+          color: $dark-gray;
+        }
+      }
+    }
+  }
+  &.f2 {
+    @include transition(all, .5s, ease-in-out);
+    background: #ededed;
+    cursor: pointer;
+    padding: 20px 0px;
+    &:hover {
+      .wrp {
+        h4 {
+          color: $white;
+        }
+      }
+    }
+    .frm {
+      display: none;
+      &.i3 {
+        input[type="text"], .op-r {
+          width: 25.5%;
+        }
+      }
+      &.i4 {
+        input[type="text"], .op-r {
+          width: 18.5%;
+        }
+      }
+      input[type="text"] {
+        @include lato();
+        @include transition(color, .5s, linear);
+        background: #fbfbfb;
+        border: 0;
+        color: #cccccc;
+        display: inline-block;
+        font-size: $normal-size * 1.067;
+        font-weight: 300;
+        height: 32px;
+        margin-right: 12px;
+        padding: 0px 0px 0px 12px;
+        width: 258px;
+        &:hover, &:focus {
+          color: $black;
+        }
+      }
+      input[type="text"]::-webkit-input-placeholder {
+        color: #cccccc;
+      }
+      input[type="text"]:hover::-webkit-input-placeholder {
+        color: $black;
+      }
+      input[type="text"]:focus::-webkit-input-placeholder {
+        color: $black;
+      }
+      .fob {
+        @include transition(background, .3s, ease);
+        border: 1px solid $white;
+        display: inline-block;
+        padding: 4px 20px 5px;
+        &:hover {
+          background: $white;
+        }
+        input[type="submit"] {
+          @include lato();
+          background: none;
+          border: 0;
+          color: $white;
+          font-size: $normal-size * .933;
+          text-transform: uppercase;
+        }
+      }
+    }
+    &.fof {
+      padding: 15px 0px;
+      .frm {
+        display: block;
+      }
+      h4 {
+        display: none;
+      }
+    }
+    .wrp {
+      text-align: center;
+      h4 {
+        color: $white;
+        font-size: $normal-size * 1.467;
+        margin: 0;
+      }
+    }
+    &.light {
+      .wrp {
+        h4 {
+          color: $dark-gray;
+        }
+      }
+    }
+  }
+  &.mid {
+    margin-bottom: 60px;
+    .wrp {
+      width: 100%;
+    }
+  }
+}
+
+.far {
+  .op-r {
+    float: left;
+  }
+}
+.fat + .bt.dp {
+  padding-top: 45px;
+}
+
+#poststuff {
+  h3 {
+    font-weight: 400;
+  }
+  .fab {
+    &.f3 {
+      h3 {
+        border-bottom: 0;
+        font-size: 30px;
+        padding: 0;
+      }
+      .fob {
+        span {
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+      }
+    }
+    &.f4 {
+      input[type="text"] {
+        box-shadow: none;
+      }
+      h3 {
+        border-bottom: 0;
+        font-size: 30px;
+        margin-bottom: 20px;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.fab {
+  margin-bottom: 35px;
+  .f1f {
+    .btn {
+      width: 38%;
+    }
+    input[type="text"], .op-r {
+      width: 60%;
+    }
+  }
+  .f2f {
+    .btn {
+      width: 33%;
+    }
+    input[type="text"], .op-r {
+      width: 31.5%;
+    }
+  }
+  .f3f {
+    .btn {
+      width: 48%;
+    }
+    input[type="text"], .op-r {
+      width: 48%;
+    }
+  }
+  .f4f {
+    .btn {
+      width: 33%;
+    }
+    input[type="text"], .op-r {
+      width: 31.5%;
+    }
+  }
+  &.f3 {
+    padding: 45px 35px;
+    h3 {
+      color: $white;
+      font-size: $normal-size * 2;
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+    p {
+      color: $white;
+      font-size: $normal-size * 1.067;
+      line-height: $normal-size * 1.8;
+    }
+    .fob {
+      @include transition(background, .3s, ease);
+      border: 1px solid $white;
+      cursor: pointer;
+      display: block;
+      padding: 18px 25px;
+      &:hover {
+        background: $white;
+        text-decoration: none;
+      }
+      span {
+        @include lato();
+        background: none;
+        border: 0;
+        color: $white;
+        font-size: $normal-size * .933;
+        text-transform: uppercase;
+      }
+    }
+    .fa-i {
+      float: left;
+      max-width: 200px;
+      margin-right: 20px;
+    }
+  }
+  &.f4 {
+    border: 12px solid #e3e3e3;
+    background: #f9f9f9;
+    padding: 35px;
+    h3 {
+      font-size: $normal-size * 2;
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #7a7979;
+      font-size: $normal-size * 1.133;
+    }
+    input[type="text"] {
+      @include lato();
+      @include transition(color, .5s, linear);
+      box-sizing: border-box;
+      background: #fbfbfb;
+      border: 1px solid #e3e3e3;
+      color: #838282;
+      display: block;
+      float: left;
+      font-size: $normal-size * 1.067;
+      font-weight: 300;
+      height: 42px;
+      margin-right: 2%;
+      margin-bottom: 12px;
+      padding: 0px 0px 0px 12px;
+      &:hover, &:focus {
+        color: $black;
+      }
+    }
+    .btn {
+      cursor: pointer;
+      display: inline-block;
+      input[type="submit"] {
+        @include lato();
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-size: $normal-size * .947;
+        padding: 8px 20px;
+        text-transform: uppercase;
+      }
+    }
+    .fa-i {
+      float: left;
+      max-width: 200px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.btn {
+  color: #fff;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  > span {
+    display: block;
+  }
+  input[type="submit"] {
+    color: #fff;
+  }
+  .bSe &, .sAs &, footer & {
+    color: #fff;
+    input[type="submit"] {
+      color: #fff;
+    }
+  }
+  &.small {
+    font-size: $normal-size * .933;
+    > span, input[type="submit"] {
+      padding: 10px 15px;
+    }
+  }
+  &.medium {
+    font-size: $normal-size * 1.267;
+    > span, input[type="submit"] {
+      padding: 14px 20px;
+    }
+  }
+  &.big {
+    font-size: $normal-size * 1.875;
+    > span, input[type="submit"] {
+      padding: 15px 23px;
+    }
+  }
+  &.full {
+    width: 100%;
+  }
+  &.aligncenter {
+    display: table;
+    margin: 0 auto 15px auto;
+  }
+}
+.mbi {
+  &.full {
+    text-align: center;
+    width: 100%;
+    .mbr { 
+      display: block;
+    }
+  }
+  &.aligncenter {
+    display: table;
+    margin: 0 auto 15px auto;
+  }
+}

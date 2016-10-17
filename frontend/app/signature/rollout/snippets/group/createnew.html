@@ -1,0 +1,36 @@
+
+<div>
+  
+
+        <div class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text" translate="Aboutandassigncampaignsandcampaignbanner"></div>
+
+        </div>
+
+        <div class="format2" translate="Howwouldtocallthedepartment"></div>
+
+        <form name="groupForm" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label format3" translate="title"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <input ng-model="groupData.title" type="text" class="form-control input-sm"  placeholder="Titel">
+                </div>
+            </div>
+            
+            <div role="separator" class="line"></div> 
+
+        <div class="flex">
+
+            <div ng-click="workflow.currentStep = 'group_nogroup'" class="ownbtn btngrau leftbutton" translate="Back"></div> 
+            <div ng-click="groupForm.$valid && createGroup()" class="ownbtn btnblau" translate="Createdepartment"></div> 
+        </div>
+        </form>
+
+</div>
+
+
+
+
+
+

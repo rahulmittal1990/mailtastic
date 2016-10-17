@@ -1,0 +1,77 @@
+
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+
+    
+    <div class="modal fade " id="personalcontactmodal"  tabindex="-1" role="dialog">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content personalcontactmodal">
+    <div class="modal-header clearfix">
+        <div data-dismiss="modal"  class="cursor-pointer pull-right" "><span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>  </div>
+    </div>
+    <div  class="modal-body">
+        <div class=" toparea">
+            <img src="https://www.mailtastic.de/img/kontakt/avatare/Avatar_Tao.png" />
+            <div class="textarea">
+                <div class="headline">Ich helfe Ihnen gerne persönlich weiter!</div>
+                 <div class="subline">Tao Bauer, Mailtastic</div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-sm-12   col-xs-12">
+                <div class="form-group">
+                    <label  class="" >Anrede*</label>
+                    <select id="personalcontact_anrede" class="form-control">
+                        <option>Herr</option>
+                        <option>Frau</option>
+                        <option>Sonstiges</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="" >Name*</label>
+                    <input id="personalcontact_name" type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group">
+                    <label class=""  >E-Mail*</label>
+                    <input id="personalcontact_email" type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group">
+                    <label class=""  >Firma</label>
+                    <input id="personalcontact_firma" type="text" class="form-control"  placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label class=""  >Telefon</label>
+                    <input id="personalcontact_telefon" type="text"  class="form-control"  placeholder="">
+                </div>
+
+             
+            </div>
+             <div class="col-lg-4 col-md-4  col-sm-12  col-xs-12" >
+                <div class="form-group">
+                    <label >Nachricht <span class="schrift_rot">*</span></label>
+                    <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> -->
+                    <textarea id="personalcontact_nachricht" class="form-control" rows="17"></textarea>
+                </div>
+                    <button onclick="sendKontaktRequest()" style="margin-top:30px;"  class="btn btn-block btn-lg actionbutton_green">KONTAKT AUFNEHMEN</button>
+
+            </div>
+            <div class="col-lg-4 col-md-4  col-sm-12  col-xs-12 textcol" >
+                <div class="top">So erreichen Sie uns:</div>
+                <div  class="middle">
+                    +49 (0) 6182 955 70 00<br>
+                    <a href="mailto:hello@mailtastic.de">hello@mailtastic.de</a>
+                </div>
+                <div  class="bottom">
+                    Dr. Hermann-Neubauer-Ring 32<br>
+                    63500 Seligenstadt
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>

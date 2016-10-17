@@ -1,0 +1,94 @@
+<div class="header">
+                <span translate="Assignedcampaign"></span>
+            </div>
+<div ng-show="data.groupDetail.campaignTitle" class="content">
+    <div class="row">
+                    <div class="col-lg-7 leftcol">
+                        <div class="headlinelabel" translate="CampaignPerformanceDepartment"></div>
+                        <div class="flex statnumbers">
+                            <div class="statentry first">
+                                <div class="number">{{data.groupDetail.views}}</div>
+                                <div class="numberlabel">{{labels.views}}</div>
+                            </div>
+                            
+                            <div class="statentry">
+                                <div class="number">{{data.groupDetail.clicks}}</div>
+                                <div class="numberlabel">{{labels.clicks}}</div>
+                            </div>
+                            
+                            <div class="statentry">
+                              <div class="number">{{(data.groupDetail.views === 0|| data.groupDetail.clicks===0) ? 0 : (data.groupDetail.clicks / data.groupDetail.views)*100 | number:2}}%</div>
+                                <div class="numberlabel">{{labels.rate}}</div>
+                            </div>
+                        </div>
+                        
+                      <div role="separator" class="line full-width-imp"></div>  
+                        
+                      
+                      <ui-select ng-change="campaignChangedDetails('{{selectedCampaign.selected.id}}')"  ng-model="selectedCampaign.selected"  theme="bootstrap" ng-disabled="disabled" >
+                                <ui-select-match style="min-width : 300px;" placeholder="Kampagne suchen...">{{$select.selected.title}}</ui-select-match>
+                                <ui-select-choices repeat="campaign in data.campaigns  | propsFilter: {title: $select.search}">
+                                    <span  class="graph-dot" style="background-color : {{campaign.color}}"></span><span ng-bind-html="campaign.title | highlight: $select.search"></span>
+                                    <small class="block">
+                                        <normal translate="Createdon"></normal> {{campaign.createdAt| date:'MM.dd.yyyy'}}
+                                        <!-- age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> -->
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                      
+                      <a class="link banner" ng-hide="!data.groupDetail.campaignTitle" style="max-width : 100%;"   ng-click="showCampaignDetails(selectedCampaign.selected.id)">
+                            <img   style="max-width:100%;"  ng-src="{{selectedCampaign.selected.image}}" />
+                        </a>
+                        <div ng-hide="!data.groupDetail.campaignTitle" class="url"><span style="margin-right : 3px;" class="glyphicon  glyphicon-link" aria-hidden="true"></span><a target=”_blank”  href="{{selectedCampaign.selected.url.indexOf('http://') === 0 ? selectedCampaign.selected.url : 'http://' + selectedCampaign.selected.url}}"><span>{{selectedCampaign.selected.url}}</span></a></div>
+
+                       
+                      
+                      
+                      
+                    </div>
+                    <div class="col-lg-5 rightcol">
+                        <div ng-show="groupMembers.length > 0 && getHowManyMembersNotActive() > 0" class="infobox infobox-error martop0imp" >
+                            <span class="symbol glyphicon glyphicon-alert"></span>
+                            <div>
+                                <div class="text">{{getHowManyMembersNotActive()}} <normal translate="Employeeshavenotyetincorporated"></normal></div>
+                                <button style="margin-top : 20px;" ng-click="resendInvitationForAllWhichAreNotActive()" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-repeat" aria-hidden="true"></span> <normal translate="rememberthisemployees"></normal></button>
+                            </div>
+                        </div>
+                        
+                        
+                        <div ng-show="groupMembers.length > 0 && getHowManyMembersNotActive() === 0" class="infobox infobox-success martop0imp" >
+                            <span class="symbol glyphicon glyphicon-check"></span>
+                            <div>
+                                <div class="text" translate="Allemployeeshaveintegratedthecampaignbanner"></div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+</div>
+
+
+<div ng-show="!data.groupDetail.campaignTitle" class="content">
+     <ui-select ng-change="campaignChangedDetails('{{selectedCampaign.selected.id}}')" style="max-width : 300px;"  ng-model="selectedCampaign.selected" theme="bootstrap" ng-disabled="disabled" >
+                                <ui-select-match placeholder="Kampagne suchen...">{{$select.selected.title}}</ui-select-match>
+                                <ui-select-choices repeat="campaign in data.campaigns  | propsFilter: {title: $select.search}">
+                                    <span  class="graph-dot" style="background-color : {{campaign.color}}"></span><span ng-bind-html="campaign.title | highlight: $select.search"></span>
+                                    <small class="block">
+                                        <normal translate="Createdon"></normal> {{campaign.createdAt| date:'MM.dd.yyyy'}}
+                                        <!-- age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> -->
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+    
+    
+     <div class="nodataarea" ng-show="!data.groupDetail.campaignTitle">
+                            <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+                            <div class="rightside">
+                                <div class="placeholderheadlinetext schrift_rot_imp" translate="ThisdepartmentisnotassignedCampaign"></div>
+                                <div class="placeholderdesc" translate="Fromthedropthecampaignwhosebanneryou"></div>
+                            </div>
+                        </div>
+    
+    
+</div>

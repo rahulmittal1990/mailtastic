@@ -1,0 +1,58 @@
+<div id="wrapper" ng-init="initData()" ng-class="(sidemenutoggled ? 'toggled' : '')">
+
+    <!-- Sidebar -->
+<!--    <div id="sidebar-wrapper">
+
+
+        <ul class="nav nav-pills nav-stacked sidebar-nav">
+
+            <li class="sidebar-devider-text" translate="Employee"></li>
+            <li ng-click="togglesidemenu()" ui-sref=".employeelist" ui-sref-opts="{reload: true}" ui-sref-active="active" role="presentation"><a href="#"><span class="glyphicon glyphicon-user pillglyphicon" aria-hidden="true"></span><normal translate="All"></normal><span class="pull-right amountOfMembersMenu">{{data.employees.length}}</span></a></li>
+            <li role="separator" class="divider"></li>
+            <li class="sidebar-devider-text" translate="departments"></li>
+
+            <li ng-click="togglesidemenu()" ui-sref-active="active" ui-sref=".grouplist" ui-sref-opts="{reload: true}" ng-class="isLeftNaviElementActive('grouList')" role=".grouplist"><a href="#"><span class="pillglyphicon glyphicon glyphicon-th-list" aria-hidden="true"></span><normal translate="All"></normal><span class="pull-right amountOfMembersMenu">{{data.groups.length}}</span></a></li>
+            <div style="max-height : 400px;overflow-y : auto;">
+                        <li ui-sref-active="active"  ui-sref=".groupdetails({groupId: item.id})" class="text-bold" ng-class="isLeftNaviElementActive({{item.id}})" ng-repeat="item in data.groups" role="presentation">
+                            <a href="#">
+                                <span class="glyphicon pillglyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                                <span> {{item.title}}</span>
+                                <span class="pull-right"><span ng-show="!item.campaignTitle" style="margin-left : 7.5px;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"> </span>{{item.amountOfMembers}}</span>
+                            </a>
+                        </li>
+            <li ng-click="togglesidemenu()" ui-sref-active="active" ui-sref=".groupdetails({groupId: item.id})" class="text-bold" ng-class="isLeftNaviElementActive({{item.id}})" ng-repeat="item in data.groups" role="presentation">
+                <a class="clearfix" href="#">
+                    <span style="float:left;    font-size: 11px;
+                                            margin-top: 2px;margin-right : 11px;" class="glyphicon pillglyphicon glyphicon-folder-open" aria-hidden="true"></span>
+
+                    <span class="menuitemmaxwidth"> {{item.title}}</span>
+                    <span class="pull-right"><span ng-show="!item.campaignTitle" style="margin-right : 7.5px;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"> </span><span class="amountOfMembersMenu">{{item.amountOfMembers}}</span></span>
+                </a>
+            </li>
+            </div>
+            <li>
+
+                <div style="margin-top : 30px;" class="form-group">
+                    <button ng-click="open(null,null,'new')" ng-controller="GroupModalCtrl" type="submit" class="btn btn-block actionbutton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><normal translate="Newdepartment"></normal></button>
+                </div>
+
+            </li>
+        </ul>
+    </div>-->
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper" ng-style="">
+        <div ng-click="togglesidemenu()" class="visible-xs-block sidemenutoggle"><span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span></div>
+        <div id="employeeMainContent" ng-style="customstyle.maincontentstyle" ui-view>
+        </div>
+        <div ng-hide="!rightSideContent.showEmployee" ng-include src="'employees/snippets/employeeRightSideContent.html'" class="rightSideContent" id="employeeRightSideContent">
+
+        </div>
+
+        <div ng-hide="!rightSideContent.showGroup" ng-include src="'groups/snippets/groupRightSideContent.html'" class="rightSideContent" id="groupRightSideContent">
+
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>

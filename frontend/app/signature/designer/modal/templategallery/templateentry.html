@@ -1,0 +1,13 @@
+
+<div class="templateentrycontainer flex">
+    <div class="leftcontainer" >
+        <img ng-src="{{item.previewImagePath}}" />
+<!--        <div ng-include="item.previewImagePath">
+            
+        </div>-->
+    </div>
+    <div class="rightcontainer">
+        <div class="title">{{item.title}}  </div>
+        <button ng-click="chooseTemplate($index)" class="ownbtn btnblau" style="white-space : nowrap;" translate="usetemplate"></button>
+    </div>
+</div>

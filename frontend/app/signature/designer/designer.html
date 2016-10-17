@@ -1,0 +1,127 @@
+<!--
+<div class="flex" style="margin-bottom : 20px;">
+    <div style="margin:auto;margin-left : 0;" class="format2">Signaturname:</div>
+    <div style="margin:auto;margin-right : 0;font-family: roboto_regular;" class="format2">FAQ - Abo buchen</div>    
+</div>-->
+
+<form class="form-inline">
+  <div class="form-group">
+    <label class="format1" for="exampleInputName2" translate="signaturename"></label>
+    <input type="text" class="form-control" ng-model="data.signatureTitle"  placeholder="Titel eingeben...">
+  </div>
+</form>
+
+
+
+<div  role="separator" class="line"></div> 
+<div class="format2" translate="Editsignature"></div>
+
+<div class="templatearea flex-center-all">
+    
+    <div class="textcol">
+            <div class="up" translate="Yoursignatureinafewsteps"></div>
+            <div class="down"translate="Takealookinourtemplatgalleryandchoose">           
+            </div>
+    </div>
+    
+    
+    
+    <button ng-click="openTemplateModal()"   class="ownbtn btnblau vorlagebutton" translate="chooseTemplate">
+    <span style="margin-left: 40px;" class="glyphicon own-glyph glyphicon-triangle-bottom" aria-hidden="true"></span>
+</button> 
+    
+</div>
+
+
+ 
+
+
+<!--<form>-->
+  <!--<textarea id="tinymcetextarea" class="tinymceinstance" ui-tinymce="tinymceOptions" ng-model="data.tinymceModel"></textarea>-->
+  
+   <div ckeditor="ckEditorOptions" ng-model="data.ckeEditorModel" ready="onReady()"></div>
+<!--</form>-->
+
+
+ 
+
+<div class="format2 vorschausignaturlabel" translate="Previewsignature"></div>
+
+
+<div style="margin-top : 20px;" class="flex">
+<!--<button ng-click="insertElement('Name')">Insert Name</button>-->
+
+
+<select ng-change="updateSelectedUser()" ng-model="data.selectedEmployee" class="form-control exampleempselect input-sm  leftbutton">
+     <option ng-repeat="item in data.employees" value="{{item.id}}">{{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}</option>
+  </select>
+
+<button id="previewbutton" ng-click="generatePreview()" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-refresh" aria-hidden="true"></span> <normal translate="Update"></normal></button>
+</div>
+
+
+
+<div class="previewfield" ng-bind-html="data.preview" >
+    
+    
+</div>
+
+<!--<iframe src="encodeURI({{data.preview}})"  height="400px" width="100%" ></iframe>-->
+<!--<previewiniframe class="martop25" content="data.preview"></previewiniframe>-->
+
+<div class="flex">
+    <div ng-show="getIsOneElementMarkedAsMissing()"   class="infobox infobox-error full-width-imp small" ng-class="{'leftbutton' : data.showEmployeeDataShownAsTagInfo}">
+            <span class="symbol glyphicon glyphicon-alert"></span>
+            <div class="text additionaltext" translate="Tagsforwhichnoinformationhasbeenstoredare"></div>
+        </div>
+    
+    <div ng-show="data.showEmployeeDataShownAsTagInfo" class="infobox infobox-success full-width-imp small">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text additionaltext " translate="Contentswhicharerepresentedastags"></div>
+        </div>
+    
+</div>
+
+  <div ng-show="data.signatureId !== 'create' && data.changesMade === true"  class="infobox infobox-grey full-width-imp big">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            
+            <div>
+                <div class="text"><strong translate="YouhavemadechangesDoyouwanttosavethis"></strong></div>
+                <div class="text additionaltext" translate="remainforaslongasyouremployeesyouremployees">
+
+                </div>
+
+               <div style="margin-top : 20px;" class="flex">
+
+
+                   <button ui-sref="base.signaturedetails({signatureId: data.signatureId})"  class="ownbtn btngrau leftbutton" translate="abort"></button>
+                   <button ng-click="saveSignatureWithRollout()" class="ownbtn btnblau" translate="saveChanges"></button>
+               </div>
+                
+            </div>
+           
+ </div>
+
+<div ng-show="data.changesMade !== true" role="separator" class="line"></div>
+
+          
+<div ng-show="data.signatureId === 'create'"  style="margin-top : 20px;" class="flex">
+
+
+    <button ui-sref="base.signaturedetails({signatureId: data.signatureId})" class="ownbtn btngrau leftbutton" translate="abort"></button>
+    <button ng-click="saveSignatureWithRollout()" class="ownbtn btnblau" translate="Createasignature"></button>
+   
+</div>
+
+<div ng-show="data.signatureId !== 'create' && data.changesMade !== true"  style="margin-top : 20px;" class="flex">
+
+
+    <button ui-sref="base.signaturedetails({signatureId: data.signatureId})" class="ownbtn btngrau leftbutton" translate="abort"></button>
+    <button ng-click="saveSignatureWithoutRollout()" class="ownbtn btnblau" translate="saveChanges"></button>
+   
+</div>
+
+           
+
+
+

@@ -1,0 +1,125 @@
+    
+
+    <div ng-show="resultData.signature.signatureCreatedOrUpdated === 'created'" class="infobox infobox-grey" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="wassuccessfullycreated"></normal></div>
+
+        </div>
+    </div>
+
+ <div ng-show="resultData.signature.signatureCreatedOrUpdated === 'updated'" ng-class="{ 'infobox-success' : (resultData.signature.rolledout === false), 'infobox-grey' : (resultData.signature.rolledout === true) }" class="infobox" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="hasbeensuccessfullyprocessed"></normal></div>
+
+        </div>
+    </div>
+
+    
+     <div ng-show="resultData.group.groupTitlesAdded" class="infobox" ng-class="{ 'infobox-success' : (resultData.group.amountOfMembersGroupsSet > 0), 'infobox-grey' : (!resultData.group.amountOfMembersGroupsSet ||  resultData.group.amountOfMembersGroupsSet === 0) }">
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal><strong>{{signatureData.title}}</strong> <normal translate="hasbeen"></normal> {{resultData.group.amountOfGroupsSet}} <normal translate="Departments"></normal> ({{resultData.group.amountOfMembersGroupsSet}} <normal translate="Employeeassigned"></normal>
+                <div><strong>{{resultData.group.groupTitlesAdded}}</strong></div>
+               
+            </div>
+        </div>
+    </div>
+
+
+
+ <!--Mitarbeiter wurden hinzugefügt-->
+  <div ng-show=" resultData.signature.signatureCreatedOrUpdated === 'updated' " class="infobox infobox-info"  >
+       <!--ng-class="{'infobox-grey' : (config.resultdata.campaignCreated), 'infobox-success' : (!config.resultdata.campaignCreated)}" -->
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div>
+                <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="is"></normal> <strong>{{resultData.signature.activeInGroups.length}}</strong> <normal translate="departments"></normal> (<strong>{{countMembersOfAssignedgroups()}}</strong> <normal translate="assignedstaff"></normal></div>
+            
+            </div>
+        
+        </div>
+
+
+
+
+  <!--Mitarbeiter wurden hinzugefügt-->
+  <div ng-show="resultData.employee.amountOfAddedEmployees && resultData.employee.amountOfAddedEmployees > 0" class="infobox infobox-success"  ng-class="{'infobox-success' : resultData.signature.rolledout === false, 'infobox-grey' : resultData.signature.rolledout === true}">
+       <!--ng-class="{'infobox-grey' : (config.resultdata.campaignCreated), 'infobox-success' : (!config.resultdata.campaignCreated)}" -->
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div>
+                <div class="text"><strong>{{resultData.employee.amountOfAddedEmployees}} <normal translate="employeewas"></normal>{{resultData.employee.amountOfAddedEmployees > 1 ? 'n' : ''}} <normal translate="successfullytothedepartment"></normal> {{resultData.employee.groupTitleToWhichTheEmpsWereAdded}} <normal translate="added"></normal></strong></div>
+            </div>
+        
+        </div>
+
+
+        <!--Signatur noch nicht ausgerollt-->
+    <div ng-show="(resultData.group.amountOfMembersGroupsSet !== 0 || resultData.signature.activeInGroups.length !==0 || resultData.employee.amountOfAddedEmployees > 0) &&  resultData.signature.rolledout === false" class="infobox infobox-error" >
+        <span class="symbol glyphicon glyphicon-alert"></span>
+        <div class="contentarea">
+            <div class="text"><strong translate="Notallemployeeshavethelatestsignature"></strong></div>
+            <div class="additionaltext" translate="Thustheprocessedstateintegrationguide">
+</div>
+        </div>
+    </div>
+        
+        
+        <div ng-show=" resultData.signature.rolledout === true && resultData.signature.amountOfInvitationsSent > 0" class="infobox infobox-success" >
+
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div class="contentarea">
+                        <div class="text"><strong><normal translate="Thesignaturewassuccessfully"></normal> {{resultData.signature.amountOfInvitationsSent}} <normal translate="Staffrolledoutviaemail"></normal></strong></div>
+
+            <div class="additionaltext" translate="Theemployeeshavereceivedinstructionsreminder">
+            </div>
+        </div>
+    </div>
+  
+        
+                 <div ng-show=" resultData.signature.rolledout === true && resultData.signature.amountWithEasySync > 0" class="infobox infobox-success" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div class="contentarea">
+            <div class="text"><strong><normal translate="Thesignaturewassuccessfully"></normal> {{resultData.signature.amountWithEasySync}} <normal translate="rolledEasySynemployees"></normal></strong></div>
+            <div class="additionaltext" translate="EmployeeswhouseEasySyncthecurrentsignature">
+            </div>
+        </div>
+    </div>
+        
+        
+          <div ng-show=" resultData.signature.rolledout === true && resultData.signature.amountWithGoogleSync > 0" class="infobox infobox-success" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div class="contentarea">
+            <div class="text"><strong><normal translate="Thesignaturewassuccessfully"></normal> {{resultData.signature.amountWithGoogleSync}} <normal translate="GoogleAppstaffrolledout"></normal></strong></div>
+            <div class="additionaltext" translate="EmployeesAppsthecurrentsignature">
+            </div>
+        </div>
+    </div>
+  
+  
+
+  
+    <div role="separator" class="line"></div>  
+
+    <div  class="flex-center-left controlrow">
+       
+        
+         <div ng-show="resultData.signature.signatureCreatedOrUpdated === 'created' && resultData.employee.amountOfAddedEmployees && resultData.employee.amountOfAddedEmployees > 0 && resultData.signature.rolledout === false"  class="btn-group leftbutton" uib-dropdown>
+                    <button   type="button" class="btn ownbtn btngrau " uib-dropdown-toggle >
+                        <span class="" translate="Addmorepeople"></span>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="addEmployee('new')"><a translate="Createnew"></a></li>
+                        <li ng-click="addEmployee('existing')"><a translate="Chooseexisting"></a></li>
+                        <li ng-click="addEmployee('import')"><a translate="Import"></a></li>
+                    </ul>
+                </div>
+        
+        
+        <button ng-show="resultData.signature.rolledout === false"  type="submit" ng-click="rolloutSignature()" class="btn ownbtn btnblau leftbutton" translate="rollsignature"></button> 
+        <button ng-show="resultData.signature.rolledout === false"  type="submit" ng-click="abort()" class="btn ownbtn btngrau " translate="rollLater"></button> 
+        
+        
+         <button ng-show="resultData.signature.rolledout === true"  ui-sref="base.signaturedetails({signatureId: signatureData.id})" class="btn ownbtn btnblau " translate="Doneforsignature"></button> 
+    </div>
+

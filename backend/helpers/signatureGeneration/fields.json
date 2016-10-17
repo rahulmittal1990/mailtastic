@@ -1,0 +1,614 @@
+{
+                            "company": {
+                                "fieldAddition": "Unternehmen", 
+                                "groups":
+                                        [
+                                            {
+                                                "headline": "Kontakt",
+                                                "show": true,
+                                                "entries": [
+                                                    {
+                                                        "label": "Firmenname",
+                                                        "value": "",
+                                                        "tag" : "u_name",
+                                                         "type" : "singlevalue",
+                                                        "locked" : true
+                                                    },
+                                                    {
+                                                        "label": "Ort",
+                                                        "value": "",
+                                                        "tag" : "u_ort",
+                                                        "type" : "singlevalue",
+                                                        "locked" : true
+                                                    },
+                                                    {
+                                                        "label": "Strasse",
+                                                        "value": "",
+                                                        "tag" : "u_strasse",
+                                                        "type" : "singlevalue",
+                                                        "locked" : true
+                                                    },
+                                                    {
+                                                        "label": "Fax",
+                                                        "value": "",
+                                                        "tag" : "u_fax",
+                                                        "type" : "singlevalue",
+                                                        "locked" : true
+                                                    },
+                                                    {
+                                                        "label": "Webseite",
+                                                        "value": {
+                                                            "type" : "link",
+                                                            "linkText" : "",
+                                                            "url" : ""
+                                                        },
+                                                        "tag" : "u_website",
+                                                        "type" : "link",
+                                                        "locked" : true
+                                                    },
+                                                    {
+                                                        "label": "Telefon",
+                                                        "value": "",
+                                                        "tag" : "u_tel",
+                                                         "type" : "singlevalue",
+                                                        "locked" : true
+                                                    }
+                                                    
+                                                ]
+                                            },
+                                            {
+                                                "headline": "Allgemein",
+                                                "show": true,
+                                                "entries": [
+                                                    {
+                                                        "label": "Firmenlogo",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_cl",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                            "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                    
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Home.png",
+                                                        "tag" : "u_logo",
+                                                        "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Disclaimer",
+                                                        "value": "",
+                                                        "tag" : "u_disclaimer",
+                                                         "type" : "singlevalue",
+                                                        "locked" : true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "headline": "Social Media",
+                                                "show": true,
+                                                "entries": [
+                                                    {
+                                                        "label": "Facebook",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_fb",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Facebook.png",
+                                                        "tag" : "u_fb",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "GooglePlus",
+                                                       "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_gp",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/GooglePlus.png",
+                                                        "tag" : "u_googlep",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Instagram",
+                                                       "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_ig",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Instagram.png",
+                                                        "tag" : "u_instagram",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Twitter",
+                                                         "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_tw",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Twitter.png",
+                                                        "tag" : "u_twitter",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "LinkedIn",
+                                                         "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_li",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/LinkedIN.png",
+                                                        "tag" : "u_linkedin",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Xing",
+                                                         "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_xi",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Xing.png",
+                                                        "tag" : "u_xing",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Pinterest",
+                                                       "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_pi",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Pinterest.png",
+                                                        "tag" : "u_pinterest",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Youtube",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_yt",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Youtube.png",
+                                                        "tag" : "u_youtube",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Blog",
+                                                         "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_bl",
+                                                            "whichImage" : "default",
+                                                             "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Blog.png",
+                                                        "tag" : "u_blog",
+                                                         "type" : "image",
+                                                        "locked" : true,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                            },
+                            "employee": {
+                                "fieldAddition": "Mitarbeiter", 
+                                "groups":
+                                        [
+                                            {
+                                                "headline": "Kontakt",
+                                                "show": true,
+                                                "entries": [
+                                                    {
+                                                        "label": "Vorname",
+                                                        "value": "",
+                                                        "tag" : "ma_vorname",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Nachname",
+                                                        "value": "",
+                                                        "tag" : "ma_nachname",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Firmenname",
+                                                        "value": "",
+                                                        "tag" : "ma_firma",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Abteilung",
+                                                        "value": "",
+                                                        "tag" : "ma_abteilung",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Position",
+                                                        "value": "",
+                                                        "tag" : "ma_position",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                   {
+                                                        "label": "Ort",
+                                                        "value": "",
+                                                        "tag" : "ma_ort",
+                                                        "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Strasse",
+                                                        "value": "",
+                                                        "tag" : "ma_strasse",
+                                                        "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Fax",
+                                                        "value": "",
+                                                        "tag" : "ma_fax",
+                                                        "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "E-Mail-Adresse",
+                                                        "value": "",
+                                                        "tag" : "ma_email",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Mobiltelefon",
+                                                        "value": "",
+                                                        "tag" : "ma_mobil",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Telefonnummer",
+                                                        "value": "",
+                                                        "tag" : "ma_tel",
+                                                         "type" : "singlevalue",
+                                                        "locked" : false
+                                                    }
+                                                    
+                                                ]
+                                            },
+                                            {
+                                                "headline": "Allgemein",
+                                                "show": true,
+                                                "entries": [
+                                                    {
+                                                        "label": "Webseite",
+                                                        "value": "",
+                                                        "tag" : "ma_website",
+                                                         "type" : "link",
+                                                        "locked" : false
+                                                    },
+                                                    {
+                                                        "label": "Skype",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "",
+                                                            "whichImage" : "default",
+                                                            "url" : ""
+                                                        },
+                                                         "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Skype.png",
+                                                        "tag" : "ma_skype",
+                                                         "type" : "image",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "headline": "Social Media",
+                                                "show": true,
+                                                "entries": [
+                                                    {
+                                                        "label": "Facebook",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "tag" : "ma_fb",
+                                                        "type" : "image",
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Facebook.png",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "GooglePlus",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_gp",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/GooglePlus.png",
+                                                        "tag" : "ma_googlep",
+                                                         "type" : "image",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Instagram",
+                                                        "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_ig",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Instagram.png",
+                                                        "tag" : "ma_instagram",
+                                                         "type" : "image",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Twitter",
+                                                      "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_tw",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Twitter.png",
+                                                        "tag" : "ma_twitter",
+                                                         "type" : "image",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "LinkedIn",
+                                                       "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_li",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/LinkedIN.png",
+                                                        "tag" : "ma_linkedin",
+                                                         "type" : "image",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    },
+                                                    {
+                                                        "label": "Xing",
+                                                       "value": {
+                                                            "type" : "image",
+                                                            "showAs" : "image",
+                                                            "altText" : "",
+                                                            "linkText" : "",
+                                                            "image" : "dummy_xi",
+                                                            "whichImage" : "default",
+                                                            "url" : "",
+                                                             "initialdimension" : {
+                                                                "width" : "",
+                                                                "height" : ""
+                                                            }
+                                                        },
+                                                        "defaultImage" : "https://www.mailtastic.de/img/signatures/defaultimg/Xing.png",
+                                                        "tag" : "ma_xing",
+                                                        "type" : "image",
+                                                        "locked" : false,
+                                                        "imgdimension" : {
+                                                            "mode" : "default",
+                                                            "width" : "",
+                                                            "height" : ""
+                                                        }
+                                                    }
+                                                ]
+                                            }
+
+                                        ]
+                            }
+
+
+}

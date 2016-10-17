@@ -1,0 +1,180 @@
+﻿<div class="googleappssync">
+
+    <div class="container">
+
+        <div class="panel2" >
+            <!--ng-show="companyInfo.syncInfoId > 0 " -->
+
+            <div class="campaign">
+
+                <div class="header">
+                    <span translate="Gmailusers"></span>
+                </div>
+                <div class="listpanel">
+
+                    <div class="infotext">
+                        <span class="infofirsttext">
+                            <bold translate="ConnecttoGmailprepared"></bold>
+
+                            <span class="glyphicon glyphicon-ok oktext"></span>
+                            <span class="glyphicon glyphicon-arrow-right okright"></span>
+                            <bold translate="Organizationwasmade"></bold>
+
+                            <span class="glyphicon glyphicon-ok oktext"></span>
+                            <span class="glyphicon glyphicon-arrow-right okright"></span>
+                        </span>
+                        <b translate="Setsynchronization"></b>
+                    </div>
+
+                    <div role="separator" class="divider" style ="margin-top:15px"></div>
+                    <div class="infobox infobox-grey">
+                        <span class="symbol glyphicon glyphicon glyphicon-check"></span>
+                        <div class="text" translate="ThetheGoogleaccountwassuccessfullyestablished">                          
+              
+                        </div>
+
+                    </div>
+                       <div ng-show="currentStructurType === 'Neue Struktur erstellen'" class="infobox infobox-success">
+                        <span class="symbol glyphicon glyphicon glyphicon-check"></span>
+                        <div class="text" translate="OrganisationoftheforWorkstructure">                         
+             
+                        </div>
+
+                    </div>
+                    
+                     <div ng-show="currentStructurType === 'GoogleApp-Strukur übernehmen'" class="infobox infobox-success">
+                        <span class="symbol glyphicon glyphicon glyphicon-check"></span>
+                        <div class="text" translate="OrganisationtakedepartmentalstructureofGoogleset">                        
+             
+                        </div>
+
+                    </div>
+                    
+                      <div role="separator" class="divider" style ="margin-top:15px"></div>
+                    
+                    <div class="upper schrift_blau ng-binding martop25 marbot25">
+                      <div><b translate="Whichyouwanttoenablesynchronization"></b></div>
+                      <div class="schrift_rot " style="font-size : 13px;" translate="googleuserswhicharealreadyexistingarenotshowed">
+                          
+                      </div>
+                      
+
+                    </div>
+                      
+                      
+                      
+                    <div>
+                        <div>
+
+                        <div class="flex" style="justify-content: space-between;"  data-ng-if ="syncInfoModel.totalUserCount > 0">
+                            <div class="flex">
+
+                                 <div
+                                         class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px">
+                                        <!--<div class="checkbox no-margin">-->
+                                        <!--<label>-->
+                                        <input  ng-change="isSelectedAllSyncUsers(rowCheckItems.allselectedUser)" class="innercheckbox" type="checkbox" data-ng-model="rowCheckItems.allselectedUser" data-ng-init ="allselectedUser = false"/>
+                                        <!--</label>-->
+                                        <!--</div>-->
+                                        <span class="margin-auto" translate="selectall"></span> 
+                                    </div>
+                                <!--<div class="margin-auto">-->
+
+
+                            </div>
+
+                            <div class="flex">
+                                <div class="input-group searchfield leftbutton">
+                                    <input ng-change="filterUsersList(filterText)" ng-model="filterText" type="text" class="form-control input-sm nooutline" placeholder="Suchen" aria-describedby="basic-addon2">
+                                    <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                </div>
+<!--                                <div class="btn-group sort" uib-dropdown>
+                                    <button type="button" class="btn btn-sm btn-default nooutline leftbutton" uib-dropdown-toggle ng-disabled="disabled">
+                                        Sortieren <span class="caret"></span>
+                                    </button>
+                                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                        <li role="menuitem">
+                                            <a ng-click="order('email')">Titel</a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a ng-click="order('firstname')">Ausgerollt</a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a ng-click="order('active')">Aktiv</a>
+                                        </li>
+                                    </ul>
+                                </div>-->
+
+                            </div>
+                        </div>
+
+
+                        <ul style="max-height: 400px; height: auto !important;" class="tablewrapper">
+
+                            
+                                <!--table-->
+    <div ng-click="rowClicked(item)"   ng-class="getSelectedClass(item)" class="tablerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in newUsers | orderBy:orderText">
+        <div class="cell select">
+            <input name="selected" class="link" ng-change="isRowSelected(item,true,$index)" type="checkbox" data-ng-model="item.isSyncChecked">
+        </div>
+        <div class="cell emp  empnamecol">
+            <div class=" flex-center-left">
+            <img class="img-circle profile-picture-list hidden-xs" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1))}}" />
+
+                <div>
+                    <div class="upper schrift_blau">
+                      {{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}
+
+                    </div>
+
+                    <div class="down">{{item.email}}</div>
+                </div>
+            
+            </div>
+        </div>
+           <div class ="col-md-4">
+                                  <div class="cell  sigstatus ">
+                                        <div style="white-space: nowrap; margin-left: 0;" data-ng-show="item.isSyncActivated == false" class="schrift_rot margin-auto upper"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <normal translate="SignaturesSyncinactive"></normal></div>
+                                    </div>
+                                        </div>
+       
+       
+       
+    </div>
+                            
+                            
+
+
+                        </ul>
+                            
+                             <div ng-show="newUsers.length === 0" class="infobox infobox-success" >
+                                <span class="symbol glyphicon glyphicon-check"></span>
+                                <div>
+                                    <div class="text"><strong translate="importNostaffavailable"></strong></div>
+                                <div class="additionaltext" translate="EitheremployeesMailtasticavailable">
+                                </div>
+                                </div>
+        
+                            </div>
+                            
+                            
+                          <div role="separator" class="divider"></div>
+
+                            
+                    <div style="margin-top: 20px;" class="flex ng-scope">
+                        <button class="ownbtn btnblau leftbutton Synchbtn" data-ng-click="syncManualUsers()" translate="Continue"></button>
+                        <button class="ownbtn btngrau Synchbtn" data-ng-click="abort()" translate="abort"></button>
+                    </div>
+
+                    </div>
+                        </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

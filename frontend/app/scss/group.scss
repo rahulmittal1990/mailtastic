@@ -1,0 +1,790 @@
+
+
+
+/* .group-modal-header{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding-left: 30px;
+        padding-right : 30px;
+        background-color : $dunkelweis;
+        color : $grau;
+        .glyphicon{
+            font-size : 19px;
+            margin-right : 10px;
+        }
+    }*/
+    
+    
+    .groupmodal{
+/*    .modal-header{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding-left: 30px;
+        padding-right : 30px;
+        background-color : $dunkelweis;
+        color : $grau;
+        .glyphicon{
+            font-size : 19px;
+            margin-right : 10px;
+        }
+    }
+    .modal-body{
+        padding : 30px;
+         max-height : 300px;
+            height : 300px;
+            overflow-y:auto;
+    }*/
+    .modal-footer{
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding-left: 30px;
+        padding-right : 30px;
+        /*background-color : $dunkelweis;*/
+    }
+    .existing{
+         #custom-search-input{
+         border-color : $grau;
+         margin-left : 0;
+         border-width : 1px;
+       
+       
+        span{
+            background-color : transparent;
+            color : $grau;
+            border-width : 0;
+        }
+        input{
+            padding-right : 0;
+            height : 30px;
+            color : $grau;
+        }
+    }
+    .campaign-list-wrapper{
+        padding : 0;
+        margin-top : 30px;
+        ul{
+           
+        }
+        .groups-list-item {
+    background-color : $dunkelweis;
+        min-height : 0;
+        padding : 10px;
+        
+    >div{ 
+        .glyphicon.glyphicon-folder-open{
+            margin-right : 10px;
+            font-size : 95%;
+        }
+        .title{
+            color : $blau;
+            font-size : 125%;
+
+            line-height : 1;
+            font-family : 'Roboto Condensed';
+            font-weight: bold;
+
+        }
+        .title:hover{
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+
+        .member{
+            /*            color : lightgrey;
+                        font-size : 85%;
+                        line-height : 1;
+                        margin-top : 6px;
+                        font-family : roboto_light;*/
+
+            color : $hellgrau;
+            font-size : 85%;
+            line-height : 1;
+            margin-top : 3px;
+            font-family : roboto_light;
+            margin-top : 6px;
+
+        };
+
+      
+
+       
+        img{
+            width : 100%;
+            max-width : 50px;
+        }
+        .upper{
+            font-weight: bold;
+            font-size : 100%;
+            color : $blau;
+        }
+        .down{
+            font-size : 85%;
+            color : $hellgrau;
+        }
+        .kampagnelabel{
+            font-size : 85%;
+            color : $hellgrau;
+        }
+
+        .campaigntitle{
+            font-weight: bold;
+            /*font-size : 95%;*/
+        }
+    }
+
+    .campaigndetails{
+        /*font-size : 95%;*/
+        color : $grau;
+        @include flex;
+        span{
+            margin-top : auto;
+            margin-bottom: auto;
+        }
+    }
+
+
+
+}
+     }
+    
+    }
+    
+    .selectmethod{
+        @include flex;
+        .choiceitem{
+            text-align : center;
+            background-color : $blau;
+            border-radius : 4px;
+            width : 33%;
+            height : 180px;
+            padding : 15px;;
+            @include flex;
+            >div{
+                margin : auto;
+            }
+            img{
+                $width : 50px;
+               
+                width : $width;
+                min-width : $width;
+                max-width : $width;
+            }
+            .text{
+                margin-top : 15px;
+                color : white;
+                font-size : 13px;
+            }
+        }
+        .choiceitem.middlecol{
+            margin-right : 15px;
+            margin-left : 15px;
+        }
+        .choiceitem:hover{
+            .text{
+                 color : $grau;
+            }
+           
+            cursor : pointer;
+        }
+    }
+}
+    
+    
+    
+    
+    
+
+.group-detail{
+
+     .nodataarea{
+            margin-top : 40px !important;
+            margin-bottom : 30px;
+        }
+
+
+
+.signature{
+    
+     .topnavrow{
+                    select{
+                        max-width : 250px;
+                    }
+                }
+                .row{
+                    margin-left : 0;
+                    margin-right : 0;
+                    margin-top : 25px;
+                        @include flex;
+                    
+                    .leftcol{
+                         border-right : 1px solid $hellweis ;
+                         padding-left : 0;
+                        .previewarea{
+
+                        }
+                    }
+                    .rightcol{
+                        padding-right : 0;
+                        .infobox{
+                            margin-top : 20px;
+                        }
+                    }
+
+
+                }
+}
+
+.campaign{
+            .row{
+                    margin-left : 0;
+                    margin-right : 0;
+                  
+                        @include flex;
+                    
+                    .leftcol{
+                         border-right : 1px solid $hellweis ;
+                         padding-right : 50px;
+                         .headlinelabel{
+                             color : $grau;;
+                         }
+                         .statnumbers{
+                             margin-top : 20px;
+                             
+                           
+                             .statentry{
+                                 
+                                 
+                                 margin-right : 30px;
+                                 text-align : center;
+                                 .number{
+                                     @include format1;
+                                     color : $blau;
+                                 }
+                                 
+                                 .numberlabel{
+                                     font-size : 12px;
+                                     color : $hellgrau;
+                                     margin-top : 5px;
+                                 }
+                                 
+                             }
+                             
+                         }
+                         
+                         
+                         .ui-select-container{
+                             max-width : 150px;
+                               margin-bottom : 15px;
+                         }
+                         
+                         .banner{
+                           
+                             
+                         }
+                         
+                         .url{
+                             margin-top : 10px;
+                         }
+                    }
+                    .rightcol{
+                        padding-right : 0;
+                        .infobox{
+                            margin-top : 20px;
+                        }
+                    }
+
+
+                }
+    
+    
+}
+
+
+.groupstatspie{
+    
+    .controlrow{
+        
+        margin : 0;
+        .piecontrolarea{
+            justify-content : space-between;
+            
+            .switchform{
+                margin : 0;
+                padding : 0;
+            }
+        }
+        
+    }
+        
+    .piechart-col{
+        padding : 0;
+        padding-right: 25px;    //because graph should be centered but left there is padding from outer form so make this padding also on the other site
+        margin : 0;
+        
+        chartist{
+            margin-left :auto;
+            margin-right : auto;
+        }
+    }
+    
+     .bar_areas{
+            padding-right : 0;
+        }
+   
+        
+       
+        
+}
+
+
+.memberlist{
+    .tablerow{
+        .cell.empname{
+            img{
+                    margin-right: 15px;
+            }
+              
+            .stitle:hover{
+                text-decoration: underline;
+                cursor : pointer;
+            }
+            
+            width : 330px;
+            max-width: 330px;
+        }
+        
+        .cell.sigstatus{
+            padding-left : 20px;
+            width : 220px;
+            max-width: 220px;
+        }
+        
+        
+        .cell.campaignstatus{
+            width : 168px;
+            max-width: 168px;
+            
+        }
+ }
+    
+}
+ 
+}
+
+
+.group-left-area{
+    padding-left: 30px;
+    padding-right: 0;
+    
+   
+}
+
+.group-detail-campaign{
+    >div{
+        overflow : inherit !important;
+    }
+    label{
+        color : $hellgrau;
+        margin-bottom : 10px;
+        font-size : 110%;
+        font-family : roboto_light;
+    }
+
+    img{
+        display : block;
+        margin-top : 10px;
+        margin-bottom : 10px;
+
+    }
+
+    .url{
+        color : grey;
+        margin-top : 10px;
+        font-size : 90%;
+        font-family : roboto_light;
+    }
+
+}
+
+
+.campaign-list-wrapper{
+    padding : 15px;
+}
+
+
+/* CSS REQUIRED */
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+/* DEMO ONLY - REMOVES UNWANTED MARGIN */
+.well .list-group {
+    margin-bottom: 0px;
+}
+
+
+.member-in_group-modal{
+
+    display : flex;
+
+}
+
+
+.member-in-group-modal-list{
+    margin-top : 15px;
+    height : 300px;
+}
+
+/*.progress-bar-col{
+    padding-right : 30px;
+}*/
+
+.groupgraphglyph{
+    margin-left : 1px;
+    margin-right : 4px;
+}
+
+.groupstats{
+    @media (min-width : $screen-sm-min) and (max-width : 1199px), (min-width : 1300px){
+         @include flex;
+    }
+    >div{
+        @media (min-width : $screen-lg-min) and (max-width : 1300px){
+         margin-top : 7.5px !important;
+        }
+        
+       
+        
+    }
+   
+
+    select{
+        margin:auto;
+        width : auto !important;
+        margin-left : 0;
+        max-width: 300px;
+    }
+    div{
+        margin:auto;
+       margin-right : 0;
+    }
+    
+    
+    
+   
+ 
+    
+}
+
+
+.groupcomparestats{
+    .wrapper{
+        margin-top : 100px;
+        width : 100%;
+    }
+
+    
+    
+    
+      .statsitem.leftcol{
+            @media (min-width : $screen-sm-min){
+                text-align : right;
+            }
+        }
+          .statsitem.rightcol{
+            @media (min-width : $screen-sm-min){
+                text-align : left;
+            }
+        }
+    
+    
+    
+    .statsitem{
+        
+        
+        
+        
+        
+        width : 33.3%;
+         .upper{
+        /*             font-weight: bold;
+                     font-size : 100%;
+                     color : $grau;*/
+        font-size : 225%;
+        color : $blau;
+        font-weight : bold;
+        line-height: 1;
+        font-family : "Roboto Condensed";
+    }
+    .down{
+        color : $hellgrau;
+        font-size : 85%;
+        font-family : roboto_light;
+    }
+    }
+    
+}
+
+
+
+
+.panel-heading.groupstats{
+    padding-top : 30px !important;
+}
+.groups-list-item {
+    padding: 20px;
+    padding-left: 0;
+    background-color : white;
+    @include flex;
+    margin-bottom : 7.5px;
+    min-height : 98px;
+    border-radius : 4px;
+    >div{ 
+        .glyphicon.glyphicon-folder-open{
+            margin-right : 10px;
+            font-size : 95%;
+        }
+        .title{
+            color : $blau;
+            font-size : 125%;
+
+            line-height : 1;
+            font-family : 'Roboto Condensed';
+            font-weight: bold;
+
+        }
+        .title:hover{
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+
+        .member{
+            /*            color : lightgrey;
+                        font-size : 85%;
+                        line-height : 1;
+                        margin-top : 6px;
+                        font-family : roboto_light;*/
+
+            color : $hellgrau;
+            font-size : 85%;
+            line-height : 1;
+            margin-top : 3px;
+            font-family : roboto_light;
+            margin-top : 6px;
+
+        };
+
+        /*        .group-in-emp{
+                    .glyphicon{
+                        margin-right : 5px;
+                        font-size : 90%;
+                    }
+                    margin-top : 5px;
+                    color : darkgrey;
+                     font-family : roboto_light;
+                }*/
+
+
+        /*margin : auto;*/
+        img{
+            width : 100%;
+            max-width : 50px;
+        }
+        .upper{
+            font-weight: bold;
+            font-size : 100%;
+            color : $blau;
+        }
+        .down{
+            font-size : 85%;
+            color : $hellgrau;
+        }
+        .kampagnelabel{
+            font-size : 85%;
+            color : $hellgrau;
+        }
+
+        .campaigntitle{
+            font-weight: bold;
+            /*font-size : 95%;*/
+        }
+    }
+
+    .campaigndetails{
+        /*font-size : 95%;*/
+        color : $grau;
+        @include flex;
+        span{
+            margin-top : auto;
+            margin-bottom: auto;
+        }
+    }
+
+
+
+}
+
+.groups-list-item.selected{
+    background-color : $dunkelweis;
+
+}
+
+
+/*
+*   Rechte Seite auf der die selektierten Gruppen angezezgit wird
+*/
+.group-r-one-selected{
+    .top-area{
+        .glyphicon{
+            margin-right : 10px;
+            font-size : 17px;
+            margin-top : 3px;
+        }
+        .title{
+            color : $blau;
+            font-size : 25px;
+            font-family : "Roboto Condensed";
+            font-weight : bold;
+            line-height : 1;
+            text-align : left;
+
+        }
+        .title:hover{
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+
+        .member{
+            /*            color : lightgrey;
+                        font-size : 85%;
+                        line-height : 1;
+                        margin-top : 9px;
+                        font-family : roboto_light;*/
+            text-align:left;
+
+            color : $hellgrau;
+            font-size : 85%;
+            line-height : 1;
+            margin-top : 3px;
+            font-family : roboto_light;
+            margin-top : 6px;
+
+        };
+    }
+    .button_area{
+        margin-top : 20px;
+        @include flex;
+
+        button.showbutton{
+            width : 100%;
+            margin-left : 5px;
+
+        }
+        margin-bottom : 33px;
+    }
+
+    .rightSideDividertext{
+        color : $hellgrau;
+        font-size : 90%;
+        margin-top : 25px;
+        margin-bottom : 10px;
+    }
+    .campaignimage{
+        margin-top : 10px;
+    }
+    .divider{
+        margin-top : 30px !important;
+    }
+
+    .ui-select-toggle{
+        background-color : $dunkelweis;
+    }
+
+
+}
+.group-top-area-many-selected{
+    .deletebutton{
+        margin-top:20px;
+        margin-bottom : 33px;
+    }
+    /*    .headline{
+             color : grey;
+                     font-size : 80%;
+                     margin-top : 25px;
+                     margin-bottom : 10px;
+        }*/
+
+    .ui-select-toggle{
+        background-color : $dunkelweis;
+    }
+    .group-multi-select-item{
+        margin-top : 25px;
+    }
+
+    .top-area{
+        .glyphicon{
+            margin-right : 10px;
+            font-size : 17px;
+            margin-top : 3px;
+        }
+        .title{
+            /*            color : $blau;
+                        font-size : 25px;
+                        font-weight: bold;
+                        line-height : 1;
+                        text-align : left;*/
+
+            color : $blau;
+            font-size : 25px;
+            font-family : "Roboto Condensed";
+            font-weight : bold;
+            line-height : 1;
+            text-align : left;
+
+        }
+        .title:hover{
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+
+
+        
+        .member{
+            /*            color : lightgrey;
+                        font-size : 85%;
+                        line-height : 1;
+                        margin-top : 9px;
+                        font-family : roboto_light;
+                        text-align : left;*/
+
+            text-align:left;
+
+            color : $hellgrau;
+            font-size : 85%;
+            line-height : 1;
+            margin-top : 3px;
+            font-family : roboto_light;
+            margin-top : 6px;
+
+        };
+
+
+    }
+.divider{
+            margin-top : 30px !important;
+        }
+    .rightSideDividertext{
+        color : $hellgrau;
+        font-size : 90%;
+        margin-top : 25px;
+        margin-bottom : 10px;
+    }
+}

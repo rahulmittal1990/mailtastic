@@ -1,0 +1,38 @@
+
+<div ng-init="hideOptions = true">
+
+
+  <div class="format1 innerheadline">
+            <span class="breadcrumpdone" ng-repeat="item in config.breadcrumpsdone">{{item}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+            <span class="breadcrump"  ng-repeat="item in config.breadcrumps">{{item}}</span>
+        </div>
+
+    <div style="width : 100%;" role="separator" class="line"></div>  
+
+
+    <div class="format2" translate="Whichsignatureyouwanttoassignyourdepartment"></div>
+
+    <div class="flex-center-left">
+         <div  class="input-group searchfield">
+            <input  ng-model="filterText" type="text" class="form-control input-sm nooutline" placeholder="Signatur suchen" aria-describedby="basic-addon2">
+            <span class="input-group-addon glyphicon glyphicon-search" ></span>
+        </div>
+    </div>
+
+
+    <div style="min-height : {{config.listheight}}px;max-height : {{config.listheight}}px;" class="tablewrapper" ng-include src="'assistant/signature/signaturerow.html'">
+        
+    </div>
+
+
+
+    <div role="separator" class="line" style="width : 100%;"></div> 
+
+
+    <div class="flex-center-right">
+
+        <div  ng-click="navigateBack()"  class="ownbtn btngrau leftbutton" translate="Back"></div> 
+        <div ng-click="setSignatureFromList()" class="ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="Assignselectedsignature"></normal></div> 
+    </div>
+</div>
+

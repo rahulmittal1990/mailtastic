@@ -1,0 +1,44 @@
+    <!--table-->
+    <div ng-click="rowClicked(item)"  ng-class="getSelectedClass(item)" class="tablerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in data.activeInGroups | filter: data.filterText">
+        <div class="cell select">
+            <input name="selected" class="link" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);
+                $event.stopPropagation();"  type="checkbox">
+        </div>
+         <div class="cell groupTitle overflowxhidden">
+           
+              
+              
+             <div class="upper "><span class="glyphicon glyphicon-folder-open"    aria-hidden="true"></span><span ui-sref="base.employees.groupdetails({groupId : item.id})" class="link">{{item.title}}</span></div>
+             <div class="down" ng-class="item.amountOfMembers===0 ? 'schrift_rot_imp' : ''"><span ng-show="item.amountOfMembers===0"  style="margin-right : 7px;" class="glyphicon glyphicon-warning-sign schrift_rot" aria-hidden="true"></span><span ng-class="item.amountOfMembers===0 ? 'schrift_rot_imp text-bold' : ''">{{item.amountOfMembers}} <normal translate="Employee"></normal></span></div>
+        </div>
+        <div class="cell cmptitlecol ">
+            <div ng-show="item.campaignTitle " class="overflowxhidden">
+                <div class="color-rect" style="background-color : {{item.campaignColor}}"></div>
+                <div  class="title overflowxhidden">{{item.campaignTitle}}</div>
+            </div>
+            <div ng-show="item.campaignTitle" class="down" translate="campaign"></div>
+            
+            <div ng-show="!item.campaignTitle" class="schrift_rot  no-campaign"><span  style="margin-right : 3px;" class="glyphicon glyphicon-warning-sign schrift_rot" aria-hidden="true"></span><normal translate="UnassignedCampaignbr"></normal></div>
+        </div>
+        <div class="cell banner">
+            <img ng-src="{{item.campaignImage}}" />
+        </div>
+        <div   class="cell action text-center ">
+        <div class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+            <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+            </button>
+            <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                <li ui-sref="base.employees.groupdetails({groupId: item.id})" ><a translate="Open"></a></li>
+                <li ng-click="removeSignaturefromGroups(item.id)"><a translate="Removeassignmentforsignature"></a></li>
+            </ul>
+        </div>
+        
+      </div>
+    </div>
+      <div style="width : 100%;" ng-show="data.groups.length === 0" class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text"><div class="text"><normal translate="Therearenogroupscampaign"></normal><div class="additionaltext" translate="NoteGroupsthatarealreadyassigneddisplayed"></div></div>
+<div class="additionaltext" translate="NoteGroupsthatarealreadyassigneddisplayed"></div></div>
+
+        </div>

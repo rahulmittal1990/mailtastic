@@ -1,0 +1,72 @@
+
+<div class="import">
+    
+
+     
+
+    
+        <div class="format2"><normal translate="ViaExcel"></normal> <span style="color : #a8acb3;margin-left : 30px;cursor:pointer;" ng-click="showOtherImportPos()">  <normal translate="Othersources"></normal></span></div>
+ <div role="separator" class="line"></div>
+
+ 
+   <div  class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text" translate="WedonotanMailtasticnotifywilremindyouagain"></div>
+        </div>
+ 
+  
+        
+        <div ng-hide="resultData.group.groupsSet.length === 1" class="format2" translate="Whichdepartmenttoassignthenewemployee"></div>
+        <div ng-hide="resultData.group.groupsSet.length === 1" class="flex">
+            <select ng-model="employeeData.currentGroup" class="form-control formatdropdown selectgroups input-sm">
+                <option value="empty" translate="Selectexistingdepartment"></option>
+                <option ng-repeat="item in resultData.group.groupsSet" value="{{item.id}}">{{item.title}}</option>
+            </select>
+         </div>
+
+        <div ng-hide="resultData.group.groupsSet.length === 1" role="separator" class="line"></div> 
+ 
+ 
+
+        
+
+            <form>
+           
+                   
+                    <div translate="1FilltheExceltemplate"></div>
+                    <!--<button   class="btn btn-block schrift_weis">Vorlage herunterladen</button>-->
+                    <div class="formbutton">
+                    <a class="btn ownbtn btngrau schrift_weis" target="_self" href="https://www.app.mailtastic.de/downloads/MitarbeiterImportierenVorlage.xlsx" download="MitarbeiterImportierenVorlage.xlsx" translate="downloadtemplate"></a>
+                    </div>
+
+                    <div class="secondform" translate="2UploadExceldocument"></div>
+                    
+                    
+                    <div class="fileupload btn ownbtn btnblau formbutton">
+                        <span translate="Chooseafile"></span>
+                        <input id="employeeimport" type="file" class="upload" name="excel_file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onchange="angular.element(this).scope().fileChanged(this.files);" >
+                    </div>
+              
+             <div ng-show="data.json.length > 0 && false" class="form-group secondform  ">
+                <label translate="3StaffImport"></label>
+                <div class="filename">{{data.filename}}</div>
+                <div class="excelinfo" translate="Employeestoagaineveniftheyexistinthepresenttable"></div>
+                <button ng-click="importUsers()"  class="btn btn-block actionbutton importbutton" translate="importstaff"></button>
+            </div>
+        
+       <div role="separator" class="line"></div> 
+
+            <div class="flex">
+
+                <div ng-click="backFromAddingEmployees()"   class="ownbtn btngrau leftbutton" translate="Back"></div> 
+                <button ng-show="importdata.json.length > 0" type="submit" ng-click="importUsers()" class="btn ownbtn btnblau importbuttons" translate="Import"></button> 
+            </div>
+
+     </form>  
+  
+</div>
+
+
+
+
+

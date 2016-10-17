@@ -1,0 +1,105 @@
+.integration{
+    
+    .manuals{
+        
+        .installationcopybutton{
+            padding-top : 15px;
+            padding-bottom : 15px;
+            padding-right : 30px;
+            padding-left : 30px;
+            line-height : 1.5;
+           
+            margin-bottom : 25px;
+        }
+        
+        
+        .previewcontainer{
+            width : 500px;
+            max-width : 500px;
+            overflow: auto;
+           
+            border: 1px solid rgba(0, 0, 0, 0.22);
+            border-radius: 3px;
+          
+            box-shadow: 0 0 13px rgba(0, 0, 0, 0.09);
+             padding : 30px;
+
+        }
+        
+        
+        .bootstrap-select{
+            width : 500px !important;
+            max-width :500px;
+        }
+        
+        .manualscontainer{
+              .chooseintegrationmethod{
+                  color : $blau;
+              }
+              
+              .downloadbutton{
+                  color : white !important;
+                  margin-top : -20px;
+                  margin-bottom : 30px;
+              }
+              
+              .outlookselect{   //manuelle oder automatische integration
+                
+                  margin-top : 10px;
+                  
+              }
+              
+              
+              .padding-30{
+                  padding : 30px;
+              }
+
+              
+              .explain-step-text{
+                  margin-bottom : 25px;
+              }
+              
+              .zeitaufwand{
+                  /*font-family :*/
+                  font-family : roboto_bold;
+                  margin-bottom : 20px;
+              }
+              .explain-step-img{
+                  margin-bottom : 40px;
+                  max-width : 100%;
+              }
+               .divider{
+                      margin-top : 30px !important;
+                      margin-bottom : 30px !important;
+                  }
+                  
+                  .otherclientform{
+                      input{
+                          margin-right : 7.5px;
+                          max-width : 200px;
+                      }
+                  }
+                  
+                  
+                 
+                  .bannerclickmanual{
+                      padding-left : 19px;
+                      margin-top : 30px;
+                      margin-bottom : 30px;
+                  }
+                  
+                   .bannermanual{
+                      color : $hellgrau;
+                      font-family : roboto_light;
+                  }
+                  
+                  .link2{
+                      margin-top : 30px;
+                  }
+            
+        }
+    }
+    
+    
+    
+}

@@ -1,0 +1,42 @@
+<div class="header">
+    <span translate="userdata"></span>
+</div>
+<div class="content">
+
+    <div class="infoentries flex-center-left">
+        <div class="infoentry">
+            <div class="format2" translate="Department">
+
+            </div>
+            <div>
+                <select ng-change="groupChanged('{{selected.selectedGroupForEmp}}')" ng-model="selected.selectedGroupForEmp" class="form-control input-sm">
+                    <option value="selectGroupForEmp" translate="assigndepartment"></option>
+                    <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}} </option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="infoentry">
+            <div class="format2" translate="Emailaddress">
+            </div>
+            <div>
+                <input ng-model="employeeDetailData.email" ng-disabled="true" type="text" class="form-control input-sm">
+            </div>
+
+        </div>
+
+
+        <div class="infoentry">
+            <div style="visibility: hidden;" class="format2">
+                Account:
+            </div>
+            <div>
+                <div ng-controller="EmployeeUserInfoEditModalCtrl" ng-click="open(employeeDetailData.id)" class="ownbtn btnblau leftbutton" translate="edituserdata"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

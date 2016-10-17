@@ -1,0 +1,166 @@
+<div class="list-control-area">
+
+
+    <div class="checkbox hidden-xs ">
+        <label>
+            <input ng-click="selectAll($event)"
+                   ng-checked="isSelectedAll()"  type="checkbox"> <normal translate="All"></normal>
+        </label>
+    </div>
+
+    <div ng-show="data.selectedCampaigns.length > 1"  class="btn-group margin-auto optionbutton actiondropdown aktiongroup hidden-xs" uib-dropdown>
+        <button ng-disabled="data.selectedCampaigns.length === 0"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li ng-click="deleteCampaigns()"><a translate="Delete"></a></li>
+        </ul>
+    </div>
+
+
+
+
+    <div id="custom-search-input"  class="input-group margin-auto search">
+        <input ng-change="recalcAvatars()" ng-model="filterText" type="text" class="form-control" placeholder="Kampagne suchen" aria-describedby="basic-addon2">
+        <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
+    </div>
+
+
+
+
+
+
+
+    <!--<div class="margin-auto">-->
+    <div class="btn-group sort" uib-dropdown >
+        <button id="sort-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled">
+            <normal translate="sort"></normal> <span class="caret"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li role="menuitem">
+                <a ng-click="sortList('name')">Name</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('views')">{{labels.views}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('clicks')" >{{labels.clicks}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('rate')" >{{labels.rate}}</a>
+            </li>
+        </ul>
+    </div>
+
+    
+    
+<!--    <div class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+        <button id="employee_list_addbutton"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="">Kampagne erstellen</span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li ng-controller="CampaignModalCtrl"  id="employee_list_addbutton_new" ng-click="open(null, null, 'new')"><a >Neu erstellen</a></li>
+            <li ui-sref="base.assistant({state : 'campaign_createnew'})" id="employee_list_addbutton_new" ng-click="open(null, null, 'new')"><a >Neu erstellen</a></li>
+        </ul>
+    </div>-->
+    
+    
+    
+<button ui-sref="base.assistant({state : 'campaign_createnew'})"   class="btn actionbutton  margin-auto" type="button">
+                       <span class="glyphicon glyphicon-plus" ></span> <normal translate="Createcampaign"></normal>
+                        </button>
+
+</div>
+
+
+
+
+
+
+<div cg-busy="loadingPromise"   class="campaign-list-wrapper">
+    
+    <div class="full-width flex-center-all" style="margin-top: 50px;"  ng-show="data.campaignsToShow.length === 0">
+      <div class="nodataarea">
+            <img src="img/emptystates/whiteonblue/b_Campaign_Missing.png" >
+            <div class="rightside">
+                <div class="placeholderheadlinetext schrift_weis"  style="color : white !important;" translate="Nocampaignyet"></div>
+                <div class="placeholderdesc" style="color : white !important;" translate="Createyourfirstcampaigntogetanoverviewhere"></div>
+            </div>
+        </div>
+    </div>
+     <ul class="no_padding" >
+                           <li ng-click="rowClicked(item)" ng-class="getSelectedClass(item)" ng-repeat="item in data.campaignsToShow | filter:filterText" class="full-campaign-list-item flex-center-left mouseovertransparent {{item.activegroups.length === 0 ? 'group-inactive' :''}}">
+                               
+                                <div class="col-lg-1 col-md-1 col-sm-1  hidden-xs  text-center">
+                                    <input name="selected" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);$event.stopPropagation();" type="checkbox">
+                                </div>
+                                <div class="col-lg-2 col-md-2 hidden-xs hidden-sm">
+                                    <img ng-src="{{item.image}}" />
+                                </div>
+                                <div align="left" class="col-lg-3 col-md-3 col-sm-11 col-xs-10 title-area flex-center-left text-left">
+                                    <div class="dotcontainer">
+                                         <span class="graph-dot" style="background-color : {{item.color}}"></span>
+                                    </div>
+                                    <div>
+                                        <div class="title " ><div ng-click="showCampaignDetails(item.id); $event.stopPropagation();" class="link">{{item.title}}</div></div>
+                                        <span class="wann"> <normal translate="CreatedOn"></normal> {{item.createdAt| date:"dd.MM.yyyy"}}</span>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-lg-3 col-md-2  col-xs-5 hidden-sm hidden-xs">
+                                    <div class="activeingrouptext" translate="Activeindepartment"></div>
+                                    <div>
+                                        <div ng-repeat="singlegroup in getTimes(item.activegroups, 2) " class="flex-center-left groupitem">
+                                            <div class="glyphicon glyphicon-folder-open" aria-hidden="true"></div>
+                                            <span ng-click="showGroupDetails(singlegroup.id); $event.stopPropagation();" class="grouptitle link text"> {{singlegroup.title}}<span ng-show="item.activegroups.length > 1 && ($index != 1)">,</span> </span>
+                                        </div>
+                                        <div ng-show="item.activegroups.length > 2" class="flex-center-left groupitem">
+                                            <!--<div class="glyphicon glyphicon-folder-open" aria-hidden="true">.</div>-->
+                                            <span class="undweitere"> <normal translate="and"></normal> {{item.activegroups.length -2}} <normal  translate="more"></normal> </span>
+                                        </div>
+                                        
+                                        <div tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie diese Kampagne einer Abteilung zu" class="grouptitle schrift_rot text-bold" ng-show="item.activegroups.length === 0"><span  style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> <normal translate="activeinanydepartment"></normal></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs hidden-sm statitem text-center">
+                                    <div class="upper">{{item.views}}</div>
+                                  
+                                    <div class="down overflowxhidden">{{labels.views}}</div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs hidden-sm statitem  text-center">
+                                    <div class="upper">{{item.clicks}}</div>
+                                 
+                                    <div class="down">{{labels.clicks}}</div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs hidden-sm statitem  text-center">
+                                    <div class="upper">{{(item.views === 0|| item.clicks===0) ? 0 : (item.clicks / item.views)*100 | number:2}}%</div>
+                                   
+                                    <div class="down">{{labels.rate}}</div>
+                                </div>
+<!--                                <div   class=" text-center  visible-xs-block visible-sm-block col-xs-2 col-sm-2">
+                                    <div ui-sref="base.campaigns.campaigndetail({campaignId: item.id})" class="btn actionbutton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                                </div>-->
+                                <div   class=" text-center  hidden-lg  col-sm-1 col-md-1  col-xs-2">
+                <div class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+                    <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+                    </button>
+                    <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="showCampaignDetails(item.id)"><a translate="Lookat"></a></li>
+                        <li ng-controller="CampaignModalCtrl" ng-click="open(item.id)"><a translate="Edit"></a></li>
+                        <li  ng-click="deleteCampaign(item.id)"><a translate="Delete"></a></li>
+
+                    </ul>
+                </div>
+            </div>
+                            </li>
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+</div>

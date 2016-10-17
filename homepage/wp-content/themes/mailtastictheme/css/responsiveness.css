@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14.05.2016, 11:29:57
+    Author     : kippple
+*/
+
+
+@media(max-width : 768px){
+    
+    .slider-bereich{
+        padding-left : 0;
+        padding-right : 0;
+    }
+    .slider-bereich .col-centered {
+        display : block;
+        padding-left :0 ;
+        padding-right : 0;
+    }
+    .newsletterform .letterformwrapper .letterform .form-group-lg{
+         max-width: 200px;
+         }
+         .newsletterform .headline{
+             line-height : 1.4;
+         }
+         
+         
+         .livedemo .headline{
+             line-height : 1.4;
+         }
+        
+         
+         .slider-bereich h4{
+               line-height : 1.4;
+         }
+    
+         
+         .bannerontopoftext{
+             margin-top : -20px !important;
+         }
+         #textbelowbanner{
+             margin-top : 30px !important;
+         }
+
+         
+         .navbuttonli{
+             height : 50px;
+             line-height : 50px !important;
+         }
+       
+         
+}
+
+
+
+

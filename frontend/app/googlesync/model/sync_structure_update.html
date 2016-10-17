@@ -1,0 +1,193 @@
+﻿<style type="text/css">
+    .sync_update_model .modal-dialog {
+        padding: 20px;
+        width: 500px;
+        height: 100%;
+    }
+
+        .sync_update_model .modal-dialog .modal-body {
+            padding: 25px;
+        }
+
+    .sync_update_model .headline {
+        font-family: roboto_bold;
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        line-height: 1;
+        padding-top: 10px;
+    }
+
+    .sync_update_model .modelFormat {
+        padding: 20px;
+    }
+
+        .sync_update_model .modelFormat .text {
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            padding-bottom: 20px;
+        }
+
+    .sync_update_model .line {
+        height: 1px;
+        border-top: solid 1px #cbcdd0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 640px;
+    }
+
+        .sync_update_model .line.firstline {
+            margin-top: 25px;
+        }
+
+    .sync_update_model .btnright {
+        padding-right: 0px;
+    }
+</style>
+
+<div class ="sync_update_model modelFormat">
+<div class="infotext">
+    <b translate="Setsynchronization"></b>
+  </div> 
+
+<div role="separator" class="line"></div>
+
+ <div class="format2" translate="HowyouwanttosyncGmailwithMailtastic"></div>
+
+
+
+ <!--sync type-->
+<div data-ng-if = "syncUpdateModel.selectedSetting == 'type'">
+
+	 <div class="row">
+            <div style="padding-left: 0px" class="col-md-5">
+                <select ng-change="getSyncType(editSyncType,true)" ng-model="editSyncType"
+                    class="form-control exampleempselect input-sm  leftbutton ng-pristine ng-valid ng-not-empty ng-touched">
+                    <option ng-repeat="item in googleSyncTypes" value="{{item.syncType}}" class="ng-binding ng-scope">{{item.syncType}}</option>
+                </select>
+            </div>
+        </div>
+
+
+   <div ng-if="isAutomaticSyncEdit">
+            <div class="info">
+                <div class="format innerheadline" translate="Automaticsynchronizationrecommended"></div>
+                <div class="text">
+                    <p translate="AllGmailsynchronizedMailtasticuptodateMore"></p>
+
+                </div>
+<!--                <div class="syncActivecheck">
+                    <p class="format2light innerheadline">
+                        <input type="checkbox" data-ng-model="object.isActivecheck" data-ng-change="Activecheck()"/>
+                        Automatische Synchronisation (empfohlen) aktivieren
+                    </p>
+                    <p class="format7 pd15">Einstellung kann später jederzeit geändert werden</p>
+                </div>-->
+            </div>
+        </div>
+
+        <div ng-if="!isAutomaticSyncEdit">
+            <div class="info">
+                <div class="format innerheadline" translate="Manualsynchronization"></div>
+                <div class="text">
+                    <p translate="ThereGmailuserssynchronizedusersthemselves"></p>
+
+                </div>
+<!--                <div class="syncActivecheck">
+                    <p class="format2light innerheadline">
+                        <input type="checkbox" data-ng-model="object.isActivecheck" data-ng-change="Activecheck()"/>
+                        Manuelle Synchronisation aktivieren
+                    </p>
+                    <p class="format7 pd15">Einstellung kann später jederzeit geändert werden</p>
+                </div>-->
+            </div>
+        </div>
+
+
+      <div role="separator" class="line"></div>
+
+ <div style="margin-top: 20px;" class="flex ng-scope">
+            <button class="ownbtn btnblau leftbutton Synchbtn" data-ng-click="updateSyncType()" translate="Continue"></button>
+            <button class="ownbtn btngrau Synchbtn closeButton" data-dismiss="modal" translate="abort"></button>
+        </div>
+    </div>
+
+
+</div>
+
+
+ <!--sync structure-->
+<div data-ng-if = "syncUpdateModel.selectedSetting == 'structure'">
+
+ <div class="row">
+            <div style="padding-left: 0px" class="col-md-5">
+                <select ng-change="getSyncStructure(editStructurType,true)" ng-model="editStructurType"
+                    class="form-control exampleempselect input-sm  leftbutton ng-pristine ng-valid ng-not-empty ng-touched">
+                    <option ng-repeat="item in googleStructureType" value="{{item.structureType}}" class="ng-binding ng-scope">{{item.structureType}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div  ng-show="editStructurType === 'GoogleApp-Strukur übernehmen'">
+            <div class="info">
+                <div class="format innerheadline" translate="OrganizationalstructureofyourGoogleAppaccounts"></div>
+                <div class="text">
+                    <p translate="GmaildepartmentsassignedcorrespondAccounts"></p>
+
+<!--                    <p>
+                        <input type="checkbox" data-ng-model="object.isGoogleConditionchecked" />
+                        Ja, ich habe die AGB gelesen und akzeptiert.
+                    </p>-->
+
+
+                </div>
+<!--                <div class="syncActivecheck">
+                    <p class="format2light innerheadline">
+                        <input type="checkbox" data-ng-model="object.googleStructurechecked" data-ng-change="Activecheck()" />
+                        GoogleApp-Struktur übernehmen
+                    </p>
+                    <p class="format7 pd15">Einstellung kann später jederzeit geändert werden</p>
+                </div>-->
+            </div>
+        </div>
+
+
+        <div ng-show="editStructurType === 'Neue Struktur erstellen'">
+            <div class="info">
+                <div class="format innerheadline" translate="Createanewstructure"></div>
+                <div class="text">
+                    <p translate="Gmailuserstheorganizedmanuallybyyou"></p>
+
+<!--                    <p>
+                        <input type="checkbox" data-ng-model="object.isGoogleConditionchecked"/>
+                        Ja, ich habe die AGB gelesen und akzeptiert.
+                    </p>-->
+
+
+                </div>
+<!--                <div class="syncActivecheck">
+                    <p class="format2light innerheadline">
+                        <input type="checkbox" data-ng-model="object.googleStructurechecked" data-ng-change="Activecheck()"/>
+                        Neue Struktur erstellen
+                    </p>
+                    <p class="format7 pd15">Einstellung kann später jederzeit geändert werden</p>
+                </div>-->
+            </div>
+        </div>
+
+
+
+      <div role="separator" class="line"></div>
+
+ <div style="margin-top: 20px;" class="flex ng-scope">
+            <button class="ownbtn btnblau leftbutton Synchbtn" data-ng-click="updateSyncStructure()" translate="Continue"></button>
+            <button class="ownbtn btngrau Synchbtn closeButton" data-dismiss="modal" translate="abort"></button>
+        </div>
+    </div>
+
+
+
+</div>
+
+

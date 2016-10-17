@@ -1,0 +1,126 @@
+<div class="emp-r-top-area-no-selection text-center" ng-show="data.selectedGroups.length === 0">
+    <img class="empty-selection-pic" src="img/emptystates/lightonwhite/w_Selection_Missing.png" />
+    <p class="empty-selection-heading">Quick Navi</p>
+    <p class="empty-selection-text" translate="Incentralinformationatthispoint"></p>
+</div>
+
+
+
+
+
+
+<div align="center" class="group-r-one-selected " ng-show="data.selectedGroups.length === 1">
+    <!--
+        <div class="text-left ">
+            <span  class="title"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span><big class="text-bold"> {{data.selectedGroups[0].title}}</big></span>
+            <br />
+            <span>{{data.selectedGroups[0].amountOfMembers}} Mitarbeiter</span>
+        </div>
+        -->
+
+    <div class="button_area">
+        <div class="btn-group" uib-dropdown>
+            <button id="sort-button" type="button" class="btn actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="Actions"></normal>
+            </button>
+            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                <li class="cursor-pointer" ng-click="showGroupDetails(data.selectedGroups[0].id)"><a translate="Lookat"></a></li>
+                <li class="cursor-pointer" ng-show="data.selectedGroups[0].isDefault!=true" ng-click="deleteGroup(data.selectedGroups[0].id)"><a translate="Delete"></a></li>
+                <li class="cursor-pointer" ng-show="data.selectedGroups[0].isDefault!=true" ng-controller="GroupModalCtrl" ng-click="open(data.selectedGroups[0].id, null, 'new')"><a translate="Edit"></a></li>
+
+            </ul>
+        </div>
+        <button ng-click="showGroupDetails(data.selectedGroups[0].id)" class="btn showbutton actionbutton"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</button>
+    </div>
+
+    <div class="flex top-area">
+        <div class="glyphicon glyphicon-folder-open schrift_blau" aria-hidden="true"></div>
+        <div>
+            <div ng-click="showGroupDetails(data.selectedGroups[0].id); $event.stopPropagation();" class="title"> {{data.selectedGroups[0].title}}</div>
+            <div class="member">{{data.selectedGroups[0].amountOfMembers}} <normal translate="Employee"></normal></div>
+        </div>
+    </div>
+
+
+
+    <div role="separator" class="divider"></div>
+    <div class="text-left rightSideDividertext" translate="campaign"></div>
+    <ui-select ng-change="campaignChangedSidebar('{{selectedCampaign.selected.id}}')" ng-model="selectedCampaign.selected" theme="bootstrap" ng-disabled="disabled" style="min-width: 200px;">
+        <ui-select-match placeholder="Kampagne suchen...">{{$select.selected.title}}</ui-select-match>
+        <ui-select-choices repeat="campaign in data.campaigns  | propsFilter: {title: $select.search}">
+            <span class="graph-dot" style="background-color : {{campaign.color}}"></span><span ng-bind-html="campaign.title | highlight: $select.search"></span>
+            <small class="block">
+                <normal translate="Createdon"></normal> {{campaign.createdAt| date:'MM.dd.yyyy'}}
+                <!-- age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> -->
+            </small>
+        </ui-select-choices>
+    </ui-select>
+
+
+
+
+    <!--    <div role="separator" class="divider"></div>
+        <div class="text-left" >Kampagne</div> -->
+    <!--    <div class="campaigndetails text-left">
+            <span class="graph-dot" style="background-color : {{data.selectedGroups[0].campaignColor}}"></span>
+            <span class="upper">{{data.selectedGroups[0].campaignTitle}}</span>
+        </div>-->
+
+    <img ng-hide="!data.selectedGroups[0].campaignImage" ng-click="showCampaignDetails(data.selectedGroups[0].campaignId)" class="campaignimage link" ng-src="{{data.selectedGroups[0].campaignImage}}" border="0" style="max-width:100%;">
+    <div style="margin-top : 30px;" class="nodataarea" ng-show="!data.selectedGroups[0].campaignTitle">
+        <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+        <div class="placeholderheadlinetext schrift_rot_imp">
+            <normal translate="Currentlyinthedepartment"></normal> "{{data.selectedGroups[0].title}}" <normal translate="assignedtoanycampaign"></normal>
+        </div>
+        <div class="placeholderdesc" translate="Assigncampaigntobannercampaignthatdepartment">
+
+        </div>
+
+    </div>
+</div>
+
+
+<div ng-show="data.selectedGroups.length > 1" class="group-top-area-many-selected">
+
+    <button ng-click="deleteGroups()" class="actionbutton btn btn-block deletebutton">  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <normal translate="Cleardivisions"></normal></button>
+
+    <div class="selected-list">
+        <div class="group-multi-select-item" ng-repeat="item in data.selectedGroups">
+            <div class="flex top-area">
+                <div class="glyphicon glyphicon-folder-open schrift_blau" aria-hidden="true"></div>
+                <div>
+                    <div ng-click="showGroupDetails(item.id); $event.stopPropagation();" class="title"> {{item.title}}</div>
+                    <div class="member">{{item.amountOfMembers}} <normal translate="Employee"></normal></div>
+                </div>
+            </div>
+            <!--<div role="separator" class="divider"></div>-->
+        </div>
+        <div role="separator" class="divider"></div>
+    </div>
+    <div class="rightSideDividertext" translate="Assigncampaigns">
+    </div>
+
+
+    <ui-select ng-change="campaignChangedSidebar('{{selectedCampaign.selected.id}}')" ng-model="selectedCampaign.selected" theme="bootstrap" ng-disabled="disabled" style="min-width: 200px;">
+        <ui-select-match placeholder="Kampagne suchen...">{{$select.selected.title}}</ui-select-match>
+        <ui-select-choices repeat="campaign in data.campaigns  | propsFilter: {title: $select.search}">
+            <span class="graph-dot" style="background-color : {{campaign.color}}"></span><span ng-bind-html="campaign.title | highlight: $select.search"></span>
+            <small class="block">
+                <normal translate="Createdon"></normal> {{campaign.createdAt| date:'MM.dd.yyyy'}}
+                <!-- age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> -->
+            </small>
+        </ui-select-choices>
+    </ui-select>
+
+
+    <!-- <ui-select  ng-model="selectedCampaign.selected"  theme="bootstrap" ng-disabled="disabled" style="min-width: 200px;">
+            <ui-select-match placeholder="Kampagne suchen...">{{$select.selected.title}}</ui-select-match>
+            <ui-select-choices repeat="campaign in campaigns  | propsFilter: {title: $select.search}">
+                <span  class="graph-dot" style="background-color : {{campaign.color}}"></span><span ng-bind-html="campaign.title | highlight: $select.search"></span>
+                <small class="block">
+                    Erstellt am: {{campaign.createdAt| date:'MM.dd.yyyy'}}
+                     age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                </small>
+            </ui-select-choices>
+        </ui-select>-->
+</div>

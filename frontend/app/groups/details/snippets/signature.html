@@ -1,0 +1,101 @@
+<div class="header ">
+                <span translate="Assignedsignature"></span>
+            </div>
+            <div ng-show="data.groupDetail.activeSignature" class="content">
+                    <div  class="flex topnavrow">
+                        <select ng-change="updateSelectedSignature('{{signatureData.selectedSignature}}')" ng-model="signatureData.selectedSignature" class="form-control exampleempselect input-sm  leftbutton">
+                            <option ng-repeat="item in signatureData.signatures" value="{{item.id}}">{{item.title}}</option>
+                        </select>
+
+                        <select ng-show="!signatureData.showDummyData" ng-change="updateSelectedUser()" ng-model="signatureData.selectedEmployee" class="form-control exampleempselect input-sm  leftbutton">
+                            <option ng-repeat="item in groupMembers" value="{{item.id}}">{{item.firstname}} {{item.lastname}}</option>
+                        </select>
+                        
+                         <select ng-show="signatureData.showDummyData" ng-change="updateSelectedUser()" ng-model="signatureData.selectedEmployee" class="form-control exampleempselect input-sm  leftbutton">
+                            <option ng-repeat="item in signatureData.groupMembersDummy" value="{{item.id}}">{{item.firstname}} {{item.lastname}}</option>
+                        </select>
+                        
+                        
+                        
+                        
+
+                    </div>
+
+                <div class="row">
+                    <div class="col-lg-7 leftcol">
+                          <div ng-show="signatureData.signatureTitle" class="signaturetitle format1 marbot25"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <span class="link" ui-sref="base.signaturedetails({signatureId: data.groupDetail.activeSignature})">{{signatureData.signatureTitle}}</span></div>
+             
+                        <div class="previewarea" ng-bind-html="data.preview">
+
+                        </div>
+                          
+                             <!--<previewiniframe  content="data.preview"></previewiniframe>-->
+                    </div>
+                    <div class="col-lg-5 rightcol">
+                        
+                        
+                        
+                        
+                         <div ng-show="signatureWasRolledOutAtLeastOnce() === false" class="infobox infobox-error martop0imp" >
+                            <span class="symbol glyphicon glyphicon-alert"></span>
+                            <div>
+                                <div class="text" translate="Thissignaturehasnotyetbeenrolled"></div>
+                                            <button style="margin-top : 20px;" ui-sref="base.signaturedetails({signatureId: data.groupDetail.activeSignature})" class="ownbtn btnblau"><span class="glyphicon  glyphicon-arrow-right" aria-hidden="true"></span> <normal translate="Forsignature"></normal></button>
+               
+                         </div>
+                        </div>
+                        
+                        
+                        
+                        <div ng-show="usersWithOutdatedSignature.length > 0 && signatureWasRolledOutAtLeastOnce()" class="infobox infobox-error martop0imp" >
+                            <span class="symbol glyphicon glyphicon-alert"></span>
+                            <div>
+                                <div class="text">{{usersWithOutdatedSignature.length}} <normal translate="Employeeshavenotyetincorporatedthe"></normal></div>
+<!--                                <div class="additionaltext">Einige Mitarbeiter haben noch keine oder eine veraltete Version der Signatur eingebunden.
+                                </div>-->
+                                <button style="margin-top : 20px;" ng-click="rollOutSignature()" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-repeat" aria-hidden="true"></span> <normal translate="rememberthisemployees"></normal></button>
+                            </div>
+                        </div>
+                        
+                        
+                          <div ng-show="usersWithOutdatedSignature.length === 0 && signatureWasRolledOutAtLeastOnce()" class="infobox infobox-success martop0imp" >
+                            <span class="symbol glyphicon glyphicon-check"></span>
+                            <div>
+                                <div class="text" translate="Allemployeesofthisdepartmenthavecurrentlysignature"></div>
+<!--                                <div class="additionaltext">Einige Mitarbeiter haben noch keine oder eine veraltete Version der Signatur eingebunden.
+                                </div>-->
+                             </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+<div ng-show="!data.groupDetail.activeSignature" class="content">
+     <div  class="flex topnavrow">
+                    <select ng-change="updateSelectedSignature('{{signatureData.selectedSignature}}')" ng-model="signatureData.selectedSignature" class="form-control exampleempselect input-sm  leftbutton">
+                        <option value="" translate="choosesignature"></option>
+                        <option ng-repeat="item in signatureData.signatures" value="{{item.id}}">{{item.title}}</option>
+                    </select>
+                                 
+                    <select ng-change="updateSelectedUser()" ng-model="signatureData.selectedEmployee" class="form-control exampleempselect input-sm  leftbutton">
+                        <option ng-repeat="item in groupMembers" value="{{item.id}}">{{item.firstname}} {{item.lastname}}</option>
+                    </select>
+
+                </div>
+    
+    
+     <div class="nodataarea" ng-show="!data.groupDetail.activeSignature">
+                            <img src="img/emptystates/redonwhite/r_Signatur_Missing.png">
+                            <div class="rightside">
+                                <div class="placeholderheadlinetext schrift_rot_imp" translate="Thisdivisionisnotyetassignedasignature"></div>
+                                <div class="placeholderdesc" translate="Fromthedropthesignaturethatyouwanttodisplayintheemails"></div>
+                            </div>
+                        </div>
+    
+    
+</div>

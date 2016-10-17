@@ -1,0 +1,872 @@
+.campaign-list-wrapper{
+    padding : 15px;
+}
+
+$rightSideBarWidth : 280px;
+$rightSideBarColor : white;
+
+
+
+//modal
+
+//select method
+/*.employeemodalimport{
+    .modal-body{
+        padding-top : 0 !important;
+        padding-bottom : 0 !important;
+    }
+   
+}*/
+.employeemodal{
+/*    .modal-header{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding-left: 30px;
+        padding-right : 30px;
+        background-color : $dunkelweis;
+        color : $grau;
+        .glyphicon{
+            font-size : 19px;
+            margin-right : 10px;
+        }
+    }
+    .modal-body{
+        padding : 30px;
+        .hint{
+            color : $hellgrau;
+        }
+        
+        
+    }
+    .modal-footer{
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding-left: 30px;
+        padding-right : 30px;
+        background-color : $dunkelweis;
+    }*/
+    .existing{
+        #custom-search-input{
+            border-color : $grau;
+            margin-left : 0;
+            border-width : 1px;
+
+
+            span{
+                background-color : transparent;
+                color : $grau;
+                border-width : 0;
+            }
+            input{
+                padding-right : 0;
+                height : 30px;
+                color : $grau;
+            }
+        }
+        .campaign-list-wrapper{
+            padding : 0;
+            margin-top : 30px;
+            ul{
+                max-height : 300px;
+                height : 300px;
+                overflow-y:auto;
+            }
+            .employees-list-item{
+                background-color : $dunkelweis;
+                min-height : 0;
+                padding : 10px;
+
+                .group-in-emp {
+                    margin-top : 0;
+                }
+                .title:hover{
+                    text-decoration : none;
+                    cursor: auto;
+                }
+                img{
+                    $size : 40px;
+                    width :  $size;
+                    min-width :  $size;
+                    max-width :  $size;
+                    height: $size;
+                    max-height:  $size;
+                    min-height :  $size;
+
+                }
+            }
+        }
+
+    }
+
+    .selectmethod{
+        @include flex;
+        .choiceitem{
+            text-align : center;
+            background-color : $blau;
+            border-radius : 4px;
+            width : 33%;
+            height : 180px;
+            padding : 15px;;
+            @include flex;
+            >div{
+                margin : auto;
+            }
+            img{
+                $width : 50px;
+
+                width : $width;
+                min-width : $width;
+                max-width : $width;
+            }
+            .text{
+                margin-top : 15px;
+                color : white;
+                font-size : 13px;
+            }
+        }
+        .choiceitem.middlecol{
+            margin-right : 15px;
+            margin-left : 15px;
+        }
+        .choiceitem:hover{
+            .text{
+                color : $grau;
+            }
+
+            cursor : pointer;
+        }
+    }
+
+
+
+
+/*    .import{
+       color : $grau;
+        //import users
+        .btn, a.btn{
+            border-width : 4px;
+        }
+        .downloadbutton{
+                  color : white !important;
+                 background-color : $hellgrau;
+              }
+        
+        .leftcol{
+            text-align : left;
+             padding-bottom : 30px;
+            padding-top : 30px;
+            padding-right : 30px;
+            
+            @media(min-width : $screen-sm-min){
+                padding-right : 30px;
+            }
+             @media(max-width : $screen-sm-min){
+                padding-right : 0;
+            }
+            
+            h4{
+                text-align : center;
+                color : $blau;
+                font-weight: bold;
+                font-size : 23px;
+                font-family : Roboto_condensed_bold;
+                margin-bottom : 50px;
+                margin-top : 30px;
+            }
+            
+            .secondform{
+                margin-top : 30px;
+            }
+            
+             .inputactionbutton{
+            border-color : $blau;
+            background-color : white;
+            color : $blau;
+            border-width : 4px;
+        }
+        .filename{
+            color : $blau;
+        }
+        .excelinfo{
+            font-size : 12px;
+        }
+            
+             .fileupload {
+                
+            position: relative;
+            overflow: hidden;
+            
+        }
+        .fileupload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        
+        .importbutton{
+            margin-top : 20px;
+        }
+        }
+        .rightcol{
+            padding-bottom : 30px;
+            padding-top : 30px;
+            @media(min-width : $screen-sm-min){
+                padding-left : 30px;
+            }
+             @media(max-width : $screen-sm-min){
+                padding-left : 15px;
+            }
+            
+            
+             text-align : left;
+             
+              @media(min-width : $screen-sm-min){
+              border-left : solid 1px #e5e5e5;
+              }
+             
+             h4.importsupportheadline{
+           font-family : Roboto_condensed_light;
+          
+              font-size : 23px;
+            margin-top : 30px;
+         
+             text-align : center;
+                color : $blau;
+        }
+        
+       
+        
+                .importsupportdesc{
+                    
+            font-size : 15px;
+            //color : $hellgrau;
+           //text-align : justify;
+            margin-top : 50px;
+            max-width : 450px;
+        }
+        img{
+            max-width : 85px;
+            width : 85px;
+        }
+        .supportarea{
+              text-align: left;
+            margin-top : 35px;
+            .importsupportcontact{
+          margin-left : 20px;
+            .name{
+                color : $grau;
+                font-size : 18px;
+                font-family : roboto_bold;
+            }
+            .desc{
+                color : $grau;
+                font-size : 13px;
+            }
+            .tel{
+                color : $blau;
+                font-size : 14px;
+                .glyphicon{
+
+                }
+            }
+        }
+            }
+        }
+        
+       
+        */
+      
+       
+
+
+        
+    /*}*/
+
+}
+
+.employeeModal {
+    .modal-dialog{
+        width : 930px;
+        
+        .modal-body{
+            padding : 25px;
+        }
+    }
+}
+
+.employeeDeleteModal{
+    
+    .modal-dialog{
+        max-width : 500px;
+    }
+}
+
+
+#page-content-wrapper{
+    #employeeMainContent{
+        @media (min-width : 1500px){
+            margin-right : $rightSideBarWidth;
+        }
+    }
+}
+
+.trialareashown{    //die leiste oben in der steht wie viel testzeitraum der nutzer noch hat etc
+    .rightSideContent{
+        padding-top : 133px !important;
+    }
+}
+
+.rightSideContent{
+
+    padding : 15px;
+    
+    background-color : $rightSideBarColor;
+    width : $rightSideBarWidth;
+    height : 100%;
+    width : $rightSideBarWidth;
+    position:fixed;
+    right : 0;
+    top : 0;
+        max-height: 100%;
+    overflow-y: auto;
+
+    .user-r-one-selected{
+        .button_area{
+          
+            @include flex;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
+            justify-content: center;
+
+            button.showbutton{
+                /*width : 100%;*/
+                margin-left : 5px;
+
+            }
+            margin-bottom : 15px;
+        }
+
+        .user-top-area-one{
+            margin-top : 35px;
+            img{
+               $size : 50px;
+                    width :  $size;
+                    min-width :  $size;
+                    max-width :  $size;
+                    height: $size;
+                    max-height:  $size;
+                    min-height :  $size;
+            }
+            >div{
+                margin-left : 15px;
+            }
+
+            .name{
+                color : $blau;
+                font-size : 125%;
+                font-family : "Roboto Condensed";
+                font-weight : bold;
+
+            }
+            .email{
+                font-size : 85%;
+                color : $hellgrau;
+                letter-spacing: 0;
+                font-family : roboto_light;
+            }
+
+
+
+        }
+
+        .campaigndetails{
+            .upper{
+                color : $grau;
+                /*font-size : 90%;*/
+                font-weight: bold;
+
+            }
+            margin-top : 3px;
+        }
+
+        .campaignimage{
+            margin-top : 15px;
+        }
+        .nocampaigntext{
+            margin-top : 15px;
+            color : gray;
+        }
+        .rightSideDividertext{
+            color : $hellgrau;
+            font-size : 90%;
+
+        }
+        >button{
+            margin-top : 7.5px;
+        }
+
+        >select{
+            margin-top : 7.5px;
+            background-color: $dunkelweis;
+        }
+
+        .divider{
+            margin-top : 20px !important;
+            margin-bottom : 20px !important;
+        }
+    }
+
+
+
+    .user-top-area-many{
+
+        .deletebutton{
+            margin-top:20px;
+            margin-bottom : 35px;
+        }
+
+        .headline {
+            margin-bottom : 15px;
+            color : $hellgrau;
+            font-size : 90%;
+        }
+
+
+        .selected-list{
+            max-height : 400px;
+            overflow-y:auto;
+
+
+            .multi-sel-em-entry{
+                /*border-bottom : solid 1px #cccccc;*/
+
+                /*margin-bottom : 15px;*/
+                padding-bottom : 15px;
+                img{
+                   $size : 50px;
+                    width :  $size;
+                    min-width :  $size;
+                    max-width :  $size;
+                    height: $size;
+                    max-height:  $size;
+                    min-height :  $size;
+                }
+                >div{
+                    margin-left : 15px;
+                }
+
+                .name{
+                    color : $blau;
+                    font-size : 125%;
+                    font-family : "Roboto Condensed";
+                    font-weight : bold;
+
+                }
+                .email{
+                    font-size : 85%;
+                    color : grey;
+                    letter-spacing: 0;
+                    font-family : roboto_light;
+                }
+            }
+
+
+            /*                .multi-sel-em-entry:last-child
+                            {
+                              border-bottom-width: 0;
+                            }*/
+
+        }
+        >button{
+            margin-top : 7.5px;
+        }
+        select{
+            background-color: $dunkelweis;
+        }
+    }
+
+
+
+ @media(min-width : 1500px){
+        display : block;
+    }
+    @media(max-width : 1500px){
+        display : none;
+    }
+}
+
+/*
+#groupRightSideContent{
+    @media(min-width : 1500px){
+        display : block;
+    }
+    @media(max-width : 1500px){
+        display : none;
+    }
+}*/
+
+
+.employees-list-item {
+    padding: 20px;
+    padding-left: 0;
+    background-color : white;
+    @include flex;
+    margin-bottom : 7.5px;
+    min-height : 80px;
+    border-radius : 4px;
+    >div{
+        .title{
+            color : $blau;
+            font-size : 125%;
+
+            line-height : 1;
+            font-family : 'Roboto Condensed';
+            font-weight: bold;
+
+        }
+        .title:hover{
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+
+        .email{
+            color : $hellgrau;
+            font-size : 85%;
+            line-height : 1;
+            margin-top : 3px;
+            font-family : roboto_light;
+
+        };
+
+        .group-in-emp{
+            font-size : 85%;
+            .glyphicon{
+                margin-right : 5px;
+                font-size : 90%;
+            }
+            margin-top : 6px;
+            color : $grau;
+            font-family : roboto_light;
+        }
+
+
+        /*margin : auto;*/
+        img{
+            width : 100%;
+            max-width : 50px;
+             $size : 50px;
+                    width :  $size;
+                    min-width :  $size;
+                    max-width :  $size;
+                    height: $size;
+                    max-height:  $size;
+                    min-height :  $size;
+
+            display:block;
+            /*margin:auto;*/
+            margin-right : 15px;
+        }
+
+        .upper{
+            font-weight: bold;
+            font-size : 100%;
+            color : $grau;
+        }
+        .nocampaign{
+            font-weight: bold;
+            color : $rot;;
+        }
+        .down{
+            font-size : 85%;
+            color : $hellgrau;
+        }
+        .kampagnelabel{
+            font-size : 85%;
+            color : $hellgrau;
+        }
+    }
+
+    .campaigndetails{
+        /*font-size : 90%;*/
+        color : $grau;
+        @include flex;
+        span{
+            margin-top : auto;
+            margin-bottom: auto;
+        }
+    }
+    .statsitem{
+        .upper{
+
+            color : $blau;
+        }
+    }
+
+
+
+}
+
+.employees-list-item.selected{
+    background-color : $dunkelweis;
+
+}
+
+
+
+.employee-details{
+    .profile-picture-details{
+        max-width : 40px !important;
+        width : 40px !important;
+        min-width : 40px !important;
+        height : 40px !important;
+        min-height : 40px !important;
+        max-height : 40px !important;
+    }
+    
+    .userdata{
+         .infoentries{
+           
+            .infoentry{
+                margin-right : 50px;
+                
+                
+                 select{
+                    width : 250px;
+                }
+            
+                input{
+                    width : 250px;
+                }
+                
+            }
+        }
+    }
+    
+    .signature{
+    
+    
+                .row{
+                    margin-left : 0;
+                    margin-right : 0;
+                    margin-top : 25px;
+                        @include flex;
+                    
+                    .leftcol{
+                        padding-left : 0;
+                         border-right : 1px solid $hellweis ;
+                        .previewarea{
+
+                        }
+                    }
+                    .rightcol{
+                        padding-right : 0;
+                        .infobox{
+                            margin-top : 20px;
+                        }
+                    }
+
+
+                }
+}
+    
+    .campaign{
+        .cmptitle{
+            .color-rect{
+                height: 11px;
+                width: 4px;
+                display: inline-block;
+               
+            }
+            .title{
+                font-family: roboto_medium;
+                font-size: 16px;
+                color: #009fe3;
+                letter-spacing: 0.5px;
+                color: #45474a;
+                font-family: roboto_medium;
+                display: inline-block;
+                max-width: 85%;
+            }
+        }
+        
+         .row{
+                    margin-left : 0;
+                    margin-right : 0;
+                    margin-top : 25px;
+                        @include flex;
+                    
+                    .leftcol{
+                        padding-left : 0;
+                         border-right : 1px solid $hellweis ;
+                         
+                         
+                         img{
+                             margin-top : 10px;
+                         }
+                      
+                    }
+                    .rightcol{
+                        padding-right : 0;
+                        .infobox{
+                            margin-top : 20px;
+                        }
+                    }
+
+
+                }
+    }
+    
+    
+    
+    
+/*    img{
+        margin-top : 10px;
+        width : 60px;
+    }*/
+
+/*    .overflowxhidden{
+        margin-top : 10px;
+        .title{
+            font-size : 225%;
+            color : $blau;
+            font-weight : bold;
+            line-height: 1;
+            font-family : "Roboto Condensed";
+        }
+        .email{
+            color : $grau;;
+            font-family : roboto_light;
+            font-size : 105%;
+            line-height : 1;
+        }
+    }*/
+
+
+/*    .divider{
+        margin-top : 30px !important;
+        margin-bottom : 20px !important;
+    }*/
+
+/*    .grouptext{
+        color : $hellgrau;
+        margin-top : 15px;
+        font-size : 90%;
+    }
+    select {
+        margin-top : 10px;
+        background-color : $dunkelweis;
+    }*/
+
+/*    button{
+        margin-top : 15px;
+    }*/
+
+}
+
+
+.employee-detail-campaign{
+
+    .campaigndetails{
+        margin-top:15px;
+    }
+
+    img{
+        display : block;
+        margin-top : 15px;
+        margin-bottom : 15px;
+    }
+    .title{
+        color : $grau;
+        font-weight : bold;
+    }
+    .url{
+        color : $grau;
+        font-size : 90%;
+        font-family : roboto_light;
+    }
+    .graph-dot{
+        height : 10px;
+        min-height : 10px;
+        max-height : 10px;
+        width : 10px;
+        min-width : 10px;
+        max-width : 10px;
+    }
+    .info-area{
+        color : $grau;
+        font-size : 90%;
+        font-family : roboto_light;
+        div{
+            margin-left : 7.5px;
+        }
+
+        /*        span{
+                    font-size : small;
+                }*/
+    }
+}
+.employee-detail-stat{
+    
+    .status{
+          margin : auto;
+          margin-top : 55px;
+          text-align : center;
+         //aktiv / inaktiv image
+        img{
+          
+            $size : 90px;
+            width :  $size;
+            max-width :  $size;
+            min-width : $size;
+        }
+        .statustext{
+            margin-top : 10px;
+            font-weight : bold;
+        }
+    }
+    
+   
+    
+    /*padding-top : 15px !important;*/
+/*    .wrapper{
+        >div{
+                        padding : 0;
+        }
+
+    }*/
+/*    .upper{
+                     font-weight: bold;
+                     font-size : 100%;
+                     color : $grau;
+        font-size : 225%;
+        color : $blau;
+        font-weight : bold;
+        line-height: 1;
+        font-family : "Roboto Condensed";
+    }
+    .down{
+        color : $hellgrau;
+        font-size : 85%;
+        font-family : roboto_light;
+    }*/
+
+/*    .wrapper{
+        margin-top : 15px;
+        width : 100%;
+    }
+
+    .statsitem{
+        width : 33.3%;
+    }*/
+}
+
+ 

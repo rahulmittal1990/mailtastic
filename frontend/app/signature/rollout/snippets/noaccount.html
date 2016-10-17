@@ -1,0 +1,24 @@
+<div> 
+    <div class="infobox infobox-success" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="hasbeensuccessfullysaved"></normal></div>
+
+        </div>
+    </div>
+    <div class="infobox infobox-error full-width-imp" >
+        <span class="symbol glyphicon glyphicon-alert"></span>
+        <div class="contentarea">
+            <div class="text"><strong translate="TorollsinglesignaturewillneedanactiveMailtasticfare"></strong></div>
+            <div class="sigpreview martop20 marbot20" ng-bind-html="signatureData.sigHtml" >
+
+            </div>
+            <div class="additionaltext" translate="WouldenableunlimiteduseyournewsignatureMailtasticfare"></div>
+        </div>
+    </div>
+    <div role="separator" class="line"></div>  
+    <div  class="flex-center-left">
+        <button  type="submit" ui-sref="base.booking" class="btn ownbtn btnblau leftbutton" translate="BookMailtasticfarenow"></button> 
+        <button  type="submit" ui-sref="base.signaturedetails({signatureId: signatureData.id})" class="btn ownbtn btngrau " translate="rollLater"></button> 
+    </div>
+</div> 

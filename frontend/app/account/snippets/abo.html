@@ -1,0 +1,242 @@
+
+
+
+<div ng-show="subscriptiondata.status !== 'ongoing' && userdata.hasForce !== true" class="infobox infobox-error full-width-imp" >
+    <span class="symbol glyphicon glyphicon-alert"></span>
+    <div>
+        <div class="text" translate="Therearenoinvoicesavailable"></div>
+
+    </div>
+</div>
+<div ng-show="userdata.hasForce === true" class="infobox infobox-success full-width-imp" >
+    <span class="symbol glyphicon glyphicon-info-sign"></span>
+    <div>
+        <div class="text"><normal translate="pleasecontactusunderbilling@mailtasticdeor"></normal> {{strings.supportdata.supporttelnr}}.</div>
+
+    </div>
+</div>
+
+<div ng-show="subscriptiondata.status !== 'ongoing' && userdata.hasForce === false" class="flex-center-right">
+    <button type="submit" ui-sref="base.booking" class="btn ownbtn btngreen" translate="bookSUBSCRIPTION"></button> 
+</div>
+
+<div ng-show="subscriptiondata.status === 'ongoing'">
+    <div class="flex" style="margin-bottom : 20px;">
+        <div style="margin:auto;margin-left : 0;" class="format2" translate="1yourcurrentproduct"></div>
+        <!--<div style="margin:auto;margin-right : 0;font-family: roboto_regular;" class="format2">FAQ - Abo buchen</div>-->    
+    </div>
+    <div class="productcontainer container-fluid flex">
+        <!--<div class="row">-->
+        <div class="col-lg-6 flex firstcol">
+            <!--<input type="checkbox" class="input">-->
+
+
+            <div class="checkbox">
+                <label><input ng-disabled="true"  type="checkbox" value="" checked="true"></label>
+            </div>
+
+            <div class="text">  
+                <div class="headline">Start</div>
+                <div class="price" translate="249peruserpermonth"></div>
+                <div class="details" translate="withannualbilling3monthly">
+                    </div>
+                <div class="smalldetails" translate="Basicfee1500permonth">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 secondcol">
+            <div class="headline" translate="IdealEmailSignatureMarketing"></div>
+            <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="Completeevaluation"></normal></div>
+            <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="DedicatedSupport"></normal></div>
+            <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="integrationassistance"></normal></div>
+            <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="Unlimitedcampaigns"></normal></div>
+            <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="Unlimiteddepartments"></normal></div>
+        </div>
+
+        <!--</div>-->
+
+    </div>
+
+    <div role="separator" class="line"></div>
+
+    <div class="format2" translate="2UserLicenses"></div>
+    <div class="empcount flex">
+        <div class="left">
+            <div class="up"><normal translate="Totalvotesexc"></normal> {{pricedata.currentAmountOfUsers}}</div>
+            <!--<div class="down">Gesamt : {{pricedata.totalUsers}} | Inklusive: {{pricedata.amountOfIncluded}}</div>-->
+            <div class="down" translate="5userlicensesareincludedthebasicfee"></div>
+        </div>
+        <div class="right">
+            <div class="up" translate="AdditionalUsersmayduringtheruntimebooked">
+            </div>
+            <div class="down" translate="Forsubscriptionadditionaldeletedusers">
+               
+            </div>
+        </div>
+    </div>
+
+    <div ng-hide="isCustomPrice === true" role="separator" class="line"></div>   
+    <div ng-hide="isCustomPrice === true" class="format2" translate="3Currentaccountingperiod"></div>
+
+
+
+    <div ng-hide="isCustomPrice === true" class="radio">
+        <label><input   type="radio" ng-model="subscriptiondata.billing_interval" value="yearly"  name="duration" translate="Annualsubscriptionget17discount"></label>
+    </div>
+    <div ng-hide="isCustomPrice === true" ng-hide="config.hideMonthlyInterval" class="radio">
+        <label><input   type="radio" ng-model="subscriptiondata.billing_interval" value="monthly" name="duration" translate="Monthlysubscription"></label>
+    </div>
+
+
+
+    <div ng-hide="isCustomPrice === true" ng-hide="$scope.isCustomPrice === true" class="hint" translate="Thetermisterminatedinwriting">
+        
+    </div>
+
+    <div ng-hide="isCustomPrice === true" ng-hide="config.hideMonthlyInterval"  style="margin-top : 20px;">
+
+        <form class="flex-center-right" name="durationform">
+
+            <div style="max-width : 300px;margin:auto;margin-left: 0;" class="checkbox">
+                <label><input ng-model="invoicedata.agbaccepted" type="checkbox" value="true" required="true" translate="Ihavetheseconditionsandacceptthem"></label>
+            </div>
+
+
+
+            <button type="submit" ng-click="durationform.$valid && invoicedata.agbaccepted == true && changePaymentInterval()" class="btn ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="saveChanges"></normal></button> 
+        </form>  
+    </div>
+
+
+
+
+    <!--<button type="submit" ng-click="changePaymentInterval()" class="btn ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Änderungen speichern</button>--> 
+
+    <div role="separator" class="line"></div> 
+
+
+
+    <div class="flex" style="margin-bottom : 20px;">
+        <div style="margin:auto;margin-left : 0;" class="format2" translate="4Currentbillingaddress"></div>
+
+    </div>
+
+    <form name="invoiceForm">
+        <div class="row pos_relative">
+
+            <div class="col-lg-5  col-md-5 " >
+                <div class="form-group">
+                    <label class=""  translate="CompanyStar"></label>
+                    <input ng-model="invoicedata.company" type="text" class="form-control input-sm"  placeholder="" required="true">
+                </div>
+                <div class="form-group">
+                    <label class="" translate="StreetPOBox"></label>
+                    <input ng-model="invoicedata.street" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+                    <!--<div class="hint">Straße, Postfach</div>-->
+                </div>
+                <div class="form-group">
+                    <label class="" translate="PLZStar"></label>
+                    <input ng-model="invoicedata.zip" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+                </div>
+
+                <div class="form-group">
+                    <label class="" translate="TitleStar"></label>
+                    <select ng-model="invoicedata.gender" class="form-control  input-sm"  required="true">
+                        <option value="male" translate="Lord"></option>
+                        <option value="female" translate="Mrs"></option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label class=""  translate="FirstgivennameStar"></label>
+                    <input ng-model="invoicedata.first_name" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+                </div>
+                <div ng-show="false"  class="form-group">
+                    <label class="" translate="title"></label>
+
+                    <input ng-model="invoicedata.title" type="text" class="form-control  input-sm"  placeholder="" >
+
+                </div>
+
+                <div style="margin-bottom : 0;" class="form-group">
+                    <label class="" translate="EmailaddressAccounting"></label>
+                    <input ng-change="emailChanged()"  type="email" ng-model="isaacAccountData.email" class="form-control  input-sm"  placeholder="" required="true">
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5 col-md-5 ">
+
+                <div class="form-group">
+                    <label class=""  >Umsatzsteuer-ID</label>
+                    <input ng-model="invoicedata.ustid" type="text" class="form-control  input-sm"  placeholder="" >
+                </div>
+
+
+                <div class="form-group">
+                    <label class=""  translate="CityTown"></label>
+                    <input ng-model="invoicedata.city" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+                </div>
+
+<!--                <div class="form-group">
+                    <label class=""  >Land*</label>
+                    <input ng-disabled="true"  value="Deutschland" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+                </div>-->
+                
+                
+                <div class="form-group">
+            <label class=""  translate="CountryStar"></label>
+             <select ng-change="calcPrice()" ng-model="invoicedata.country" class="form-control  input-sm"  required="true">
+                <option value="DE" translate="Germany"></option>
+                <option value="AT" translate="Austria"></option>
+                <option value="CH">Switzerland</option>
+                <option value="IT">Italy</option>
+                <option value="BE">Belgium</option>
+                <option value="NL">Netherlands</option>
+                <option value="FR">France</option>
+                <option value="GB">United Kingdom</option>
+                <option value="PL">Poland</option>
+            </select>
+        </div>
+                
+                <div style="visibility: hidden;" class="form-group">
+                    <label class=""  translate="CountryStar"></label>
+                    <input ng-disabled="true"  value="Deutschland" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+                </div>
+               
+                <div style="margin-bottom : 0;" class="form-group">
+                    <label class="" translate="SurnameStar"></label>
+                    <input type="text" ng-model="invoicedata.last_name" class="form-control  input-sm"  placeholder=""  required="true">
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+        <div class="flex-center-right">
+
+
+            <button type="submit" ng-click="invoiceForm.$valid && changeInvoiceInfo()" class="btn ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="saveChanges"></normal></button> 
+        </div>
+    </form>
+
+
+    <div role="separator" class="line"></div>   
+    <div class="format2" translate="5Selectapaymentmethod"></div>
+
+    <div class="radio">
+        <label><input type="radio" checked="true" name="paymethod" translate="bill"></label>
+    </div>
+    <div style="margin-top : 5px;" class="hint" translate="Morepaymentoptionswillbeavailablesoon"></div>
+
+
+    <div role="separator" class="line"></div> 
+
+
+
+
+</div>

@@ -1,0 +1,122 @@
+<div id="groupcomp" ng-controller="DashboardCtrl.groupStatstics" class="top3groupcomp panel custompanel group-compare-panel">
+    <div class="panel-heading">
+        <h5 class="panelheading" translate="Statisticsdepartment"></h5>
+        <!--<button type="button" class="btn btn-sm actionbutton">Gruppe erstellen</button>-->
+        <div class="btn-group" role="btn-group">
+            <button ng-class="(groupButtonSelectionPieGraph.views==true ? 'darkbutton' : '' )" type="button" ng-click="changeStatSource('views')" class="btn btn-default smallfontgroupb">{{labels.views}}</button>
+            <button ng-class="(groupButtonSelectionPieGraph.clicks==true ? 'darkbutton' : '' )" type="button" ng-click="changeStatSource('clicks')" class="btn btn-default smallfontgroupb">{{labels.clicks}}</button>
+            <button ng-class="(groupButtonSelectionPieGraph.rate==true ? 'darkbutton' : '' )" type="button" ng-click="changeStatSource('rate')" class="btn btn-default smallfontgroupb">{{labels.rate}}</button>
+        </div>
+    </div>
+    <div cg-busy="loadingPromise" class="panel-body ">
+
+        <div class="nodataarea dashboardgroups" style="min-height : 300px;" ng-show="pieGraph.data.series.length === 0">
+            <img src="img/emptystates/lightonwhite/w_Statistic_Missing.png">
+            <div class="rightside">
+                <div class="placeholderheadlinetext" translate="Currentlyarenodata"></div>
+                <div class="placeholderdesc" translate="Oncefirstdataareavailable"></div>
+                <!--<button  ng-click="open()" ng-controller="CampaignModalCtrl"   type="button" class="btn btn-sm actionbutton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kampagne erstellen</button>-->
+
+            </div>
+        </div>
+
+
+
+        <div class="row row-eq-height-lg" style="margin:0;min-height : 300px;" ng-show="pieGraph.data.series.length !== 0">
+            <div class="col-lg-5 col-md-5 col-sm-5 piechart-col">
+                <chartist style="height:100%;width : 100%;" class="ct-chart" chartist-data="pieGraph.data" chartist-events="pieGraph.events" chartist-chart-options="pieGraph.options" chartist-chart-type="Pie"></chartist>
+
+
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 progress-bar-col">
+                <!--<div align="center" style="text-align: center;" class="progressbar_area">-->
+
+                <div class="full-width">
+                    <div class="bar_areas">
+                        <div ng-show="(pieGraph.currentShown ==='views')">
+
+                            <div ng-repeat="item in pieGraph.progressViews">
+                                <div class="progress_title">
+                                    <span>#{{$index +1}} <span class="glyphicon glyphicon-folder-open groupgraphglyph" aria-hidden="true"></span> <span class="grouptitle"> {{item.title}}</span> ({{item.amountOfMembers}})</span><!--<span>100%</span> -->
+                                    <span ng-show="toggleButton.value === false" class="total_number">{{item.anzahl}}</span>
+                                    <span ng-show="toggleButton.value === true" class="total_number"> {{((item.anzahl / pieGraph.accumulatedViews) * 100) | number:2}} %</span>
+
+                                </div>
+                                <div class="progress">
+
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{Math.floor((item.anzahl / pieGraph.accumulatedViews) * 100)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Math.floor((item.anzahl / pieGraph.accumulatedViews) * 100)}}%;background-color: {{item.color}};">
+                                        <!--{{((item.anzahl / pieGraph.accumulatedViews) * 100) | number:2}} %-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="(pieGraph.currentShown ==='clicks')">
+
+                            <div ng-repeat="item in pieGraph.progressClicks">
+                                <div class="progress_title">
+                                    <span>#{{$index +1}} <span class="glyphicon glyphicon-folder-open groupgraphglyph" aria-hidden="true"></span><span class="grouptitle"> {{item.title}}</span> ({{item.amountOfMembers}})</span><!--<span>100%</span> -->
+                                    <span ng-show="toggleButton.value === false" class="total_number">{{item.anzahl}}</span>
+                                    <span ng-show="toggleButton.value === true" class="total_number"> {{((item.anzahl / pieGraph.accumulatedClicks) * 100) | number:2}} %</span>
+
+                                </div>
+                                <div class="progress">
+
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{Math.floor((item.anzahl / pieGraph.accumulatedClicks) * 100)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Math.floor((item.anzahl / pieGraph.accumulatedClicks) * 100)}}%;background-color: {{item.color}};">
+                                        <!--{{Math.floor((item.anzahl / pieGraph.accumulatedClicks) * 100)}} %-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="(pieGraph.currentShown ==='rate')">
+
+                            <div ng-repeat="item in pieGraph.progressRate">
+                                <div class="progress_title">
+                                    <span>#{{$index +1}} <span class="glyphicon glyphicon-folder-open groupgraphglyph" aria-hidden="true"></span> <span class="grouptitle"> {{item.title}}</span> ({{item.amountOfMembers}})</span><!--<span>100%</span> -->
+                                    <span ng-show="toggleButton.value === false" class="total_number">{{item.anzahl | number:2}}</span>
+                                    <span ng-show="toggleButton.value === true" class="total_number"> {{((item.anzahl / pieGraph.accumulatedRate) * 100) | number:2}} %</span>
+
+                                </div>
+                                <div class="progress">
+
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{Math.floor((item.anzahl / pieGraph.accumulatedRate) * 100)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Math.floor((item.anzahl / pieGraph.accumulatedRate) * 100)}}%;background-color: {{item.color}};">
+                                        <!--{{Math.floor((item.anzahl / pieGraph.accumulatedRate) * 100)}} %-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <form ng-hide="((pieGraph.currentShown ==='views') && pieGraph.progressViews.length === 0) ||
+                                      ((pieGraph.currentShown ==='clicks') && pieGraph.progressClicks.length === 0) ||
+                                      ((pieGraph.currentShown ==='rate') && pieGraph.progressRate.length === 0)" class="flex-center-all switchform">
+                        <div>Absolut</div>
+                        <switch id="enabled" name="enabled" ng-model="toggleButton.value" class="green"></switch>
+                        <div>Relativ</div>
+                        <!--<br>{{ enabled }}-->
+                    </form>
+                </div>
+
+                <!--                        <div class="toggle-area">
+                                        <p>Absolut | Relativ </p>
+                                        <input
+                                        bs-switch
+                                        ng-model="toggleButton.value"
+                                        type="checkbox"
+                                        switch-off-color="primary"
+                                        switch-on-color="primary"
+                                        switch-size="mini"
+                                        switch-label="{{(toggleButton.value == 'relative' ? 'Absolut' : 'Relativ')}}"
+                                        switch-on-text="Relativ"
+                                        switch-off-text="Absolut"
+                                        ng-true-value="'relative'"
+                                        ng-false-value="'absolute'"/>
+                                      </div>-->
+            </div>
+
+        </div>
+    </div>
+</div>

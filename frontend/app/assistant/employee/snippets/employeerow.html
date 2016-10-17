@@ -1,0 +1,49 @@
+    <!--table-->
+    <div ng-click="rowClicked(item)"   ng-class="getSelectedClass(item)" class="tablerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in data.employees | filter:filterText">
+        <div class="cell select">
+            <input name="selected" class="link" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);
+                $event.stopPropagation();"  type="checkbox">
+        </div>
+        <div class="cell emp  empnamecol">
+            <div class=" flex-center-left">
+            <img class="img-circle profile-picture-list hidden-xs" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1))}}" />
+
+                <div>
+                    <div class="upper schrift_blau">
+                      {{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}
+
+                    </div>
+
+                    <div class="down">{{item.email}}</div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="cell emp empgroup">
+            <div  class="upper">{{item.groupTitle}}</div>
+          
+            <div class="down" translate="Department"></div>
+        </div>
+        <div class="cell emp  cmptitlecol emp">
+            <div ng-show="item.campaignTitle">
+                <div class="color-rect" style="background-color : {{item.campaignColor}}"></div>
+                <div  class="title">{{item.campaignTitle}}</div>
+            </div>
+              <div ng-show="!item.campaignTitle" tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie der Abteilung des Mitarbeiters eine Kampagne zu" class="nocampaign text-rot text-bold" ><span style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> <normal translate="Unassigned"></normal></div>
+       
+            <div class="down" translate="campaign"></div>
+        </div>
+        <div class="cell emp  status">
+            <div tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Sofern der Abteilung des Mitarbeiters eine Kampagne zugewiesen ist, wird der entsprechende Kampagnen-Banner in der E-Mail-Signatur des Mitarbeiters angezeigt" style="white-space: nowrap;margin-left : 0;" ng-show="item.views > 0" class="schrift_gruen margin-auto upper"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="active"></normal></div>
+            <div tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Der Mitarbeiter hat den Kampagnen-Banner noch nicht in seine E-Mail-Signatur eingebunden" style="white-space: nowrap;margin-left : 0;" ng-show="item.views === 0" class="schrift_rot margin-auto upper"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <normal translate="Inactive"></normal></div>
+       
+            <div class="down">Status</div>
+        </div>
+        
+       
+    </div>
+        <div style="width : 100%;" ng-show="data.employees.length === 0" class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text"><normal translate="Thereemployeewhocanbeassignedtothegroup"></normal> <div class="additionaltext"><normal translate="Notegrouparenotdisplayed"></normal></div></div>
+
+        </div>

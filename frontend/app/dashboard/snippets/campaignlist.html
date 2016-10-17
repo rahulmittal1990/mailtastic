@@ -1,0 +1,54 @@
+<div class="panel custompanel">
+    <div class="panel-heading button-panel-header">
+        <h5 class="panelheading" tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Aktiv sind solche Kampagnen, die mindestens einer Abteilung zugeordnet sind" translate="Activecampaigns"> ({{activeCampaigns.length}})</h5>
+        <button ui-sref="base.assistant({state : 'campaign_createnew'})" type="button" class="btn btn-sm actionbutton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><normal translate="Createcampaign"></normal></button>
+
+    </div>
+    <div class="panel-body campaign-list-panel-body">
+        <div style="max-height: 290px;">
+            <div class="nodataarea  centered-axis-xy" ng-show="activeCampaigns.length === 0">
+                <img src="img/emptystates/lightonwhite/w_Campaign_Missing.png">
+                <div class="rightside">
+                    <div class="placeholderheadlinetext" translate="Youcurrentlyhavenoactivecampaign"></div>
+                    <div class="placeholderdesc" translate="Nowcreateacampaignandassignthem"></div>
+                    <button ui-sref="base.assistant({state : 'campaign_createnew'})" type="button" class="btn btn-sm actionbutton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><normal translate="Createcampaign"></normal></button>
+
+                </div>
+            </div>
+            <ul class="no_padding">
+                <li ng-repeat="item in activeCampaigns" class="campaign-list-item cursor-pointer" ui-sref="base.campaigns.campaigndetail({campaignId: item.id})">
+                    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        <img ng-src="{{item.image}}" />
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-9 title-area flex-center-left">
+
+                        <div>
+                            <div class="upper"><div class="link title">{{item.title}}</div></div>
+
+                            <div class="campaigndetails">
+                                <span class="graph-dot" style="background-color : {{item.color}}"></span>
+                                <span>Vom {{item.createdAt| date:"dd.MM.yyyy"}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs statsitem no_padding">
+                        <span class="upper">{{item.views}}</span>
+                        <br />
+                        <span class="down">{{labels.views}}</span>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs statsitem no_padding">
+                        <span class="upper">{{item.clicks}}</span>
+                        <br />
+                        <span class="down">{{labels.clicks}}</span>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 statsitem no_padding">
+                        <span class="upper">{{(item.views === 0|| item.clicks===0) ? 0 : (item.clicks / item.views)*100 | number:2}}%</span>
+                        <br />
+                        <span class="down">{{labels.rate}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

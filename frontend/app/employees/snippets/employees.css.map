@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,sBAAsB;EACpB,OAAO,EAAG,IAAI",
+"sources": ["employees.scss"],
+"names": [],
+"file": "employees.css"
+}

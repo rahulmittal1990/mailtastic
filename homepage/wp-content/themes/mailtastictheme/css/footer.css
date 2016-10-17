@@ -1,0 +1,89 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04.05.2016, 14:38:02
+    Author     : Andi
+*/
+
+
+/**
+ * 	FOOTER
+ */
+footer {
+  background-color: #2f373e;
+  color: white;
+  background-image: none;
+  /*height:100px;*/
+  padding-top: 40px;
+  font-size : 14px;
+  padding-bottom: 40px }
+  footer img {
+    max-width: 100%; }
+  footer img.social {
+    max-width: 45px; }
+  footer img.social.second {
+    margin-top: 10px; }
+  footer img.madeingermany {
+    max-width: 200px;
+    margin-top: 30px; }
+  footer .footerlink {
+    color: white;
+    font-family: roboto_light }
+    footer .footerlink a {
+      color: white; }
+    footer .footerlink a:hover {
+      text-decoration: underline; }
+  footer .footerlink.notfirst {
+    margin-top: 15px; }
+  @media (max-width: 768px) {
+    footer .col-xs-12 {
+      margin-top: 30px;
+      text-align: center; } }
+
+.footer-link:link {
+  color: white; }
+
+.footer-link:visited {
+  color: white; }
+
+.footer-link:hover {
+  color: white; }
+
+.footer-link:focus {
+  color: white; }
+
+.footer-link:active {
+  color: white; }
+
+.footer-link:visited:hover {
+  color: white; }
+
+
+
+
+/*
+
+STICKY FOOTER
+*/
+* {
+	margin: 0;
+}
+html, body {
+      
+	height: 100%;
+          overflow-x : initial;
+}
+.wrapper {
+         overflow-x : hidden;
+    
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -205px;    /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 205px; /* .push must be the same height as .footer */
+}

@@ -1,0 +1,49 @@
+
+
+<div>
+
+
+    <div class="format1 innerheadline" translate="Selectexistingdepartment">
+    </div>
+
+    <div style="width : 100%;" role="separator" class="line"></div>  
+
+
+    <div class="format2" translate="WhichdepartmentsYoursignatureshoulddisplayed"></div>
+
+    <div class="flex-center-left">
+       <div ng-click="selectAllOuter()"
+                    class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px;">
+            <!--<div class="checkbox no-margin">-->
+                <!--<label>-->
+                    <input ng-click="selectAll($event);$event.stopPropagation();" ng-checked="isSelectedAll()" class="innercheckbox" type="checkbox" >
+                <!--</label>-->
+            <!--</div>-->
+            <span class="margin-auto" translate="selectall"></span> 
+        </div>
+         <div  class="input-group searchfield">
+            <input ng-model="filterText" type="text" class="form-control input-sm nooutline" placeholder="Abteilung suchen" aria-describedby="basic-addon2">
+            <span class="input-group-addon glyphicon glyphicon-search" ></span>
+        </div>
+             <div class="format3 hidden-xs" style="max-width: 400px; margin-left: 10px;" translate="Departmentsalreadybeenallocatedincludedlist">
+        </div>
+  
+    </div>
+
+
+    <div style="min-height : {{config.listheight}}px;max-height : {{config.listheight}}px;" class="tablewrapper" ng-include src="'assistant/group/snippets/grouprow.html'">
+        
+    </div>
+
+
+
+    <div role="separator" class="line" style="width : 100%;"></div> 
+
+
+    <div class="flex-center-right">
+
+        <div ng-click="cancel()" class="ownbtn btngrau leftbutton" translate="abort"></div> 
+        <div ng-click="setSignatureForGroups()" class="ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="AssignSelectedDepartments"></normal></div> 
+    </div>
+</div>
+

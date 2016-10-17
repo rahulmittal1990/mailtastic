@@ -1,0 +1,249 @@
+
+
+
+<div class="container accountcontainer">
+    <!--<div class="row">-->
+
+
+    <div class="panel">
+        <div class="panel-heading clearfix">
+
+            <div class="heading-area">
+                <h1 class="roboto_slap_light" translate="preferences"></h1>
+            </div>
+
+        </div>
+
+
+        <div cg-busy="loadingPromise"  class="panel-body">
+
+            <div class="headline secondheadline">ADMINISTRATION</div>
+
+
+
+            <form class="form-horizontal">
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="company"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.companyName" type="text" class="form-control"  placeholder="Unternehmen">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="firstgivenname"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.firstname"  type="text" class="form-control"  placeholder="Vorname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="Surname"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.lastname"  type="text" class="form-control"  placeholder="Nachname">
+                    </div>
+                </div>
+            </form>
+
+            <div style="max-width:30px;" role="separator" class="divider"></div> 
+
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="Emailaddress"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.email" ng-disabled="true"  type="text" class="form-control"  placeholder="E-Mail-Adresse">
+                    </div>
+                </div>
+            </form>
+
+            <div style="max-width:30px;" role="separator" class="divider"></div> 
+
+
+            <form class="form-horizontal lastform">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="CurrentpasswordReq"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.password"  type="text" class="form-control"  placeholder="Passwort">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label"></label>
+                    <div class="col-sm-7">
+                        <p><normal translate="ForgotPassword"></normal> <span ng-click="resetPassword()" class="link text-underline"><normal translate="Resetnow"></normal></span></p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="NewPassword"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.newpassword"  type="password" class="form-control"  placeholder="Neues Passwort">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="Repeatpassword"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="userdata.newpasswordrep"  type="password" class="form-control"  placeholder="Passwort wiederholen">
+                    </div>
+                </div>
+            </form>
+            
+            
+            
+            <form class="form-horizontal buttonform">
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="Save"></label>
+                    <div class="col-sm-7">
+                   <button ng-click="updateAccountData()" ng-disabled="!userdata.password" type="password" class="btn actionbutton btn-block" translate="saveChanges"></button>
+                 </div>
+                </div>
+                
+                
+<!--                <label class="col-sm-5 control-label">Anrede:</label>
+                <div class="col-sm-7">
+                <button type="submit" class="btn">Abbrechen</button>
+                </div>-->
+            </form>
+
+            <div style="max-width:450px;" role="separator" class="divider"></div> 
+           
+            <!--<button ng-click="testAction()" type="password" class="btn actionbutton">PAYMENT TESTACTION</button>-->
+            
+            
+            <div class="headline firstheadline">TARIFINFORMATIONEN</div>
+            <div ng-show="subscriptiondata.status !== 'ongoing'" class="schrift_rot" translate="Currentlynoactivesubscription"></div>
+            <div ng-show="subscriptiondata.status === 'ongoing'">
+                <div>Tarif: {{plandata.product_name}} {{plandata.plan_name}}</div>
+                <div><normal translate="licensesStar"></normal> {{subscriptiondata.additions[0].quantity}}</div>
+                <div><normal translate="Licensesfromnextbilling"></normal> {{subscriptiondata.additions[0].next_quantity}}</div>
+                <div><normal translate="IntervalExc"></normal> {{subscriptiondata.billing_interval}}</div>
+                <div><normal translate="paymentmethodexc"></normal> {{paymentdata.payment_method}}</div>
+            </div>
+            <div class="headline firstheadline" translate="PAYMENTINFORMATION"></div>
+
+            <form name="invoiceform" class="form-horizontal firstform">
+                
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="paymentmethodStar"></label>
+                    <div class="col-sm-7">
+                        <select  class="form-control" ng-disabled="true">
+                                <option value="invoice" translate="OnBill"></option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="TitleStar"></label>
+                    <div class="col-sm-7">
+                        <select ng-model="invoicedata.gender" class="form-control">
+                                <option value="male" translate="Lord"></option>
+                                <option value="female" translate="Mrs"></option>
+                        </select>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="title"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.title"   type="text" class="form-control"  placeholder="">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="FirstgivennameStar"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.first_name"   type="text" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="SurnameStar"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.last_name"   type="text" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>
+<!--                  <div class="form-group">
+                    <label class="col-sm-5 control-label">E-Mail-Adresse*</label>
+                    <div class="col-sm-7">
+                        <input ng-model="paymentdata.email"   type="email" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>-->
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="CompanyStar"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.company"  type="text" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="RoadStar"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.street"   type="text" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="ZipCodereq"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.zip"   type="text" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="CityStar"></label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.city"   type="text" class="form-control"  placeholder="" required="true">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label" translate="country"></label>
+                    <div class="col-sm-7">
+                        <input   value="Deutschland"  type="text" class="form-control"  placeholder="Deutschland" ng-disabled="true">
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Umstatzsteuer-ID</label>
+                    <div class="col-sm-7">
+                        <input ng-model="invoicedata.ustid"  type="text" class="form-control"  placeholder="" >
+                    </div>
+                </div>
+                
+<div ng-hide="subscriptiondata.status === 'ongoing'">
+<div translate="Conditions"> </div>
+<div translate="Accordingourtermsandconditionsconclusionofthesubscription"> </div><br><br>
+<div translate="Mailtasticand4employees15Euro"></div><br><br>
+<div>{{pricedata.amountOfUsers}} <normal translate="Additionalemployeesà"></normal> {{pricedata.perUser}} Euro:  {{pricedata.perUser * pricedata.amountOfUsers}} Euro</div><br><br>
+<div translate="Noteadditionalyourlistofemployees"></div><br><br>
+<div><normal translate="Totalamountexc"></normal> {{pricedata.perUser * pricedata.amountOfUsers + 15.00}} <normal translate="EuroNetto"></normal></div><br><br>
+<div><normal translate="Plus19VAT"></normal> {{ (pricedata.perUser * pricedata.amountOfUsers + 15.00)/100*19  | number:2}} Euro</div><br><br>
+<div><normal translate="Grossinvoiceamountincluding19VAT"></normal> {{(pricedata.perUser * pricedata.amountOfUsers + 15.00) +  (pricedata.perUser * pricedata.amountOfUsers + 15.00)/100*19    | number:2}} Euro</div><br><br>
+<div translate="NumberMonthly"></div>
+<div translate="ContractPeriod1Month"></div>
+<div translate="Thecontractautomaticallycontractcurrentcontractperiod"></div>
+<div translate="SendGmbHRheinallee8855120Mainz"></div>
+</div> 
+
+<div class="checkbox">
+  <label><input ng-model="invoicedata.agbaccepted" type="checkbox" value="true" required="true" translate="Ihavetheseconditionsandacceptthem"></label>
+</div>
+
+
+                <button ng-show="subscriptiondata.status !== 'ongoing'" ng-click="invoiceform.$valid && invoicedata.agbaccepted == true  && placeOrderInvoice()"   class="btn actionbutton btn-block" translate="Chargeableordernow"></button>
+                <button ng-show="subscriptiondata.status === 'ongoing'" ng-click="invoiceform.$valid && invoicedata.agbaccepted == true  && changeInvoiceInfo()"   class="btn actionbutton btn-block" translate="Changebillingaddress"></button>
+              
+                
+            </form>
+            <button style="max-width : 450px;" ng-show="subscriptiondata.status === 'ongoing'" ng-click="cancelPlan()"   class="btn btn-danger btn-block" translate="cancelyoursubscription"></button>
+         
+
+            <div style="max-width:450px;" role="separator" class="divider"></div> 
+
+            
+            <div class="headline firstheadline" translate="BILLS"></div>
+
+            <div class="link text-underline" ng-click="downloadInvoice(item.url)" ng-repeat="item in invoices" target="_blank" >{{(item.billed_at || item.canceled_at) | date:'dd.MM.yyyy'}}</div>
+            <div class="schrift_rot" ng-show="invoices.length === 0" translate="Therearenoinvoicesavailable"></div>
+            <div style="max-width:450px;" role="separator" class="divider"></div> 
+            
+        </div>
+        
+        
+<!--           <button style="max-width : 450px;"  ng-click="add5()"   class="btn btn-danger btn-block">Add 5</button>
+           <button style="max-width : 450px;"  ng-click="remove5()"   class="btn btn-danger btn-block">Remove 4</button>
+         -->
+        
+    </div>
+

@@ -1,0 +1,57 @@
+
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+
+    <div class="modal fade " id="livedemomodal"  tabindex="-1" role="dialog">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content livedemomodal">
+    
+    <div class="modal-header clearfix">
+        <!--<h3 class="modal-title"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> {{modaloptions.heading}}</h3>-->
+        
+        <div class="cursor-pointer pull-right" data-dismiss="modal"  ><span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>  </div>
+    </div>
+    <div  class="modal-body">
+        <div class="row ">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12  textcol" >
+                <div class="headline">
+                    {{livedemoconfig.headline}}
+                </div>
+                <div class="subtext">
+                      {{livedemoconfig.subline}}
+                </div>
+                <div class="flex-center-left kontaktarea">
+                    <img src="img/kontakt/avatare/Avatar_Tao.png"/>
+                    <div class="text">
+                        <div class="name">Tao Bauer</div>
+                        <div class="company">Mailtastic</div>
+                    </div>
+                </div>
+            </div>
+            <div  class="col-lg-5 col-md-5 col-sm-12 col-xs-12 formcol" >
+                        <form>
+                            <div class="form-group">
+                                <label >Name*</label>
+                                <input type="text" class="form-control" ng-model="livedemodata.name" >
+                            </div>
+                            <div class="form-group">
+                                <label >E-Mail*</label>
+                                <input type="text" class="form-control"  ng-model="livedemodata.email" >
+                            </div>
+
+                            <div class="form-group">
+                                <label >Firma</label>
+                                <input type="text" class="form-control"  ng-model="livedemodata.company"  >
+                            </div>
+                    </form>
+                <button ng-disabled="!livedemodata.name || !livedemodata.email" ng-click="sendLiveDemoRequest()" type="button" class="btn btn-lg btn-block actionbutton_green">DEMO ANFORDERN</button>
+            </div>
+        </div>
+    </div>
+
+
+
+          </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

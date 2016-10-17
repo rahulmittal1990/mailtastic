@@ -1,0 +1,97 @@
+<div class="icon-bar">
+	<a href="#" data-install="gmail">
+	<div class="ico-wrap">
+		<img alt="Gmail" height="24" src="img/installation/mailclient_4.png" width="31" />
+	</div> <span>Gmail</span> </a>
+	<a href="#" data-install="outlook-windows">
+	<div class="ico-wrap">
+		<img alt="Outlook (Windows)" height="32" src="img/installation/mailclient_6.png" width="31" />
+	</div> <span>Outlook (Windows)</span> </a>
+	<a href="#" data-install="outlook-mac">
+	<div class="ico-wrap">
+		<img alt="Outlook (Mac)" height="33" src="img/installation/mailclient_5.png" width="33" />
+	</div> <span>Outlook (Mac)</span> </a>
+	<a href="#" data-install="thunderbird">
+	<div class="ico-wrap">
+		<img alt="Thunderbird" height="38" src="img/installation/mailclient_1.png" width="35" />
+	</div> <span>Thunderbird</span> </a>
+	<a href="#" data-install="mac-mail">
+	<div class="ico-wrap">
+		<img alt="Mac Mail" height="38" src="img/installation/mailclient_2.png" width="35" />
+	</div> <span>Mac Mail (Beta)</span> </a>
+	<a href="#" data-install="other">
+	<div class="ico-wrap">
+		<img alt="Other" height="32" src="img/installation/mailclient_3.png" width="31" />
+	</div> <span>Other</span> </a>
+</div>
+
+<div cg-busy="loadingPromise" class="container-fluid installation-wrapper-container">
+	<div class="row">
+
+		<div class="col-lg-6">
+
+			<div  class="image_copy_area"  >
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" translate="instructions"></h3>
+					</div>
+					<div class="panel-body">
+						<ol class="list instructions-list">
+							<li>
+								<h1 translate="Selecttheimageontherightside"></h1>
+								<p translate="Clickonceinordertoselectitontheimage">
+									
+								</p>
+							</li>
+							<li>
+								<h1 translate="Copytheimagetotheclipboard"></h1>
+								<p>
+									<normal translate="imagetothentermediatesystemWindowsPC"></normal> <strong translate="Pleasetherightclickofthemouse"></strong>
+								</p>
+							</li>
+							<li>
+								<h1 translate="CopyyourGmailsignature"></h1>
+								<p>
+									<normal translate="ThesignaturetypeCTRLbottomofthepage"></normal> <strong translate="Pleaseusethekeyboardrightclickofthemouse"></strong>
+								</p>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">HTML Code</h3>
+				</div>
+				<div class="panel-body">
+					<textarea ng-model="htmlSnippet" class="form-control" rows="8" readonly></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title" translate="image"></h3>
+				</div>
+				<div class="panel-body sig-image-area">
+					<div>
+						<div class="image_wrapper">
+							<a ng-click="imageClicked($event)" id="image_installation_link"  href="http://www.app.mailtastic.de:3333/li/69e4c616-77da-11e5-9834-69bc730ee968" style="outline:0 !important;margin:auto;"> <img src="http://www.app.mailtastic.de:3333/im/{{userId}}/ad" border="0" style="max-width:100%;" alt="Latest News + Events" style="color:blue;font-size:12px;"> </a>
+	
+						</div>
+						<div>
+							<p translate="Leftclicktohighlight">
+							
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

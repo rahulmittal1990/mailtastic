@@ -1,0 +1,220 @@
+<!--page shown when user is already connected﻿-->
+
+
+<div class="header">
+    <span translate="settings"></span>
+</div>
+<div class="panel">
+
+    <div class="flex">
+        <div class="leftform">
+
+<!--            <div class="errorInfo" data-ng-if="isSyncDeActivated">
+                 data-ng-if ="isSyncDeActivated"
+                <div class="col-md-1">
+                    <img src="favicon/warning.png" width="25" height="25" style="margin-top: 10px">
+                </div>
+                <div class="col-md-11">
+                    <p>Achtung: Es gibt Nutzer in Ihrem GoogleMail-Account, deren Signaturen nicht über Mailtastic synchronisiert werden! </p>
+                    <p>Aktivieren Sie die Automatische Synchronisierung, um dies zu vermeiden</p>
+                </div>
+            </div>-->
+
+            
+             <div ng-show="isSyncDeActivated" class="infobox infobox-error">
+                        <span class="symbol glyphicon glyphicon glyphicon-alert"></span>
+                        <div class="text">
+                            <strong translate="WarningreconcilingoverMailtastic"></strong>
+                       <div class="additionaltext" translate="Inthelowertheusersandenablesync"></div>
+                        </div>
+
+                    </div>
+            
+            
+             <div class="infobox infobox-success">
+                        <span class="symbol glyphicon glyphicon glyphicon-check"></span>
+                        <div class="text" translate="TheyourGoogleAdminaccountisactive">                       
+             
+                        </div>
+
+                    </div>
+
+
+
+            <div class="format2" translate="ConnectedtoGooglmailaccount"></div>
+
+
+            <div class="info2 clearfix">
+                <div class="col-md-1 pdt5">
+                    <img src="favicon/share3.png" width="25" height="25">
+                </div>
+                <div class="col-md-5">
+                    <span class="format2">{{syncAdminObject.name}}
+                    </span>
+                    <br />
+
+                    <span>{{syncAdminObject.adminEmail}}</span>
+                </div>
+                <div class="col-md-6 pdt5">
+                    <div class="ownbtn btngray leftbutton btntext" data-toggle="modal" data-target="#dgSyncDisconnectModel" data-ng-click="startSyncDisconnect()" translate="solvingconnection"></div>
+                </div>
+
+            </div>
+
+<!--            <div role="separator" class="line"></div>
+
+            <div class="format2">Wie möchten Sie die GoogleMail-Nutzer mit Mailtastic synchronisieren?</div>
+
+            <div class="info3" data-ng-if="companyInfo.isAutomaticSync">
+                <p class="format2light innerheadline">
+                    <input type="checkbox" data-ng-model="companyInfo.isAutomaticSync" />
+                    Automatische Synchronisation (empfohlen) aktivieren
+                </p>
+                <div class="text">
+                    <p>Alle GoogleMail-Nutzer und deren Signaturen werden automatisch mit Mailtastic synchronisiert und auf dem neusten Stand gehalten. Mehr... </p>
+
+                </div>
+            </div>-->
+
+<!--            <div class="info3" data-ng-if="!companyInfo.isAutomaticSync">
+                <p class="format2light innerheadline">
+                    <input type="checkbox" data-ng-init="chbCheck=!companyInfo.isAutomaticSync" data-ng-model="chbCheck" />
+                    Manuelle Synchronisation aktivieren
+                </p>
+                <div class="text">
+                    <p>Alle GoogleMail-Nutzer und deren Signaturen werden automatisch mit Mailtastic synchronisiert und auf dem neusten Stand gehalten. Mehr... </p>
+
+                </div>
+            </div>-->
+
+<!--            <div style="margin-top: 20px;" class="flex ng-scope">
+                <div class="col-md-3 btnnevg" >
+                    <button class="ownbtn btngray btntext leftbutton btnwidth" data-toggle="modal" data-target="#dgSyncUpdateModel" data-ng-click="changeSynchronizationType('type',companyInfo.isAutomaticSync)">Ändern</button>
+                </div>
+            </div>-->
+
+
+            <div role="separator" class="line"></div>
+
+            <div class="format2" translate="SettingfortheorganizationofGoogleusers"></div>
+
+
+            <div class="info3" data-ng-if="companyInfo.isGoogleStructure">
+                <p class="format2light innerheadline">
+                    <input type="checkbox" data-ng-model="companyInfo.isGoogleStructure" />
+                    <normal translate="GoogleAppassumestructure"></normal>
+                </p>
+                <div class="text">
+                    <p translate="departmentsassignedthatcorrespondyourGoogleAccounts"></p>
+
+                </div>
+
+            </div>
+
+            <div class="info3" data-ng-if="!companyInfo.isGoogleStructure">
+                <p class="format2light innerheadline">
+                    <input type="checkbox" data-ng-init="chbGoogleCheck=!companyInfo.isAutomaticSync" data-ng-model="chbGoogleCheck" />
+                    <normal translate="Createanewstructure"></normal>
+                </p>
+                <div class="text">
+                    <p translate="Googleuserstobeaddedtostandarddepartment"></p>
+
+                </div>
+
+            </div>
+
+
+            <div style="margin-top: 20px;" class="flex ng-scope">
+                <div class="col-md-3 btnnevg" >
+                    <button class="ownbtn btngray btntext leftbutton btnwidth" data-toggle="modal" data-target="#dgSyncUpdateModel" data-ng-click="changeSynchronizationStructure('structure',companyInfo.isGoogleStructure)" translate="Change"></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="helpcontainer" ng-include src="'googlesync/common/helparea.html'">
+        </div>
+    </div>
+
+</div>
+
+
+
+<div id="dgSyncUpdateModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div ng-include src="'googlesync/model/sync_structure_update.html'">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="dgSyncDisconnectModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div ng-include src="'googlesync/model/sync_disconnect_model.html'">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="dgSyncDisconnectModelMany" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div >
+                    <div ng-show="!config.resultdata.signature.signatureAssigned"  class="infobox infobox-error">
+                                        <span class="symbol glyphicon glyphicon-alert"></span>
+                                        <div class="text">
+                                            <normal translate="Cautionyouareabout"></normal> <span class="roboto_bold"> {{amountOfEmployeeToDeactivate}} </span> <normal translate="excludesynchronizationcontinue"></normal>
+                                            <div class="additionaltext" translate="Theuserwillstillbeperformedsynchronizationyourtariff"></div>
+                                           
+                                        </div>
+                                        
+                                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

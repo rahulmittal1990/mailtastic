@@ -1,0 +1,60 @@
+<li ng-click="list.rowClicked(item)" ng-class-odd="'odd'" ng-class-even="'even'"   ng-class="list.getSelectedClass(item)" ng-repeat="item in data.signatures| filter:data.filterText | orderBy:predicate:reverse" class="flex-center-left mouseovertransparent tablerow full-width" >
+    <div class="cell select">
+        <input name="selected" class="link" ng-checked="list.isSelected(item)" ng-click="list.updateSelection($event, item);
+                $event.stopPropagation();"  type="checkbox">
+    </div>
+    <div class="cell sigtitle">
+        <div class="format2light schrift_blau overflowhidden "><span class="stitle"  ui-sref="base.signaturedetails({signatureId: item.id})" >{{item.title}}<span></div>
+       <div class="down"> <normal translate="updatedon"></normal> {{item.createdAt| date:"dd.MM.yyyy"}}</div>
+    </div>
+     <div class="cell activein">
+          <div ng-show="item.activegroups.length !== 0" class="grouptitle overflowhidden roboto_bold"><!--<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>-->{{item.activegroups.length === 1 ? item.activegroups[0].title : item.activegroups.length +' Abteilungen'}}</div>
+            
+            <div tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie diese Signatur einer Abteilung zu" class="schrift_rot text-bold nogroup" ng-show="item.activegroups.length === 0"><span  style="margin-right : 0;" class="glyphicon glyphicon-warning-sign schrift_rot" aria-hidden="true"></span> <normal translate="InnoactiveDepartment"></normal></div>
+       
+             <div ng-show="item.activegroups.length !== 0 && sumUpActiveEmps(item.activegroups) !== 0" class="down" translate="activein"></div>
+              <div ng-show="item.activegroups.length !== 0 && sumUpActiveEmps(item.activegroups) === 0" class="down schrift_rot_imp"><span  style="margin-right : 13px;" class="glyphicon glyphicon-warning-sign schrift_rot" aria-hidden="true"></span><normal translate="EmployeeZero"></normal></div>
+   
+         
+         
+         
+         
+         
+<!--      <div   class="format3">3 Abteilungen</div>
+      <div class="down">aktiv in</div>-->
+    </div>
+     <div class="cell rolledout">
+<!--        <div ng-hide="list.isSignatureRolledOut(item)"  class="format3 schrift_rot_imp">Nicht ausgerollt</div>
+        <div ng-show="list.isSignatureRolledOut(item)"  class="format3">Ausgerollt</div>-->
+        
+<div style="white-space: nowrap;margin-left : 0; margin-top : 3px;" ng-show="list.isSignatureRolledOut(item)" class="schrift_gruen margin-auto text-bold"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Der aktuelle Stand der Signatur wurde für Ihre Mitarbeiter freigegeben"> <normal translate="rolledout"></normal></span></div>
+               <div style="white-space: nowrap;margin-left : 0;margin-top : 3px;" ng-hide="list.isSignatureRolledOut(item)" class="schrift_rot margin-auto text-bold"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Der aktuelle Stand der Signatur wurde noch nicht für Ihre Mitarbeiter freigegeben"> <normal translate="Notrolled"></normal></span></div>
+         
+        
+        <div ng-hide="item.lastRollout"  class="down" translate="LastReviewNever"></div>
+        <div ng-show="item.lastRollout"  class="down" translate="Recentlyat"> {{item.lastRollout| date:"dd.MM.yyyy"}}</div>
+    </div>
+    
+    
+    <div  style="{{hideOptions === true ? 'visibility : hidden;' : ''}}" class="cell action text-center ">
+        <div dropdown-append-to-body="true" class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+            <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+            </button>
+            <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                <li ui-sref="base.signaturedetails({signatureId: item.id})" ><a >Details</a></li>
+                <li ui-sref="base.signaturedesigner({signatureId: item.id})"><a translate="Edit"></a></li>
+                <li ng-click="deleteSigs(item.id)"><a translate="Delete"></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</li>   
+ <div ng-show="data.signatures.length === 0" class="nodataarea martop30" >
+                            <img src="img/emptystates/redonwhite/r_Signatur_Missing.png">
+                            <div class="rightside">
+                                <div class="placeholderheadlinetext schrift_rot_imp" translate="NoSignatureavailable"></div>
+                                <div class="placeholderdesc" translate="CreateobtainaSummaryhere"></div>
+                            </div>
+                        </div>

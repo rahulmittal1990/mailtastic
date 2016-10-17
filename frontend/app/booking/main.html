@@ -1,0 +1,22 @@
+<div class="booking" >
+
+    <div class="container">
+
+        <div class="outerheadline format0">
+           Abo Buchen
+        </div> 
+
+        <div  class="flex outerform">
+                <div cg-busy="loadingPromise" class="leftform">
+                    <div ng-show="config.currentstep === 'product'" class="product"  ng-include src="'booking/snippets/product.html'" >
+                    </div>
+                    <div ng-show="config.currentstep === 'details'" class="details"  ng-include src="'booking/snippets/invoicedetails.html'" >
+                    </div>
+                    <div ng-show="config.currentstep === 'overview'" class="overview"  ng-include src="'booking/snippets/overview.html'" >
+                    </div>
+                </div>
+                <div style="min-width : 264px;" class="shoppingbasket" ng-include src="'booking/snippets/basket.html'" >
+                </div>
+        </div> 
+    </div>
+</div>

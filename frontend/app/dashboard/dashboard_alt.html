@@ -1,0 +1,219 @@
+<div class="container-fluid top-area-container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h1>{{userdata.companyName}}</h1>
+			<p>Dashboard</p>
+		</div>
+		<div class="col-lg-8">
+			<div class="top_info_wrapper">
+				<div class="maininfoareaentry">
+					<div>{{userdata.activeCampaigns}}</div>
+					<span translate="Activecampaigns"></span>
+				</div>
+				<div class="maininfoareaentry">
+					<div>{{userdata.totalDisplays}}</div>
+					<span translate="Watchedads"></span>
+				</div>
+				<div class="maininfoareaentry">
+					<div>{{userdata.employees}}</div>
+					<span translate="Employee"></span>
+					
+				</div>
+				<div  class="maininfoareaentry buttonarea">
+			   		<button ng-controller="CampaignModalCtrl" ng-click="open()"  type="button"  class="btn btn-sm btn-block actionbutton" translate="Createanewcampaign"></button>
+					<button ng-controller="EmployeeModalCtrl" ng-click="open()"  type="button" class="btn btn-sm btn-block actionbutton" translate="Addemployees"></button>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div cg-busy="loadingPromise"   class="maincontent">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="panel panel-default">
+				  <div class="panel-heading carousel-header">
+				    <h3 class="panel-title" translate="campaigns"></h3>
+				    <button type="button" class="btn btn-sm actionbutton" translate="Open"></button>
+					
+				  </div>
+				  <div class="panel-body carousel-panel">
+					   <div class="carousel-controls">
+					   	 <span class="sliderControl"  ng-click="prevCamapaign()">&lt;--</span>
+					   	 <span>{{campaignSwitcher.title}}</span>
+					   	 <span  class="sliderControl" ng-click="nextCamapaign()">--&gt;</span>
+					   </div>
+				   		<div class="carousel-image-area">
+					   		<img class="animate-show" src="{{campaignSwitcher.image}}" fadeIn />
+						</div>
+						
+						<div>{{campaignSwitcher.currentIndex + 1}} von </span>{{campaigns.length}}</div>
+				  </div>
+				</div>
+				
+			</div>
+			<div class="col-lg-8">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title" translate="Evaluatingactivecampaigns"></h3>
+				  </div>
+				  <div class="panel-body ">
+				  	<div class="panel-current-results-top" >
+				  		<canvas id="myChart" width="200" height="200"></canvas>
+				  	
+					  	<div align="center" style="text-align: center;" class="progressbar_area">
+					  		<div class="btn-group" role="group">
+							  <button type="button" ng-click="changeProgressBarArea('views')" class="btn btn-default" translate="seen"></button>
+							  <button type="button" ng-click="changeProgressBarArea('clicks')"  class="btn btn-default" translate="Watched"></button>
+							  <button type="button" ng-click="changeProgressBarArea('rate')"   class="btn btn-default" translate="clickRate"></button>
+							</div>
+							
+							<div class="bar_areas">
+								<div ng-show="showProgressbars.views">
+									
+									<div ng-repeat="item in chartDataArrayViews">
+										<div class="progress_title">
+											<span>{{item.label}}</span><!--<span>100%</span> -->
+											<span class="total_number">{{item.value}}</span>
+										</div>
+										<div  class="progress">
+											
+			  									<div class="progress-bar" role="progressbar" aria-valuenow="{{(item.value / accumulatedValues.allViews)*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(item.value / accumulatedValues.allViews)*100}}%;background-color: {{item.color}};">
+			    										{{Math.floor((item.value / accumulatedValues.allViews)*100)}} %
+			  									</div>
+										</div>
+									</div>
+								</div>
+								<div ng-show="showProgressbars.clicked">
+									
+									<div ng-repeat="item in chartDataArrayClicks">
+										<div class="progress_title">
+											<span>{{item.label}}</span><!--<span>100%</span> -->
+											<span class="total_number">{{item.value}}</span>
+										</div>
+										<div  class="progress">
+											
+			  									<div class="progress-bar" role="progressbar" aria-valuenow="{{(item.value / accumulatedValues.allClicks)*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(item.value / accumulatedValues.allClicks)*100}}%;background-color: {{item.color}};">
+			    										{{Math.floor((item.value / accumulatedValues.allClicks)*100)}} %
+			  									</div>
+										</div>
+									</div>
+								</div>
+								<div ng-show="showProgressbars.rate">
+									
+									<div ng-repeat="item in chartDataArrayRate">
+										<div class="progress_title">
+											<span>{{item.label}}</span><!--<span>100%</span> -->
+											<span class="total_number">{{item.value}}</span>
+										</div>
+										<div  class="progress">
+											
+			  									<div class="progress-bar" role="progressbar" aria-valuenow="{{(item.value / accumulatedValues.allViews)*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{(item.value / accumulatedValues.allViews)*100}}%;background-color: {{item.color}};">
+			    										{{Math.floor((item.value / accumulatedValues.allViews)*100)}} %
+			  									</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					  	</div>
+				  	</div>
+				  	
+				  	<div class="panel-current-results-bottom">
+				  		<ul class="list-group">
+						  <li ng-repeat="item in campaigns" class="list-group-item campaigns-listitem">
+							<div style="width : 10%">
+								<img ng-src="{{item.image}}" />
+							</div>
+							<div style="width : 50%">
+								<span class="title">{{item.title}}</span>
+								<br />
+								<span><normal translate="Createdon"></normal> {{item.createdAt | date:"dd.MM.yyyy"}}</span>
+							</div>
+							<div style="width : 10%">
+								<span>{{item.mode}}</span>
+								
+							</div>
+							<div style="width : 10%">
+								<span>{{item.views}}</span>
+								<br />
+								<span translate="appropriate"></span>
+							</div>
+							<div style="width : 10%">
+								<span>{{item.clicks}}</span>
+								<br />
+								<span translate="clicks"></span>
+							</div>
+							<div style="width : 10%">
+								<span>{{(item.views===0 || item.clicks===0) ? 0 : Math.floor((item.clicks / item.views)*100)}} %</span>
+								<br />
+								<span translate="clickRate"></span>
+							</div>
+						</li>
+						</ul>
+				  		
+				  	</div> <!--panel bottom -->
+				  </div> <!--panel body -->
+				</div><!--panel -->
+				
+			</div><!--col -->
+			
+		</div><!--row -->
+		
+	</div><!--container -->
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				  	<h3 class="panel-title" translate="bestemployee"></h3>
+				  </div>
+				  <div class="panel-body">
+				   
+				   <div class="row">
+				   		<div ng-repeat="item in topThreeEmployees" class="col-lg-4 top-3-mitarbeiter">
+				   			<span><normal translate="place"></normal> {{$index+1}}</span>
+				   			<h2>{{!item.firstname ? item.email : item.firstname + ' ' + item.lastname}}</h2>
+				   			<button type="button" class="btn btn-sm actionbutton">{{item.groupTitle}}</button>
+				   			<div >
+				   				<span translate="seen"></span>
+				   				 <div  class="progress">
+											<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{item.views}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.views}}%;">
+		    										{{item.views}}%
+		  									</div>
+								</div> 
+				   			</div>
+				   			<div >
+				   				<span>Klicks:</span>
+				   				 <div  class="progress">
+											<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{item.clicks}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.views}}%;">
+		    										{{item.clicks}}%
+		  									</div>
+								</div> 
+				   			</div>
+				   			<div >
+				   				<span translate="clickRateStar"></span>
+				   				 <div  class="progress">
+											<div class="progress-bar progress-bar-error" role="progressbar" aria-valuenow="{{item.rate}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.views}}%;">
+		    										{{(item.views===0 || item.clicks===0) ? 0 : Math.floor((item.clicks / item.views)*100)}} %
+		  									</div>
+								</div> 
+				   			</div>
+				   			
+				   		</div>
+				   	
+				   </div>
+				   
+				   
+				   
+				  </div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+</div>

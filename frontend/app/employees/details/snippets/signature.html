@@ -1,0 +1,65 @@
+<div class="header ">
+    <span translate="Assignedsignature"></span>
+</div>
+<div class="content">
+    <div ng-show="employeeDetailData.signatureTitle" class="signaturetitle format1"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <span class="link" ui-sref="base.signaturedetails({signatureId: employeeDetailData.signatureId})">{{employeeDetailData.signatureTitle}}</span></div>
+    <div class="row">
+        <div class="col-lg-7 leftcol">
+            <div ng-show="employeeDetailData.signatureTitle" class="previewarea" ng-bind-html="signatureData.preview">
+
+            </div>
+
+            <!--<previewiniframe ng-show="employeeDetailData.signatureTitle" content="signatureData.preview"></previewiniframe>-->
+
+
+
+            <div class="nodataarea_hor flex-center-left" ng-show="!employeeDetailData.signatureTitle">
+                <img src="img/emptystates/redonwhite/r_Signatur_Missing.png">
+                <div class="rightside">
+                    <div class="placeholderheadlinetext schrift_rot_imp" translate="Thedepartmentoftheemployeeisassigned"></div>
+                    <!--<div class="placeholderdesc">Wählen Sie im Dropdown die Kampagne aus, deren Banner Sie in den E-Mails der Abteilungsmitglieder anzeigen lassen möchten.</div>-->
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-5 rightcol">
+            <div ng-show="employeeDetailData.signatureTitle && signatureData.sigStatus === 'outdated' && employeeDetailData.lastRolloutOSignatureItself" class="infobox infobox-error martop0imp">
+                <span class="symbol glyphicon glyphicon-alert"></span>
+                <div>
+                    <div class="text">{{(!employeeDetailData.firstname) ? employeeDetailData.email : (employeeDetailData.firstname + ' ' + employeeDetailData.lastname)}}<normal translate="hasnotyetintegratedthelatestreleased"></normal></div>
+                    <!--                                <div class="additionaltext">Einige Mitarbeiter haben noch keine oder eine veraltete Version der Signatur eingebunden.
+                                                    </div>-->
+                    <button style="margin-top : 20px;" ng-click="rolloutSignature()" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-repeat" aria-hidden="true"></span> <normal translate="remindemployees"></normal></button>
+                </div>
+            </div>
+
+            <div ng-show="employeeDetailData.signatureTitle && signatureData.sigStatus === 'latest' && employeeDetailData.lastRolloutOSignatureItself" class="infobox infobox-success martop0imp">
+                <span class="symbol glyphicon glyphicon-check"></span>
+                <div>
+                    <div class="text">{{(!employeeDetailData.firstname) ? employeeDetailData.email : (employeeDetailData.firstname + ' ' + employeeDetailData.lastname)}} <normal translate="hasincorporatedthelatestreleasedversion"></normal></div>
+                </div>
+            </div>
+
+
+
+            <div ng-show="employeeDetailData.signatureTitle && !employeeDetailData.lastRolloutOSignatureItself" class="infobox infobox-error martop0imp">
+                <span class="symbol glyphicon glyphicon-alert"></span>
+                <div>
+                    <div class="text" translate="Thissignaturehasnotyetbeenrolledouttoyourcreation"></div>
+                    <button style="margin-top : 20px;" ui-sref="base.signaturedetails({signatureId: employeeDetailData.signatureId})" class="ownbtn btnblau"><span class="glyphicon  glyphicon-arrow-right" aria-hidden="true"></span><normal translate="Forsignature"></normal></button>
+                </div>
+
+            </div>
+<!--        </div>-->
+
+
+        <div class="infobox infobox-info martop0imp">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div>
+                <div class="additionaltext nomargin" translate="Toassignadifferentsignaturetoanemployeemove"><span class="link" ui-sref="base.employees.groupdetails({groupId: employeeDetailData.currentGroup})"><strong>{{employeeDetailData.groupTitle}}</strong></span><normal translate="adifferentsignatureto"></normal></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+            </div>

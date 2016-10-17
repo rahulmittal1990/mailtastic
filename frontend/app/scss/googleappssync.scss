@@ -1,0 +1,578 @@
+
+
+.googleappssync{
+    
+    
+    .imagearea{
+     padding : 25px;
+     background-color : $dunkelweis;
+     border-radius : 3px;
+     .textcol{
+         margin-left : 25px;
+     }
+    }
+    
+
+    .container{
+        width : 930px;
+        padding-left : 0;
+        padding-right : 0;
+    }
+
+    .format0{
+        @include format0;
+    }
+
+    .format1{
+        @include format1;
+    }
+
+    .format2{
+        @include format2;
+    }
+    .format2light{  
+        @include format2light;
+    }
+
+    .format3{
+
+        @include format3;
+
+    }
+
+
+    .format7{
+        @include format7;
+    }
+
+    .formatdropdown{
+        @include   formatdropdown;
+    }
+    .selectgroups{
+        margin-right : 10px;
+    }
+
+
+
+
+    .headline{
+        line-height : 1;
+        margin-bottom : 10px;
+        margin-top : 10px;  //oben 10 cs mehr wegen navileiste
+        margin-left : 25px;
+        
+      
+    }
+
+    .leftform{
+        margin-right : 25px;
+    }
+
+
+.syncModel {
+    .modal-dialog{
+        width : 400px;
+        
+        .modal-body{
+            padding : 25px;
+        }
+    }
+}
+
+
+
+
+    .innerheadline{
+        //margin-bottom : 25px;
+          .breadcrumpdone{
+            font-family : roboto_regular;
+            font-size : 14px;
+            color : #a3abb2;
+            .glyphicon{
+                margin-right : 10px;
+                font-size : 12px;
+            }
+            .glyphicon.first{
+                margin-left : 3px;
+            }
+        }
+    }
+
+  
+    .line{
+
+        height: 1px;
+        border-top: solid 1px #cbcdd0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width : 640px;
+    }
+    .line.firstline{
+        margin-top: 25px;
+    }
+
+
+    .panel{
+        padding : 25px;
+        border-radius: 3px;
+    }
+
+    .control-label{
+        width : 128px;
+        padding-right : 10px;
+    }
+
+    .formcontrolright{  //eingabeform
+                        padding-left : 10px;
+                        input{
+                            //height : 32px;
+                            //padding : 10px;
+                            font-size : 14px;
+
+                        }
+    }
+
+  
+
+
+    .form-group.last{
+        margin-bottom : 0;
+    }
+
+
+
+
+
+    .campaign{
+        .row{
+            margin : 0;
+        }
+
+        .editcolumn:after {
+            content:""; 
+            background: #cbcdd0; 
+            position: absolute; 
+            bottom: 0; 
+            right: 0; 
+            height: 94%; 
+            width: 1px;
+        }
+
+        .editcolumn{
+            padding-left : 0;
+            padding-right : 25px;
+            padding-top : 10px;
+            padding-bottom : 0;
+            //border-right: solid 1px #cbcdd0;;
+            label{
+                /*font-weight : 100;*/
+                /*color : $hellgrau;*/
+                /*font-weight: 700;*/
+                margin-bottom : 0;
+            }
+
+            .imageform{
+                margin-bottom : 0;
+            }
+            .uppertipp{
+                color : $hellgrau;
+                font-size : 12px;
+                font-family : roboto_light;
+                line-height : 1.4;
+                margin-bottom : 15px;
+            }
+            .tipp{
+                color : $blau;
+                font-size : 12px;
+                font-family : roboto_light;
+                line-height : 1.4;
+                margin-bottom : 15px;
+            }
+            .infotext{
+                font-family : roboto_regular;
+                font-size : 12px;
+                color : #828282;
+                margin-bottom : 10px;
+            }
+
+            img{
+                max-width : 100%;
+            }
+            .color-picker-wrapper{
+
+                .color-picker-input{
+                    height : 30px;
+                }
+                >div{
+                    height : 30px;
+                }
+            }
+
+        }
+        .previewcol{
+            padding-top : 10px;
+            padding-right : 0;
+            padding-left : 25px;
+            padding-bottom : 0;
+            height : 500px;
+            overflow-y:auto;
+            .heading{
+                margin-bottom:10px;
+                margin-top : 1px;
+            }
+            .prevbackground{
+                background-image : url(../img/campaigns/camppreview.jpg);
+                background-size: 600px auto;
+                background-repeat: no-repeat;
+                overflow:hidden;
+                background-position-y: 0;
+                height:255px;
+                width : 100%;
+            }
+            img{
+                max-width : 700px;
+                max-height : 210px;
+            }
+        }
+
+
+        //-----------------------------------
+
+
+
+
+
+
+    }
+
+    .employee{
+
+        .import{
+            color : $grau;
+            //import users
+            .btn, a.btn{
+                border-width : 4px;
+            }
+            .downloadbutton{
+                color : white !important;
+                background-color : $hellgrau;
+            }
+
+            
+            .formbutton{
+                margin-top : 10px;
+                width : 187px;
+            }
+            .secondform{
+                margin-top : 20px;
+            }
+
+            .inputactionbutton{
+                border-color : $blau;
+                background-color : white;
+                color : $blau;
+                border-width : 4px;
+            }
+            .filename{
+                color : $blau;
+            }
+            .excelinfo{
+                font-size : 12px;
+            }
+
+            .fileupload {
+
+                position: relative;
+                overflow: hidden;
+
+            }
+            .fileupload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+
+            .importbutton{
+                margin-top : 20px;
+            }
+
+        }
+
+    }
+
+
+
+
+    /*Vorhandene Kampagne suchbereich*/
+    .innercheckbox{
+        margin : 0 !important;
+        margin-right : 25px !important;
+    }
+    .searchfield{
+
+        max-width : 200px !important;
+        input{
+            @include eingabefeld;
+            @include nooutline(#ccc);
+            border-right : 0;
+            box-shadow : none ;
+        }
+        .input-group-addon{
+            top : 0;
+            background-color : white;
+
+        }
+    }
+
+
+    .tablewrapper{
+        height : 400px;
+
+        margin-top : 20px;
+        overflow : auto;
+
+        .tablerow.odd{
+            background-color :   #f2f6fa;
+        }
+        .tablerow.even{
+            background-color : #e9eff4;
+        }
+        .tablerow.selected{
+            background-color : #b3c2cf;
+        }
+        .tablerow:hover{
+            background-color : #b3c2cf;
+        }
+
+        .tablerow{
+            cursor: pointer;
+            //border-radius : 3px;
+            display : table;
+            margin-bottom: 2px;
+            line-height : 1.25 !important;
+
+            .cell{
+                display: table-cell;
+                vertical-align: middle;
+                padding-top : 15px;
+                padding-bottom : 15px;
+
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                div{
+                    overflow: hidden !important;
+                }
+
+
+
+
+            }
+            .cell.emp{
+                padding-bottom : 10px;
+                padding-top : 10px;
+            }
+
+            .select{
+                width : 61px;  
+                max-width : 61px;  
+                text-align : center;
+            }
+            .cmptitlecol{
+                width : 198px;
+                max-width : 198px;
+
+                .color-rect{
+                    height : 11px;
+                    width : 4px;
+
+                    display : inline-block;
+                    margin-bottom : 3px;
+                }
+                .title{
+                    @include format4;
+                    color : #45474a;
+                    font-family : roboto_medium;
+                    display : inline-block;
+                    max-width : 85%;
+                }
+                .wann{
+                    @include format5;
+                    color : #45474a;
+                    margin-top : 2px;
+                }
+                .down{
+                    margin-top : 2px;
+                }
+
+                .no-campaign{
+                    @include format3;
+                    font-weight: bold;
+                    color : $rot;
+                    line-height : 1.3;
+                }
+            }
+            .banner{
+                width : 198px;
+                max-width : 198px;
+                img{
+                    max-width : 150px;
+                    max-height : 38px;
+
+                }
+            }
+            .activein{
+                width : 198px;
+                max-width : 198px;
+
+
+                .grouptitle{
+                    @include format3;
+                    max-width : 90%;
+
+                    .glyphicon{
+                        margin-right : 10px;
+                    }
+                }
+                .nogroup{
+                    @include format3;
+                    color : $rot;
+                    line-height : 1.3;
+                }
+            }
+            .impressions{
+                width : 90px;
+                max-width : 90px;
+                .upper{
+                    color : $blau;
+                }
+            }
+            .upper{
+                @include format4light;
+                font-family : roboto_medium;
+                //color : #009fe3;
+            }
+            .down{
+                @include format5;
+                color : #45474a;
+                margin-top : 5px;
+            }
+
+            .clicks{
+                width : 56px;
+                max-width : 56px;
+                .upper{
+                    color : $blau;
+                }
+            }
+            .rate{
+                width : 77px;
+                max-width : 77px;
+                .upper{
+                    color : $blau;
+                }
+            }
+
+            .groupTitle{
+                width : 198px;
+                max-width : 198px;
+                .upper{
+                    .glyphicon{
+                        margin-right : 5px;
+                    }
+
+                    @include format4;
+                    font-family : roboto_medium;
+                    color : $blau;
+                    max-width : 85%;
+                }
+            }
+
+            .empnamecol{
+                width : 276px;
+                .name{
+                    @include format4;
+                    font-family : roboto_medium;
+                }
+                img{
+                    margin-right : 10px;
+                    width : 48px;
+                    height : 48px;
+                }
+
+            }
+            .empgroup{
+                width : 222px;
+                max-width : 90%;
+                .up{
+                    @include format3; 
+                    font-family : roboto_medium;
+                }
+
+
+            }
+            .cmptitlecol.emp{
+                width : 222px;
+            }
+
+            .status{
+                width : 99px;
+                .upper{
+                    @include format4light;
+                    font-family : roboto_medium;
+                    .glyphicon{
+                        font-size : 12px;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+    .selectmethod{
+        @include flex;
+        .choiceitem{
+            text-align : center;
+            background-color : $blau;
+            border-radius : 4px;
+            width : 33%;
+            height : 143px;
+            padding : 15px;;
+            @include flex;
+            >div{
+                margin : auto;
+            }
+            img{
+                $width : 50px;
+
+                width : $width;
+                min-width : $width;
+                max-width : $width;
+            }
+            .text{
+                margin-top : 15px;
+                color : white;
+                font-size : 13px;
+            }
+        }
+        .choiceitem.middlecol{
+            margin-right : 15px;
+            margin-left : 15px;
+        }
+        .choiceitem:hover{
+            .text{
+                color : $grau;
+            }
+
+            cursor : pointer;
+        }
+    }
+
+}

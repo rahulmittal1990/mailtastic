@@ -1,0 +1,75 @@
+<div class="container logintopnav">
+
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 col-lg-offset-1 col-md-offset-1  loginlogo text-left">
+            <a target="_blank" href="https://www.mailtastic.de"><img src="../img/navigation/logo.png"></a>
+        </div>
+        <div class="col-lg-5 col-md-4 col-sm-6 col-xs-6 col-centered  tel-col">
+            <strong translate="ask"></strong>
+            <strong class="url"><a class="loginimprlink" target="blank" href="https://www.mailtastic.de/impressum" translate="imprint"></a></strong>
+        </div>
+    </div>
+</div>
+
+<div class="container vertical-center-o-xs">
+
+    <div class="row ">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1   login-text-col text-left">
+            <h1 class="headline" translate="E-Mail-Signatur-Marketing"></h1>
+            <div class="subline" translate="WelcometoMailtastic">
+            </div>
+            <form action="/#/login" onsubmit="return false;" name="loginform">
+
+                <div class="credentials flex">
+                    <input autocomplete="on" name="email" ng-model="auth.email" type="email" class="form-control input-lg name" placeholder="E-Mail">
+                    <input autocomplete="on" name="password" ng-model="auth.password" type="password" class="form-control input-lg" placeholder="Passwort">
+                </div>
+                <button ng-click="login()" type="submit" class="btn btn-lg  btn-block login" translate="nowlogin"></button>
+            </form>
+
+            <div>
+                <div class="underform flex-center-all">
+                    <!--                    <div class="checkbox">
+                                            <label>
+                                                <input name="policy" ng-model="auth.policyChecked" type="checkbox"> Ich akzeptiere die <a target="_blank" style="color : white !important;text-decoration: underline;" href="https://www.mailtastic.de/#/agb">AGBs</a> und <a target="_blank"  style="color : white !important;text-decoration: underline;" href="https://www.mailtastic.de/#/datenschutz">Datenschutzbestimmungen</a>
+                                            </label>
+                                        </div>-->
+
+                    <div ng-controller="PassResetModalCtrl" class="passwordlost">
+                        <span ng-click="open('enteremail')" class="link" translate="ForgotPassword"></span>
+
+                    </div>
+
+                    <div class=""><normal translate="Noaccountyet"></normal> <a class="link text-underline nobetatester" style="color : white !important;" href="/#/register" translate="registernow"></a></div>
+                </div>
+
+                <!--                <div ng-controller="PassResetModalCtrl" class="passwordlost">
+                                    <span ng-click="open('enteremail')" class="link">Passwort vergessen?</span>
+
+                                </div>-->
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5 hidden-xs  hidden-sm login-image-col">
+
+            <img src="img/login/Computer.png" class="img-responsive" />
+
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+    body {
+        background: #009fe3;
+        background-image: url("../img/login/Schatten.png"),url("../img/login/Picto_Teppich_eng-1.png");
+        /*background-attachment: fixed;*/
+    }
+
+    /*  body2,
+      .body2 {
+        background: url(powercube-09.png);
+        background-repeat: no-repeat;
+        font-family: 'Montserrat', sans-serif;
+      }*/
+</style>

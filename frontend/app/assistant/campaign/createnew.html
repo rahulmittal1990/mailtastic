@@ -1,0 +1,108 @@
+
+<div>
+    
+
+ <div class="format1 innerheadline">
+            <span class="breadcrumpdone" ng-repeat="item in config.breadcrumpsdone">{{item}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+            <span class="breadcrump"  ng-repeat="item in config.breadcrumps">{{item}}</span>
+        </div>
+
+        <div style="width : 100%;" role="separator" class="line"></div>  
+
+        <div style="width : 800px;"  class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text" translate="Acampaignconsistscorrespondingdepartmentmembers"></div>
+
+        </div>
+
+               <div class="row ">
+
+            <div class="col-lg-4 col-md-4 editcolumn" >
+                <a  href="https://www.app.mailtastic.de/api/li/78ace33b-259e-4d0f-b70e-d01a0538b069" style="outline:0 !important;display:block;"><img   src="http://www.app.mailtastic.de/api/im/78ace33b-259e-4d0f-b70e-d01a0538b069/ad" border="0" alt="Schauen Sie sich unserer Banner-Galerie an." style="color:blue;font-size:12px;"/></a>
+                <form class="martop15">
+                    <div class="form-group">
+                        <label class="format2light" translate="CampaignTitle"></label>
+                        <div class="infotext" translate="Workingtitleonlyvisibleinternally"></div>
+                        <input type="text" class="form-control input-sm" ng-model="campaigndata.title" placeholder="Titel">
+                    </div>
+                    <div class="form-group">
+                        <label class="format2light" translate="DestinationURLinclWww"></label>
+                        <div class="infotext" translate="Whereshouldyourbannerleft"></div>
+                        <input type="text" class="form-control  input-sm"  ng-model="campaigndata.url"   placeholder="Url">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="format2light" translate="CampaigncolorStatistical"></label>
+                         <div class="infotext" translate="Colorofthecampaignforstatistics"></div>
+                        <color-picker    ng-model="campaigndata.color" color-picker-format="'rgb'"></color-picker>
+                    </div>
+
+
+                    <div class="form-group imageform">
+                        <label translate="Selectacampaignbanner"><!--<br>(.jpg, .jpeg, .png)--></label>
+                       
+
+                    </div>
+                    <div class="infotext" translate="FileformatsofCampaigns"></div>
+                    
+                    <!--<div class="tipp"><strong>Tipp:</strong> Wir empfehlen Ihnen eine Bannergröße von 500x150 px nicht zu überschreiten. </div>-->
+                     <div class="infobox infobox-clear">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text format7" translate="Werecommendnottoexceedbannersize"> </div>
+
+        </div>
+                    
+                    
+                    
+                    <div class="ownbtn btnfullwidth btnblau btn-block flex" ngf-select ng-model="campaigndata.image" name="file" ngf-pattern="'image/*'"
+                             accept="image/*" ngf-max-size="2MB"  ngf-change="checkfile($files)"
+                             ><span class="glyphicon glyphicon-open" aria-hidden="true"></span><span class="text"><normal translate="UploadPhoto"></normal></span></div>
+                    <img ng-hide="true" class="" src="img/campaigns/nochkeinbanner.png">			  
+                </form>
+            </div>
+            <div  class="col-lg-8 col-md-8 previewcol" >
+                <div class="heading format2light"  translate="Preview"></div>
+                <div class="prevbackground" ></div>
+
+                <!--<img ngf-thumbnail="campaigndata.image || 'img/common/uploadImagePlaceholder.png'"/>-->
+                <img ngf-no-object-url="true" ngf-src="campaigndata.image "/>
+            </div>
+        </div>
+        
+        
+        <div role="separator" class="line" style="width : 100%;"></div> 
+
+        
+<div class="flex-center-right">
+
+    <div ng-click="navigateBack()" class="ownbtn btngrau leftbutton" translate="abort"></div> 
+    <button ng-click="createCampaign()" type="submit" ng-disabled="(!campaigndata.title || !campaigndata.url || !campaigndata.image)"  class="btn ownbtn btnblau" translate="create"></button> 
+
+</div>
+      
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div class="modal-footer">
+             <button class="btn btn-error" type="button" ng-click="cancel()">Abbrechen</button>
+   
+        <button class="btn actionbutton" ng-disabled="(!campaigndata.title || !campaigndata.url || !campaigndata.image)" type="button" ng-click="createCampaign()">Speichern</button>
+    </div>
+
+ -->
+      

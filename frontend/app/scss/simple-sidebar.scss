@@ -1,0 +1,256 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+$rightsidebarcolor : white;
+
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    font-size : 90%;
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    max-height : 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: $rightsidebarcolor;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 7.5px;
+    list-style: none;
+    
+    
+    form{
+        text-align: center;
+        
+    }
+
+    
+}
+
+.sidebar-nav li {
+/*    text-indent: 20px;
+    line-height: 40px;*/
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: $grau;
+   
+}
+.sidebar-nav li .link {
+    display: block;
+    text-decoration: none;
+    color: $grau;
+   
+}
+
+.nav-pills>li.active>a{
+      background-color : $blau !important;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+   
+    //background: rgba(255,255,255,0.2);
+     background-color : $dunkelweis ;
+     color : $grau;
+}
+
+.sidebar-nav li a:active {
+/*    text-decoration: none;
+     background-color : $blau !important;*/
+     
+     background-color : $dunkelweis ;
+     color : $grau;
+}
+
+.nav-pills>li.active>.link{
+      background-color : $blau !important;
+}
+
+.sidebar-nav li .link:hover {
+    text-decoration: none;
+   
+    //background: rgba(255,255,255,0.2);
+     background-color : $dunkelweis ;
+     color : $grau;
+}
+
+.sidebar-nav li .link:active {
+/*    text-decoration: none;
+     background-color : $blau !important;*/
+     
+     background-color : $dunkelweis ;
+     color : $grau;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+.sidebar-nav > .sidebar-brand .link {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand .link:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:992px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+
+
+.sidebar-devider-text{
+    color : $hellgrau;
+    padding-left : 15px;
+    margin-top : 15px;
+    margin-bottom : 15px;
+    
+}
+
+
+
+//, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
+
+
+.pillglyphicon{
+    margin-right : 5px;
+}
+
+
+
+
+//gruppen dürfen nur bestimmte breite haben und dann kommt ...
+.menuitemmaxwidth{
+    float:left;max-width : 130px;display:block;white-space: nowrap;overflow:hidden;
+}
+
+
+.active{
+    .amountOfMembersMenu{
+    color : white;
+}
+}
+.amountOfMembersMenu{
+    color : $hellgrau;
+}
+
+
+.sidemenutoggle{
+    
+    
+    
+    
+    @media (min-width : $screen-md-min){
+        display : none !important;
+    }
+    z-index : 10;
+    cursor : pointer;
+    position:fixed;
+    left:10px;
+    top:10px;
+    width : 40px;
+    height:40px;
+    background-color: $navbarcolor;
+     display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -moz-box !important;
+        display: -moz-flex !important;
+        display: -ms-flexbox !important;
+        display: flex  !important;
+    .glyphicon{
+        font-size : 30px;
+        margin:auto;
+            color : $dunkelweis;
+    }
+}
+.sidemenutoggle:hover{
+    .glyphicon{
+         color : $blau;
+    }
+   
+}

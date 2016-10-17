@@ -1,0 +1,116 @@
+<div class="container-fluid top-area-container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h1>{{$root.userdata.companyName}}</h1>
+			<p translate="departments"></p>
+		</div>
+		<div class="col-lg-8">
+			<div class="top_info_wrapper">
+				<!-- <div class="maininfoareaentry">
+					<div>{{employees.length}}</div>
+					<span>Mitarbeiter</span>
+				</div> -->
+				<div class="maininfoareaentry">
+					<div>{{groups.length}}</div>
+					<span translate="departments"></span>
+				</div>
+				<!-- <div class="maininfoareaentry">
+					<div>{{campaigndata.inactiveCmapaigns}}</div>
+					<span>Inaktive Kampagnen</span>
+				</div> -->
+				
+				<div  class="maininfoareaentry buttonarea">
+			   		<button type="button" ng-click="open()" ng-controller="GroupModalCtrl" class="btn btn-sm btn-block actionbutton" translate="Createanewdepartment"></button>
+			   		<!-- <button type="button" class="btn btn-sm btn-block actionbutton">Neuen Mitarbeiter anlegen</button>  -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid list-control-area">
+	<div class="row">
+
+		<div class="btn-group" uib-dropdown >
+			<button id="sort-button" type="button" class="btn actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+				<normal translate="Sort"></normal> <span class="caret"></span>
+			</button>
+			<ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+				<li role="menuitem">
+					<a ng-click="sortList('amountOfMembers')" translate="membersOf"></a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- <div class="btn-group" uib-dropdown is-open="status.isopen">
+			<button id="filter-button" type="button" class="btn actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+				Liste Filtern <span class="caret"></span>
+			</button>
+			<ul class="uib-dropdown-menu" role="menu" aria-labelledby="filter-button">
+				<li role="menuitem">
+					<a ng-click="filterList('all')">Alle</a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="filterList('active')">Aktive</a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="filterList('inactive')">Inaktive</a>
+				</li>
+			</ul>
+		</div> -->
+		
+		
+		<div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" ng-model="filterText" class="form-control input" placeholder="Suchen..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+	</div>
+</div>
+
+
+
+
+
+<div cg-busy="loadingPromise"  class="campaign-list-wrapper">
+	<ul  class="list-group">
+		<li ng-repeat="item in showGroups | filter:filterText" ng-init="item=initGroupList(item)" class="list-group-item campaigns-listitem flex">
+	
+			<div style="width : 10%">
+				<img ng-src="{{item.image}}" />
+			</div>
+			<div style="width : 30%">
+				<span class="title">{{item.title}}</span>
+				<br />
+			<span><normal translate="Createdon"></normal> {{item.createdAt | date:"dd.MM.yyyy 'um' HH:mm:ss"}}</span>
+			</div>
+			
+			<div style="width : 30%">
+				<span>{{!item.groupTitle ? '-Keine Kampagne aktiv-' : item.groupTitle}}</span>
+				<br />
+				<span translate="Activecampaign"></span>
+			</div>
+			<div style="width : 20%">
+				<span>{{item.amountOfMembers}}</span>
+				<br />
+				<span translate="members"></span>
+			</div>
+			
+			<div style="width : 10%">
+				
+                         <button ng-controller="GroupModalCtrl"  ng-click="open(item.id)" class="btn btn-info btn btn-sm btn-block" type="button" translate="Edit">
+                        </button>
+                          <button  ng-disabled="item.isDefault"  ng-click="deleteGroup(item.id)" class="btn btn-info btn btn-sm btn-block" type="button" translate="Delete">
+                        </button>
+
+			</div>
+	
+		</li>
+	</ul>
+</div>

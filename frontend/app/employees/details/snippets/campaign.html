@@ -1,0 +1,55 @@
+<div class="header">
+    <span translate="Assignedcampaign"></span>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-7 leftcol">
+
+            <div ng-hide="!employeeDetailData.campaignTitle" class="cmptitle">
+
+                <div class="color-rect" style="background-color : {{employeeDetailData.campaignColor}}"></div>
+                <div class="title">{{employeeDetailData.campaignTitle}}</div>
+            </div>
+
+            <a class="link banner" ng-hide="!employeeDetailData.campaignTitle" style="max-width : 100%;" ng-click="showCampaignDetails(employeeDetailData.campaignId)">
+                <img style="max-width:100%;" ng-src="{{employeeDetailData.campaignImage}}" />
+            </a>
+            <div ng-hide="!employeeDetailData.campaignTitle" class="url"><span style="margin-right : 3px;" class="glyphicon  glyphicon-link" aria-hidden="true"></span><a target=”_blank” href="{{employeeDetailData.campaignUrl.indexOf('http://') === 0 ? employeeDetailData.campaignUrl : 'http://' + employeeDetailData.campaignUrl}}"><span>{{employeeDetailData.campaignUrl}}</span></a></div>
+
+            <div class="nodataarea_hor flex-center-left" ng-show="!employeeDetailData.campaignTitle">
+                <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+                <div class="rightside">
+                    <div class="placeholderheadlinetext schrift_rot_imp" translate="Thedepartmentoftheemployee"></div>
+                    <!--<div class="placeholderdesc">Wählen Sie im Dropdown die Kampagne aus, deren Banner Sie in den E-Mails der Abteilungsmitglieder anzeigen lassen möchten.</div>-->
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-lg-5 rightcol">
+            <div ng-show="employeeDetailData.campaignTitle && employeeDetailData.views === 0" class="infobox infobox-error martop0imp">
+                <span class="symbol glyphicon glyphicon-alert"></span>
+                <div>
+                    <div class="text">{{(!employeeDetailData.firstname) ? employeeDetailData.email : (employeeDetailData.firstname + ' ' + employeeDetailData.lastname)}} <normal translate="hasnotyetintegratedthecampaign"></normal></div>
+                    <button style="margin-top : 20px;" ng-click="resendInvitationSingle(employeeDetailData.id)" class="ownbtn btnblau"><span class="glyphicon own-glyph glyphicon-repeat" aria-hidden="true"></span> <normal translate="remindemployees"></normal></button>
+                </div>
+            </div>
+
+            <div ng-show="employeeDetailData.campaignTitle && employeeDetailData.views > 0" class="infobox infobox-success martop0imp">
+                <span class="symbol glyphicon glyphicon-check"></span>
+                <div>
+                    <div class="text">{{(!employeeDetailData.firstname) ? employeeDetailData.email : (employeeDetailData.firstname + ' ' + employeeDetailData.lastname)}} <normal translate="hasintegratedthecurrentcampaignbanner"></normal></div>
+                </div>
+            </div>
+
+
+            <div class="infobox infobox-info martop0imp">
+                <span class="symbol glyphicon glyphicon-info-sign"></span>
+                <div>
+                    <div class="additionaltext nomargin" translate="Toassiganemployeetoanothercampaign"><span class="link" ui-sref="base.employees.groupdetails({groupId: employeeDetailData.currentGroup})"><strong>{{employeeDetailData.groupTitle}}</strong></span> <normal translate="anothercampaign"></normal></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

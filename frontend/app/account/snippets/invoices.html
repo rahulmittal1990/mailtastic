@@ -1,0 +1,22 @@
+<div class="link invoicerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-click="downloadInvoice(item.url)" ng-repeat="item in invoices" target="_blank" >
+    <div class="iconarea flex-center-left">
+        <img src="img/account/pdf-icon.png">
+        <div class="text">
+          {{item.bill_number}}
+            
+        </div>
+    </div>
+    <div class="date">
+        <normal translate="From"></normal> {{(item.billed_at || item.canceled_at) | date:'dd.MM.yyyy'}}
+    </div>
+</div>
+
+
+
+         <div ng-show="invoices.length === 0" class="infobox infobox-grey">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div>
+            <div class="text" translate="Noaccountyet"></div>
+            
+            </div>
+        </div>

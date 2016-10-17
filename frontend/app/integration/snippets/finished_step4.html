@@ -1,0 +1,31 @@
+<div class="format1 innerheadline">
+<span ng-hide="datacompletiononly" ng-click="workflow.step = 'explanation'" class="breadcrumpdone cursor-pointer" translate="introduction"><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+<span ng-click="workflow.step = 'datacompletion'" class="breadcrumpdone cursor-pointer" >{{workflow.step3headline}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+<span ng-hide="datacompletiononly" ng-click="workflow.step = 'integration'" class="breadcrumpdone cursor-pointer" translate="instructions"><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+<span class="breadcrump" translate="done"></span>
+</div>
+<div  role="separator" class="line"></div> 
+<div  class="infobox infobox-success" >
+    <span class="symbol glyphicon glyphicon-check"></span>
+    <div>
+        <div class="additionaltext nomargin"><strong translate="Thatitthanksforyourhelp"></strong>
+           <normal translate="Yournewsuccessfullyactive"></normal>
+     </div>
+    </div>
+</div>
+
+<div class="infobox infobox-info" ng-hide="isShownInsideWebApp()">
+    <span class="symbol glyphicon glyphicon-info-sign"></span>
+    <div>
+        <div class="additionaltext nomargin">
+            <normal translate="Yourpersonalalwaysreachlink"></normal><br>
+            <br>
+            <a style="color: #31708f;text-decoration: underline;" class="link" target="_blank" href="{{dataEditUrl}}"><strong>{{dataEditUrl}}</strong></a> <br>
+            <br>
+            <!--Nach einer Anpassung der Signaturdaten muss die neueste Version integriert werden. Wir arbeiten permanent an Mailtastic und werden die Anpassung demnächst vollkommen automatisch abwickeln.-->
+        </div>
+    </div>
+</div>
+<!--<div class="flex-center-left">
+    <button ng-click="userDataForm.$valid && saveDataAndGenerateSignature()" class="ownbtn btnblau">Fertig</button>
+</div>-->

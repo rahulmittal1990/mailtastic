@@ -1,0 +1,115 @@
+<div class="emp-r-top-area-no-selection text-center" ng-show="data.selectedCampaigns.length === 0">
+    <img class="empty-selection-pic" src="img/emptystates/lightonwhite/w_Selection_Missing.png"  />
+    <p class="empty-selection-heading">Quick Navi</p>
+    <p class="empty-selection-text" translate="Inthecentralregiononeormorecampaigns"></p>
+</div> 
+
+
+
+
+
+
+<div align="center" class="cmp-r-one-selected " ng-show="data.selectedCampaigns.length === 1" >
+ 
+    
+    <div class="button_area">
+            <div class="btn-group margin-auto optionbutton" uib-dropdown>
+            <button  type="button" class="btn  optionbutton actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="Actions"></normal> 
+            </button>
+            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                <li role="menuitem">
+                            <li class="cursor-pointer" ng-click="showCampaignDetails(data.selectedCampaigns[0].id)"><a translate="Lookat"></a></li>
+                        <li class="cursor-pointer"  ng-controller="CampaignModalCtrl" ng-click="open(data.selectedCampaigns[0].id)"><a translate="Edit"></a></li>
+                        <li class="cursor-pointer"   ng-click="deleteCampaign(data.selectedCampaigns[0].id)"><a translate="Delete"></a></li>
+
+                </li>
+            </ul>
+        </div>
+        <button ui-sref=".campaigndetail({campaignId: data.selectedCampaigns[0].id})" class="btn margin-auto actionbutton"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</button>
+  </div>     
+    
+    
+    <div align="left" class="flex-center-left text-left">
+                                    <div class="dotcontainer">
+                                         <span class="graph-dot" style="background-color : {{data.selectedCampaigns[0].color}}"></span>
+                                    </div>
+                                    <div>
+                                        <div ng-click="showCampaignDetails(data.selectedCampaigns[0].id)" class="title link">{{data.selectedCampaigns[0].title}}</div>
+                                        <span class="wann"> <normal translate="Createdonca"></normal> {{data.selectedCampaigns[0].createdAt| date:"dd.MM.yyyy"}}</span>
+                                    </div>
+                                </div>
+ 
+
+    <div role="separator" class="divider"></div>  
+
+
+    <div class="text-left">
+         <a class="link" ng-controller="CampaignModalCtrl"  ng-click="open(data.selectedCampaigns[0].id)"  style="max-width : 100%;"  >
+               
+        <img src="{{data.selectedCampaigns[0].image}}"  border="0" style="max-width:100%;" alt="Latest News + Events" style="color:blue;font-size:12px;">
+         </a>
+        <div class="urlcontainer"><a target=”_blank”  href="{{(data.selectedCampaigns[0].url.indexOf('http://') === 0 || data.selectedCampaigns[0].url.indexOf('https://') === 0) ? data.selectedCampaigns[0].url : 'http://' + data.selectedCampaigns[0].url}}"><span class="glyphicon  glyphicon-link" aria-hidden="true"></span> 
+                <span class="url">{{data.selectedCampaigns[0].url}}</span></a></div>
+    </div>
+
+
+    <div role="separator" class="divider"></div> 
+
+
+    <div  class="text-left rightSideDividertext" translate="Activeindepartments"></div> 
+    <div class="groupslist">
+    <div ng-show="data.selectedCampaigns[0].activegroups.length > 0" ng-repeat="item in data.selectedCampaigns[0].activegroups" class="flex fullform">
+        <div class="form-group">
+            <input type="text" style="background-color : white;" class="form-control" value="{{item.title}}"  placeholder="Neue Abteilung" readonly>
+        </div>
+        <button ng-click="removeCampaignOfGroup(item.id)" class="btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    </div>
+<!--    <div class="text-left text-bold no-group" ng-show="data.selectedCampaigns[0].activegroups.length === 0">
+        <span  style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> Derzeit in keiner Abteilung aktiv!
+    </div>-->
+    <div class="fullform flex">
+
+        <select ng-model="data.selectedGroupForCampaign" class="form-control form-inline ">
+            <option value="All" translate="selectdepartment"></option>
+            <option ng-repeat='item in unusedGroups(data.selectedCampaigns[0].activegroups)' value="{{item.id}}">{{item.title}}</option>
+        </select>
+
+        <button  ng-click="addCampaignToGroup(data.selectedGroupForCampaign, data.selectedCampaigns[0].id)" class="btn actionbutton"><span class="glyphicon  glyphicon-ok" aria-hidden="true"></span></button>
+    </div>
+        
+        </div>
+    
+     <div style="margin-top : 15px;" class="nodataarea" ng-show="data.selectedCampaigns[0].activegroups.length === 0">
+        <img src="img/emptystates/redonwhite/r_Group_Missing.png">
+        <div class="placeholderheadlinetext schrift_rot_imp">
+            <normal translate="Currentlyinthecampaign"></normal> "{{data.selectedCampaigns[0].title}}" <normal translate="assignedtoadepartment"></normal>
+        </div>
+        <div class="placeholderdesc" translate="Assigntogetthiscampaigntoadepartmentinformation">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div  ng-show="data.selectedCampaigns.length > 1" class="cmp-r-many-selected ">
+    <button ng-click="deleteCampaigns()" class="actionbutton btn btn-block deletebutton">  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span><normal translate="deletecampaigns"></normal></button>
+
+    
+    <div ng-repeat="item in data.selectedCampaigns">
+    <div align="left"  class="flex-center-left text-left">
+                                    <div class="dotcontainer">
+                                         <span class="graph-dot" style="background-color : {{item.color}}"></span>
+                                    </div>
+                                    <div>
+                                        <div class="title">{{item.title}}</div>
+                                        <span class="wann"> <normal translate="Createdonca"></normal> {{item.createdAt| date:"dd.MM.yyyy"}}</span>
+                                    </div>
+                                </div>
+ 
+
+    <div role="separator" class="divider"></div> 
+   </div>
+</div>

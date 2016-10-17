@@ -1,0 +1,334 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12.09.2016, 17:17:06
+    Author     : kippple
+*/
+
+.pricing{
+    color : $dunkelgrau;
+/*    letter-spacing : 0.7px;*/
+    
+    
+    .products{
+        
+        padding-top : 30px;
+        padding-bottom : 30px;
+        
+        
+        .planswitcharea{
+               
+            padding-right : 15px;
+            padding-bottom : 30px;
+            position : relative;
+            height : 154px;
+            
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -moz-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: flex-end;
+                -webkit-align-items: flex-end;
+                 -webkit-box-align: end;
+                 align-items: flex-end;
+                justify-content: flex-end;
+            
+            
+            
+            
+            .mittelstandpic{
+                display : block;
+                 position: absolute;
+                left: 50%;
+                top : 0;
+                -ms-transform: translateX(-50%); /* IE 9 */
+                -webkit-transform: translateX(-50%); /* Chrome, Safari, Opera */
+                transform: translateX(-50%);
+               
+                height : 124px;
+                width : 124px;
+            }
+            
+            
+            select{
+                
+                option{
+                    padding: 0 24px;
+                }
+                
+                font-family: roboto_condensed_regular;
+                max-width : 250px;
+                padding-left : 20px;
+            }
+            select.form-control {
+                padding: 0 24px;
+            }
+        }
+        
+        .productcontainer{
+            
+            @media(max-width : 991px){
+                margin-top : 30px;
+            }
+           
+            border-radius : 3px;
+            text-align : center;
+            
+            .toparea{
+              
+                 padding : 25px;
+                .toptext{
+                    font-family : roboto_condensed_bold;
+                    font-size : 22px;
+                }
+                .bottomtext{
+                    margin-top : 5px;
+                    font-size : 14px;
+                      font-family : roboto_regular;
+                }
+                
+               
+                 
+            }
+            
+            .bottomarea{
+                padding : 25px;
+                padding-top : 45px;
+                 padding-top : 35px;
+                
+                .bigprice{
+                     font-family : roboto_condensed_regular;
+                    line-height : 1;
+                    justify-content: center;
+                    .number{
+                        line-height: 0.75;
+                        font-size : 100px;
+                    }
+                    .unit{
+                        font-size : 40px;
+                        
+                    }
+                    
+                }
+                
+                .pricesubline{
+                    margin-top : 20px;
+                    font-family : roboto_bold;
+                    font-size : 14px;
+                    
+                }
+                
+                .pricedescription{
+                    margin-top : 40px;
+                     font-family : roboto_regular;
+                    font-size : 14px;
+                    line-height : 1.6;
+                    
+                }
+                
+                a.btn{
+                    margin-top : 40px;
+                    margin-bottom : 10px;
+                    margin-left : auto;
+                    margin-right : auto;
+                    
+                    
+                }
+                
+            }
+            
+            
+            
+        }
+        
+        .productcontainer.first{
+             border : solid 2px #e6e6e6;
+            
+            .toparea{
+                  background-color : #e6e6e6;
+             }
+            
+            a.btn{
+                  background-color : $rot;
+                    color : white;
+                    border-radius: 3px;
+                
+            }
+            
+            a.btn:hover{
+                background-color : $rotHover;
+            }
+            
+        }
+        
+         .productcontainer.second{
+             border : solid 2px $blau;
+            .toparea{
+                  background-color : $blau;
+                  color : white;
+             }
+            a.btn{
+                  background-color : $blau;
+                    color : white;
+                    border-radius: 3px;
+                
+            }
+            a.btn:hover{
+                background-color : $blau_hover;
+            }
+            
+        }
+        .productcontainer.third{
+             border : solid 2px #88959c;
+            .toparea{
+                  background-color : #88959c;
+                  color : white;
+                  
+             }
+             .bigprice{
+                 font-size : 28px;
+                 font-family : roboto_condensed_bold;
+                 line-height : 1.3;
+             }
+             
+             .pricesubline{
+                 margin-top : 23px;
+             }
+             
+            a.btn{
+                  background-color : #88959c;
+                    color : white;
+                    border-radius: 3px;
+                
+            }
+            a.btn:hover{
+                background-color : #889591;
+            }
+            
+        }
+        
+        
+        .factcontainer{
+            margin-top : 30px;
+            background-color : #e6e6e6;
+            border-radius : 3px;
+            padding : 30px;
+            
+            .headline{
+                font-family : roboto_condensed_regular;
+                font-size : 16px;
+            }
+            
+            .fact{
+                margin-top : 15px;
+                .factimage{
+                    padding-right : 7px;
+                    img{
+                        
+                        width: 23px;
+                        min-width: 23px;
+                        max-width: 23px;
+                        height : 18px;
+                        min-height : 18px;
+                        max-height : 18px;
+                    }
+                }
+                .facttext{
+                    /*margin-left : 7px !important;*/
+                     width: calc(100% - 30px);
+                      max-width: calc(100% - 30px);
+                    .headline{
+                          font-family : roboto_condensed_bold;
+                          font-size : 16px;
+                    }
+                    .description{
+                          font-family : roboto_regular;
+                          font-size : 13px;
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    
+    
+    .faq{
+        padding-top : 80px;
+        padding-bottom : 70px;
+        
+        .topheadline{
+           
+            text-align :center;
+            font-size: 40px;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+            font-family: roboto_condensed_bold;
+            margin-bottom : 80px;
+                @media(max-width : 991px){
+                margin-bottom : 40px;
+            }
+        }
+        
+        .row{
+             
+            .question{
+                 @media(max-width : 991px){
+                margin-top : 20px;
+            }
+                 font-family : roboto_condensed_bold;
+                 font-size : 20px;
+            }
+
+            .answer{
+                 margin-top : 20px;
+                 @media(max-width : 991px){
+                margin-top : 10px;
+            }
+                
+               
+                font-family : roboto_regular;
+                 font-size : 14px;
+                 line-height : 1.6;
+            }
+
+        }
+       
+        
+        
+    }
+    
+    
+    .callforcontact{
+        letter-spacing : 0.7px;
+        padding-top : 25px;
+        padding-bottom : 25px;
+        width : 100%;
+        background-color : #e6e6e6;
+        img{
+            
+        }
+        .text{
+            margin-left : 25px;
+            .top{
+                color : $blau;
+                font-family : roboto_condensed_bold;
+                 font-size : 25px;
+            }
+            
+            .down{
+                      font-family : roboto_condensed_regular;
+                        font-size : 25px;
+            }
+            
+        }
+    }
+    
+    
+}

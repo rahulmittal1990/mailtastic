@@ -1,0 +1,41 @@
+.campaign-list-wrapper{
+  padding : 15px;
+}
+
+
+
+/**
+ *   CAMPAIGN MODAL
+ */
+
+.twocolumn{
+  
+  
+    div{
+      img{
+        width : 100%;
+        max-height : 200px;
+      }
+    }
+  
+   @media(min-width: $break-small) {
+     @include flex;
+     .col{
+       width : 50%;
+     }
+  }
+  @media(max-width: $break-small) {
+    text-align : center;
+    col{
+       width : 100%;
+       
+     }
+  }
+  
+  .col:nth-of-type(2){
+    margin:auto;
+    padding : 15px;
+  }
+  
+  
+}

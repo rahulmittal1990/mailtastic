@@ -1,0 +1,102 @@
+<div style="padding-top : 15px;" class='container-fluid no_padding'>
+    <div class="row  row-eq-height-lg margin-hor-0">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 group-left-area">
+            <div class="full-width row row-eq-height-md">
+                <div class="panel  group-detail-general col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                    <!--<div class="panel-heading button-panel-header">-->
+                    <!--<h5>Personal Statistik</h5>-->
+                    <!--<button type="button" class="btn btn-sm actionbutton">Mitarbeiter hinzufügen</button>-->
+                    <!--</div>-->
+                    <div cg-busy="loadingPromise"  class="panel-body">
+                        <label ng-show="modaloptions.mode === 'update'" translate="Department"></label>
+                        <div class=" text-left overflowxhidden">
+                            <span class="title"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> {{data.groupDetail.title}}</span>
+
+
+                        </div>
+                        <div class="amountOfMembers">{{data.groupDetail.amountOfMembers}} <normal translate="Employee"></normal></div>
+                        <div role="separator" class="divider"></div>  
+                        <!--<button ng-click="open(data.groupDetail.id)" ng-controller="GroupModalCtrl"  class="btn actionbutton"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Bearbeiten</button>-->
+                        <!--<button ng-hide="true" ng-show="{{data.groupDetail.isDefault === 0}}" ng-click="deleteGroup(data.groupDetail.id)" class="btn actionbutton"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>-->
+                        <!--                        <button ng-click="open(item.id)" ng-controller="EmployeeModalCtrl"  class="btn actionbutton  margin-auto" type="button">
+                                                    <span class="glyphicon glyphicon-plus" "></span>  Mitarbeiter hinzufügen
+                                                </button>-->
+                        <div ng-show="data.groupDetail.isDefault == false" class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+                            <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="Actions"></normal>
+                            </button>
+                            <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                                <!--<li ng-click="showGroupDetails(item.id)"><a href="#">Ansehen</a></li>-->
+                                <li ng-show="data.groupDetail.isDefault == false"  ng-click="deleteGroup(data.groupDetail.id)"><a href="#" translate="Delete"></a></li>
+                                <li ng-show="data.groupDetail.isDefault == false" ng-controller="GroupModalCtrl" ng-click="open(data.groupDetail.id, null, 'new')"><a href="#" translate="Edit"></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+                            <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <normal translate="Addemployees"></normal>
+                            </button>
+                            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'new')"><a translate="Createnew"></a></li>
+                                <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'existing')"><a translate="existing"></a></li>
+                                <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'import')"><a translate="Import"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="min-height : 250px;" class="panel  col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                    <!--<div class="panel-heading button-panel-header">-->
+                    <!--<h5>Aktive Kampagne</h5>-->
+                    <!--<button type="button" class="btn btn-sm actionbutton">Mitarbeiter hinzufügen</button>-->
+                    <!--</div>-->
+                    <div cg-busy="loadingPromise"  class="panel-body group-detail-campaign">
+                        <!--<div>   wrapper weil der wrapper max height 300px hat-->
+                        <div class="form-group" >
+                            <label translate="Activecampaign"></label>
+                            <!-- <p>Selected: {{person.selected}}</p> -->
+                            <ui-select ng-change="campaignChangedDetails('{{selectedCampaign.selected.id}}')"  ng-model="selectedCampaign.selected" theme="bootstrap" ng-disabled="disabled" style="min-width: 200px;">
+                                <ui-select-match placeholder="Kampagne suchen...">{{$select.selected.title}}</ui-select-match>
+                                <ui-select-choices repeat="campaign in data.campaigns  | propsFilter: {title: $select.search}">
+                                    <span  class="graph-dot" style="background-color : {{campaign.color}}"></span><span ng-bind-html="campaign.title | highlight: $select.search"></span>
+                                    <small class="block">
+                                        <normal translate="Createdon"></normal> {{campaign.createdAt| date:'MM.dd.yyyy'}}
+                                        <!-- age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> -->
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+
+
+
+                        <a class="link banner" ng-hide="!data.groupDetail.campaignTitle" style="max-width : 100%;"   ng-click="showCampaignDetails(selectedCampaign.selected.id)">
+                            <img   style="max-width:100%;"  ng-src="{{selectedCampaign.selected.image}}" />
+                        </a>
+                        <div ng-hide="!data.groupDetail.campaignTitle" class="url"><span style="margin-right : 3px;" class="glyphicon  glyphicon-link" aria-hidden="true"></span><a target=”_blank”  href="{{selectedCampaign.selected.url.indexOf('http://') === 0 ? selectedCampaign.selected.url : 'http://' + selectedCampaign.selected.url}}"><span>{{selectedCampaign.selected.url}}</span></a></div>
+
+                        <div class="nodataarea_hor flex-center-left" ng-show="!data.groupDetail.campaignTitle">
+                            <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+                            <div class="rightside">
+                                <div class="placeholderheadlinetext schrift_rot_imp" translate="ThisdepartmentisnotassignedCampaign"></div>
+                                <div class="placeholderdesc" translate="Fromthedropyouwantdepartmentmembers"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 ng-include " src="'groups/details/snippets/groupstats.html'">
+
+        </div>
+    </div>
+
+</div>
+
+<div   ng-include src="'groups/details/snippets/employeelist.html'">
+
+</div>

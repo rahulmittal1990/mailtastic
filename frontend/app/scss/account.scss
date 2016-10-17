@@ -1,0 +1,156 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21.12.2015, 16:47:47
+    Author     : kippple
+*/
+
+
+/*.accountcontainer{
+    padding : 30px;
+    
+    .panel{
+        border-right-width : 0;
+          border-left-width : 0;
+            border-top-width : 0;
+          
+          
+          .panel-heading{
+              background-color : $dunkelgrau;
+              color : white;
+              padding-bottom : 10px;
+              
+              
+              .heading-area{
+                  padding : 0;
+                  padding-left : 45px;
+                  
+                  .divider{
+                      margin-top : 30px !important;
+                  }
+                  
+                  h1{
+                      margin-top : 15px;
+                  }
+              }
+            
+          } 
+          
+          
+       
+          
+          .panel-body{
+              
+            
+             padding : 30px;
+             padding-left : 60px;
+              
+             
+             .headline{
+                 color : $blau;
+                 margin-bottom : 30px;
+             }
+             
+             .form-horizontal{
+                 max-width : 450px;
+                 label{
+                     text-align : left;
+                 }
+             }
+             
+             .firstform{
+                 margin-bottom : 30px;
+             }
+             .lastform{
+                 margin-bottom : 30px;
+             }
+             
+              .firstheadline{
+                 margin-top : 20px;
+             }
+             .secondheadline{
+                 margin-top : 30px;
+             }
+             
+             
+             p{
+                 font-size : 11px;
+                 font-family : roboto_bold;
+                 .link{
+                     color : $blau;
+                 }
+             }
+             
+             .buttonform{
+                 
+                 margin-top : 30px;
+                   .actionbutton{
+                 padding-left : 20px;
+                 padding-right : 20px;
+                 margin-right : 25px;
+             }
+             }
+              
+           
+          }
+          
+          
+    }
+}*/
+
+
+.control-label-account{
+    padding-top : 7px;  //weil sm formen
+    width : 180px;
+}
+
+
+.invoicerow{
+    height : 64px;
+    padding-left : 25px;
+    padding-right : 25px;
+    @include flex;
+    text-decoration : none !important;
+    >div{
+      margin : auto;  
+    }
+    .iconarea{
+       
+        img{
+            margin-right : 15px;
+            width :14px;
+            height : 14px;
+        }
+        .text{
+            @include format4;
+            color : #009fe3;
+            font-family : roboto_medium;
+        }
+        margin-left : 0;
+    }
+    .date{
+        margin-right : 0;
+        font-size : 14px;
+        font-family : roboto_regular;
+        color : #363f48;
+    }
+}
+
+
+ .invoicerow.odd{
+    background-color :   #f2f6fa;
+}
+.invoicerow.even{
+    background-color : #e9eff4;
+}
+.invoicerow.selected{
+    background-color : #b3c2cf;
+}
+.invoicerow:hover{
+    background-color : #b3c2cf;
+}
+
+        

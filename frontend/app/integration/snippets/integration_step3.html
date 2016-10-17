@@ -1,0 +1,105 @@
+<div class="format1 innerheadline">
+<span ng-hide="datacompletiononly" ng-click="workflow.step = 'explanation'" class="breadcrumpdone cursor-pointer" ><normal translate="introduction"></normal><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+<span ng-click="workflow.step = 'datacompletion'" class="breadcrumpdone cursor-pointer" >{{workflow.step3headline}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+<span class="breadcrump" translate="instructions"></span>
+</div>
+<div  role="separator" class="line"></div> 
+<div ng-show="workflow.step3headline === 'Daten ergänzt'" class="infobox infobox-success full-width-imp" >
+    <span class="symbol glyphicon glyphicon-check"></span>
+    <div>
+        <div class="text"><strong translate="Yoursuccessfullytestedcompletely"></strong>
+        </div>
+    </div>
+</div>
+
+<div ng-show="workflow.step3headline === 'Daten komplett'" class="infobox infobox-success full-width-imp" >
+    <span class="symbol glyphicon glyphicon-check"></span>
+    <div>
+        <div class="text nowrap"><strong translate="Yoursuccessfullytestedcompletely"></strong>
+        </div>
+    </div>
+</div>
+
+
+<!--to have control over copy and paste START-->
+<input type="hidden" id="hidden-input"> 
+<div id="ie-clipboard-contenteditable" class="hidden" contenteditable="true"></div> 
+<!--to have control over copy and paste END-->
+
+
+ <div class="infobox infobox-info full-width-imp" >
+        <span class="symbol glyphicon glyphicon-info-sign"></span>
+        <div class="contentarea">
+            <div ng-show="sigOrCampaign === 'signature'"  class="text"><strong><normal translate="Thisisyournew"></normal> <span class="text-underline"><normal translate="Mailtasticsignature"></normal></span></strong></div>
+            <div ng-show="sigOrCampaign === 'campaign'"  class="text"><strong><normal translate="Thisisyournew"></normal> <span class="text-underline" translate="Campaignbannerss"></span></strong></div>
+            <div class="sigpreview previewcontainer martop20 marbot20" id="preview"  ng-bind-html="signatureData.preview" >
+
+            </div>
+            
+            <!--<previewiniframe content="signatureData.preview"></previewiniframe>-->
+           
+        </div>
+</div>
+
+<div  class="infobox infobox-error full-width-imp" >
+    <span class="symbol glyphicon glyphicon-alert"></span>
+    <div>
+        <div ng-show="sigOrCampaign === 'signature'" class="text"><strong>{{(!admindata.firstname) ? admindata.email : (admindata.firstname + ' ' + admindata.lastname)}}  <normal translate="asksyouyournew"></normal> <span class="text-underline" translate="Mailtasticsignature"></span> <normal translate="nowintegrate"></normal></strong><br>
+           
+        </div>
+        <div ng-show="sigOrCampaign === 'campaign'"  class="text"><strong>{{(!admindata.firstname) ? admindata.email : (admindata.firstname + ' ' + admindata.lastname)}}  <normal translate="asksyouyournewMailtastic"></normal> <span class="text-underline"><normal translate="CampaignBanner"></normal></span> <normal translate="nowinyouremailsignature"></normal></strong><br>
+           
+        </div>
+        <div class="additionaltext" translate="Simplyfollowinginstructions">            
+        </div>
+    </div>
+</div>
+
+<!--<div class="previewcontainer" id="preview"  ng-bind-html="signatureData.preview">
+    
+</div>-->
+
+
+
+<!-- <div class="format3 schrift_blau_imp roboto_bold martop20 "> {{(!admindata.firstname) ? admindata.email : (admindata.firstname + ' ' + admindata.lastname)}}  bittet Sie, Ihre Signatur wie folgt zu integrieren</div>-->
+<div class="schrift_blau martop25 marbod25" style="font-size : 20px; " translate="IntegrationInstructions"></div>
+<div class="martop10 marbot10" translate="Wheresignatureoryourcampaignbanner"></div>
+
+
+<select id="manualselect"  style="" data-style="btn-lg btn-default nooutlinegrey" class="selectpicker roboto_condensed_regular nooutlinegrey">
+  <option value="choose" selected >Auswählen...</option>
+  <option value="outlookwin" >Outlook (Windows)</option>
+  <option value="outlookmac" >Outlook (Mac)</option>
+  <option value="gmail" >G-Mail</option>
+  <option value="thunderbird" >Thunderbird</option>
+  <option value="macmail" >Apple Mail</option>
+  <option value="webtools" >Web-Tools</option>
+  <option value="other" >Andere...</option>
+</select>
+
+
+
+
+
+
+
+<div ng-show="currentManual.title" role="separator" class="line"></div>
+<div class="manualscontainer">
+  
+    <div ng-show="currentManual.title === 'Andere'" ng-include src="'integration/manuals/other.html'"></div>
+    <div ng-show="currentManual.title === 'Gmail'" ng-include src="'integration/manuals/gmail.html'"></div>
+    <div ng-show="currentManual.title === 'Apple Mail'" ng-include src="'integration/manuals/macmail.html'"></div>
+    <div ng-show="currentManual.title === 'Thunderbird'" ng-include src="'integration/manuals/thunderbird.html'"></div>
+    <div ng-show="currentManual.title === 'Outlook (Win)'" ng-include src="'integration/manuals/outlookwin.html'"></div>
+    <div ng-show="currentManual.title === 'Outlook (Mac)'" ng-include src="'integration/manuals/outlookmac.html'"></div>
+    <div ng-show="currentManual.title === 'Mac Mail (alt)'" ng-include src="'integration/manuals/macmail_altev.html'"></div>
+    <div ng-show="currentManual.title === 'Web-Tools'" ng-include src="'integration/manuals/webtools.html'"></div>
+    <!--<div ng-show="currentManual.title === 'Outlook (Windows)'" ng-include src="'integration/manuals/outlookwin_easyintegrate.html'"></div>-->
+</div>     
+
+<div  role="separator" class="line"></div>
+<div class="flex-center-left">
+     <button ng-click="workflow.step = 'datacompletion'" class="ownbtn btngrau leftbutton" translate="Back"></button>
+         <div ng-click="openHelpModal()" class="ownbtn btngrau leftbutton" translate="Ineedhelp"></div>
+    <button ng-click="workflow.step = 'finished'" class="ownbtn btnblau" translate="DoneImailtasticintegrated"></button>
+</div>

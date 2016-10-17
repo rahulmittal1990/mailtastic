@@ -1,0 +1,135 @@
+<div class="container logintopnav">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-5 col-sm-6 col-xs-6 col-lg-offset-0 col-md-offset-1  loginlogo text-left">
+            <a target="_blank" href="https://www.mailtastic.de"><img src="../img/navigation/logo.png"></a>
+        </div>
+        <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6 col-centered  tel-col">
+            <normal translate="ask"></normal>   <strong class="url"><a class="loginimprlink" target="blank" href="https://www.mailtastic.de/impressum" translate="imprint"></a></strong>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container vertical-center-o-xs">
+<div class="row flex full-width">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 leftcol">
+        <div class="headline" translate="Mailtastic14days"></div>
+         <div class="benefits">
+                <div class="flex-center-left onebenefit">
+                    <img  src="img/register/Registrieren_Haekchen.png" />
+                    <div class="text" translate="Noautomaticrenewal"></div>
+                </div>
+                <div class="flex-center-left onebenefit">
+                    <img  src="img/register/Registrieren_Haekchen.png" />
+                    <div class="text" translate="Setupinminutes"></div>
+                </div>
+                
+                 <div class="flex-center-left onebenefit">
+                    <img  src="img/register/Registrieren_Haekchen.png" />
+                    <div class="text" translate="achievedirectresults"></div>
+                </div>
+            </div>
+        
+        <form name="registerform">
+           <div class="form">
+                <input ng-model="registerdata.email" type="email" ng-change="resetFirstFormValidationMessages()" name="email" class="form-control input-lg name" placeholder="E-Mail-Adresse*" >
+                <div ng-show="registerform.email.$error.email || emailNotValid"  class="infobox infobox-error martop20">
+                    <span class="symbol glyphicon glyphicon-alert"></span>
+                    <div class="text">
+                        <strong translate="Pleasevalidemailaddress"></strong> 
+<!--                         <div class="additionaltext">Weisen Sie der Abteilung <strong>{{config.resultdata.group.title}}</strong> 
+                        </div>-->
+                    </div>
+                </div>
+                
+               <input ng-model="registerdata.password" ng-change="resetFirstFormValidationMessages()" ng-minlength="6" type="password" class="form-control input-lg secondinput" placeholder="Passwort* (min. 6 Zeichen)" required>
+               <div ng-show="registerform.$error.minlength || passwordNotValid"  class="infobox infobox-error martop20">
+                    <span class="symbol glyphicon glyphicon-alert"></span>
+                    <div class="text">
+                        <strong translate="Please6characters"></strong> 
+<!--                         <div class="additionaltext">Weisen Sie der Abteilung <strong>{{config.resultdata.group.title}}</strong> 
+                        </div>-->
+                    </div>
+                </div> 
+               
+               
+             
+               
+               
+               
+               <input ng-show="registerdata.password.length > 5" ng-required="registerdata.password.length > 5" ng-model="registerdata.passwordrep" type="password" class="form-control input-lg secondinput" placeholder="Passwort wiederholen*" >
+   <div ng-show="passwordsDoNotMatch"  class="infobox infobox-error martop20">
+                    <span class="symbol glyphicon glyphicon-alert"></span>
+                    <div class="text">
+                        <strong translate="Thepasswordsdonotmatch"></strong> 
+<!--                         <div class="additionaltext">Weisen Sie der Abteilung <strong>{{config.resultdata.group.title}}</strong> 
+                        </div>-->
+                    </div>
+                </div> 
+           </div>
+            <button ng-click="  toSecondStep()"  type="button" class="btn btn-lg  btn-block login" translate="Registernow"></button>
+                
+            
+            
+            <div ng-show="showAgbAccepMessage"  class="infobox infobox-error martop20">
+                    <span class="symbol glyphicon glyphicon-alert"></span>
+                    <div class="text">
+                        <strong translate="PleaseaccepttheTermsandConditions"></strong> 
+<!--                         <div class="additionaltext">Weisen Sie der Abteilung <strong>{{config.resultdata.group.title}}</strong> 
+                        </div>-->
+                    </div>
+                </div>
+
+          
+                <div class="underformregister flex-center-all">
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="registerdata.policyChecked" type="checkbox" required> <normal translate="Iacceptthe"></normal> <a target="_blank" style="text-decoration: underline;" href="https://www.mailtastic.de/agb" translate="Conditions"></a> <normal translate="and"></normal> <a target="_blank"  style="text-decoration: underline;" href="https://www.mailtastic.de/datenschutzerklaerung"><br><normal translate="PrivacyPolicy"></normal></a>
+                        </label>
+                    </div>
+
+
+
+                    <div ><normal translate="Youalreadyhaveanaccount"></normal> <a class="nobetatester link"  href="/#/login"><br><normal translate="loginnow"></normal></a></div>
+                </div>
+           </form>
+        
+    </div>
+     <div class="col-lg-6 rightcol hidden-sm hidden-xs">
+        <img ng-show="slider.sliderimageToShow === 0" src="img/register/Rechts_1.png" class="img-responsive" />
+        <img ng-show="slider.sliderimageToShow === 1" src="img/register/Rechts_2.png" class="img-responsive" />
+        
+        <div class="slidernavi flex-center-all">
+            <div ng-click="changeSliderImage(0)" class="point" ng-class="{ 'active' : slider.sliderimageToShow === 0}"></div>
+            <div ng-click="changeSliderImage(1)" ng-class="{ 'active' : slider.sliderimageToShow === 1}" class="point"></div>
+        </div>
+    </div>
+    
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<style>
+    body {
+       
+        background-image :url("../img/register/Hintergrund-Titelbild-1.jpg");
+        /*background-attachment: fixed;*/
+    }
+
+    /*  body2,
+      .body2 {
+        background: url(powercube-09.png);
+        background-repeat: no-repeat;
+        font-family: 'Montserrat', sans-serif;
+      }*/
+</style>

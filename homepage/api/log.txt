@@ -1,0 +1,12 @@
+2016-01-04 20:12:11 (Error in function: global): 2
+2016-01-04 20:12:11 (Error in function: global): 5
+2016-01-04 20:12:11 (Error in function: global): 7
+2016-01-04 20:13:45 (Error in function: global): 2
+2016-01-04 20:13:45 (Error in function: global): 5
+2016-01-04 20:13:45 (Error in function: global): 7
+2016-01-04 20:13:45 (Error in function: addNewsletter): 10
+2016-01-04 20:13:45 (Error in function: addNewsletter): INSERT INTO Newsletter
+			(email) 
+			VALUES 
+			('fsdf@asd.de')
+2016-01-27 19:03:00 (Error in function: global): 2

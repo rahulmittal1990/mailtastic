@@ -1,0 +1,45 @@
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+<div cg-busy="loadingPromise"  class="expiredmodal">
+<!--    <div class="modal-header clearfix">
+        <h3 class="modal-title"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> {{modaloptions.heading}}</h3>
+        
+        <div class="cursor-pointer pull-right" ng-click="cancel()"><span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>  </div>
+    </div>-->
+    <div  class="modal-body">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12  textcol" >
+                <div class="headline">
+                    <normal translate="Hello"></normal> {{modaldata.firstname}} – <normal translate="wishtoexpressforlongerJustcontactus"></normal>
+                </div>
+                <div class="middlearea">
+                    <div class="uppertext" translate="Atfunctionsarenoongeravailable">                       
+                    </div>
+                    <div class="downtext" translate="TheMailtasticKampagnenbannerorEmailisposted">                     
+                    </div>
+                </div>
+                <div class="bottomarea" translate="mailtasticwithoutinterruptionsuitablesubscription">                   
+                </div>
+                <button  ng-click="goToBooking()" type="button" class="btn btn-lg actionbutton" translate="Mailtasticbooknow"></button>
+            </div>
+            <div  class="col-lg-4 col-md-4 col-sm-12 col-xs-12 kontaktcol" >
+                <div class="full-width flex-center-right">
+                         <div class="cursor-pointer closebutton" ng-click="cancel()"><span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>  </div>
+ 
+                </div>
+                
+                 
+                    <div class="kontaktarea">
+                        <img src="img/dashboard/Avatar_Tao.png"/>
+                        <div class="text" translate="Forhelpwanttoexpresscriticismorextendyourtrial">                            
+                        </div>
+                        <div class="kontaktdata">
+                            <div><span class="text-bold">Tao Bauer</span>, Sales</div>
+                            <div><a href="mailto:t.bauer@mailtastic.de">t.bauer@mailtastic.de</a></div>
+                            <div>{{strings.supportdata.supporttelnr}}</div>
+                        </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+</div>

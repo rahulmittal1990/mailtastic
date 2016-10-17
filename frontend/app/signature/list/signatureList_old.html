@@ -1,0 +1,87 @@
+
+<div class="list-control-area">
+
+
+    <div class="checkbox hidden-xs ">
+        <label>
+            <input ng-click="selectAll($event)"
+                   ng-checked="isSelectedAll()"  type="checkbox"> <normal translate="All"></normal>
+        </label>
+    </div>
+
+    <div ng-show="data.selectedEmployees.length > 1"  class="btn-group margin-auto optionbutton actiondropdown aktiongroup hidden-xs" uib-dropdown>
+        <button ng-disabled="data.selectedEmployees.length === 0"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li ng-click="deleteEmployees()"><a href="#" translate="Delete"></a></li>
+           
+            <li class="cursor-pointer" ng-click="resendInvitations(data.selectedEmployees)"><a translate="sendinvitationsagain"></a></li>
+        </ul>
+    </div>
+
+
+
+
+    <div id="custom-search-input"  class="input-group margin-auto search">
+        <input ng-change="recalcAvatars()" ng-model="filterText" type="text" class="form-control" placeholder="Mitarbeiter suchen" aria-describedby="basic-addon2">
+        <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
+    </div>
+
+
+
+
+
+
+
+    <!--<div class="margin-auto">-->
+    <div class="btn-group sort" uib-dropdown >
+        <button id="sort-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled">
+            <normal translate="sort"></normal> <span class="caret"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li role="menuitem">
+                <a ng-click="sortList('name')">Name</a>
+            </li>
+            <li role="menuitem">
+                <a  ng-click="sortList('views')">{{labels.views}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('clicks')" >{{labels.clicks}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('rate')" >{{labels.rate}}</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+        <button id="employee_list_addbutton"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="" translate="Addemployees"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+<!--            <li ng-controller="EmployeeModalCtrl" id="employee_list_addbutton_new" ng-click="open(null, null, 'new')"><a >Neu erstellen</a></li>
+            <li ng-controller="EmployeeModalCtrl" ng-click="open(null, null, 'import')"><a >Importieren</a></li>
+            -->
+            
+            <li ui-sref="base.assistant({state : 'employee_createnew'})" ui-sref-opts="{reload:true}" id="employee_list_addbutton_new" ng-click="open(null, null, 'new')"><a translate="Createnew"></a></li>
+            <li ui-sref="base.assistant({state : 'employee_import'})" ng-click="open(null, null, 'import')"><a translate="Import"></a></li>
+            
+            
+             
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div cg-busy="loadingPromise"   class="campaign-list-wrapper">
+    <ul class="no_padding " ng-include src="'signature/list/snippets/signaturerow.html'">
+     
+    </ul>
+</div>

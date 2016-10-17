@@ -1,0 +1,150 @@
+<div class="flex">
+    <div class="leftform">
+      <div class="format1 innerheadline">
+            <span class="breadcrumpdone" ng-repeat="item in config.breadcrumpsdone">{{item}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+            <span class="breadcrump"  ng-repeat="item in config.breadcrumps">{{item}}</span>
+        </div>
+        <div role="separator" class="line"></div>  
+        
+        
+          <!--Abteilung wurde erstellt-->
+         <div class="infobox infobox-grey" ng-show="config.resultdata.groupCreated">
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div>
+            <div class="text"><normal translate="TheDepartment"></normal> <strong>{{config.groupTitle}}</strong> <normal translate="successfullycreated"></normal></div>
+            
+            </div>
+        </div>
+        
+          
+          <!--Employees were added-->
+        <div class="infobox" ng-class="{'infobox-grey' : (config.resultdata.campaignCreated || config.resultdata.rolloutDone || config.resultdata.group.activeCampaign || config.resultdata.signature.signatureAssigned), 'infobox-success' : (!config.resultdata.campaignCreated  && !config.resultdata.signature.signatureAssigned)}">
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div>
+                <div class="text"><strong>{{config.resultdata.employee.amountOfImported}} <normal translate="employeewas"></normal>{{config.resultdata.employee.amountOfImported > 1 ? 'n' : ''}} <normal translate="successfullytothedepartment"></normal> {{config.resultdata.group.title}} <normal translate="added"></normal></strong></div>
+<!--            <div class="additionaltext">Der Mitarbeiter hat eine Einladung zu Mailtastic, sowie die Anleitung zum selbstständigen Einbinden des Kampagnen-Banners erhalten.
+                Sobald der Mitarbeiter Mailtastic in seine E-Mail-Signatur integriert hat, wird er als “Aktiv” angezeigt. Inaktiven Mitarbeiter können Sie jederzeit eine Erinnerung senden.
+            </div>-->
+            </div>
+        
+        </div>
+        
+            <!--Signatur wurde zugewiesen-->
+         <div class="infobox"  ng-class="{'infobox-grey' : (config.resultdata.campaignCreated), 'infobox-success' : (!config.resultdata.campaignCreated)}" ng-show="config.resultdata.signature.signatureAssigned">
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{config.resultdata.signature.signatureAssignedTitle}}</strong> <normal translate="wassuccessfullyassigned"></normal></div>
+            
+            </div>
+        </div>
+            <!--Es fehlt noch eine Signatur-->
+                 <div ng-show="!config.resultdata.signature.signatureAssigned"  class="infobox infobox-error">
+            <span class="symbol glyphicon glyphicon-alert"></span>
+            <div class="text">
+                <strong translate="Nosignatureyouremployeesisdisplayed"></strong> 
+                 <div class="additionaltext"><normal translate="InstructtheDepartment"></normal> <strong>{{config.resultdata.group.title}}</strong> <normal translate="asignatureinordertodefine"></normal>
+            </div>
+            </div>
+        </div>
+            
+          
+          
+          <!--KEINE KAMPAGNE-->
+           <div ng-show="!config.resultdata.group.activeCampaign" class="infobox infobox-error">
+            <span class="symbol glyphicon glyphicon-alert"></span>
+            <div class="text">
+                <strong translate="Currentlyittheinvitedusersisplayed"></strong>
+               <div class="additionaltext"><normal translate="InstructtheDepartment"></normal> <strong>{{config.resultdata.group.title}}</strong> 
+                <normal translate="Acampaignmembershouldbedisplayed"></normal>
+               </div>
+            </div>
+        </div>
+          
+          
+        
+        
+       
+        <!--Fertig!! Kampagne zugewiesen-->
+        <div ng-show="config.resultdata.group.activeCampaign" class="infobox infobox-success" ng-class="{'infobox-grey' : (config.resultdata.rolloutDone), 'infobox-success' : (!config.resultdata.rolloutDone)}">
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div class="text">
+                <div><normal translate="Thefollowingcampaigwasthemembersdepartment"></normal> <strong>{{config.resultdata.group.title}}</strong> <normal translate="assignedexc"></normal></div>
+                 <div class="cmptitle">
+                    <div class="flex-center-left">
+                        <div class="color-rect" style="background-color : {{config.resultdata.campaign.color}}"></div>
+                        <div  class="title">{{config.resultdata.campaign.title}}</div>
+                    </div>
+                    <div class="wann"> <normal translate="From"></normal> {{config.resultdata.campaign.createdAt| date:"dd.MM.yyyy"}}</div>
+                </div>
+                <img style="max-width : 100%;" ng-src="{{config.resultdata.campaign.image}}" >
+            </div>
+        </div>
+        
+         <!--There were newly created employees so show warning that no invitation was sent yet-->
+        <div ng-show=" !config.resultdata.rolloutDone && ((config.resultdata.group.activeCampaign || config.resultdata.signature.signatureAssigned)   && config.resultdata.employee.amountOfImported > 0)" class="infobox infobox-error">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text">
+                <strong translate="Notifyyouremployees"></strong>
+                 <div class="additionaltext" translate="Ensureassignedclientaffectedemployeesnow">
+                </div>
+            </div>
+            
+        </div>
+        
+        
+            <!--Employees were informed-->
+            <div ng-show="config.resultdata.rolloutDone" class="infobox infobox-success" >
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div>
+                <div class="text"><strong translate="Employeeswerenotified"></strong></div>
+            <div class="additionaltext" translate="TheemployeesupdatingInactiveemployeestime">
+            </div>
+            </div>
+        
+        </div>
+        
+        
+       
+        
+        
+       
+        <div role="separator" class="line"></div>  
+        <div class="flex-center-left controlrow">
+                <div ng-show="(!config.resultdata.group.activeCampaign  && config.resultdata.signature.signatureAssigned !== true)  && !config.resultdata.rolloutDone" class="btn-group leftbutton" uib-dropdown>
+                    <button   type="button" class="btn ownbtn btnblau  " uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="" translate="Addmorepeople"></span>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="addAnotherEmployee('new')"><a translate="Createnew"></a></li>
+                        <li ng-click="addAnotherEmployee('import')"><a translate="Import"></a></li>
+                    </ul>
+                </div>
+            
+            
+            
+            
+            <!--employeee-->
+            <div ng-show="(!config.resultdata.group.activeCampaign  || config.resultdata.signature.signatureAssigned !== true) && !config.resultdata.rolloutDone" class="btn-group leftbutton" uib-dropdown>
+                    <button   type="button" class="btn ownbtn btnblau " uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="">{{!config.resultdata.group.activeCampaign  ? 'Kampagne' : ''}}{{(config.resultdata.signature.signatureAssigned !== true && !config.resultdata.group.activeCampaign)   ? ' / ' : ''}}{{config.resultdata.signature.signatureAssigned !== true ? 'Signatur' : ''}} <normal translate="toassign"></normal></span>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-show="!config.resultdata.group.activeCampaign" ng-click="setCampaign('new')"><a translate="Createanewcampaign"></a></li>
+                        <li ng-show="!config.resultdata.group.activeCampaign"  ng-click="setCampaign('existing')"><a translate="Selectanexistingcampaign"></a></li>
+                        <li ng-show="!config.resultdata.signature.signatureAssigned" ng-click="setSignature('existing')"><a translate="Selectexistingsignature"></a></li>
+                    </ul>
+                </div>
+                <button ng-show="config.resultdata.rolloutDone || (config.resultdata.employee.amountOfImported === 0 && config.resultdata.group.activeCampaign)" type="submit" ui-sref="base.employees.employeelist" class="btn ownbtn btnblau" translate="DoneToStafflisting"></button> 
+                
+                <button ng-show="(config.resultdata.group.activeCampaign || config.resultdata.signature.signatureAssigned) && config.resultdata.employee.amountOfImported > 0 && !config.resultdata.rolloutDone" ng-click="inviteMembers()"  class="btn ownbtn btnblau leftbutton" translate="notifyemployeesnow"></button> 
+          
+                <button ng-show="(config.resultdata.employee.amountOfImported > 0 &&  !config.resultdata.rolloutDone) || (config.resultdata.employee.amountOfImported > 0 &&  !config.resultdata.group.activeCampaign)" type="submit" ng-click="abort()" class="btn ownbtn btngrau leftbutton" translate="endprematurely"></button> 
+            </div>
+    </div>
+    <div class="helpcontainer" ng-include src="'assistant/common/helparea.html'" >
+    </div>
+</div>
+
+
+
+

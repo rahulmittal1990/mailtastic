@@ -1,0 +1,148 @@
+<div style="padding-top : 15px;padding-right : 0;" class='container-fluid'>
+    <div class="row row-eq-height-lg">
+        <div class="col-lg-4 col-md-12">
+            <div class="panel whitepanel employee-detail">
+                <div class="panel-heading button-panel-header">
+                    <h5 class="panelheading" translate="Employee"></h5>
+                    <!--<button type="button" class="btn btn-sm actionbutton">Mitarbeiter hinzufügen</button>-->
+                </div>
+                <div cg-busy="loadingPromise" class="panel-body">
+                    <img class="img-circle margin-auto" letters="{{!employeeDetailData.firstname ? (employeeDetailData.email | limitTo:1) : ((employeeDetailData.firstname | limitTo:1) + (employeeDetailData.lastname | limitTo:1))}}" />
+                    <div class="margin-auto overflowxhidden">
+                        <span class="title ">{{(!employeeDetailData.firstname) ? employeeDetailData.email : (employeeDetailData.firstname + ' ' + employeeDetailData.lastname)}}</span>
+                        <br />
+                        <span class="email" ng-show="employeeDetailData.firstname">{{employeeDetailData.email}}</span>
+                    </div>
+
+                    <div class="btn-group margin-auto optionbutton" uib-dropdown>
+                        <button type="button" class="btn  optionbutton actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><normal translate="Actions"></normal>
+                        </button>
+                        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                            <li class="cursor-pointer" role="menuitem">
+                                <a ng-click="open(employeeDetailData.id,null,'new')" ng-controller="EmployeeModalCtrl" translate="Edit"></a>
+                            </li>
+                            <li class="cursor-pointer" role="menuitem" ng-click="resendInvitationSingle(employeeDetailData.id)"><a translate="Sendinvitationagain"></a></li>
+                        </ul>
+                    </div>
+                    <button ng-show="employeeDetailData.isAdmin === 0" ng-click="deleteEmployee(employeeDetailData.id)" class="btn actionbutton"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+
+
+
+
+                    <div role="separator" class="divider"></div>
+                    <div class="grouptext" translate="Departmentss"></div>
+                    <!--<button ng-click="open(employeeDetailData.id)" ng-controller="EmployeeModalCtrl"  class="btn"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Bearbeiten</button>-->
+
+
+                    <select ng-change="groupChanged('{{selected.selectedGroupForEmp}}')" ng-model="selected.selectedGroupForEmp" class="form-control">
+                        <option value="selectGroupForEmp" translate="assigndepartment"></option>
+                        <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}} </option>
+                    </select>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="panel whitepanel">
+                <div class="panel-heading button-panel-header">
+                    <h5 class="panelheading" translate="Activecampaigns"></h5>
+                    <!--<button type="button" class="btn btn-sm actionbutton">Mitarbeiter hinzufügen</button>-->
+                </div>
+                <div cg-busy="loadingPromise" class="panel-body employee-detail-campaign">
+
+                    <div ng-hide="!employeeDetailData.campaignTitle">
+                        <div class="campaigndetails text-left">
+                            <span class="graph-dot" style="background-color : {{employeeDetailData.campaignColor}}"></span>
+                            <span class="title link" ng-click="showCampaignDetails(employeeDetailData.campaignId)">{{employeeDetailData.campaignTitle}}</span>
+                        </div>
+                        <span class="glyphicon  glyphicon-link" aria-hidden="true"></span>
+                        <span class="url link"><a target=”_blank” href="{{employeeDetailData.campaignUrl.indexOf('http://') === 0 ? employeeDetailData.campaignUrl : 'http://' + employeeDetailData.campaignUrl}}">{{employeeDetailData.campaignUrl}}</a></span>
+                        <!--<img src="https://www.app.mailtastic.de:3333/im/{{employeeDetailData.id}}/ad"  border="0" style="max-width:100%;" alt="Latest News + Events" style="color:blue;font-size:12px;">-->
+                        <a class="link" ng-click="showCampaignDetails(employeeDetailData.campaignId)" style="max-width:100%;" ng-click="showCampaignDetails(employeeDetailData.campaignId)">
+                            <img style="max-width:100%;" ng-src="{{employeeDetailData.campaignImage}}" />
+                        </a>
+
+
+
+                        <div class="flex info-area">
+                            <span class="glyphicon  glyphicon-info-sign float-left" aria-hidden="true"></span>
+                            <div class="small" translate="Toassignaemployeetoanothercampaign"></div>
+                        </div>
+                    </div>
+                    <div ui-sref="base.employees.groupdetails({groupId: employeeDetailData.currentGroup})" class="nodataarea" style="cursor:pointer;" ng-show="!employeeDetailData.campaignTitle">
+                        <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+                        <div class="placeholderheadlinetext schrift_rot_imp">
+                            <normal translate="Currentlyinthedepartment"></normal>"{{employeeDetailData.groupTitle}}" <normal translate="assignedtoanycampaign"></normal>
+                        </div>
+                        <div class="placeholderdesc" translate="Assignacampaigntodisplayabannercampaign">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-12">
+            <div class="panel whitepanel">
+                <div class="panel-heading button-panel-header">
+                    <h5 class="panelheading">Status</h5>
+                    <!--<button type="button" class="btn btn-sm actionbutton">Mitarbeiter hinzufügen</button>-->
+                </div>
+                <div cg-busy="loadingPromise" class="panel-body employee-detail-stat flex">
+                    <!--                    <div ng-hide="employeeDetailData.views === 0 && employeeDetailData.clicks === 0" class="wrapper flex-center-all">
+
+                                            <div  class="text-center statsitem">
+                                                <span class="upper">{{employeeDetailData.views}}</span>
+                                                <br />
+                                                <span class="down">{{labels.views}}</span>
+                                            </div>
+                                            <div  class="statsitem text-center">
+                                                <span class="upper">{{employeeDetailData.clicks}}</span>
+                                                <br />
+                                                <span class="down">{{labels.clicks}}</span>
+                                            </div>
+                                            <div  class="statsitem text-center">
+                                                <span class="upper">{{(employeeDetailData.views === 0|| employeeDetailData.clicks===0) ? 0 : Math.floor((employeeDetailData.clicks / employeeDetailData.views)*100)}}%</span>
+                                                <br />
+                                                <span class="down">{{labels.rate}}</span>
+                                            </div>
+                                        </div>-->
+
+
+                    <div ng-show="employeeDetailData.views > 0" class="status">
+                        <img src="img/employees/Aktiv.png" />
+                        <div class="statustext schrift_gruen">Aktiv</div>
+
+                    </div>
+                    <div ng-show="employeeDetailData.views === 0" class="status">
+                        <img src="img/employees/Inaktiv.png" />
+                        <div class="statustext schrift_rot">Inaktiv</div>
+
+                    </div>
+
+
+
+                    <!--                    <div class="nodataarea" ng-show="(employeeDetailData.views === 0 && employeeDetailData.clicks === 0)">
+                                            <img src="img/emptystates/lightonwhite/w_Statistic_Missing.png">
+                                            <div class="placeholderheadlinetext">
+                                               Aktuell liegen noch keine Daten vor
+                                            </div>
+                                            <div class="placeholderdesc">
+                                       Sobald erste Daten vorliegen, können Sie diese hier einsehen.      </div>
+
+                                        </div>-->
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

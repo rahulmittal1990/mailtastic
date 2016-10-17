@@ -1,0 +1,18 @@
+/*
+Theme Name: Mailtastic Theme
+Theme URI: https://www.mailtastic.de
+Author: Andreas Schröder NETSTAG GmbH
+Author URI: https://www.mailtastic.de
+Template: rise
+Description: Individuell entwickelter Wordpress Theme für Mailtastic
+Version: 1.0
+*/
+
+@import url(css/lib/bootstrap/bootstrap.min.css);
+@import url(css/lib/bootstrap/bootstrap-theme.min.css);
+@import url(css/lib/bootstrap/bootstrap-slider.min.css);
+@import url(fonts/roboto/roboto.css);
+/*@import url(css/main.css);
+@import url(css/navigation.css);
+@import url(css/footer.css);*/
+

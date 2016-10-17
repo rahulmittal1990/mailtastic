@@ -1,0 +1,45 @@
+<div class="booking" >
+
+    <div class="container">
+
+        <div class="outerheadline format0" translate="Youraccountoverview">       
+        </div> 
+
+        <div class="flex outerform" style="min-height : {{config.minheight}}px">
+            
+           
+
+      
+           
+                <div class="leftform">
+                    <div class="format1 innerheadline">
+            <span ng-click="switchstep('userdata')" ng-class="{'schrift_blau' : (config.currentstep === 'userdata')}"     class="cursor-pointer" translate="userdata"></span>
+            <span ng-click="switchstep('abo')"      ng-class="{'schrift_blau' : (config.currentstep === 'abo')}"     class="cursor-pointer" style="margin-left : 30px;" translate="Currentsubscription"></span>
+            <span ng-show="userdata.hasForce === false"  ng-click="switchstep('invoices')" ng-class="{'schrift_blau' : (config.currentstep === 'invoices')}"     class="cursor-pointer" style="margin-left : 30px;" translate="subscriptionbills"></span>
+        </div>
+                    
+              <div  role="separator" class="line"></div>       
+                    <div ng-show="config.currentstep === 'userdata'" class="product"  ng-include src="'account/snippets/userdata.html'" >
+                    </div>
+                       <div ng-show="config.currentstep === 'abo'"  class="product"  ng-include src="'account/snippets/abo.html'" >
+                    </div>
+                       <div ng-show="config.currentstep === 'invoices'" class="overview"  ng-include src="'account/snippets/invoices.html'" >
+                    </div>
+                    
+                    
+                    
+                </div>
+               
+           
+             <div style="min-width : 264px;" ng-show="config.currentstep === 'abo' && subscriptiondata.status === 'ongoing'" class="shoppingbasket" ng-include src="'booking/snippets/basket.html'" >
+                    
+               
+                </div>
+        
+         <div style="min-width : 264px;" ng-show="config.currentstep !== 'abo' || subscriptiondata.status !== 'ongoing'" class="shoppingbasket white"  ng-include src="'account/snippets/helparea.html'" >
+                    
+               
+                </div>
+        </div> 
+    </div>
+</div>

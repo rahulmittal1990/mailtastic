@@ -1,0 +1,67 @@
+
+
+
+
+<div class="flex">
+    <div class="leftform">
+     <!--<h3 class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Mitarbeiter hinzufügen</h3>-->
+    <div class="format1">{{modaloptions.heading}}</div>
+    
+     <div   role="separator" class="line" ng-cloak ></div>  
+        <div ng-show="modaloptions.mode === 'update'"  class="format2" ng-cloak  translate="Departmentss"></div>
+        <div ng-show="modaloptions.mode === 'update'"   class="flex" ng-cloak >
+            <select ng-model="employeedata.currentGroup" class="form-control formatdropdown selectgroups input-sm">
+                <option value="empty" translate="Selectexistingdepartment"></option>
+                <option ng-repeat="item in groups" value="{{item.id}}">{{item.title}}</option>
+            </select>
+            <!--<div ng-hide="disableNewGroupButton"  ng-click="createGroup()" class="ownbtn btnblau"><span class="glyphicon-plus margin-auto" aria-hidden="true"></span><span class="margin-auto">Neue Abteilung erstellen</span> </div>-->
+        </div>
+
+        <div ng-show="modaloptions.mode === 'update'"   role="separator" class="line" ng-cloak ></div>  
+
+        
+        <div ng-show="modaloptions.mode !== 'update'" class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text"><normal translate="Eachinstructionsforindependentintegration"></normal> <span style="text-decoration: underline;font-weight : bold;cursor:pointer;" ng-click="sendExampleMail()"><normal translate="Sendasemailtome"></normal></span></div>
+
+        </div>
+        
+        <div ng-show="modaloptions.mode !== 'update'"  class="format2" translate="Whodoyouwanttoinvite"></div>
+        <div ng-show="modaloptions.mode === 'update'"  class="format2" translate="Employeedata"></div>
+        <form name="empform" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label format3" translate="Emailaddress"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <input ng-disabled="modaloptions.mode === 'update'" type="email" ng-model="employeedata.email" required="true"   class="form-control input-sm"  placeholder="E-Mail-Adresse">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label format3" translate="firstgivenname"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <input  ng-model="employeedata.firstname" required="true"    type="text" class="form-control input-sm" placeholder="Vorname">
+                </div>
+            </div>
+            <div class="form-group last">
+                <label for="inputPassword" class="col-sm-2 control-label format3" translate="Surname"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <input ng-model="employeedata.lastname" required="true"   type="text" class="form-control form input-sm"  placeholder="Nachname">
+                </div>
+            </div>
+            
+            <div role="separator" class="line"></div> 
+
+            <div class="flex">
+
+                <div ng-click="cancel()"  class="ownbtn btngrau leftbutton" translate="abort"></div> 
+                <button type="submit" ng-click="empform.$valid && createEmployee()" class="btn ownbtn btnblau">{{modaloptions.saveButtonText}}</button> 
+            </div>
+        </form>
+    </div>
+    <div class="helpcontainer" ng-include src="'assistant/common/helparea.html'" >
+
+    </div>
+</div>
+
+
+
+

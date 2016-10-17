@@ -1,0 +1,67 @@
+
+
+
+
+
+<div class="flex">
+    <div class="leftform">
+
+      <div class="format1 innerheadline">
+          {{modaloptions.heading}}
+         </div>
+
+        <div role="separator" class="line"></div>  
+
+        <div class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text" translate="Aboutdepartmentstoorganizbannerssignatures"></div>
+
+        </div>
+
+        <div class="format2" translate="Howwouldyouliketocallthedepartment"></div>
+
+        <form name="groupForm" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label format3" translate="title"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <input ng-model="groupdata.title" type="text" class="form-control input-sm"  placeholder="Titel" required="true">
+                </div>
+            </div>
+            
+            <div ng-show="!modaloptions.campaignId" class="format2" translate="Whichcampaignshouldbeused"></div>
+             <div ng-show="!modaloptions.campaignId" class="form-group">
+                <label class="col-sm-2 control-label format3" translate="campaign"></label>
+                <div class="col-sm-10 col-lg-4 formcontrolright">
+                    <select ng-model="groupdata.activeCampaign" class="form-control  input-sm" >
+                        <option value="empty" translate="Selectacampaign"></option>
+                        <option ng-repeat="campaign in campaigns" value="{{campaign.id}}">{{campaign.title}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            
+         
+            
+            <div role="separator" class="line"></div> 
+
+        <div class="flex">
+
+            <div ng-click="cancel()" class="ownbtn btngrau leftbutton" translate="abort"></div> 
+            <button ng-click="groupForm.$valid && createGroup()" type="submit" class="ownbtn btnblau" translate="storedepartment"></button> 
+        </div>
+        </form>
+
+        
+    </div>
+    <div class="helpcontainer" ng-include src="'assistant/common/helparea.html'" >
+
+    </div>
+
+</div>
+
+
+
+
+
+

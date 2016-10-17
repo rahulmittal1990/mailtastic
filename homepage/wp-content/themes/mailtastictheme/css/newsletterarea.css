@@ -1,0 +1,103 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06.05.2016, 14:33:28
+    Author     : kippple
+*/
+.newsletterform{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.newsletterform div{
+     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.newsletterform {
+  background: #363f48;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  color: white;
+  text-align: center; }
+  .newsletterform .headline {
+    font-size: 32px;
+    font-family: roboto_condensed_regular; }
+  @media (min-width: 1200px) {
+    .newsletterform .leftcol {
+      padding-right: 40px; } }
+  .newsletterform .testenbutton {
+    height: 130px;
+    background-color: #9bdb42;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    display: inline-block;
+    margin-top: 30px; }
+    .newsletterform .testenbutton .wrapper {
+      height: 130px; 
+    text-decoration : none !important;
+    }
+      .newsletterform .testenbutton .wrapper .text {
+        color: white !important; text-decoration : none !important;}
+        .newsletterform .testenbutton .wrapper .text .up {
+          font-size: 17px; }
+        .newsletterform .testenbutton .wrapper .text .down {
+          font-size: 28px; }
+  .newsletterform .testenbutton:hover {
+    background-color: #8bc53b; }
+  @media (min-width: 1200px) {
+    .newsletterform .rightcol {
+      border-left: solid 1px white; } }
+  @media (max-width: 992px) {
+    .newsletterform .rightcol {
+      margin-top: 40px; } }
+  .newsletterform .subline {
+    font-size: 15px;
+    font-family: roboto_condensed_light;
+    margin-top: 15px; }
+  .newsletterform .letterformwrapper {
+    display: inline-block; }
+    .newsletterform .letterformwrapper .letterform {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 30px; }
+      .newsletterform .letterformwrapper .letterform .form-group-lg {
+        width: 300px; }
+        .newsletterform .letterformwrapper .letterform .form-group-lg input {
+          width: 100%; }
+      .newsletterform .letterformwrapper .letterform button {
+        height: 47px;
+        margin-left: 5px; }
+  .newsletterform .checkbox {
+    margin-top: 0;
+    font-size: 13px;
+    font-family: roboto_condensed_light; }
+
+.divider {
+  height: 2px;
+  border-top: solid 1px #e2ebf0;
+  margin-top: 15px !important;
+  margin-bottom: 15px; }
+
+@media (min-width: 768px) {
+  .vertical-center-o-xs {
+    min-height: 100%;
+    /* Fallback for browsers do NOT support vh unit */
+    min-height: 90vh;
+    /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center; } }
+
+.text-underline {
+  text-decoration: underline; }

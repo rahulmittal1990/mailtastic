@@ -1,0 +1,302 @@
+/*ol {
+    counter-reset:li;  Initiate a counter 
+    margin-left:0;  Remove the default left margin 
+    padding-left:0;  Remove the default left padding 
+}
+ol > li {
+    position:relative;  Create a positioning context 
+    margin:0 0 6px 2em;  Give each list item a left margin to make room for the numbers 
+    padding:4px 8px;  Add some spacing around the content 
+    list-style:none;  Disable the normal item numbering 
+    border-top:2px solid $green;
+    background:#f6f6f6;
+}
+ol > li:before {
+    content:counter(li);  Use the counter as content 
+    counter-increment:li;  Increment the counter by 1 
+     Position and style the number 
+    position:absolute;
+    top:-2px;
+    left:-2em;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:2em;
+     Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) 
+    margin-right:8px;
+    padding:4px;
+    border-top:2px solid $green;
+    color:#fff;
+    background:$green;
+    font-weight:bold;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    text-align:center;
+}
+li ol,
+ li ul {margin-top:6px;}
+ ol ol li:last-child {margin-bottom:0;}
+
+
+
+
+.icon-bar {width: 100%;
+    display: table;
+    table-layout: fixed;
+    background: #fff;
+    box-shadow: 0 0 2px 1px rgba(201,201,201,0.3);
+    margin-bottom: 21px;
+  }
+  
+ .icon-bar a{
+    color: #a7a7a7;
+    border-left: 1px solid #e4e4e4;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 19px 9px;
+    
+}*/
+
+.sig-image-area{
+    display : flex;
+      div{
+         margin:auto;
+          p{
+            margin-top:7px;
+          }
+      }
+    
+    .image_wrapper{
+     
+      padding : 15px;
+      border: 3px dashed $blau;
+      display: inline-block;
+  
+      a{
+        
+        margin:auto;
+        
+      }
+      
+     
+  }
+}
+
+
+
+.installationcontainer{
+    padding : 30px;
+    
+    .panel{
+        border-right-width : 0;
+          border-left-width : 0;
+            border-top-width : 0;
+          
+          
+          .panel-heading{
+              background-color : $dunkelgrau;
+              color : white;
+              padding-bottom : 40px;
+              
+              
+              .heading-area{
+                  padding : 15px;
+                  
+                  .divider{
+                      margin-top : 30px !important;
+                  }
+              }
+              
+              
+              
+              .contactcentral{
+                  color : $blau;
+                  margin-top : 15px;
+                  img{
+                       width : 100px;
+                  height : 100px;
+                  }
+                  .kontaktdetails{
+                  margin-left : 7.5px;
+                   .kontakt-name{
+                         font-size : 120%;
+                      }
+              }
+              }
+              
+              .middlecol{
+                  @media(min-width : $screen-md-min){
+                       border-left : solid 1px grey;
+                    border-right : solid 1px grey;
+                  }
+                  
+              }
+              .questionlinkcol{
+                  /*border-left : solid 1px grey;*/
+                   .questionlink{
+                  margin-bottom : 15px;
+                    .questionlinktext{
+                        margin-left : 7.5px;
+                 }
+                 
+                 .questionlinktext:hover{
+                     color : $blau;
+                     text-decoration: underline;
+                     cursor : pointer;
+                 }
+              }
+                  
+              }
+             
+          } 
+          
+          
+          nav{
+              border-radius: 0;
+              border-top-color: black;
+          }
+          
+          
+          .panel-body{
+              
+              .chooseintegrationmethod{
+                  color : $blau;
+              }
+              
+              .downloadbutton{
+                  color : white !important;
+                  margin-top : -20px;
+                  margin-bottom : 30px;
+              }
+              
+              .outlookselect{   //manuelle oder automatische integration
+                
+                  margin-top : 10px;
+                  
+              }
+              
+              
+              padding : 30px;
+              
+              .padding-30{
+                  padding : 30px;
+              }
+/*              .beraterimage{
+                  width : 100px;
+                  height : 100px;
+              }
+              .kontaktdetails{
+                  margin-left : 7.5px;
+                   .kontakt-name{
+                         font-size : 120%;
+                      }
+              }*/
+              
+              
+              .explain-step-text{
+                  margin-bottom : 30px;
+              }
+              
+              .zeitaufwand{
+                  /*font-family :*/
+                  font-family : roboto_bold;
+                  margin-bottom : 20px;
+              }
+              .explain-step-img{
+                  margin-bottom : 40px;
+                  max-width : 100%;
+              }
+               .divider{
+                      margin-top : 30px !important;
+                      margin-bottom : 30px !important;
+                  }
+                  
+                  .otherclientform{
+                      input{
+                          margin-right : 7.5px;
+                          max-width : 200px;
+                      }
+                  }
+                  
+                  
+                 
+                  .bannerclickmanual{
+                      padding-left : 19px;
+                      margin-top : 30px;
+                      margin-bottom : 30px;
+                  }
+                  
+                   .bannermanual{
+                      color : $hellgrau;
+                      font-family : roboto_light;
+                  }
+                  
+                  .link2{
+                      margin-top : 30px;
+                  }
+             
+          }
+          
+           .contactdown{
+              padding:60px;
+              padding-top : 0px;
+              
+              .headline{
+                  margin-top : 35px;
+              }
+               .beraterimage{
+                  width : 100px;
+                  height : 100px;
+              }
+              .kontaktdetails{
+                  margin-left : 7.5px;
+                   .kontakt-name{
+                         font-size : 120%;
+                      }
+              }
+          }
+    }
+}
+
+
+.navbar.installationnav .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar.installationnav .navbar-collapse {
+  text-align: center;
+}
+
+.navbar.installationnav .chooseclienthint{
+    color : white;
+    position:absolute;
+    right : 70px;
+}
+.navbar.installationnav .chooseclientclient{
+    color : white;
+    position:absolute;
+    left : 15px;
+}
+
+.navbar.installationnav {
+  text-align: center;
+  
+}
+
+
+@media (max-width: 991px){
+    .navbar-nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 0;
+    
+}
+}
+
+.macmailsafariwarning{
+    color : $hellgrau;
+    font-size : 13px;
+    margin-bottom : 30px;
+}

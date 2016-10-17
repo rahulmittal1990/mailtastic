@@ -1,0 +1,21 @@
+<div> 
+    <div class="infobox infobox-success" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="hasbeensuccessfullyprocessed"></normal></div>
+
+        </div>
+    </div>
+    <div class="infobox infobox-error" >
+        <span class="symbol glyphicon glyphicon-alert"></span>
+        <div class="contentarea">
+            <div class="text"><strong translate="Thesignaturedepartmentwhichemployeesare"></strong></div>
+            
+            <div class="additionaltext" translate="Assignsignatureleast1department"></div>
+        </div>
+    </div>
+    <div role="separator" class="line"></div>  
+    <div  class="flex-center-left">
+        <button   ui-sref="base.signaturedetails({signatureId :  signatureData.id})" class="btn ownbtn btnblau leftbutton" translate="Forsignature"></button> 
+    </div>
+</div> 

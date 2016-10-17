@@ -1,0 +1,49 @@
+    <!--table-->
+    <div ng-click="rowClicked(item)"  ng-class="getSelectedClass(item)" class="tablerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in data.campaignsToShow | filter:filterText">
+        <div class="cell select">
+            <input name="selected" class="link" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);
+                $event.stopPropagation();"  type="checkbox">
+        </div>
+        <div class="cell cmptitlecol">
+            <div>
+                <div class="color-rect" style="background-color : {{item.color}}"></div>
+                <div  class="title">{{item.title}}</div>
+            </div>
+            <div class="down"> <normal translate="From"></normal> {{item.createdAt| date:"dd.MM.yyyy"}}</div>
+        </div>
+        <div class="cell banner">
+            <img ng-src="{{item.image}}" />
+        </div>
+        <div class="cell activein">
+           
+            <div ng-show="item.activegroups.length !== 0" class="grouptitle"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>{{item.activegroups.length === 1 ? item.activegroups[0].title : item.activegroups.length +' Abteilungen'}}</div>
+            
+            <div class="schrift_rot text-bold nogroup" ng-show="item.activegroups.length === 0"><span  style="margin-right : 0;" class="glyphicon glyphicon-warning-sign schrift_rot" aria-hidden="true"></span> <normal translate="Innoone"></normal></div>
+       
+             <div ng-show="item.activegroups.length !== 0 && sumUpActiveEmps(item.activegroups) !== 0" class="down"><normal translate="activein"></normal></div>
+              <div ng-show="item.activegroups.length !== 0 && sumUpActiveEmps(item.activegroups) === 0" class="down schrift_rot_imp"><span  style="margin-right : 13px;" class="glyphicon glyphicon-warning-sign schrift_rot" aria-hidden="true"></span><normal translate="EmployeeZero"></normal></div>
+             
+        </div>
+        <div class="cell impressions">
+            <div class="upper">{{item.views}}</div>
+
+            <div class="down overflowxhidden">{{labels.views}}</div>
+        </div>
+        <div class="cell clicks">
+            <div class="upper">{{item.clicks}}</div>
+
+            <div class="down">{{labels.clicks}}</div>
+        </div>
+        <div class="cell rate">
+
+            <div class="upper">{{(item.views === 0|| item.clicks===0) ? 0 : (item.clicks / item.views)*100 | number:2}}%</div>
+
+            <div class="down">{{labels.rate}}</div>
+        </div>
+    </div>
+    
+     <div style="width : 100%;" ng-show="data.campaignsToShow.length === 0" class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text"><normal translate="Thereisnocampaigntoassign"></normal> <div class="additionaltext"><normal translate="akeastepbackandselectCreateanewcampaign"></normal></div></div>
+
+        </div>

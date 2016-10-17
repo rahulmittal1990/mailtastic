@@ -1,0 +1,24 @@
+<div id="wrapper" ng-init="init()" ng-class="(sidemenutoggled ? 'toggled' : '')">
+    <!-- Sidebar -->
+<!--    <div id="sidebar-wrapper" >
+        <ul class="nav nav-pills nav-stacked sidebar-nav">
+            <li class="sidebar-devider-text" translate="campaigns"></li>
+            <li  ng-click="togglesidemenu()"  ui-sref=".campaignlist({mode : 'all'})" ui-sref-active="active" role="presentation" ><a href="#"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> <normal translate="All"></normal><span class="pull-right amountOfMembersMenu">{{data.campaigns.length}}</span></a></li>
+            <li ng-click="togglesidemenu()"  ui-sref=".campaignlist({mode : 'active'})" ui-sref-active="active" role="presentation" ><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <normal translate="active"></normal><span class="pull-right amountOfMembersMenu">{{data.activeCampaigns.length}}</span></a></li>
+            <li ng-click="togglesidemenu()"  ui-sref=".campaignlist({mode : 'inactive'})" ui-sref-active="active" role="presentation" ><a href="#"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> <normal translate="Inactive"></normal><span class="pull-right amountOfMembersMenu">{{data.inactiveCampaigns.length}}</span></a></li>
+        </ul>
+    </div>-->
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+          <div ng-click="togglesidemenu()" class="visible-xs-block sidemenutoggle" ><span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span></div>
+      <div id="employeeMainContent" style="padding : 15px;"  ng-style="customstyle.maincontentstyle"  ui-view>
+        </div>
+        <div ng-hide="!rightSideContent.showCampaign" ng-include src="'campaigns/snippets/campaignsRightSideContent.html'"  class=" rightSideContent" id="employeeRightSideContent">
+        </div>
+        
+         <div ng-hide="!rightSideContent.showGroup" ng-include src="'groups/snippets/groupRightSideContent.html'"  class="rightSideContent" id="employeeRightSideContent">
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>

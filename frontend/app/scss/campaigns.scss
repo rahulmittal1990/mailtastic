@@ -1,0 +1,516 @@
+.campaign-list-wrapper{
+    padding : 15px;
+    padding-top : 21px;
+}
+
+/**
+ *   CAMPAIGN MODAL
+ */
+
+.campaignmodal{
+    .modal-header{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding-left: 30px;
+    padding-right : 30px;
+        /*background-color : $dunkelweis;*/
+        color : $grau;
+        .glyphicon{
+            font-size : 19px;
+            margin-right : 10px;
+        }
+    }
+    .editcolumn{
+        padding-left : 30px;
+        padding-right : 30px;
+        padding-top : 10px;
+        padding-bottom : 10px;
+        border-right: solid 1px $dunkelweis;
+        label{
+            /*font-weight : 100;*/
+            /*color : $hellgrau;*/
+                /*font-weight: 700;*/
+        }
+        
+        .imageform{
+            margin-bottom : 0;
+        }
+         .uppertipp{
+            color : $hellgrau;
+            font-size : 12px;
+            font-family : roboto_light;
+            line-height : 1.4;
+            margin-bottom : 15px;
+        }
+        .tipp{
+            color : $blau;
+            font-size : 12px;
+            font-family : roboto_light;
+            line-height : 1.4;
+            margin-bottom : 15px;
+        }
+        img{
+            max-width : 100%;
+        }
+    }
+    .previewcol{
+        padding-top : 10px;
+        padding-right : 30px;
+        padding-left : 30px;
+         padding-bottom : 10px;
+        height : 500px;
+        overflow-y:auto;
+        .panelheading{
+            margin-bottom:5px;
+        }
+        .prevbackground{
+            background-image : url(../img/campaigns/camppreview.jpg);
+            background-size: 600px auto;
+            background-repeat: no-repeat;
+            overflow:hidden;
+            background-position-y: 0;
+            height:255px;
+            width : 100%;
+        }
+        img{
+            max-width : 700px;
+            max-height : 210px;
+        }
+    }
+}
+
+
+
+.cmp-r-one-selected{
+    /*padding-top : 10px;*/
+
+    .no-group{
+        color : $rot;
+        margin-top : 5px;
+        margin-bottom : 15px;
+    }
+
+    .button_area{
+        margin-top : 20px;
+        @include flex;
+
+        .optionbutton{
+            /*width : 100%;*/
+            margin-right : 5px;
+
+        }
+        margin-bottom : 35px;
+    }
+
+
+
+    .dotcontainer{
+        margin-bottom: auto;
+        margin-top: 1px;
+    }
+    .graph-dot{
+        width :  10px;
+        height : 10px;
+        min-height : 10px;
+        max-height : 10px;
+        min-width : 10px;
+        max-width : 10px;
+
+    }
+    .title{
+        color : $grau;
+        font-size : 17px;
+        /*font-family : roboto_medium;*/
+        line-height: 1.2;
+
+        font-family : "Roboto Condensed";
+
+        font-weight: bold;
+    }
+    .wann{
+        color : $hellgrau;
+        font-size : 11px;
+        font-family : roboto_light;
+    }
+
+
+
+    img{
+        display : block;
+        max-width : 100%;
+    }
+
+    .urlcontainer{
+        margin-top : 10px;
+        font-family : roboto_light;
+        font-size : 90%;
+        color : grey;
+        .url{
+
+
+
+        }
+    }
+    .rightSideDividertext{
+        color : $hellgrau;
+        font-size : 90%;
+
+    }
+
+    .groupslist{
+        margin-top : 10px;
+        max-height : 400px;
+        overflow-y:auto;
+    }
+    
+    .divider{
+        margin-top : 25px !important;
+        margin-bottom : 25px !important
+    }
+
+    .fullform{
+        margin-bottom : 7.5px;
+        .form-group{
+            margin-bottom : 0;
+            margin-right : 5px;
+            width : 100%;
+            input{
+                width : 100%;
+            }
+        }
+
+        >select{
+            width : 100%;
+            margin-right : 5px;
+        }
+    }
+
+
+    /*    form.form-inline{
+                margin-top : 7.5px;
+        }
+        .no-group{
+            margin-top : 7.5px;
+        }*/
+
+    /*    .campaigndetails{
+              font-size : 90%;
+              color : grey;
+                 @include flex;
+                 span{
+                    margin-top : auto;
+                    margin-bottom: auto;
+                 }
+        }*/
+
+
+    .btn-group.white{
+        >button{
+            background-color : white;
+            color:black;
+            border-color : rgb(204, 204, 204);
+        }
+    }
+}
+
+.cmp-r-many-selected {
+    .deletebutton{
+                margin-top:20px;
+                margin-bottom : 35px;
+            }
+    .dotcontainer{
+        margin-bottom: auto;
+        margin-top: 1px;
+    }
+    .graph-dot{
+        width :  10px;
+        height : 10px;
+        min-height : 10px;
+        max-height : 10px;
+        min-width : 10px;
+        max-width : 10px;
+
+    }
+    .title{
+        color : $grau;
+        font-size : 17px;
+        /*font-family : roboto_medium;*/
+        line-height: 1.2;
+
+        font-family : "Roboto Condensed";
+
+        font-weight: bold;
+    }
+    .wann{
+        color : $hellgrau;
+        font-size : 11px;
+        font-family : roboto_light;
+    }
+    
+}
+
+/*.campaign-list-item.selected{
+    background-color : grey;
+}*/
+/*.campaign-list-item{
+    padding : 7.5px;
+    background-color : white;
+    @include flex;
+    margin-bottom : 7.5px;
+    min-height : 80px;
+    border-radius : 4px;
+    >div{ 
+                .title{
+                    color : $blau;
+                    font-size : 110%;
+                    font-weight: bold;
+                }
+        margin : auto;
+        img{
+            width : 100%;
+            max-width : 150px;
+        }
+                 .upper{
+                     font-weight: bold;
+                     font-size : 120%;
+                 }
+    }
+}*/
+
+
+.full-campaign-list-item{
+    padding: 7.5px;
+    padding-right : 20px;
+    padding-left:0px;
+    /*padding-left: 0;*/
+    background-color : white;
+    margin-bottom : 7.5px;
+    min-height : 90px;
+    border-radius : 4px;
+
+    img{
+        max-width : 100%;
+        max-height : 200px;
+    }
+
+    .dotcontainer{
+        margin-bottom: auto;
+        margin-top: 1px;
+    }
+    .graph-dot{
+        width : 10px;
+        height : 10px;
+        min-height : 10px;
+        max-height : 10px;
+        min-width : 10px;
+        max-width : 10px;
+
+    }
+    .title-area{
+             @media (max-width : $screen-sm-min){
+            padding-left : 20px;;
+        }
+    }
+    
+    .title{
+        color : $grau;
+        font-family : "Roboto Condensed";
+        font-size : 17px;
+        font-weight: bold;
+        line-height: 1.2;
+        overflow: hidden;
+            
+       
+    }
+    .wann{
+        color : $hellgrau;
+        /*font-size : 11px;*/
+        font-size : 85%;
+        /*font-family : roboto_light;*/
+    }
+
+
+
+
+    .activeingrouptext{
+        color : $hellgrau;
+        font-size : 85%;
+        /*font-family : roboto_light;*/
+        /*font-weight : bold;*/
+    }
+    .groupitem{
+        color : $grau;
+        white-space: nowrap;
+        overflow : hidden;
+        .glyphicon{
+            font-size : 11px;
+            margin-right : 5px;
+            margin-bottom: auto;
+            margin-top: 2px;
+        }
+        .grouptitle{
+            font-size : 13px;
+            font-weight : bold;
+        }
+        .undweitere{
+            font-family : roboto_light;
+            font-size : 80%;
+            /*margin-left: 17px;*/
+        }
+    }
+    .statitem{
+        padding-left : 0;
+        padding-right : 0;
+        .upper{
+            font-weight: bold;
+            font-size : 100%;
+            color : $blau;
+        }
+        .down{
+            /*letter-spacing : 0px;*/
+            font-size : 85%;
+            color : grey;
+            color : $hellgrau;
+        }
+
+    }
+
+}
+.full-campaign-list-item.selected{
+    background-color : $dunkelweis;
+
+}
+
+
+.cmp-det-top-area{
+
+    .campaigndetails{
+         margin-top : 7.5px;
+        color : grey;
+       
+        .graph-dot{
+            width : 15px;
+            height : 15px;
+            min-width : 15px;
+            max-width : 15px;
+            min-height : 15px;
+            max-height : 15px;
+                margin-top: 10px;
+        }
+        h1{
+            margin-top : 0;
+            margin-bottom : 0;
+            font-family : "Roboto Condensed";
+            font-weight : bold;
+            font-size : 35px;
+            color : $grau;
+            margin-left : 5px;
+            
+            overflow: hidden;
+
+        }
+
+        @include flex;
+        span{
+            margin-top : auto;
+            margin-bottom: auto;
+        }
+
+
+    }
+
+    .wann{
+        color : $hellgrau;
+        font-family : roboto_light;
+        margin-top : 3px;
+        font-size : 15px;
+
+    }
+    .groups{
+        color : $grau;
+        margin-top : 16px;
+        font-size : 15px;
+        font-family : roboto_light;
+    }
+
+    .divider{
+        margin-top : 25px !important;   
+    }
+    
+    .button_area{
+        margin-top : 15px;
+        
+        .down{  //falls button zweizeilig muss ein abstand rein
+            @media (min-width : 992px) and (max-width : 1113px){
+                margin-top : 7.5px;
+            }
+        }
+    }
+
+
+
+    .middle-col{
+        @media(min-width : $screen-md-min){
+              border-left : solid 1px $dunkelweis;
+            border-right : solid 1px $dunkelweis;
+             .divider-md{
+                  display : none;
+              }
+        }
+        @media(max-width : $screen-md-min){
+              /*border-bottom : solid 1px $dunkelweis;*/
+              margin-top : 25px;
+              /*margin-bottom : 30px;*/
+              .divider-md{
+                  display : block;
+              }
+        }
+        
+      
+        img{
+            display:block;
+            max-width : 100%;
+            margin-top :7.5px;
+            
+        }
+        .url{
+            color : grey;
+            font-family : roboto_light;
+        }
+    }
+
+    .wrapper{
+        width : 100%;
+        margin:auto;
+        .upper{
+            font-weight: bold;
+            font-size : 120%;
+        }
+    }
+
+    .statsitem{
+        
+       
+        
+        
+        width : 33.3%;
+        .upper{
+            font-size : 225%;
+            color : $blau;
+            font-weight : bold;
+            line-height: 1;
+            font-family : "Roboto Condensed";
+        }
+        .down{
+            color : $hellgrau;
+             font-size : 85%;
+                 font-family : roboto_light;
+        }
+    }
+
+    .absheader{
+        @media (max-width : $screen-md-min){
+            margin-bottom : 15px;
+        }
+    }
+}

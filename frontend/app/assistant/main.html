@@ -1,0 +1,54 @@
+<div class="assistant" >
+
+    <div class="container">
+
+        <div class="headline format0">
+            {{step.headline}}
+        </div> 
+
+        <div  class="panel" style="min-height : {{config.minheight}}px">
+            
+            <div ng-controller="CmpAssistantCtrl" >
+                <!--  campaign  -->
+                <div  class="campaign" ng-show="step.currenttoshow == 'campaign_createnew'" ng-include src="'assistant/campaign/createnew.html'" >
+                </div>
+                <div  class="campaign" ng-show="step.currenttoshow == 'campaign_selectexisting'"  ng-include src="'assistant/campaign/selectexisting.html'" >
+                </div>
+                <div  class="campaign"  ng-show="step.currenttoshow == 'campaign_selectmethod'"  ng-include src="'assistant/campaign/selectmethod.html'" >
+                </div>
+                 <div  ng-show="step.currenttoshow == 'campaign_results'"  ng-include src="'assistant/campaign/results.html'" >
+                </div>
+            </div>
+            <!--  employee  -->
+            <div class="employee" ng-controller="EmpAssistantCtrl" >
+                <div ng-show="step.currenttoshow == 'employee_createnew'" ng-include src="'assistant/employee/createnew.html'" >
+                </div>
+                <div ng-show="step.currenttoshow == 'employee_selectexisting'"  ng-include src="'assistant/employee/selectexisting.html'" >
+                </div>
+                <div ng-show="step.currenttoshow == 'employee_selectmethod'"  ng-include src="'assistant/employee/selectmethod.html'" >
+                </div>
+                <div   ng-show="step.currenttoshow == 'employee_import'"  ng-include src="'assistant/employee/import.html'" >
+                </div>
+                 <div  ng-show="step.currenttoshow == 'employee_results'"  ng-include src="'assistant/employee/results.html'" >
+                </div>
+            </div>
+            <!--  group  -->
+            <div ng-controller="GroupAssistantCtrl" >
+                <div ng-show="step.currenttoshow == 'group_createnew'" ng-include src="'assistant/group/createnew.html'" >
+                </div>
+                <div ng-show="step.currenttoshow == 'group_selectexisting'"  ng-include src="'assistant/group/selectexisting.html'" >
+                </div>
+                <div  ng-show="step.currenttoshow == 'group_selectmethod'"  ng-include src="'assistant/group/selectmethod.html'" >
+                </div>
+                 <div  ng-show="step.currenttoshow == 'group_results'"  ng-include src="'assistant/group/results.html'" >
+                </div>
+            </div>
+            
+            <!--  signature  -->
+             <div ng-controller="SignatureAssistantCtrl" >
+                <div ng-show="step.currenttoshow == 'signature_selectexisting'"  ng-include src="'assistant/signature/selectexisting.html'" >
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

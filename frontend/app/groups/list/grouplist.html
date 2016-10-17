@@ -1,0 +1,171 @@
+
+<div style="padding : 15px;">
+<div class="list-control-area">
+
+
+    <div class="checkbox hidden-xs ">
+        <label>
+            <input ng-click="selectAll($event)"
+                   ng-checked="isSelectedAll()"  type="checkbox"><normal translate="All"></normal>
+        </label>
+    </div>
+
+    <div ng-show="data.selectedGroups.length > 1"  class="btn-group margin-auto optionbutton actiondropdown aktiongroup hidden-xs" uib-dropdown>
+        <button ng-disabled="data.selectedGroups.length === 0"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li ng-click="deleteGroups()"><a translate="Delete"></a></li>
+        </ul>
+    </div>
+
+
+
+
+    <div id="custom-search-input"  class="input-group margin-auto search">
+        <input  ng-model="filterText" type="text" class="form-control" placeholder="Abteilung suchen" aria-describedby="basic-addon2">
+        <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
+    </div>
+
+
+
+
+
+
+
+    <!--<div class="margin-auto">-->
+    <div class="btn-group sort" uib-dropdown >
+        <button id="sort-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled">
+            <normal translate="sort"></normal> <span class="caret"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li role="menuitem">
+                <a ng-click="sortList('title')" translate="title"></a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('views')">{{labels.views}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('clicks')" >{{labels.clicks}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('rate')" >{{labels.rate}}</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <button ui-sref="base.assistant({state : 'group_createnew'})"    class="btn actionbutton  margin-auto" type="button">
+        <span class="glyphicon glyphicon-plus" "></span><normal translate="Createdepartment"></normal>
+    </button>
+
+
+
+</div>
+
+
+
+
+
+<div cg-busy="loadingPromise"   class="campaign-list-wrapper">
+
+    <ul class="no_padding" >
+        <li ng-click="rowClicked(item)"   ng-class="getSelectedClass(item)" ng-repeat="item in data.groups| filter:filterText" class="groups-list-item flex-center-left mouseovertransparent {{!item.campaignTitle && !item.activeSignature ? 'group-inactive' :''}}">
+
+            <div class="hidden-xs  text-center col-lg-1 col-sm-1 col-md-1">
+                <input name="selected" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);
+                        $event.stopPropagation();"  type="checkbox">
+            </div>
+            <div  class="text-left text-left col-lg-2 col-md-5 col-sm-10 col-xs-10">
+
+                <div class="flex">
+                    <div class="glyphicon glyphicon-folder-open inactivedarken schrift_blau" aria-hidden="true"></div>
+                    <div>
+                        <div ng-click="showGroupDetails(item.id);
+                                $event.stopPropagation();"  class="title"> {{item.title}}</div>
+                        <div class="member">{{item.amountOfMembers}} <normal translate="Employee"></normal></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class=" hidden-xs hidden-sm  text-left col-lg-3 col-md-3">
+
+                <div class="flex-center-left">
+                    <span class="kampagnelabel leftbutton" translate="campaign"></span>         
+                    <div style="white-space: nowrap;margin-left : 0;" ng-show="getCampaignStatus(item) === false" class="schrift_rot margin-auto text-bold"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Mindesten ein Mitarbeiter hat den Kampagnen-Banner noch nicht in seine E-Mail-Signatur eingebunden" translate="Inactive"></span></div>
+                    <div style="white-space: nowrap;margin-left : 0;" ng-show="getCampaignStatus(item) === true" class="schrift_gruen margin-auto text-bold"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Der Kampagnen-Banner wird in der E-Mail-Signatur jedes Mitarbeiters angezeigt" translate="active"> </span></div> 
+                    <div  tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Die Abteilung verfügt über keine Mitarbeiter. Weisen Sie der Abteilung Mitarbeiter zu, um einen Status zu erhalten" style="margin-top : 3px;" ng-show="getCampaignStatus(item) === 'nomembers'" class="nocampaign schrift_schwarz_imp text-bold"><span style="margin-right : 0;" class="glyphicon glyphicon-info-sign " aria-hidden="true"></span> <normal translate="Nostatus"></normal></div>
+
+                </div>
+                <div ng-show="item.campaignTitle"  class="campaigndetails">
+                    <span class="graph-dot" style="background-color : {{item.campaignColor}}"></span>
+                    <span ng-click="showCampaignDetails(item.activeCampaign)" class="campaigntitle link overflowhidden">{{item.campaignTitle}}</span>
+                </div>
+                <div ng-hide="item.campaignTitle" class="campaigndetails" style="margin-top : 3px;">
+
+                    <span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie dieser Abteilung eine Kampagne zu" class="text-bold schrift_rot_imp"><span  style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> <span translate="UnassignedCampaign"></span></span>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-2 hidden-sm hidden-xs">
+
+
+
+                <div class="flex-center-left">
+                    <span class="kampagnelabel leftbutton" translate="signature"></span>         
+                    <div style="white-space: nowrap;margin-left : 0; margin-top : 3px;" ng-show="getSignatureStatus(item) === 'latest'" class="schrift_gruen margin-auto text-bold"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Alle Mitarbeiter haben die aktuellste freigegebene Version der Signatur eingebunden" translate="Current"></span></div>
+                    <div style="white-space: nowrap;margin-left : 0;margin-top : 3px;"  ng-show="getSignatureStatus(item) === 'outdated'" class="schrift_rot margin-auto text-bold"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Mindestens ein Mitarbeiter hat die aktuellste freigegebene Version der Signatur noch nicht eingebunden. Benachrichtigen Sie die betroffenen Mitarbeiter" translate="Notuptodate"></span></div>
+                    <div  tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Die Abteilung verfügt über keine Mitarbeiter. Weisen Sie der Abteilung Mitarbeiter zu, um einen Status zu erhalten" style="margin-top : 3px;" ng-show="getSignatureStatus(item) === 'nomembers'" class="nocampaign schrift_schwarz_imp text-bold"><span style="margin-right : 0;" class="glyphicon glyphicon-info-sign " aria-hidden="true"></span> <normal translate="Nostatus"></normal></div>
+
+
+                </div>
+                <div ng-show="item.currentSignatureTitle"  class="campaigndetails">
+                    <span class="glyphicon glyphicon-list-alt signatureglyph" aria-hidden="true"></span><span class=" link campaigntitle" ui-sref="base.signaturedetails({signatureId: item.activeSignature})"> {{item.currentSignatureTitle}}</span>
+                </div>
+                <div ng-hide="item.currentSignatureTitle" class="campaigndetails" style="margin-top : 3px;">
+                    <!--<span class="graph-dot" style="background-color : "></span>-->
+                    <span class="nocampaign text-rot text-bold"><span style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> <span tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie der Abteilung eine Signatur zu" translate="Unassignedsignature"></span></span>
+                </div>
+
+            </div>
+
+
+            <div     class="hidden-xs hidden-sm text-center statsitem col-lg-1 col-md-1  padding-hor-none">
+                <div class="upper">{{item.views}}</div>
+
+                <div class="down overflowxhidden">{{labels.views}}</div>
+            </div>
+            <div   class=" hidden-xs hidden-sm text-center statsitem col-lg-1 col-md-1 padding-hor-none">
+                <div class="upper">{{item.clicks}}</div>
+
+                <div class="down">{{labels.clicks}}</div>
+            </div>
+            <div   class="hidden-sm text-center statsitem hidden-xs  col-lg-1 col-md-1  padding-hor-none">
+                <div class="upper">{{(item.views === 0|| item.clicks===0) ? 0 : (item.clicks / item.views)*100 | number:2}}%</div>
+
+                <div class="down">{{labels.rate}}</div>
+            </div>
+            <!--                                <div   class=" text-center visible-sm-block  visible-xs-block col-xs-2 col-sm-2">
+                                                <div ui-sref="base.employees.groupdetails({groupId: item.id})" class="btn actionbutton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                                            </div>-->
+
+            <div   class=" text-center  hidden-lg  col-sm-1 col-md-1  col-xs-2">
+                <div class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+                    <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+                    </button>
+                    <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="showGroupDetails(item.id)"><a href="#" translate="Lookat"></a></li>
+                        <li ng-show="item.isDefault == false"  ng-click="deleteGroup(item.id)"><a href="#" translate="Delete"></a></li>
+                        <li ng-show="item.isDefault == false" ng-controller="GroupModalCtrl" ng-click="open(item.id, null, 'new')"><a href="#" translate="Edit"></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+    
+    </div>

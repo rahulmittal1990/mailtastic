@@ -1,0 +1,56 @@
+
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+<div cg-busy="loadingPromise" class="employeemodal" ng-class="{ 'employeemodalimport':  (modaloptions.currentStep ==='import')}" >
+<!--    <div class="modal-header">
+        <h3 ng-show="modaloptions.currentStep ==='first' || modaloptions.currentStep ==='second'" class="modal-title">Mitarbeiter löschen</h3>
+         <h3 ng-show="modaloptions.currentStep ==='third'" class="modal-title">Fertig</h3>
+       
+    </div>-->
+    <div class="modal-body" >
+           <h3 ng-show="modaloptions.currentStep ==='first' || modaloptions.currentStep ==='second'" class="modal-title" translate="deleteemployee"></h3>
+         <h3 ng-show="modaloptions.currentStep ==='third'" class="modal-title" translate="done"></h3>
+    
+        
+        <div class="martop20" ng-show="modaloptions.currentStep ==='first'">
+            <normal translate="Youareabout"></normal> {{modaloptions.empsToDelete.length}} <normal translate="Employeestodeletewithanactivelicense"></normal><br><br>
+            <normal translate="Afterthecorrespondinguseradditionalcosts"></normal>
+        </div>
+        <div class="martop20" ng-show="modaloptions.currentStep ==='second'">
+            
+           <normal translate="Cautiondeactivatedinvisibleimagedisplayed"></normal><br><br>
+           <normal translate="Afterdeletingpersonallyonceagainpointedout"></normal>         
+            
+            
+        </div>
+        <div class="martop20" ng-show="modaloptions.currentStep ==='third'">
+             <!--Abteilung wurde erstellt-->
+         <div  class="infobox infobox-success full-width-imp" >
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div>
+            <div class="text">{{modaloptions.empsToDelete.length}} <normal translate="Employeeswasdeletedsuccessfully"></normal></div>
+            <div class="additionaltext" translate="billingreducesagreedyourbasicfeewass">
+                
+            </div>
+            </div>
+        </div>
+            
+            
+        </div>
+    </div>
+    <div class="modal-footer">
+        <form name="deleteform" class="flex-center-right">
+         <div ng-show="modaloptions.currentStep ==='second'" style="margin:auto;margin-left: 0;" class="checkbox">
+            <label><input ng-model="invoicedata.agbaccepted" type="checkbox" value="true" required="true" translate="Iunderstand"></label>
+        </div>
+        <button ng-show="modaloptions.currentStep ==='first' || modaloptions.currentStep ==='second'" ng-click="cancel()" class="btn ownbtn btnblau leftbutton" type="button"  translate="abort"></button>
+        <button ng-disabled="!invoicedata.agbaccepted" ng-show="modaloptions.currentStep ==='second'" class="btn ownbtn btnblau" type="submit" ng-click="deleteform.$valid && deleteUsers()" translate="Delete"></button>
+       
+        <button ng-show="modaloptions.currentStep ==='third'" class="btn ownbtn  btnblau" type="button" ng-click="finish()" translate="Conclude"></button>
+        <button ng-show="modaloptions.currentStep ==='first'" class=" ownbtn btngrau" type="button" ng-click="setStep('second')" translate="Continue"></button>
+     </form>
+    </div>
+
+</div>
+<!-- </script> -->

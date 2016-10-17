@@ -1,0 +1,57 @@
+
+<div>
+
+
+  
+     <div ng-hide="resultData.group.groupsSet.length === 1" class="format2" translate="Whichdepartmenttoassignthenewemployee"></div>
+        <div ng-hide="resultData.group.groupsSet.length === 1" class="flex">
+            <select ng-model="employeeData.currentGroup" class="form-control formatdropdown selectgroups input-sm">
+                <option value="empty" translate="Selectexistingdepartment"></option>
+                <option ng-repeat="item in resultData.group.groupsSet" value="{{item.id}}">{{item.title}}</option>
+            </select>
+        </div>
+
+        
+  
+    <div ng-hide="resultData.group.groupsSet.length === 1" style="width : 100%;" role="separator" class="line"></div>  
+   <div  class="infobox infobox-info">
+            <span class="symbol glyphicon  glyphicon-info-sign"></span>
+            <div class="text" translate="EmployeesareinformedconfirmationtheuseofMailtastic"></div>
+        </div>
+
+    <div class="format2" translate="Whichemployeesassignyournewdepartment"></div>
+
+    <div class="flex-center-left">
+       <div ng-click="listHandler.selectAllOuter()"
+                    class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px;">
+            <!--<div class="checkbox no-margin">-->
+                <!--<label>-->
+                    <input ng-click="listHandler.selectAll($event);$event.stopPropagation();" ng-checked="listHandler.isSelectedAll()" class="innercheckbox" type="checkbox" >
+                <!--</label>-->
+            <!--</div>-->
+            <span class="margin-auto" translate="selectall"></span> 
+        </div>
+         <div  class="input-group searchfield">
+            <input ng-change="recalcAvatars()" ng-model="filterText" type="text" class="form-control input-sm nooutline" placeholder="Mitarbeiter suchen" aria-describedby="basic-addon2">
+            <span class="input-group-addon glyphicon glyphicon-search" ></span>
+        </div>
+        <div class="format3 hidden-xs" style="max-width: 400px; margin-left: 10px;" translate="Employeesdepartmentarenotlisted"></div>
+   </div>
+
+
+    <div style="min-height : {{config.listheight}}px;max-height : {{config.listheight}}px;" class="tablewrapper" ng-include src="'signature/rollout/snippets/employee/employeerow.html'">
+        
+    </div>
+
+
+
+    <div role="separator" class="line" style="width : 100%;"></div> 
+
+
+    <div class="flex-center-right">
+
+        <div ng-click="backFromAddingEmployees()"   class="ownbtn btngrau leftbutton" translate="Back"></div> 
+        <div ng-click="setEmployeesFromList()" class="ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="Assignselectedemployees"></normal></div> 
+    </div>
+</div>
+

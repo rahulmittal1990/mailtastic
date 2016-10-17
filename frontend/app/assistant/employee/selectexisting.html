@@ -1,0 +1,59 @@
+
+<div>
+
+
+  <div class="format1 innerheadline">
+            <span class="breadcrumpdone" ng-repeat="item in config.breadcrumpsdone">{{item}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+            <span class="breadcrump"  ng-repeat="item in config.breadcrumps">{{item}}</span>
+        </div>
+     <div ng-hide="config.disableGroupArea" role="separator" class="line"></div> 
+     <div ng-hide="config.disableGroupArea" class="format2" translate="Whichdepartmentassignthenewemployee"></div>
+        <div ng-hide="config.disableGroupArea" class="flex">
+            <select ng-model="employeedata.currentGroup" class="form-control formatdropdown selectgroups input-sm">
+                <option value="empty" translate="Selectexistingdepartment"></option>
+                <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}}</option>
+            </select>
+            <div ng-click="createGroup()" class="ownbtn btnblau"><span class="glyphicon-plus margin-auto" aria-hidden="true"></span><span class="margin-auto" translate="Createanewdepartment"></span> </div>
+        </div>
+
+        
+
+    <div style="width : 100%;" role="separator" class="line"></div>  
+
+
+    <div class="format2" translate="Whichemployeesassignyournewdepartment"></div>
+
+    <div class="flex-center-left">
+       <div ng-click="selectAllOuter()"
+                    class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px;">
+            <!--<div class="checkbox no-margin">-->
+                <!--<label>-->
+                    <input ng-click="selectAll($event);$event.stopPropagation();" ng-checked="isSelectedAll()" class="innercheckbox" type="checkbox" >
+                <!--</label>-->
+            <!--</div>-->
+            <span class="margin-auto" translate="selectall"></span> 
+        </div>
+         <div  class="input-group searchfield">
+            <input ng-change="recalcAvatars()" ng-model="filterText" type="text" class="form-control input-sm nooutline" placeholder="Mitarbeiter suchen" aria-describedby="basic-addon2">
+            <span class="input-group-addon glyphicon glyphicon-search" ></span>
+        </div>
+        <div class="format3 hidden-xs" style="max-width: 400px; margin-left: 10px;" translate="Employeesdepartmentarenotlisted"></div>
+   </div>
+
+
+    <div style="min-height : {{config.listheight}}px;max-height : {{config.listheight}}px;" class="tablewrapper" ng-include src="'assistant/employee/snippets/employeerow.html'">
+        
+    </div>
+
+
+
+    <div role="separator" class="line" style="width : 100%;"></div> 
+
+
+    <div class="flex-center-right">
+
+        <div ng-click="navigateBack()" class="ownbtn btngrau leftbutton" translate="abort"></div> 
+        <div ng-click="setEmployeesFromList()" class="ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="Assignselectedemployees"></normal></div> 
+    </div>
+</div>
+

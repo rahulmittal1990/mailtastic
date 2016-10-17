@@ -1,0 +1,63 @@
+<div class="panel custompanel">
+    <div class="panel-heading button-panel-header">
+        <h5 translate="personnelstatistics"></h5>
+        <button ng-click="open()" ng-controller="EmployeeModalCtrl" type="button" class="btn btn-sm actionbutton" translate="Addemployees"></button>
+    </div>
+    <div cg-busy="loadingPromise" class="panel-body">
+
+
+        <div ng-repeat="item in topThreeEmployees" align="center" class="top-3-mitarbeiter ">
+            <div class="col-lg-4 col-md-4 top3-name-area ">
+                <div align="center" class="flex-center-all image-area">
+                    <img class="place" ng-src="img/dashboard/top3platzierung_{{$index + 1}}.png" />
+                    <img class="img-circle user" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1)) }}" />
+                </div>
+                <div class="name">{{!item.firstname ? item.email : item.firstname + ' ' + item.lastname}}</div>
+                <div class="grouptitle"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{item.groupTitle}}</div>
+            </div>
+            <div class="col-lg-8 col-md-8 top3-bar-area">
+                <div>
+                    <div class="progress_title">
+                        <span class="val-type" translate="seen"></span><!--<span>100%</span> -->
+                        <span class="total_number">{{item.views}}</span>
+                    </div>
+                    <div class="progress top3-progress">
+                        <div class="progress-bar top3-progress" role="progressbar" aria-valuenow="{{item.views}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.views}}%;">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="progress_title">
+                        <span class="val-type" translate="clicks"></span><!--<span>100%</span> -->
+                        <span class="total_number">{{item.clicks}}</span>
+                    </div>
+                    <div class="progress  top3-progress">
+                        <div class="progress-bar  top3-progress" role="progressbar" aria-valuenow="{{item.clicks}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.clicks}}%;">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="progress_title">
+                        <span class="val-type" translate="clickRate"></span><!--<span>100%</span> -->
+                        <span class="total_number">{{(item.views===0 || item.clicks===0) ? 0 : Math.floor((item.clicks / item.views)*100)}} %</span>
+                    </div>
+                    <div class="progress  top3-progress last">
+                        <div class="progress-bar  top3-progress" role="progressbar" aria-valuenow="{{(item.views===0 || item.clicks===0) ? 0 : Math.floor((item.clicks / item.views)*100)}}" aria-valuemin="0" aria-valuemax="100" style="width:{{(item.views===0 || item.clicks===0) ? 0 : Math.floor((item.clicks / item.views)*100)}}%;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>

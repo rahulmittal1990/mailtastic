@@ -1,0 +1,405 @@
+﻿<!--<style type ="text/css">
+     .syncDeactive {
+   background-color: blue;
+}
+
+         .syncActive {
+   background-color: red;
+}
+
+</style> -->
+
+<div ng-click="userRowClicked(item)" ng-repeat="item in groupMembersGoogle | orderBy:columnName:reverse | filter:filterText "
+    ng-class="{'tablerow even': (item.isSyncActivated == true ),'tablerow syncDeactive': (item.isSyncActivated == false || item.isNotYetImported == true || item.isNotYetManagedByGoogle == true)}" ng-class-odd="'odd'" ng-class-even="'even'">
+    <div class="cell select">
+        <input name="selected" class="link"  type="checkbox" data-ng-model="item.isSyncChecked" >
+    </div>
+    <div class="cell empname" style="width: 40%;">
+        <div class=" flex-center-left" style="width: 80%">
+            <img class="img-circle profile-picture-list hidden-xs" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1))}}" />
+
+            <div style="padding-left: 10px">
+                <div class="upper schrift_blau">
+                    {{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}
+
+                </div>
+                <div class="down">{{item.email}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cell sigstatus">
+        <div style="white-space: nowrap; margin-left: 0;" data-ng-show="item.isSyncActivated == true" class="schrift_gruen margin-auto upper"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="SignaturesSyncactive"></normal></div>
+        <div style="white-space: nowrap; margin-left: 0;" data-ng-show="item.isSyncActivated == false" class="schrift_rot margin-auto upper"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <normal translate="SignaturesSyncinactive"></normal></div>
+        <!--<div style="white-space: nowrap; margin-left: 0;" data-ng-show="item.isSyncActivated == null" class="schrift_rot margin-auto upper"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Signaturen-Sync inaktiv</div>-->
+
+    </div>
+
+
+    <div class="cell  campaignstatus pull-right pdr20" data-ng-if="companyInfo.isAutomaticSync">
+
+        <div class="down" data-ng-show="item.isSyncActivated == false" data-toggle="modal" data-target="#dgSyncActivationModel" data-ng-click="changeUserStatus(item,true)">
+            <button type="button" class="ownbtn btnblau btnwidth" translate="enablesync">             
+            </button>
+        </div>
+
+        <div class="down" data-ng-show="item.isSyncActivated == true" data-toggle="modal" data-target="#dgSyncDeActivationModel" data-ng-click="changeUserStatus(index,false)">
+            <button type="button" class="btn btn-sm btn-default btnwidth" translate="disablesynchronization">                
+            </button>
+        </div>
+    </div>
+
+    <div class="cell  campaignstatus pull-right pdr20" data-ng-if="!companyInfo.isAutomaticSync">
+
+        <div class="down" ng-show="item.isSyncActivated == false" data-toggle="modal" data-ng-click="changeUserStatus(item,true)">
+            <button type="button" class="ownbtn btnblau btnwidth" translate="enablesync">                
+            </button>
+        </div>
+
+        <div class="down" ng-show="item.isSyncActivated == true" data-toggle="modal" data-target="#dgSyncDeActivationModel" data-ng-click="changeUserStatus(item,false)">
+            <button type="button" class="btn btn-sm btn-default btnwidth" translate="disablesynchronization">                
+            </button>
+        </div>
+        
+        
+          <div class="down" ng-show="item.isNotYetImported == true"  data-ng-click="importUser(item)">
+            <button type="button" class="ownbtn btnblau btnwidth" translate="importusers">                
+            </button>
+        </div>
+        
+         <div class="down" ng-show="item.isNotYetManagedByGoogle == true"  data-ng-click="setUserManagedByGoogle(item)">
+            <button type="button" class="ownbtn btnblau btnwidth" translate="managewithgoogle">                
+            </button>
+        </div>
+        
+        
+        
+        
+        
+<!--         <div class="down" ng-show="item.isNotYetImported == true" data-toggle="modal" data-target="#dgSyncDeActivationModel" ng-click="importUser($index,false)">
+            <button type="button" class="btn btn-sm btn-default btnwidth">
+                Nutzer importieren
+            </button>
+        </div>-->
+    </div>
+
+
+
+</div>
+
+<div id="dgSyncDeActivationModelMany" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+               
+                <div data-ng-if="!companyInfo.isAutomaticSync">
+
+
+                    <div class="flex">
+                        <div class="leftform">
+                            <div class="infotext">
+                                <b translate="disableemployeessync"></b>
+                            </div>
+
+                            <div role="separator" class="line"></div>
+
+                            
+                                    <div ng-show="!config.resultdata.signature.signatureAssigned"  class="infobox infobox-error">
+                                        <span class="symbol glyphicon glyphicon-alert"></span>
+                                        <div class="text">
+                                            <normal translate="Cautionyouareabout"></normal> <span class="roboto_bold"> {{amountOfUsersToDeactivate}} </span> <normal translate="Gmailsynchronizationreallywanttocontinue"></normal>
+                                            <div class="additionaltext" translate="Userstherelevantemployeesyourtariff"></div>
+                                           
+                                        </div>
+                                        
+                                    </div>
+
+
+                            <div role="separator" class="line"></div>
+
+                            <div style="margin-top: 20px;" class="flex ng-scope">
+                                <button class="ownbtn btnblau leftbutton closeButton" data-dismiss="modal" translate="abort"></button>
+                                <button class="ownbtn btngrau leftbutton" data-ng-click="continueDeactivateAllSelectedFromList()" translate="Continue"></button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="dgSyncDeActivationModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div data-ng-if="!companyInfo.isAutomaticSync">
+
+
+                    <div class="flex">
+                        <div class="leftform">
+                            <div class="infotext">
+                                <b translate="disableemployeessync"></b>
+                            </div>
+
+                            <div role="separator" class="line"></div>
+
+                            
+                                    <div ng-show="!config.resultdata.signature.signatureAssigned"  class="infobox infobox-error">
+                                        <span class="symbol glyphicon glyphicon-alert"></span>
+                                        <div class="text">
+                                            <normal translate="CautionyouareabouttoGmail"></normal><span class="roboto_bold"> {{selectedGroupMembers.email}} </span> <normal translate="excludefromautomaticsynchronizationcontinue"></normal>
+                                            <div class="additionaltext" translate="Theusewillstillbeperformedyourtariff"></div>
+                                           
+                                        </div>
+                                        
+                                    </div>
+
+
+                            <div role="separator" class="line"></div>
+
+                            <div style="margin-top: 20px;" class="flex ng-scope">
+                                <button class="ownbtn btnblau leftbutton closeButton" data-dismiss="modal" translate="abort"></button>
+                                <button class="ownbtn btngrau leftbutton" data-ng-click="deActivateSelectedUser()" translate="Continue"></button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div id="dgSyncActivationModel" class="modal fade alertModel" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div data-ng-if="companyInfo.isAutomaticSync">
+
+                    <div class="flex">
+                        <div class="leftform">
+
+                            <div class="infotext">
+                                <b translate="Enableemployeessync"></b>
+                            </div>
+
+
+
+                            <div role="separator" class="line"></div>
+
+
+                                <div class="text">
+                                    <p translate="Manualoptionsynchronizationandthentryagain">                                        
+                                    </p>
+                                </div>
+
+                   
+
+                            <div role="separator" class="line"></div>
+
+                            <div style="margin-top: 20px;" class="flex ng-scope">
+                                <button class="ownbtn btnblau leftbutton closeButton" data-dismiss="modal" translate="shoot"></button>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+                <div></div>
+
+
+                <div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div id="dgdeActivationDoneModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+    <!--  -->
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div class="flex">
+                    <div class="leftform">
+                        <div class="infotext">
+                          
+                                <b translate="disableemployeessync"></b>
+                        
+                        </div>
+
+                        <div role="separator" class="line"></div>
+
+
+                        <div class="infobox infobox-success">
+                            <span class="symbol glyphicon glyphicon-check"></span>
+                            <div>
+                                <div class="text">
+                                    <strong translate="AutoSyncforthisemployeewasstopped">                                       
+                                    </strong>
+                                    <div class="additionaltext" translate="Changessnippetreservessignature"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div role="separator" class="line"></div>
+
+                        <div style="margin-top: 20px;" class="flex ng-scope">
+                            <button class="ownbtn btnblau leftbutton closeButton" data-dismiss="modal" translate="done"></button>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="dgActivationDoneModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="GenerateDrivesDialogBox" aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <div class="flex">
+                    <div class="leftform">
+                        <div class="infotext">
+                             <bold translate="Enableemployeessync"></bold>
+<!--                            <span class="infofirsttext">
+                               
+                            </span>-->
+                        </div>
+
+                        <div role="separator" class="line"></div>
+
+
+                        <div class="infobox infobox-success">
+                            <span class="symbol glyphicon glyphicon-check"></span>
+                            <div>
+                                <div class="text">
+                                    <strong translate="TheChangesautomatically">                                        
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div role="separator" class="line"></div>
+
+                        <div style="margin-top: 20px;" class="flex ng-scope">
+                            <button class="ownbtn btnblau leftbutton closeButton" data-dismiss="modal" translate="done"></button>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

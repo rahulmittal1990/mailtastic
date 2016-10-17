@@ -1,0 +1,93 @@
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! EVERY SOCIAL MEDIA IS IMAGE THEREFOR NOW IS NOT USED-->
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+<div cg-busy="loadingPromise"  class="assistant modal-body">
+    
+    <div class="campaign">
+    
+
+ <div class="format1 innerheadline">
+     {{modaloptions.heading}}
+ </div>
+
+        <div style="width : 100%;" role="separator" class="line"></div>  
+
+        <div style="width : 800px;"  class="infobox infobox-info">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text" translate="Acampaignconsistsofabannecorresponding"></div>
+        </div>
+
+               <div class="row ">
+
+            <div class="col-lg-4 col-md-4 editcolumn" >
+                <form>
+                    <div class="form-group">
+                        <label class="format2light" translate="CampaignTitle"></label>
+                        <div class="infotext" translate="Workingtitleonlyvisibleinternally"></div>
+                        <input type="text" class="form-control input-sm" ng-model="campaigndata.title" placeholder="Titel">
+                    </div>
+                    <div class="form-group">
+                        <label class="format2light" translate="DestinationURLinclWww"></label>
+                        <div class="infotext" translate="Whereshouldyourbannerleft"></div>
+                        <input type="text" class="form-control  input-sm"  ng-model="campaigndata.url"   placeholder="Url">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="format2light" translate="CampaigncolorStatistical"></label>
+                         <div class="infotext" translate="Colorofthecampaignforstatistics"></div>
+                        <color-picker    ng-model="campaigndata.color" color-picker-format="'rgb'"></color-picker>
+                    </div>
+
+
+                    <div class="form-group imageform">
+                        <label translate="Selectacampaignbanner"><!--<br>(.jpg, .jpeg, .png)--></label>
+                    </div>
+                    <div class="infotext" translate="Fileformatsjpgjpeg"></div>
+                    
+                    <!--<div class="tipp"><strong>Tipp:</strong> Wir empfehlen Ihnen eine Bannergröße von 500x150 px nicht zu überschreiten. </div>-->
+                     <div class="infobox infobox-clear">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text format7" translate="Werecommendbannersizeof500x150px"> </div>
+
+        </div>
+                    
+                    
+                    
+                    <div class="ownbtn btnfullwidth btnblau btn-block flex" ngf-select ng-model="campaigndata.image" name="file" ngf-pattern="'image/*'"
+                             accept="image/*" ngf-max-size="1MB"  ngf-change="checkfile($files)"
+                             ><span class="glyphicon glyphicon-open" aria-hidden="true"></span><span class="text" translate="UploadPhoto"></span></div>
+                    <img ng-hide="true" class="" src="img/campaigns/nochkeinbanner.png">			  
+                </form>
+            </div>
+            <div  class="col-lg-8 col-md-8 previewcol" >
+                <div class="heading format2light" translate="Preview"></div>
+                <div class="prevbackground" ></div>
+
+                <!--<img ngf-thumbnail="campaigndata.image || 'img/common/uploadImagePlaceholder.png'"/>-->
+                <img ngf-no-object-url="true" ngf-src="campaigndata.image "/>
+            </div>
+        </div>
+        
+        
+        <div role="separator" class="line" style="width : 100%;"></div> 
+
+        
+<div class="flex-center-right">
+
+    <div ng-click="cancel()" class="ownbtn btngrau leftbutton" translate="abort"></div> 
+    <button ng-click="createCampaign()" type="submit" ng-disabled="(!campaigndata.title || !campaigndata.url || !campaigndata.image)"  class="btn ownbtn btnblau">{{modaloptions.mode === "create" ? 'Erstellen' : 'Speichern'}}</button> 
+
+</div>
+      
+</div>
+
+
+</div>
+
+
+
+
+
+
+

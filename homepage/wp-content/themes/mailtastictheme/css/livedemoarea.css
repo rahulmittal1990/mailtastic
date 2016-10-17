@@ -1,0 +1,132 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06.05.2016, 14:59:35
+    Author     : kippple
+*/
+.livedemo{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.livedemo div{
+     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.livedemo {
+  background-color: white;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px; }
+  @media (min-width: 1200px) {
+    .livedemo .leftcol {
+      padding-right: 70px; } }
+  @media (min-width: 1200px) {
+    .livedemo .rightcol {
+      border-left: solid 1px #363f48; } }
+  @media (max-width: 992px) {
+    .livedemo .rightcol {
+      margin-top: 50px; } }
+  .livedemo .headline {
+    font-family: "Roboto_condensed_regular";
+    font-size: 34px; }
+  .livedemo .desc {
+    font-family: "Roboto_condensed_light";
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 25px; }
+
+.livedemo.produkt {
+  background-color: #e2ebf0; }
+
+.livedemomodal .modal-header {
+  border-bottom: 0; }
+.livedemomodal .modal-body {
+  padding: 50px;
+  padding-top: 0; }
+  .livedemomodal .modal-body .textcol .headline {
+    font-family: "Roboto_condensed_bold";
+    font-size: 34px; }
+  .livedemomodal .modal-body .textcol .subtext {
+    font-family: "Roboto_condensed_light";
+    font-size: 34px;
+    max-width: 400px; }
+  .livedemomodal .modal-body .textcol .kontaktarea {
+    margin-top: 40px; }
+    .livedemomodal .modal-body .textcol .kontaktarea img {
+      width: 85px; }
+    .livedemomodal .modal-body .textcol .kontaktarea .text {
+      margin-left: 20px; }
+      .livedemomodal .modal-body .textcol .kontaktarea .text .name {
+        font-family: "Roboto_condensed_bold";
+        font-size: 18px; }
+      .livedemomodal .modal-body .textcol .kontaktarea .text .company {
+        font-family: "Roboto_condensed_light";
+        font-size: 18px; }
+  .livedemomodal .modal-body .formcol label {
+    font-family: "Roboto_condensed_light";
+    font-size: 18px;
+    color: #5d6267;
+    font-weight: normal; }
+  @media (max-width: 992px) {
+    .livedemomodal .modal-body .formcol {
+      margin-top: 30px; } }
+  .livedemomodal .modal-body .formcol button {
+    margin-top: 20px; }
+
+.personalcontactmodal .modal-header {
+  border-bottom: 0; }
+.personalcontactmodal .modal-body {
+  padding: 50px;
+  padding-top: 0; }
+@media (min-width: 992px) {
+  .personalcontactmodal .toparea {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center; } }
+@media (max-width: 992px) {
+  .personalcontactmodal .toparea {
+    text-align: center; } }
+.personalcontactmodal .toparea img {
+  width: 85px; }
+@media (max-width: 992px) {
+  .personalcontactmodal .toparea .textarea {
+    margin-top: 20px; } }
+@media (min-width: 992px) {
+  .personalcontactmodal .toparea .textarea {
+    margin-left: 20px; } }
+.personalcontactmodal .toparea .textarea .headline {
+  font-family: "Roboto_condensed_bold";
+  font-size: 34px; }
+.personalcontactmodal .toparea .textarea .subline {
+  font-family: "Roboto_condensed_light";
+  font-size: 34px; }
+.personalcontactmodal .row {
+  margin-top: 40px;
+  color: #5d6267;
+  font-size: 18px; }
+  .personalcontactmodal .row label {
+    font-family: "Roboto_condensed_light";
+    font-weight: normal; }
+  .personalcontactmodal .row .textcol {
+    font-family: "Roboto_condensed_light";
+    font-weight: normal; }
+    @media (max-width: 992px) {
+      .personalcontactmodal .row .textcol {
+        margin-top: 20px; } }
+    .personalcontactmodal .row .textcol .middle {
+      margin-bottom: 20px;
+      margin-top: 20px; }

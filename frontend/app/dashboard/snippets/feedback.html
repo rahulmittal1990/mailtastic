@@ -1,0 +1,20 @@
+<div class="panel custompanel">
+    <div class="panel-heading button-panel-header">
+        <h5 class="panelheading" translate="youropinioncounts"></h5>
+        <!--<button type="button" class="btn btn-sm actionbutton">Gruppe erstellen</button>-->
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-4 col-md-4 feedback-img-area">
+            <img class="img-responsive" src="img/dashboard/peerKontakt.png" />
+        </div>
+        <div class="col-lg-8 col-md-8 feedback-desc-area">
+            <h2 translate="howcanwe"></h2>
+            <p class="description"><normal translate="toimproveyou"></normal>  <normal translate="Pleaseletmeknowhow"></normal></p>
+            <p class="kontaktinfo"><span class="schrift_rot">Peer Wierzbitzki</span>, Product Development</p>
+        </div>
+        <div class="col-lg-12 col-md-12 feedback-text-area-col">
+            <textarea ng-model="feedback.text" placeholder="Ihr Feedback..." class="form-control" rows="6"></textarea>
+            <button ng-disabled="!feedback.text" ng-click="sendFeedback(feedback.text)" type="button" class="btn btn-sm actionbutton" translate="Sendfeedback"></button>
+        </div>
+    </div>
+</div>

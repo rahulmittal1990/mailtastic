@@ -1,0 +1,66 @@
+.versacommerce{
+   
+    font-size : 16px;
+    color : #354048;
+    .leftcol{
+        background-color : white;
+        padding : 30px;
+        border-top-left-radius : 3px;
+        border-bottom-left-radius : 3px;
+        .toptext{
+            font-family : roboto_light;
+           
+            margin-top : 50px;
+
+        }
+
+        .secondndtext{
+            margin-top : 25px;
+             
+            font-family : roboto_bold;
+        }
+
+        .thirdtext{
+            font-family : roboto_regular;
+            
+        }
+
+
+        .sofunktionierts{
+              font-family : roboto_bold;
+            
+        }
+
+
+        .manualstep{
+             font-family : roboto_bold;
+            
+             color : $blau;
+        }
+
+
+        .manualexpl{
+             font-family : roboto_regular;
+              font-size : 14px;
+        }
+
+
+        .form-group{
+            label{
+                font-family : roboto_bold;
+                font-size : 14px;
+            }
+
+        }
+
+    }
+    
+    .rightcol{
+        border-top-right-radius : 3px;
+        border-bottom-right-radius : 3px;
+        background-color : $dunkelgrau;
+        padding : 30px;
+        
+    }
+    
+}

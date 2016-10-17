@@ -1,0 +1,75 @@
+
+<div class="flex import">
+    <div class="leftform">
+
+    <div class="format1 innerheadline">
+            <span class="breadcrumpdone" ng-repeat="item in config.breadcrumpsdone">{{item}}<span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+            <span class="breadcrump"  ng-repeat="item in config.breadcrumps">{{item}}</span>
+        </div>
+
+        <div role="separator" class="line"></div>  
+        <div class="format2">Via Excel <span style="color : #a8acb3;margin-left : 30px;cursor:pointer;" ng-click="showOtherImportPos()">  <normal translate="Othersources"></normal></span></div>
+ <div role="separator" class="line"></div>
+
+   <div  ng-show="config.resultdata.groupCreated === true" class="infobox infobox-success">
+            <span class="symbol glyphicon glyphicon-check"></span>
+            <div class="text"><normal translate="TheDepartment"></normal> <strong>{{config.resultdata.groupTitle}}</strong> <normal translate="successfullycreated"></normal></div>
+        </div>
+        
+        <div ng-hide="config.disableGroupArea" class="format2" translate="Whichdepartmenttoassignthenewemployee"></div>
+        <div ng-hide="config.disableGroupArea" class="flex">
+            <select ng-model="employeedata.currentGroup" class="form-control formatdropdown selectgroups input-sm">
+                <option value="empty" translate="Selectexistingdepartment"></option>
+                <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}}</option>
+            </select>
+            <div ng-hide="disableNewGroupButton"  ng-click="createGroup()" class="ownbtn btnblau"><span class="glyphicon-plus margin-auto" aria-hidden="true"></span><span class="margin-auto"><normal translate="Createanewdepartment"></normal>
+            </span> </div>
+        </div>
+
+        <div ng-hide="config.disableGroupArea" role="separator" class="line"></div> 
+ 
+ 
+            <form>
+           
+                   
+                    <div  translate="1FilltheExceltemplate"></div>
+                    <!--<button   class="btn btn-block schrift_weis">Vorlage herunterladen</button>-->
+                    <div class="formbutton">
+                    <a class="btn ownbtn btngrau schrift_weis" target="_self" href="https://www.app.mailtastic.de/downloads/MitarbeiterImportierenVorlage.xlsx" download="MitarbeiterImportierenVorlage.xlsx" translate="downloadtemplate"></a>
+                    </div>
+
+                    <div class="secondform" translate="2UploadExceldocument"></div>
+                    
+                    
+                    <div class="fileupload btn ownbtn btnblau formbutton">
+                        <span translate="Chooseafile"></span>
+                        <input id="employeeimport" type="file" class="upload" name="excel_file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onchange="angular.element(this).scope().fileChanged(this.files);" >
+                    </div>
+              
+             <div ng-show="data.json.length > 0 && false" class="form-group secondform  ">
+                <label  translate="3StaffImport"></label>
+                <div class="filename">{{data.filename}}</div>
+                <div class="excelinfo" translate="EmployeestoMailtasticthepresenttable"></div>
+                <button ng-click="importUsers()"  class="btn btn-block actionbutton importbutton" translate="importstaff"></button>
+            </div>
+        
+       <div role="separator" class="line"></div> 
+
+            <div class="flex">
+
+                <div ng-click="navigateBack()" class="ownbtn btngrau leftbutton" translate="abort"></div> 
+                <button ng-show="importdata.json.length > 0" type="submit" ng-click="importUsers()" class="btn ownbtn btnblau importbuttons" translate="Import"></button> 
+            </div>
+
+     </form>  
+        
+    </div>
+    <div class="helpcontainer" ng-include src="'assistant/common/helparea.html'" >
+
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,190 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04.05.2016, 18:48:49
+    Author     : kippple
+*/
+
+
+/**
+ * 	SLIDER BEREICH
+ */
+
+
+.sliderbereichwrapper {
+  background-color: #e2ebf0; 
+ box-sizing: border-box !important ;
+}
+
+.tooltip.tooltip-main.bottom.in{
+    max-width : 100px;
+    color : white !important;
+}
+.tooltip-inner{
+    background-color : black !important;
+    box-shadow : none !important;
+    color : white !important;
+}
+
+.slider-bereich {
+  /*padding-top: 90px;
+  padding-bottom: 80px;*/
+  text-align: center; }
+  .slider-bereich .headline {
+    font-size: 34px;
+    font-family: roboto_condensed_regular; }
+  .slider-bereich p {
+    font-size: 19px;
+    font-family: roboto_light;
+    margin-top: 35px; }
+  .slider-bereich h4 {
+    margin-top: 70px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-family: roboto_light; }
+  .slider-bereich button {
+    /*background-color : white;*/
+    /*color : $blau;*/
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px; }
+
+@media (max-width: 850px) {
+  .slider-bereich {
+    max-width: 100%;
+    padding-left: 25px;
+    padding-right: 25px; } }
+#anzahlMitarbeiter {
+  width: 70px;
+  text-align: center;
+  display: inline !important;
+  margin-left: 15px;
+  margin-right: 15px; }
+
+#ex1Slider {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px; }
+
+.slider-selection {
+  background: #e6391e; }
+
+.slider-handle {
+  width: 35px;
+  height: 35px;
+  background: #4c4c4c; }
+
+.slider-track {
+  height: 25px !important; }
+
+@media (min-width: 768px) {
+  .ergebnis_row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex; } }
+
+/*.slider-ergebnis-oben{
+	margin-top:30px;
+	
+}*/
+/*.slider-ergebnis-unten{
+	margin : 0;
+	
+}
+.slider-ergebnis-unten > div{
+	padding-bottom:30px;
+	padding-top:30px;
+}*/
+.slider-ergebnis-area {
+  border: 2px solid #363f48; 
+     -webkit-box-sizing: border-box !important; 
+    -moz-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+     box-sizing: border-box !important; 
+}
+  .slider-ergebnis-area .missedchances_hint {
+    font-size: 10px; 
+  line-height : 1.6;
+  }
+
+.slider-ergebnis-area.top {
+  border-bottom-width: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 20px; 
+box-sizing: border-box;
+margin-top : 20px;
+}
+
+.slider-ergebnis-area img {
+  max-width: 90px; }
+
+.slider-ergebnis-oben-links {
+  /*border-bottom-width:0;*/
+  padding-bottom: 30px;
+  padding-top: 30px; }
+  @media (min-width: 768px) {
+    .slider-ergebnis-oben-links {
+      border-right-width: 0; } }
+  @media (max-width: 768px) {
+    .slider-ergebnis-oben-links {
+      border-bottom-width: 0; } }
+
+.slider-ergebnis-oben-links div {
+  margin: auto;
+  font-size: 20px;
+  font-family: roboto_bold; }
+
+.slider-ergebnis-oben-links span {
+  font-size: 40px; }
+
+.slider-ergebnis-oben-rechts {
+  /*border-bottom-width:0;*/
+  padding-bottom: 30px;
+  padding-top: 30px; }
+
+.slider-ergebnis-oben-rechts div {
+  margin: auto;
+  font-size: 20px;
+  font-family: roboto_bold; }
+
+.slider-ergebnis-oben-rechts span {
+  font-size: 40px; }
+
+/*.slider-ergebnis-unten p{
+	font-size : 120%;
+	
+}*/
+/*.slider-ergebnis-unten p span{
+	font-size : 130%;
+	color : $rot;
+        font-weight : bold;
+	
+}*/
+.slider-wrapper {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 50px; }
+
+.calulated_v {
+  color: #363f48;
+  font-family: roboto_bold; 
+}
+
+
+
+
+
+/*
+boxes where with different width because row:after width of 4px
+*/
+    .slider-bereich .row:after{
+        width : 0px;
+        
+    }

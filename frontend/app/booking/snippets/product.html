@@ -1,0 +1,137 @@
+
+
+<div class="format1 innerheadline">
+                      
+                        <span class="breadcrump" translate="Chooseproduct"></span>
+                    </div>
+                    <div  role="separator" class="line"></div> 
+   <div ng-show="adminMode === true" class="format2" translate="0SpecialConditions"></div>
+   
+  <div ng-show="adminMode === true" class="form-group">
+            <label class=""  >Tarif ID*</label>
+            <input ng-model="customPlanData.plan" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+   
+    <div ng-show="adminMode === true" class="form-group">
+            <label class=""  >Addition ID*</label>
+            <input ng-model="customPlanData.addition" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+   
+     <button ng-show="adminMode === true" class="ownbtn btnblau" ng-click="getPriceData()" translate="Checkcondition"></button> 
+   
+<div ng-show="adminMode === true" role="separator" class="line"></div>
+
+<div class="flex" style="margin-bottom : 20px;">
+    <div style="margin:auto;margin-left : 0;" class="format2" translate="1Whichproductversionyouwanttobook"></div>
+    <!--<div style="margin:auto;margin-right : 0;font-family: roboto_regular;" class="format2">FAQ - Abo buchen</div>-->    
+</div>
+ <div class="productcontainer container-fluid flex">
+     <!--<div class="row">-->
+         <div class="col-lg-6 flex firstcol">
+             <!--<input type="checkbox" class="input">-->
+             
+             
+             <div class="checkbox">
+                 <label><input ng-disabled="true"  type="checkbox" value="" checked="true"></label>
+</div>
+             
+              <div class="text">  
+                 <div class="headline">Start</div>
+                  <div class="price" translate="249peruserpermonth"></div>
+                  <div class="details" translate="withannualbillingor3monthly">
+                     </div>
+                  <div class="smalldetails" translate="Basicfeeusersincludedwithannualbillingor1500monthly">
+                      
+                  </div>
+             </div>
+         </div>
+         <div class="col-lg-6 secondcol">
+             <div class="headline" translate="IdealEmailSignatureMarketing"></div>
+             <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="Completeevaluation"></normal></div>
+             <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="DedicatedSupport"></normal></div>
+              <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="integrationassistance"></normal></div>
+              <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="Unlimitedcampaigns"></normal></div>
+              <div class="description"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="Unlimiteddepartments"></normal></div>
+         </div>
+         
+     <!--</div>-->
+     
+ </div>
+ 
+   <div role="separator" class="line"></div>
+   
+    <div class="format2" translate="2UserLicenses"></div>
+    <form name="useramountform">
+    <div class="empcount flex">
+         
+        <div class="left">
+            <!--<div class="up">Nutzer gesamt : {{pricedata.totalUsers}}</div>-->
+           
+            <div class="form-group">
+                <label class="up" translate="usersintotal"></label>
+                <input ng-change="calcPrice()" min="{{minAmountWhichIsBookable}}" name="useramountinput" ng-model="pricedata.totalUsers" type="number" class="form-control input-sm"   required="true">
+                <!--<input ng-change="calcPrice()" ng-model="pricedata.amountOfUsers" type="text" class="form-control input-sm"   required="true">-->
+                
+                  
+                
+                
+            </div>
+           
+            <!--<div class="down">Gesamt : {{pricedata.totalUsers}} | Inklusive: {{pricedata.amountOfIncluded}}</div>-->
+            <div class="down" translate="5userlicensesareinthebasicfeeincluded"></div>
+        </div>
+        <div class="right">
+            
+            
+             <div ng-show="useramountform.useramountinput.$error.min" class="infobox infobox-error full-width-imp" >
+                    <span class="symbol glyphicon glyphicon-alert"></span>
+                   
+                        <div class="text"><strong translate="Numbertoosmall"></strong>
+                         <div class="additionaltext" translate="Theyminimumthresholdof5employees">
+                        </div>
+                        
+                        </div>
+                       
+                   
+        
+                </div>
+            
+            <div class="up" translate="Otherusersanytimebebookedwithcosts">
+            </div>
+            <div class="down" translate="ToremovesimplyMailtasticfallafterdeletedusers">              
+            </div>
+            
+            
+           
+        </div>
+        
+    </div>
+     </form>
+    <div role="separator" class="line"></div>   
+   <div class="format2" translate="3Selectthebillingperiod"></div>
+   
+   
+   
+    <div class="radio">
+  <label><input ng-change='calcPrice()' type="radio" ng-model="subscriptiondata.billing_interval" value="yearly"  name="duration" translate="Annualsubscriptionget17discount"></label>
+</div>
+<div class="radio">
+  <label><input ng-change='calcPrice()' type="radio" ng-model="subscriptiondata.billing_interval" value="monthly" name="duration" translate="Monthlysubscription"></label>
+</div>
+   
+<!--   
+   <div class="checkbox">
+  <label><input type="checkbox" value="">Jährliches Abo: 10,00€ pro Monat (120,00€ pro Jahr)</label>
+</div>
+   
+   <div class="checkbox">
+  <label><input type="checkbox" value="">Monatliches Abo: 12,00€ pro Monat</label>
+</div>-->
+ 
+   <div class="hint" translate="Thecontractwriting14dayspriortoexpiration">
+   </div>
+  <div role="separator" class="line"></div> 
+  
+     <div class="flex-center-right">
+        <div ng-click="changeStep('details')"  class="ownbtn btnblau" translate="Continue"></div> 
+ </div>

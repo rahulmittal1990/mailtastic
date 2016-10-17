@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGI,uBAAQ;EACJ,WAAW,EAAG,YAAY;AAI9B,4BAAa;EACT,UAAU,EAAG,IAAI;EACjB,WAAW,EAAG,WAAW;AAG7B,yBAAU;EACN,WAAW,EAAG,cAAc;AAIhC,+BAAgB;EACV,WAAW,EAAG,WAAW",
+"sources": ["../scss/versacommerce.scss"],
+"names": [],
+"file": "versacommerce.css"
+}

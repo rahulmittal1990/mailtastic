@@ -1,0 +1,40 @@
+<div> 
+
+    <div class="infobox infobox-success" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="wassuccessfullycreated"></normal></div>
+
+        </div>
+    </div>
+
+
+
+    <div class="infobox infobox-error" >
+        <span class="symbol glyphicon glyphicon-alert"></span>
+        <div class="contentarea">
+            <div class="text"><strong translate="Thissignaturesignaturenowadepartment"></strong></div>
+            <div class="additionaltext" translate="Inorderyoumustassignrelevantemployeesare"></div>
+        </div>
+    </div>
+
+
+    <div role="separator" class="line"></div>  
+
+    <div  class="flex-center-left">
+        
+         <div  class="btn-group leftbutton" uib-dropdown>
+                    <button   type="button" class="btn ownbtn btnblau " uib-dropdown-toggle >
+                        <span class="" translate="assigndepartment"></span>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="addGroup('new')"><a translate="Createnew"></a></li>
+                        <li ng-click="addGroup('existing')"><a translate="Chooseexisting"></a></li>
+                    </ul>
+                </div>
+        
+        
+        <button  type="submit" ng-click="abort()" class="btn ownbtn btngrau " translate="endprematurely"></button> 
+    </div>
+
+</div> 

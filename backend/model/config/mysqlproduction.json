@@ -1,0 +1,8 @@
+{
+	"dbname" : "mailtastic",
+	"port" : 3306,
+	"username" : "mailtasticadmin",
+	"password" :  "u!Ucd538",
+	"host" : "localhost"
+	
+}

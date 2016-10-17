@@ -1,0 +1,138 @@
+
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+<div cg-busy="loadingPromise"  class="valueeditmodal urlvalue">
+<!--    <div class="modal-header clearfix">
+        <h3 class="modal-title">{{modaloptions.heading}}{{modaloptions.headingAddition}}</h3>
+        
+        <div class="cursor-pointer pull-right" ng-click="cancel()"><span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>  </div>
+    </div>-->
+    <div  class="modal-body">
+              <div class="cursor-pointer pull-right" ng-click="cancel()"><span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>  </div>
+  
+              <div class="modal-title"><span class="headlinefirst">{{modaloptions.heading}}</span> <span class="headlinesecond">{{modaloptions.headingAddition}}</span></div>
+          <div  role="separator" class="line full-width-imp"></div>
+        
+        <form name="linkform">
+            <div class="form-group">
+              <label translate="NameTags"></label>
+              <input ng-change="changedOtherThanDimension = true;" ng-disabled="true" ng-model="formdata.tag" type="text" class="form-control" placeholder="" disabled>
+            </div>
+            <div class="form-group">
+              <label translate="targetlink"></label>
+              <input ng-change="changedOtherThanDimension = true;" ng-model="imageFormData.url" type="text" class="form-control"  placeholder="" required="true">
+            </div>
+            
+            <div class="flex-center-left textorimage">
+                <span class="text" translate="Viewas"></span>
+                <div  class="radio">
+                    <label><input ng-change="changedOtherThanDimension = true;" ng-model="imageFormData.showAs" value="text" type="radio" name="textorgraphic">Text</label>
+                </div>
+                 <div   class="radio"  >
+                     <label><input ng-change="changedOtherThanDimension = true;" ng-model="imageFormData.showAs" value="image" type="radio" name="textorgraphic" ><span translate="graphic"></span></label>
+                </div>
+            </div>
+          
+            <div ng-show="imageFormData.showAs === 'image'" class="form-group">
+              <label  translate="Alternativetextfordisplayerrors"></label>
+              <input ng-change="changedOtherThanDimension = true;" ng-model="imageFormData.altText" ng-required="imageFormData.showAs === 'image'" type="text" class="form-control"  placeholder="">
+            </div>
+            
+             <div ng-show="imageFormData.showAs === 'text'"  class="form-group">
+              <label  translate="linktext"></label>
+              <input ng-change="changedOtherThanDimension = true;" ng-model="imageFormData.linkText" ng-required="imageFormData.showAs === 'text'" type="text" class="form-control"  placeholder="">
+            </div>
+            
+            
+            
+            
+            
+            
+            
+             <div  role="separator" class="line full-width-imp"></div> 
+            
+            
+            
+              <div class="form-group martop25"> <label translate="GraphicsSource"></label></div>
+            <div ng-show="imageFormData.showAs === 'image'" class="imageprevarea flex">
+                
+                
+                <div class="formarea">
+                     <div class="radio top">
+                         <label><input ng-change="changedOtherThanDimension = true;" type="radio" ng-change="whichImageChanged()" ng-model="imageFormData.whichImage" value="default" name="imgradio" ><span translate="StandardDisplay"></span></label>
+                    </div>
+                    <div class="radio bottom">
+                        <label><input ng-change="changedOtherThanDimension = true;" type="radio" ng-change="whichImageChanged()" value="own" ng-model="imageFormData.whichImage" name="imgradio" ><span translate="owngraphic"></span></label>
+                    </div>
+                    
+                    
+                    <div ng-show="imageFormData.whichImage === 'own'" class="ownbtn  btnblau  flex" ngf-select ng-model="imageFormData.image" name="file" ngf-pattern="'image/*'"
+                             accept="image/*" ngf-max-size="1MB" ngf-min-height="" ngf-max-width="3000"  ngf-change="checkfile($files)"
+                             ><span class="glyphicon glyphicon-open" aria-hidden="true"></span><span class="text" translate="UploadPhoto"></span></div>
+                    
+                    
+                    <!--<button ng-show="imageFormData.whichImage === 'own'" ng-click="saveValue()"  class="ownbtn btnblau">Grafik hochladen</button>--> 
+                </div>
+                <div class="imgpreview">
+                    <div class="hint" translate="Preview">
+                    </div>
+                    
+                    <img ng-show="imageFormData.whichImage === 'own'" ngf-no-object-url="true" ngf-src="imageFormData.image" />
+                    <img ng-show="imageFormData.whichImage === 'default'" ng-src="{{imageFormData.image}}"/>  
+                    
+                </div>
+                
+            </div>
+            
+               <div ng-show="imageFormData.showAs === 'image' &&  imageDimensionsAvailable === true && imageFormData.whichImage === 'own'" role="separator" class="line full-width-imp"></div> 
+              
+              
+               <div ng-show="imageFormData.showAs === 'image' &&  imageDimensionsAvailable === true && imageFormData.whichImage === 'own'" class="form-group martop25"><label translate="Sizeofthepermanentlysetaftersavingthesignature"></label></div>
+             <div ng-show="imageFormData.showAs === 'image' && imageDimensionsAvailable === true && imageFormData.whichImage === 'own'" class="imageprevarea flex">
+                
+                <div class="formarea">
+                     <div class="radio top">
+                         <label><input type="radio" ng-change="changedImageDimension = true"  ng-model="imageDimensionData.mode" value="default" name="imgdimradio"><span translate="originalsize"></span></label>
+                    </div>
+                    <div class="radio bottom">
+                        <label><input type="radio" ng-change="changedImageDimension = true"  value="custom" ng-model="imageDimensionData.mode" name="imgdimradio" ><span translate="Manually"></span></label>
+                    </div>
+                    
+                    
+                   
+            
+                    <div ng-show=" imageDimensionData.mode === 'custom'"  class="form-group">
+                    <label translate="Widthinpx"></label>
+                     <input ng-change="changedImageDimension = true" ng-model="imageDimensionData.width" ng-required="imageDimensionData.mode === 'custom'" type="text" class="form-control"  placeholder="">
+                   </div>
+
+                </div>
+            </div>
+              
+            
+    
+        <div   class="infobox infobox-info full-width-imp">
+            <span class="symbol glyphicon glyphicon-info-sign"></span>
+            <div class="text">
+             <normal translate="Achangetothesignaturesallemployees"></normal>
+                 <div class="additionaltext">
+              <normal translate="Changesinthisinformationareincludedsignaturesemployees"></normal>
+            </div>
+            </div>
+          
+        </div>
+            
+            <div  role="separator" class="line full-width-imp"></div> 
+            
+            
+             <div class="flex-center-right">
+                <div ng-click="cancel()"  class="ownbtn btngrau leftbutton" translate="rejection"></div> 
+              <button ng-click="linkform.$valid && saveValue()"  class="ownbtn btnblau" translate="Save"></button> 
+        </div>
+      </form>
+        
+
+    </div>
+
+</div>

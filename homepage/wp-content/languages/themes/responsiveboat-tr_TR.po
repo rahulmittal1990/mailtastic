@@ -1,0 +1,143 @@
+# Translation of ResponsiveBoat in Turkish
+# This file is distributed under the same license as the ResponsiveBoat package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-04-05 15:10:41+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.1.0-alpha\n"
+"Project-Id-Version: ResponsiveBoat\n"
+
+#. Theme Name of the plugin/theme
+msgid "ResponsiveBoat"
+msgstr "ResponsiveBoat"
+
+#. Description of the plugin/theme
+msgid "ResponsiveBoat is a free responsive WordPress theme, with a friendly and colorful design. It comes with a full-screen layout, a full-width homepage header, elegant parallax effect, and nice animations. It can be used web agencies, digital studios, corporate, product showcase, personal and business portfolio. Overall, ResponsiveBoat looks very modern and interactive."
+msgstr "ResponsiveBoat dost canlısı ve renkli, duyarlı, ücretsiz bir WordPress temasıdır. Tam ekran düzeni ve tam genişllikli ana sayfa üst bölümü ile beraber gelir. Şık bir parallax efekti, şık animasyonlar da cabası. Web ajansları, dijital stüdyolar, şirketler, ürün vitrinleri, kişisel ve kurumsal portfolyolar için kullanılabilir. Kısacası, ResponsiveBoat oldukça modern ve interaktif görünüyor."
+
+#: sections/latest_news.php:36
+msgid "LATEST NEWS"
+msgstr "GÜNCEL HABERLER"
+
+#: sections/latest_news.php:45
+msgid "Add a subtitle in Customizer, \"Latest news section\""
+msgstr "Özelleştiricide bir alt yazı ekletin, \"Son haberler bölümü\""
+
+#: front-page.php:79
+msgid "* Please enter your name."
+msgstr "* Lütfen adınızı girin."
+
+#: front-page.php:93
+msgid "* Please enter your email address."
+msgstr "* Lütfen e-posta adresinizi girin."
+
+#: front-page.php:99
+msgid "* You entered an invalid email address."
+msgstr "* Geçersiz bir e-posta adresi girdiniz."
+
+#: front-page.php:113
+msgid "* Please enter a subject."
+msgstr "* Lütfen bir konu girin."
+
+#: front-page.php:127
+msgid "* Please enter a message."
+msgstr "* Lütfen bir mesaj girin."
+
+#: front-page.php:383
+msgid "Thanks, your email was sent successfully!"
+msgstr "Teşekkürler, e-postanız başarıyla gönderildi!"
+
+#: front-page.php:386
+msgid "Sorry, an error occured. The email could not be sent."
+msgstr "Üzgünüz, bir hata oluştu. E-posta gönderilemedi."
+
+#: sections/big_title.php:58
+msgid "To add a title here please go to Customizer, \"Big title section\""
+msgstr "Buraya bir başlık eklemek için Özelleştiriciye gidin, \"Büyük başlık bölümü\""
+
+#: sections/big_title.php:79
+msgid "One button"
+msgstr "Bir tuş"
+
+#: sections/big_title.php:82
+msgid "Another button"
+msgstr "Başka bir tuş"
+
+#: sections/testimonials.php:129
+msgid "Testimonials"
+msgstr "Görüşler"
+
+#: sections/latest_news.php:131
+msgid "Latest news"
+msgstr "Güncel haberler"
+
+#: sections/latest_news.php:88 sections/latest_news.php:178
+msgid "Read full article"
+msgstr "Tüm makaleyi oku"
+
+#: sections/big_title.php:88
+msgid "What's inside"
+msgstr "İçerde ne var"
+
+#: sections/big_title.php:85
+msgid "Features"
+msgstr "Özellikler"
+
+#: sections/big_title.php:62
+msgid "ONE OF THE TOP 10 MOST POPULAR THEMES ON WORDPRESS.ORG"
+msgstr "WORDPRESS.ORG ÜZERİNDEKİ EN POPÜLER 10 TEMADAN BİRİ"
+
+#: functions.php:106
+msgid "Image"
+msgstr "Resim"
+
+#: functions.php:98
+msgid "Text"
+msgstr "Metin"
+
+#: functions.php:90
+msgid "Subtitle"
+msgstr "Alt Başlık"
+
+#: functions.php:96
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est."
+
+#: functions.php:88 sections/about_you.php:15
+msgid "Use this section to showcase important details about you."
+msgstr "Hakkınızdaki önemli detaylar ile ilgili bu vitrini kullanabilirsiniz."
+
+#: functions.php:82
+msgid "Title"
+msgstr "Başlık"
+
+#: functions.php:42 functions.php:51
+msgid "Header Logo"
+msgstr "Başlık Logo"
+
+#: functions.php:80 sections/about_you.php:8
+msgid "About you"
+msgstr "Hakkınızda"
+
+#: functions.php:73
+msgid "Hide about you section?"
+msgstr "Hakkınızda bölümü gizlensin mi?"
+
+#: functions.php:63
+msgid "About you section"
+msgstr "Hakkınızda bölümü"
+
+#. Theme URI of the plugin/theme
+msgid "http://themeisle.com/themes/responsiveboat-theme/"
+msgstr "http://themeisle.com/themes/responsiveboat-theme/"
+
+#. Author of the plugin/theme
+msgid "Themeisle"
+msgstr "Themeisle"
+
+#. Author URI of the plugin/theme
+msgid "https://themeisle.com"
+msgstr "https://themeisle.com"

@@ -1,0 +1,82 @@
+<div class="baseonecolumn group-detail">
+
+    <div class="container topdetails">
+        <div class="flex-center-left ">
+            <div class="headline format0 leftbutton" translate="Department">
+            </div>
+
+            <div class="signaturetitle leftbutton">
+                <span class="glyphicon glyphicon-folder-open" style="margin-right : 3px;" aria-hidden="true"></span> <span class="title">{{data.groupDetail.title}}</span>
+            </div>
+
+            <!--<div class="margin-auto">-->
+            <div ng-show="data.groupDetail.isDefault !== true" class="btn-group ownddbtn dddarkgrey" uib-dropdown>
+                <button type="button" class="btn btn-sm" uib-dropdown-toggle>
+                    <span class="glyphicon own-glyph glyphicon-cog" aria-hidden="true"></span>
+                    <normal translate="Edit"></normal> <span class="caret"></span>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li role="menuitem"> <a ng-controller="GroupModalCtrl" ng-click="open(data.groupDetail.id, null, 'new')" translate="Edit"></a>  </li>
+                    <li role="menuitem"> <a ng-click="deleteGroup(data.groupDetail.id)" translate="Delete"></a>  </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex-center-left topbuttonrow">
+            <!--<button ng-show="data.groupDetail.amountOfMembers > 0 && data.groupDetail.title" class="ownbtn btn-lg btngreen leftbutton"> <span class="glyphicon glyphicon-ok " aria-hidden="true"></span> {{data.groupDetail.amountOfMembers}} Mitarbeiter</button>-->
+            <!--<button ng-show="data.activeInGroups.length === 0 && data.signatureTitle" class="ownbtn btn-lg btnrot leftbutton"> <span class="glyphicon glyphicon-alert " aria-hidden="true"></span> Diese Signatur ist in keiner Abteilung aktiv</button>-->
+            <div ng-show="data.groupDetail.amountOfMembers > 0 && data.groupDetail.title" class="leftbutton buttonlikediv flex-center-all"> <span class="glyphicon glyphicon-ok " aria-hidden="true"></span> {{data.groupDetail.amountOfMembers}} <normal translate="Employee"></normal></div>
+
+            <div ng-show="data.groupDetail.amountOfMembers === 0 && data.groupDetail.title" ng-show="data.activeInGroups.length === 0" class="btn-group ownddbtn ddrot leftbutton" uib-dropdown>
+                <button type="button" class="btn " uib-dropdown-toggle>
+                    <span class="glyphicon own-glyph glyphicon-alert" aria-hidden="true"></span>
+                    <normal translate="Thisdivisioncurrentlyhasnoemployees"></normal>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'new')"><a translate="Createnew"></a></li>
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'existing')"><a translate="existing"></a></li>
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'import')"><a translate="Import"></a></li>
+                </ul>
+            </div>
+
+
+            <div class="btn-group ownddbtn ddblau" uib-dropdown>
+                <button type="button" class="btn " uib-dropdown-toggle>
+                    <span class="glyphicon own-glyph glyphicon-plus" aria-hidden="true"></span>
+                    <normal translate="Addemployees"></normal><span class="caret"></span>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'new')"><a translate="Createnew"></a></li>
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'existing')"><a translate="existing"></a></li>
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, data.groupDetail.id, 'import')"><a translate="Import"></a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+
+
+        <div ng-include src="'groups/details/snippets/campaign.html'" class="detailpanel campaign">
+
+        </div>
+
+
+        <div ng-include src="'groups/details/snippets/signature.html'" class="detailpanel signature">
+
+        </div>
+
+
+        <div ng-include src="'groups/details/snippets/groupstatspie.html'" class="detailpanel groupstatspie">
+
+        </div>
+
+
+        <div ng-include src="'groups/details/snippets/employeelist.html'" class="detailpanel memberlist">
+
+        </div>
+
+
+
+    </div>

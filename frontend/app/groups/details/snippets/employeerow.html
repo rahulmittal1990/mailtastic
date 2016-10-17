@@ -1,0 +1,67 @@
+    <!--table-->
+    <div ng-click="rowClicked(item)"   ng-class="getSelectedClass(item)" class="tablerow" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="item in groupMembers | filter : filterText | orderBy:sort">
+        <div class="cell select">
+            <input name="selected" class="link" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);
+                $event.stopPropagation();"  type="checkbox">
+        </div>
+        <div class="cell empname overflowxhidden">
+            <div class=" flex-center-left">
+            <img class="img-circle profile-picture-list hidden-xs" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1))}}" />
+
+                <div class="overflowxhidden">
+                    <div ui-sref="base.employees.employeedetail({employeeId : item.id})" class="upper schrift_blau overflowxhidden link">
+                      {{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}
+
+                    </div>
+
+                    <div class="down">{{item.email}}</div>
+                </div>
+            
+            </div>
+        </div>
+         <div class="cell  sigstatus">
+             <div style="white-space: nowrap;margin-left : 0;" ng-show="item.sigStatus === 'latest'  && data.groupDetail.activeSignature" class="schrift_gruen margin-auto upper"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><span><span tooltip-class="status-info-tooltip" tooltip-placement="top"  uib-tooltip="Der Mitarbeiter hat die aktuellste freigegebene Version der Signatur eingebunden" translate="Current"></span></span></div>
+             <div style="white-space: nowrap;margin-left : 0;" ng-show="item.sigStatus === 'outdated'  && data.groupDetail.activeSignature" class="schrift_rot margin-auto upper "><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><span tooltip-class="status-info-tooltip" tooltip-placement="top"  uib-tooltip="Der Mitarbeiter hat die aktuellste freigegebene Version der Signatur noch nicht eingebunden" translate="Notuptodate"></span></div>
+            
+            <span ng-hide="data.groupDetail.activeSignature" tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie der Abteilung eine Signatur zu" class="nocampaign text-rot text-bold" ><span style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> <normal translate="Unassigned"></normal></span>
+     
+            <div class="down" translate="signature"></div>
+        </div>
+        
+        
+        <div class="cell  campaignstatus">
+            <div style="white-space: nowrap;margin-left : 0;" ng-show="item.views > 0 && data.groupDetail.activeCampaign" class="schrift_gruen margin-auto upper"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><span  tooltip-class="status-info-tooltip" tooltip-placement="top"  uib-tooltip="Sofern der Abteilung des Mitarbeiters eine Kampagne zugewiesen ist, wird der entsprechende Kampagnen-Banner in der E-Mail-Signatur des Mitarbeiters angezeigt" translate="active"></span></div>
+            <div style="white-space: nowrap;margin-left : 0;" ng-show="item.views === 0 && data.groupDetail.activeCampaign" class="schrift_rot margin-auto upper"><span tooltip-class="status-info-tooltip" tooltip-placement="top"  uib-tooltip="Der Mitarbeiter hat den Kampagnen-Banner noch nicht in seine E-Mail-Signatur eingebunden" class="glyphicon glyphicon-remove" aria-hidden="true"></span> <span tooltip-class="status-info-tooltip" tooltip-placement="top"  uib-tooltip="Solange inaktiv, bis der Mitarbeiter den Kampagnenbanner integriert hat." translate="Inactive"></span></div>
+            <span ng-hide="data.groupDetail.activeCampaign" tooltip-class="status-info-tooltip" tooltip-placement="top" uib-tooltip="Weisen Sie der Abteilung eine Kampagne zu" class="nocampaign text-rot text-bold" ><span style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span> <normal translate="Unassigned"></normal></span>
+            <div class="down" translate="campaign"></div>
+        </div>
+        
+        
+        <div   class="cell action text-center ">
+        <div dropdown-append-to-body="true" class="btn-group margin-auto optionbutton actiondropdown" uib-dropdown>
+            <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+            </button>
+            <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                    <li ui-sref="base.employees.employeedetail({employeeId: item.id})" ><a translate="Lookat"></a></li>
+                    <li ng-show="item.isAdmin == false" ng-click="deleteEmployee(item.id)"><a translate="Delete"></a></li>
+                    <!--<li ng-show="item.isAdmin == false" ng-click="deleteEmployee(item.id)"><a >Aus Abteilung entfernen</a></li>-->
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(item.id, null, 'new')"><a translate="Edit"></a></li>
+                    <li ng-click="resendInvitationSingle(item.id)"><a translate="Sendinvitationagain"></a></li>
+                
+            </ul>
+        </div>
+    </div>
+        
+       
+    </div>
+    
+    <div class="nodataarea" ng-show="groupMembers.length === 0">
+        <img src="img/emptystates/redonwhite/r_Group_Missing.png">
+        <div class="rightside">
+            <div class="placeholderheadlinetext schrift_rot_imp" translate="WarningThisdepartmenthasnostaff"></div>
+            <div class="placeholderdesc" translate="Nowaddemployees"></div>
+        </div>
+    </div>
+    
+    

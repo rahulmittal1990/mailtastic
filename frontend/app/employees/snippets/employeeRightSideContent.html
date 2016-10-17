@@ -1,0 +1,134 @@
+<div class="emp-r-top-area-no-selection text-center" ng-show="data.selectedEmployees.length === 0">
+    <img class="empty-selection-pic" src="img/emptystates/lightonwhite/w_Selection_Missing.png" />
+    <p class="empty-selection-heading">Quick Navi</p>
+    <p class="empty-selection-text" translate="Inthecentralregiononeormoreemployees"></p>
+</div>
+
+
+
+
+
+
+<div align="center" class="user-r-one-selected " ng-show="data.selectedEmployees.length === 1">
+
+
+    <div class="button_area">
+        <div class="btn-group" uib-dropdown>
+            <button id="sort-button" type="button" class="btn actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="Actions"></normal>
+            </button>
+            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                <li class="cursor-pointer" ng-hide="(data.selectedEmployees[0].isAdmin === 1)" role="menuitem">
+                    <a ng-click="deleteEmployee(data.selectedEmployees[0].id)" translate="Delete"></a>
+                </li>
+
+                <li class="cursor-pointer" ui-sref="base.employees.employeedetail({employeeId: data.selectedEmployees[0].id})"><a translate="Lookat"></a></li>
+
+                <li class="cursor-pointer" ng-controller="EmployeeModalCtrl" ng-click="open(data.selectedEmployees[0].id, null, 'new')"><a translate="Edit"></a></li>
+                <li class="cursor-pointer" ng-click="resendInvitationSingle(data.selectedEmployees[0].id)"><a translate="Sendinvitationagain"></a></li>
+            </ul>
+        </div>
+
+        <button ui-sref=".employeedetail({employeeId: data.selectedEmployees[0].id})" class="btn showbutton actionbutton"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Details</button>
+    </div>
+    <div class="flex-center-left user-top-area-one">
+        <!--<div class="flex user-top-area-one text-left">-->
+        <img class="img-circle" letters="{{!data.selectedEmployees[0].firstname ? (data.selectedEmployees[0].email | limitTo:1) : ((data.selectedEmployees[0].firstname | limitTo:1) + (data.selectedEmployees[0].lastname | limitTo:1))}}" />
+        <div class="overflowxhidden text-left">
+            <div class="name overflowxhidden">{{(!data.selectedEmployees[0].firstname) ? data.selectedEmployees[0].email : (data.selectedEmployees[0].firstname + ' ' + data.selectedEmployees[0].lastname)}}</div>
+
+            <div class="email overflowxhidden" ng-show="data.selectedEmployees[0].firstname">{{data.selectedEmployees[0].email}}</div>
+            <div style="white-space: nowrap;margin-left : 0;font-size : 80%;" ng-show="data.selectedEmployees[0].views > 0" class="schrift_gruen margin-auto"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <normal translate="active"></normal></div>
+            <div style="white-space: nowrap;margin-left : 0;font-size : 80%;" ng-show="data.selectedEmployees[0].views === 0" class="schrift_rot margin-auto"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><normal translate="Inactive"></normal></div>
+
+        </div>
+        <!--</div>-->
+        <div role="separator" class="divider"></div>
+    </div>
+
+
+
+    <div role="separator" class="divider"></div>
+    <div class="text-left rightSideDividertext" translate="MemberofDivision"></div>
+    <!--    <select  ng-model="selected.selectedGroupForEmp" class="form-control ">
+            <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}}</option>
+        </select>-->
+    <select ng-change="groupSidebarChanged('{{selected.selectedGroupForEmp}}', data.selectedEmployees, selected.selectedGroupForEmp)" ng-model="selected.selectedGroupForEmp" class="form-control">
+
+        <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}} </option>
+    </select>
+    <!--<button ng-click="moveEmployeesToGroup(data.selectedEmployees,  selected.selectedGroupForEmp)" class="actionbutton btn btn-block">Abteilung setzen</button>-->
+
+
+
+    <div role="separator" class="divider"></div>
+    <div class="text-left rightSideDividertext" translate="campaign"></div>
+    <div ng-hide="!data.selectedEmployees[0].campaignTitle" class="campaigndetails text-left">
+        <span class="graph-dot" style="background-color : {{data.selectedEmployees[0].campaignColor}}"></span>
+        <span class="upper link " ng-click="showCampaignDetails(data.selectedEmployees[0].campaignId)">{{data.selectedEmployees[0].campaignTitle}}</span>
+    </div>
+
+    <!--<img src="https://www.app.mailtastic.de:3333/im/{{data.selectedEmployees[0].id}}/ad" border="0" style="max-width:100%;" alt="Latest News + Events" style="color:blue;font-size:12px;">-->
+    <img class="campaignimage link" ng-click="showCampaignDetails(data.selectedEmployees[0].campaignId)" ng-hide="!data.selectedEmployees[0].campaignTitle" style="max-width:100%;" ng-src="{{data.selectedEmployees[0].campaignImage}}" />
+
+    <div style="margin-top : 15px;" class="nodataarea" ng-show="!data.selectedEmployees[0].campaignTitle">
+        <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+        <div class="placeholderheadlinetext schrift_rot_imp">
+            <normal translate="Currentlyinthedepartment"></normal> "{{data.selectedEmployees[0].groupTitle}}" <normal translate="assignedtoanycampaign"></normal>
+        </div>
+        <div class="placeholderdesc" translate="Assignacampaigntodisplayabannercampaigninthe">
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div ng-show="data.selectedEmployees.length > 1" class="user-top-area-many">
+    <!--    <div class="headline">
+            Ausgewählte Mitarbeiter:
+        </div>-->
+    <!--<button ng-click="deleteEmployees()" class="actionbutton btn btn-block deletebutton">  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Mitarbeiter löschen</button>-->
+    <div class="btn-group btn-block deletebutton" uib-dropdown>
+        <button id="sort-button" type="button" class="btn actionbutton btn-block" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><normal translate="Actions"></normal>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li class="cursor-pointer" role="menuitem">
+                <a ng-click="deleteEmployees()" translate="Delete"></a>
+            </li>
+
+            <li class="cursor-pointer" ng-click="resendInvitations(data.selectedEmployees)"><a translate="sendinvitationsagain"></a></li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="selected-list">
+        <div ng-repeat="item in data.selectedEmployees" class="flex-center-left multi-sel-em-entry">
+            <!--<div class="flex user-top-area-one text-left">-->
+            <img class="img-circle" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1))}}" />
+            <div class="overflowxhidden">
+                <div class="name overflowxhidden">{{(!item.firstname) ? item.email : (item.firstname + ' ' + item.lastname)}}</div>
+
+                <div class="email overflowxhidden" ng-show="item.firstname">{{item.email}}</div>
+                <div style="white-space: nowrap;margin-left : 0;font-size : 80%;" ng-show="item.views > 0" class="schrift_gruen margin-auto"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><normal translate="active"></normal></div>
+                <div style="white-space: nowrap;margin-left : 0;font-size : 80%;" ng-show="item.views === 0" class="schrift_rot margin-auto"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><normal translate="Inactive"></normal></div>
+
+            </div>
+            <!--</div>-->
+
+        </div>
+        <div role="separator" class="divider"></div>
+    </div>
+    <div class="headline" translate="Movetodepartment">
+    </div>
+    <select ng-change="groupSidebarChanged('{{selected.selectedGroupForEmp}}', data.selectedEmployees, selected.selectedGroupForEmp)" ng-model="selected.selectedGroupForEmp" class="form-control">
+        <option value="selectGroupForEmp" translate="selectdepartment"></option>
+        <option ng-repeat="item in data.groups" value="{{item.id}}">{{item.title}} </option>
+    </select>
+    <!--<button ng-click="moveEmployeesToGroup(data.selectedEmployees,  selected.selectedGroupForEmp)" class="actionbutton btn btn-block">Jetzt verschieben</button>-->
+
+</div> 

@@ -1,0 +1,147 @@
+
+
+
+<div class="list-control-area no_padding" style="margin-bottom : 15px;">
+
+
+    <div class="checkbox hidden-xs ">
+        <label>
+            <input ng-click="selectAll($event)"
+                   ng-checked="isSelectedAll()"  type="checkbox"><normal translate="All"></normal>
+        </label>
+    </div>
+
+    <div ng-show="data.selectedGroups.length > 1"  class="btn-group margin-auto optionbutton actiondropdown aktiongroup hidden-xs" uib-dropdown>
+        <button ng-disabled="data.selectedGroups.length === 0"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <!--<li ng-click="deleteGroups()"><a >Löschen</a></li>-->
+           <li  ng-click="removeCampaignOfGroups()"><a href="#" translate="Unassigntodepartment"></a></li>
+                                               
+        </ul>
+    </div>
+
+
+
+
+    <div id="custom-search-input"  class="input-group margin-auto search">
+        <input ng-change="searchPotGroups()" ng-model="search.filterText" type="text" class="form-control" placeholder="Abteilung suchen" aria-describedby="basic-addon2">
+        <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon2"></span>
+    </div>
+
+
+
+
+
+
+
+    <!--<div class="margin-auto">-->
+    <div class="btn-group sort" uib-dropdown >
+        <button id="sort-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled" translate="sort">
+             <span class="caret"></span>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li role="menuitem">
+                <a ng-click="sortList('name')">Name</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('views')">{{labels.views}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('clicks')" >{{labels.clicks}}</a>
+            </li>
+            <li role="menuitem">
+                <a ng-click="sortList('rate')" >{{labels.rate}}</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="btn-group margin-auto optionbutton actiondropdown " uib-dropdown>
+        <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><normal translate="AddDivision"></normal>
+        </button>
+        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+            <li ng-controller="GroupModalCtrl" ng-click="open(null, campaignDetailData.id, 'new')"><a translate="Createnew"></a></li>
+            <li ng-controller="GroupModalCtrl" ng-click="open(null, campaignDetailData.id, 'existing')"><a translate="Existing"></a></li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+
+<div cg-busy="loadingPromise"   class="campaign-list-wrapper no_padding ">
+ <div class="full-width flex-center-all" style="margin-top: 50px;"  ng-show="campaignGroups.length === 0">
+      <div class="nodataarea">
+            <img src="img/emptystates/whiteonblue/b_Group_Missing.png" >
+            <div class="rightside">
+                <div class="placeholderheadlinetext schrift_weis"  style="color : white !important;" translate="Thiscampaignwillbeusedinanydepartment"></div>
+                <div class="placeholderdesc" style="color : white !important;" translate="Assignaroundheretogetanoverview"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="no_padding" >
+
+
+
+        <li ng-click="rowClicked(item)"   ng-class="getSelectedClass(item)" ng-repeat="item in campaignGroups| filter:filterText" class="mouseovertransparent groups-list-item flex-center-all {{!item.campaignTitle ? 'group-inactive' :''}}">
+
+            <div class="hidden-xs  text-center col-lg-1 col-sm-1 col-md-1">
+                <input name="selected" ng-checked="isSelected(item)" ng-click="updateSelection($event, item);
+                        $event.stopPropagation();"  type="checkbox">
+            </div>
+            <div  class="text-left text-left col-lg-5 col-md-5 col-sm-10 col-xs-10">
+
+                <div class="flex">
+                    <div class="glyphicon glyphicon-folder-open schrift_blau" aria-hidden="true"></div>
+                    <div>
+                        <div ng-click="showGroupDetails(item.id);
+                                $event.stopPropagation();"  class="title"> {{item.title}}</div>
+                        <div class="member">{{item.amountOfMembers}} <normal translate="Employee"></normal></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class=" hidden-xs hidden-sm  text-left col-lg-2 col-md-2">
+                <!--<span class="upper">{{item.campaignTitle}}</span>-->
+                <span class="kampagnelabel" translate="campaign"></span>
+                <div ng-show="item.campaignTitle"  class="campaigndetails">
+                    <span class="graph-dot" style="background-color : {{item.campaignColor}}"></span>
+                    <span class="campaigntitle">{{item.campaignTitle}}</span>
+                </div>
+                <div ng-hide="item.campaignTitle" class="campaigndetails">
+                    <!--<span class="graph-dot" style="background-color : "></span>-->
+                    <span class="upper text-rot"><span  style="margin-right : 0;" class="glyphicon glyphicon-info-sign schrift_rot" aria-hidden="true"></span><normal translate="UnassignedCampaign"></normal></span>
+                </div>
+
+
+            </div>
+
+
+
+            <div   class=" text-center  col-lg-4  col-sm-1 col-md-4  col-xs-2 flex no_padding">
+                <div ng-show="{{checkIfGroupIsAttached(item.id)}}" class="btn-group margin-auto optionbutton actiondropdown " style="margin-right:0;"  uib-dropdown>
+                    <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
+                    </button>
+                    <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="sort-button">
+                        <li class="cursor-pointer" ng-click="showGroupDetails(item.id)"><a translate="Lookat"></a></li>
+                        <li class="cursor-pointer"  ng-click="removeCampaignOfGroup(item.id)"><a translate="Unassigntodepartment"></a></li>
+                        <li class="cursor-pointer"  ng-controller="GroupModalCtrl" ng-click="open(item.id, null, 'new')"><a translate="Edit"></a></li>
+                    </ul>
+                </div>
+                <button ng-hide="{{checkIfGroupIsAttached(item.id)}}"  ng-click="addCampaignToGroup(item.id, campaignDetailData.id)" ng-controller="EmployeeModalCtrl"  class="btn actionbutton  margin-auto " style="margin-right:0;" type="button">
+                    <span class="glyphicon glyphicon-plus" ></span>  <span class="hidden-sm hidden-xs" translate="setcampaign"><span>
+                </button>
+                
+                
+            </div>
+
+        </li>
+    </ul>
+</div>

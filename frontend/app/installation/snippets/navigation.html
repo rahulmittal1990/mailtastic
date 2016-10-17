@@ -1,0 +1,73 @@
+<nav style='z-index:8;' class="navbar navbar-custom-first box_blur_bottom installationnav" role="navigation">
+      <!--<div >-->
+        <div class="navbar-header">
+            <div class="hidden-md hidden-lg hidden-xs chooseclienthint"><normal translate="EmailClientSelect"></normal> <span class="glyphicon glyphicon-share-alt " style=""></span></div>
+            <div  class="hidden-md hidden-lg  chooseclientclient">{{currentManual.title}}</div>
+            
+          <button style="max-height : 34px;margin-bottom : 11px;" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarinstallation" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="glyphicon glyphicon-chevron-down icon-bar" style="background-color : #363f48;height : 0px;color : white;margin-left:2px;"></span>
+             <span class="icon-bar" style="background-color : #363f48;visibility: hidden;"></span>
+              <span class="icon-bar" style="background-color : #363f48;visibility: hidden;"></span>
+              <span class="icon-bar" style="background-color : #363f48;visibility: hidden;"></span>
+          
+            <!--<span class="icon-bar"></span>-->
+          
+          </button>
+      </div>
+        <div id="navbarinstallation" class="full-width navbar-collapse collapse">
+        	
+            <ul class="nav navbar-nav">
+                            <li class="cursor-pointer closeonclick" ng-class="getClass('Outlook (Win)')">
+			    	<a ng-click="setManual('outlookwin')" class="closeonclick">
+			    		<span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+			    		<span>OUTLOOK (WIN)</span>
+			    	</a>
+			    </li>
+			    <li  class="cursor-pointer closeonclick"  ng-class="getClass('Outlook (Mac)')">
+			    	<a ng-click="setManual('outlookmac')">
+			    		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+			    		<span>OUTLOOK (MAC)</span>
+			    	</a>
+			    </li>
+
+                             <li  class="cursor-pointer closeonclick"  ng-class="getClass('Gmail')">
+			    	<a ng-click="setManual('gmail')">
+			    		<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+			    		<span>GMAIL</span>
+			    	</a>
+			    </li>
+                             <li  class="cursor-pointer closeonclick"  ng-class="getClass('Thunderbird')">
+			    	<a ng-click="setManual('thunderbird')">
+			    		<span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+			    		<span>THUNDERBIRD</span>
+			    	</a>
+			    </li>
+                             <li  class="cursor-pointer closeonclick" ng-class="getClass('Mac Mail')"  >
+			    	<a ng-click="setManual('macmail')" >
+			    		<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+			    		<span>MAC MAIL</span>
+			    	</a>
+			    </li>
+                             <li  class="cursor-pointer closeonclick" ng-class="getClass('Web-Tools')"  >
+			    	<a ng-click="setManual('webtools')" >
+			    		<span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+			    		<span>WEB-TOOLS</span>
+			    	</a>
+			    </li>
+                             <li  class="cursor-pointer closeonclick" ng-class="getClass('Andere')"  >
+			    	<a ng-click="setManual('other')" >
+			    		<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+			    		<span>ANDERE</span>
+			    	</a>
+			    </li>
+        </ul>   
+            
+                	
+        </div>
+      <!--</div>-->
+    </nav>
+
+
+
+

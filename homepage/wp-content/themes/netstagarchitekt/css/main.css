@@ -1,0 +1,426 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29.03.2016, 13:26:10
+    Author     : kippple
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+ 
+    Created on : 03.11.2015, 17:35:52
+    Author     : kippple
+
+
+
+/*  	NAVIGATIONSLEISTE*/
+
+#menu-hauptmenue{
+    padding-left : 10px;
+}
+
+.current-menu-item .navigationspan {
+    border-bottom: 1px solid white;
+    padding-bottom: 2px; 
+}
+
+
+.navbar-right > a {
+  letter-spacing: 0.7px; }
+
+.navbar-custom-first {
+  background: black;
+  border-color: black; }
+
+.navbar-custom-first .navbar-brand {
+  color: #FFFFFF; }
+
+.navbar-custom-first .navbar-brand:hover,
+.navbar-custom-first .navbar-brand:focus {
+  color: black;
+  background-color: transparent; }
+
+.navbar-custom-first .navbar-text {
+  color: #FFFFFF; }
+
+.navbar-custom-first .navbar-nav > li > a {
+    font-size : 16px;
+  color: #FFFFFF;
+  letter-spacing: 0.7px; }
+
+.navbar-custom-first .navbar-nav > li > a:hover,
+.navbar-custom-first .navbar-nav > li > a:focus {
+  color: white;
+  /*text-decoration: underline;*/
+  background-color: transparent; }
+  .navbar-custom-first .navbar-nav > li > a:hover .navigationspan,
+  .navbar-custom-first .navbar-nav > li > a:focus .navigationspan {
+    border-bottom: 1px solid white;
+    padding-bottom: 2px; }
+
+.navbar-custom-first .navbar-nav > .active > a,
+.navbar-custom-first .navbar-nav > .active > a:hover,
+.navbar-custom-first .navbar-nav > .active > a:focus {
+  /*font-weight: bold;*/
+  color: white;
+  /*background-color: #080808;*/ }
+  .navbar-custom-first .navbar-nav > .active > a .navigationspan,
+  .navbar-custom-first .navbar-nav > .active > a:hover .navigationspan,
+  .navbar-custom-first .navbar-nav > .active > a:focus .navigationspan {
+    border-bottom: 1px solid white;
+    padding-bottom: 2px; }
+
+.navbar-custom-first .navbar-nav > .disabled > a,
+.navbar-custom-first .navbar-nav > .disabled > a:hover,
+.navbar-custom-first .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  font-weight: bold;
+  background-color: transparent; }
+
+.navbar-custom-first .navbar-toggle {
+  border-color: #dddddd; }
+
+.navbar-custom-first .navbar-toggle:hover,
+.navbar-custom-first .navbar-toggle:focus {
+  background-color: #dddddd; }
+
+.navbar-custom-first .navbar-toggle .icon-bar {
+  background-color: #cccccc; }
+
+.navbar-custom-first .navbar-collapse,
+.navbar-custom-first .navbar-form {
+  border-color: #070707; }
+
+.navbar-custom-first .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom-first .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff; }
+
+.navbar-custom-first .navbar-nav > .open > a,
+.navbar-custom-first .navbar-nav > .open > a:hover,
+.navbar-custom-first .navbar-nav > .open > a:focus {
+  background-color: #080808;
+  color: #ffffff; }
+
+.navbar-custom-first .navbar-nav > .open > a .caret,
+.navbar-custom-first .navbar-nav > .open > a:hover .caret,
+.navbar-custom-first .navbar-nav > .open > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff; }
+
+.navbar-custom-first .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff; }
+
+@media (max-width: 767) {
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff; }
+
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: transparent; }
+
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #080808; }
+
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent; } }
+.navbar-custom-first .navbar-link {
+  color: #ffffff; }
+
+.navbar-custom-first .navbar-link:hover {
+  color: #ffffff; }
+
+.navbar-brand {
+  line-height: 71px;
+  height: 71px;
+  margin-right: 60px; }
+
+.navbar-nav li a {
+  line-height: 71px;
+  height: 71px;
+  padding-top: 0; }
+
+.navbar-header {
+  line-height: 71px;
+  height: 71px;
+  margin-right: 60px; }
+
+.navbar-right {
+  line-height: 71px; }
+
+.navbar-toggle {
+  margin-top: 19px; }
+
+.home_top_area {
+  width: 100%;
+  position: relative; }
+  .home_top_area img.mainimage {
+    width: 100%;
+    height: 100%; }
+  
+  .topleftcontainer{
+      position:relative;
+  }
+  
+  .home_top_area img.top_left {
+    position: absolute;
+    bottom: -30px;
+    left: 30px;
+    width: 33.33333333%;
+    padding: 30px; }
+  .home_top_area .top_right {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    background-color: black;
+    color: white;
+    padding: 60px; }
+    @media (min-width: 1200px) {
+      .home_top_area .top_right {
+        width: 400px; } }
+    @media (min-width: 992px) and (max-width: 1200px) {
+      .home_top_area .top_right {
+        width: 400px; } }
+    @media (min-width: 768px) and (max-width: 992px) {
+      .home_top_area .top_right {
+        width: 200px; } }
+    @media (max-width: 768px) {
+      .home_top_area .top_right {
+        width: 150px; } }
+
+.infocontainer {
+  padding: 0; }
+@media (max-width: 768px) {
+.infocontainer .left img {
+ width: 100%;
+      max-width : 350px;
+      display : block;
+      margin-left : auto;
+      margin-right : auto;
+}
+}
+  @media (min-width: 768px) and (max-width: 992px) {
+    .infocontainer .row-fluid {
+      display: flex; } }
+  .infocontainer .left img {
+    width: 100%; }
+  .infocontainer .right {
+    background-color: black;
+    color: white;
+    padding: 60px; }
+
+.kacheln {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 30px;
+  padding-right: 30px; }
+  .kacheln .kachel {
+      
+    margin-top: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /*height : $kacheledge;*/ }
+    .kacheln .kachel img {
+      /*            width : $kacheledge;
+                  height : $kacheledge;*/
+     width: 100%;
+      max-width : 350px;
+      display : block;
+      margin-left : auto;
+      margin-right : auto;
+      max-height: 100%;
+      display: block;
+      margin: auto; }
+    .kacheln .kachel .textkachel {
+      /*            width : $kacheledge;
+                  height : $kacheledge;*/
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+
+footer {
+    background-image : url(/wp-content/themes/netstagarchitekt/img/common/Gitter_Footer.png);
+    background-size: auto auto;
+  height: 55px;
+  background-color: black;
+  color: white;
+  line-height: 55px;
+  padding-left: 60px;
+  padding-right: 60px; }
+  footer a {
+    margin-right: 30px;
+    color: white; }
+  footer a:hover {
+    color: white;
+    text-decoration: underline; }
+
+hr.homepage {
+  margin-top: 0; }
+
+/*# sourceMappingURL=main.css.map */
+
+
+
+
+
+/*
+SLIDER STUFF
+*/
+@media(max-width : 768px){
+    .ms-slide-info{
+       position : relative !important;
+       padding : 10px;
+       width : 85% !important;
+       max-width : 90%;
+       right : 0 !important;
+       width : 100% !important;
+       min-height : 100px;
+    }
+    .master-slider{
+        margin-right : 0 !important;
+    }
+    
+    
+ .ms-thumb-list{
+    display : none !important;
+}
+    
+
+
+.sliderwrapper{
+            padding : 10px;
+        }
+
+}
+
+ @media(min-width : 768px){
+    .ms-slide-info{
+        max-height: 300px;
+    overflow: hidden;
+       padding : 20px;
+        padding-top : 50px;
+        line-height : 3;
+        width : 190px !important;
+        }
+        
+        .sliderwrapper{
+            padding : 60px;
+        }
+ }
+    
+ 
+ .ms-thumb-list{
+    padding-top : 0 !important;
+    margin-top : 0 !important;
+}
+
+.master-slider-parent{
+    background-color : black;
+    color : white;
+    background-image: url(/wp-content/themes/netstagarchitekt/img/galerie/Gitter_Slider.png);
+    background-repeat : no-repeat;
+    background-position: right top;
+}
+
+.ms-nav-next{
+    width: 45px;
+    height: 45px;
+   
+ 
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 50%;
+ 
+    background-position: -88px -26px;
+    border: solid 1px rgb(255, 255, 255) !important;
+    border-color: white;
+    top: 50%;
+    left: 30px;
+    margin-top: -22px;
+}
+
+.ms-nav-prev{
+    width: 45px;
+    height: 45px;
+
+    background-color: rgba(0, 0, 0, 0.2)  !important;
+    border-radius: 50%;
+ 
+    background-position: -88px -26px;
+    border: solid 1px rgb(255, 255, 255) !important;
+    border-color: white;
+    top: 50%;
+    left: 30px;
+    margin-top: -22px;
+}
+//-------------------------------------------------
+
+
+/*
+
+STICKY FOOTER
+*/
+* {
+	margin: 0;
+}
+html, body {
+        overflow-x : hidden;
+	height: 100%;
+}
+.wrapper {
+         overflow-x : hidden;
+    
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -55px;    /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 55px; /* .push must be the same height as .footer */
+}
+
+ @media(max-width : 1110px){
+     .slidercounter{
+         display : none;
+     }
+    }
+.slidercounter{
+    
+   
+    
+    position : absolute;
+    
+    color : white;
+    right: 120px;
+    bottom: 100px;
+}
+.slidercounter .slidercountercurrent{
+    font-size : 30px;
+}
+
+.slidercounter .slidercountertotal{
+    vertical-align: top;
+}
+
+//-------------------------------------------------

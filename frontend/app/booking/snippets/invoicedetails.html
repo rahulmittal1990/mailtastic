@@ -1,0 +1,143 @@
+ <div class="format1 innerheadline">
+                      
+                    <span ng-click="changeStep('product')" class="breadcrumpdone cursor-pointer" ><normal translate="selectedproduct"></normal><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+                    <span class="breadcrump"  translate="billingdetails"</span>
+                    </div>
+                    <div  role="separator" class="line"></div> 
+
+
+<div class="flex" style="margin-bottom : 20px;">
+    <div style="margin:auto;margin-left : 0;" class="format2" translate="4Enterbillingaddress"></div>
+    <!--<div style="margin:auto;margin-right : 0;font-family: roboto_regular;" class="format2">FAQ - Abo buchen</div>-->    
+</div>
+
+  <form name="invoicedetails">
+<div class="row pos_relative">
+
+    <div class="col-lg-5  col-md-5 " >
+      <div class="form-group">
+            <label class="" translate="CompanyStar"></label>
+            <input ng-model="invoicedata.company" type="text" class="form-control input-sm"  placeholder="" required="true">
+        </div>
+        <div class="form-group">
+            <label class="" translate="StreetPOBox"></label>
+            <input ng-model="invoicedata.street" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+            <!--<div class="hint">Straße, Postfach</div>-->
+        </div>
+        <div class="form-group">
+            <label class="" translate="PLZStar"></label>
+            <input ng-model="invoicedata.zip" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+<!--        <div class="form-group">
+            <label class=""  for="exampleInputEmail1">Bundesland*</label>
+            <input ng-model="invoicedata.name" type="text" class="form-control  input-sm"  placeholder="">
+        </div>-->
+         <div class="form-group">
+            <label class=""  translate="TitleStar"></label>
+            <select ng-model="invoicedata.gender" class="form-control  input-sm"  required="true">
+                <option value="male" translate="Lord"></option>
+                <option value="female" translate="Mrs"></option>
+            </select>
+        </div>
+
+ <div class="form-group">
+            <label class=""  translate="FirstgivennameStar"></label>
+            <input ng-model="invoicedata.first_name" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+          <div  style="margin-bottom : 0;" class="form-group">
+            <label class="" translate="EmailaddressAccounting"></label>
+            <input type="email" ng-model="invoicedata.email" class="form-control  input-sm"  placeholder="" >
+            <div class="hint" translate="registereddifferentmailaddresstobesent"></div>
+        </div>
+        
+
+
+    </div>
+
+
+    <div class="col-lg-5 col-md-5 ">
+
+        <div class="form-group">
+            <label class="" translate="TaxID"></label>
+            <input ng-model="invoicedata.ustid" type="text" class="form-control  input-sm"  placeholder="" >
+        </div>
+        
+<!--         <div class="form-group">
+            <label class=""  >Adresszeile 2</label>
+            <input ng-model="invoicedata.street2" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+            <div class="hint">Gebäude, Stockwerk, Einheit, etc.</div>
+        </div>-->
+
+        <div class="form-group">
+            <label class="" translate="CityTown"></label>
+            <input ng-model="invoicedata.city" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+
+        <div class="form-group">
+            <label class="" translate="CountryStar"></label>
+             <select ng-change="calcPrice()" ng-model="invoicedata.country" class="form-control  input-sm"  required="true">
+                <option value="DE" translate="Germany"></option>
+                <option value="AT" translate="Austria"></option>
+                <option value="CH">Switzerland</option>
+                <option value="IT">Italy</option>
+                <option value="BE">Belgium</option>
+                <option value="NL">Netherlands</option>
+                <option value="FR">France</option>
+                <option value="GB">United Kingdom</option>
+                <option value="PL">Poland</option>
+            </select>
+        </div>
+
+ <div style="visibility: hidden;" class="form-group">
+            <label class="" translate="CountryStar"></label>
+            <input  value="Deutschland" type="text" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+
+
+
+ 
+
+
+  
+        <div style="margin-bottom : 0;" class="form-group">
+            <label class=""  translate="SurnameStar"></label>
+            <input type="text" ng-model="invoicedata.last_name" class="form-control  input-sm"  placeholder=""  required="true">
+        </div>
+       
+</div>
+   
+
+
+</div>
+
+
+ <div role="separator" class="line"></div>   
+   <div class="format2" translate="5Selectapaymentmethod"></div>
+   
+   <div class="radio">
+  <label><input type="radio" checked="true" name="paymethod" translate="bill"></label>
+</div>
+     <div class="hint" translate="Otherpaymentmethodswillbeavailablesoon">
+   </div>
+<!--<div class="radio disabled">
+  <label><input type="radio" name="paymethod">Paypal</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="paymethod" disabled>Kreditkarte</label>
+</div>
+   <div class="radio disabled">
+  <label><input type="radio" name="paymethod" disabled>Lastschrift</label>
+</div>-->
+   
+
+
+
+
+   
+    <div role="separator" class="line"></div> 
+  
+     <div class="flex-center-right">
+          <div ng-click="changeStep('product')"  class="ownbtn btngrau leftbutton" translate="Back"></div> 
+        <button ng-click="invoicedetails.$valid && changeStep('overview');" type="submit"  class="ownbtn btnblau" translate="Continue"></button> 
+ </div>
+                    </form>

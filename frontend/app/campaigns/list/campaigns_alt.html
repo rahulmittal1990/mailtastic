@@ -1,0 +1,135 @@
+<div  class="container-fluid top-area-container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h1>{{$root.userdata.companyName}}</h1>
+			<p translate="campaigns"></p>
+		</div>
+		<div class="col-lg-8">
+			<div class="top_info_wrapper">
+				<div class="maininfoareaentry">
+					<div>{{campaigndata.amountOfCampaigns}}</div>
+					<span translate="campaigns"></span>
+				</div>
+				<div class="maininfoareaentry">
+					<div>{{campaigndata.activeCmapaigns}}</div>
+					<span translate="Activecampaigns"></span>
+				</div>
+				<div class="maininfoareaentry">
+					<div>{{campaigndata.inactiveCmapaigns}}</div>
+					<span translate="Inactivecampaigns"></span>
+				</div>
+				
+				<div  class="maininfoareaentry buttonarea">
+			   		<button ng-controller="CampaignModalCtrl" ng-click="open()" type="button" class="btn btn-sm btn-block actionbutton" translate="Createanewcampaign"></button>
+			   		<!-- <button type="button" class="btn btn-sm btn-block actionbutton">Neuen Mitarbeiter anlegen</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid list-control-area">
+	<div class="row">
+
+		<div class="btn-group" uib-dropdown >
+			<button id="sort-button" type="button" class="btn actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+				<normal translate="listsort"></normal> <span class="caret"></span>
+			</button>
+			<ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+				<li role="menuitem">
+					<a ng-click="sortList('title')">Name</a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="sortList('views')" translate="seen"></a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="sortList('clicks')" translate="clicks"></a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="sortList('rate')" translate="clickRate"></a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="btn-group" uib-dropdown is-open="status.isopen">
+			<button id="filter-button" type="button" class="btn actionbutton" uib-dropdown-toggle ng-disabled="disabled">
+				<normal translate="listfiltering`"></normal> <span class="caret"></span>
+			</button>
+			<ul class="uib-dropdown-menu" role="menu" aria-labelledby="filter-button">
+				<li role="menuitem">
+					<a ng-click="filterList('all')" translate="All"></a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="filterList('active')" translate="active"></a>
+				</li>
+				<li role="menuitem">
+					<a ng-click="filterList('inactive')" translate="Inactive"></a>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" ng-model="filterText" class="form-control input" placeholder="Suchen..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+	</div>
+</div>
+
+
+
+
+
+<div cg-busy="loadingPromise"   class="campaign-list-wrapper">
+	<ul  class="list-group">
+		<li ng-repeat="item in showCampaigns | filter:filterText" class="list-group-item campaigns-listitem">
+	
+			<div style="width : 10%">
+				<img ng-src="{{item.image}}" />
+			</div>
+			<div style="width : 50%">
+				<span class="title">{{item.title}}</span>
+				<br />
+				<span><normal translate="CreatedOn"></normal> {{item.createdAt | date:"dd.MM.yyyy 'um' HH:mm:ss"}}</span>
+			</div>
+			<div style="width : 10%">
+				<span>{{item.mode}}</span>
+				
+			</div>
+			<div style="width : 10%">
+				<span>{{item.views}}</span>
+				<br />
+				<span translate="appropriate"></span>
+			</div>
+			<div style="width : 10%">
+				<span>{{item.clicks}}</span>
+				<br />
+				<span translate="clicks"></span>
+			</div>
+			<div style="width : 10%">
+				<span>{{(item.views===0 || item.clicks===0) ? 0 : Math.floor((item.clicks / item.views)*100)}} %</span>
+				<br />
+				<span translate="clickRate"></span>
+			</div>
+			
+			
+			<div style="width : 10%">
+				         <button  ng-controller="CampaignModalCtrl" ng-click="open(item.id)"  class="btn btn-info btn btn-sm btn-block" type="button" translate="Edit">
+                            
+                        </button>
+                         <button ng-click="deleteCampaign(item.id)" class="btn btn-info btn btn-sm btn-block" type="button" translate="Delete">
+                          
+                        </button>
+
+			</div>
+	
+		</li>
+	</ul>
+</div>

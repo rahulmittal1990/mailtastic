@@ -1,0 +1,180 @@
+﻿<style type="text/css">
+    .disconnectModel .modal-dialog {
+        padding: 20px;
+        width: 600px;
+        height: 100%;
+    }
+
+        .disconnectModel .modal-dialog .modal-body {
+            padding: 25px;
+        }
+
+    .disconnectModel .headline {
+        font-family: roboto_bold;
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        margin-left : 0;
+    }
+
+    .disconnectModel .modelFormat {
+        padding: 20px;
+    }
+
+        .disconnectModel .modelFormat .text {
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            /*line-height: 1;*/
+            padding-bottom: 20px;
+        }
+
+    .disconnectModel .line {
+        height: 1px;
+        border-top: solid 1px #cbcdd0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 640px;
+    }
+
+    /*.disconnectModel .line.firstline {
+            margin-top: 25px;
+        }*/
+
+    .disconnectModel .btnright {
+        padding-right: 0px;
+    }
+</style>
+
+
+<div class="disconnectModel">
+
+    <p class="headline" translate="cancelGmailSync"></p>
+    <div role="separator" class="line"></div>
+
+    <div data-ng-if="syncDisconnectModel.currentState == 'state1'">
+       
+        
+         <div   class="infobox infobox-error">
+            <span class="symbol glyphicon glyphicon-alert"></span>
+            <div class="text">
+                <strong translate="WarningGoogleAdminaccountcontinue"></strong> 
+              
+            </div>
+        </div>
+        
+        <div class="format2 schrift_schwarz_imp" style="margin-bottom : 10px !important;" translate="BandagedGoogleAdminaccount"></div>
+        <div class="info2" style="min-width: 54%; width: 300px;">
+
+            <div class="text ng-binding companynamearea">
+                <span class="format2" style="margin-left: 5%;">{{syncAdminObject.name}}
+                </span>
+                <br />
+
+                <span style="margin-left: 5%;">{{syncAdminObject.adminEmail}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-if="syncDisconnectModel.currentState == 'state2'">
+         <div   class="infobox infobox-error">
+            <span class="symbol glyphicon glyphicon-alert"></span>
+            <div class="text">
+                <strong translate="WarningdeleteaccountDoyoureallywanttocontinue"></strong> 
+              
+            </div>
+        </div>
+        
+        <div class="format2" style="margin-bottom : 10px !important;line-height: 1.3;" translate="HowcoursesynchronizationwereappliedasMailtasticmember"></div>
+        
+      
+
+        <div class="row">
+            <div style="padding-left: 0px" class="col-md-5">
+                <select ng-change="getDisconnectType(currentStructurType)" ng-model="syncDisconnectModel.currentSyncDisconnectType"
+                    class="form-control exampleempselect input-sm  leftbutton ng-pristine ng-valid ng-not-empty ng-touched">
+                    <option value="" disabled selected translate="selectadjustment"></option>
+                    <option ng-repeat="item in syncDisconnectTypes" value="{{item.disconnectType}}" class="ng-binding ng-scope">{{item.disconnectType}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div ng-if="syncDisconnectModel.currentSyncDisconnectType == 'Mitarbeiter entfernen'">
+            <div class="info">
+                <div class="format innerheadline" translate="Removeemployee"></div>
+                <div class="text">
+                    <p translate="AllemployeesconnectionGoogleasMailtasticusers"></p>
+                </div> 
+            </div>
+        </div>
+
+
+        <div ng-if="syncDisconnectModel.currentSyncDisconnectType == 'Mitarbeiter behalten'">
+            <div class="info">
+                <div class="format innerheadline" translate="retainemployees"></div>
+                <div class="text">
+                    <p translate="AllMailtasticusersretainedandcanstillbemanaged"></p>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div data-ng-if="syncDisconnectModel.currentState == 'state3'">
+         <div   class="infobox infobox-error">
+            <span class="symbol glyphicon glyphicon-alert"></span>
+            <div class="text">
+                <strong translate="deletetheconnectionaccountcontinue"></strong> 
+              
+            </div>
+        </div>
+          <div class="format2" style="margin-bottom : 10px !important;line-height: 1.3;" translate="Pleaseenteryourpasswordtoconfirmthedeletion"></div>
+<!--        <div class="campaigndetails pswhdng" >
+           Passwort eingeben
+
+        </div>-->
+          
+          
+         
+          
+        <div class="form-group">
+            <label for="exampleInputEmail1" style="font-size : 13px;" translate="Enterpassword"></label>
+            <input type ="password"   class="form-control input-sm nooutline ng-pristine ng-valid ng-touched rmpsw"  aria-describedby="basic-addon2"  data-ng-model ="syncDisconnectModel.adminPwd">
+        </div>
+        <p ng-show="pwdErrorMsg" class="error_msg">{{pwdErrorMsg}}</p>
+          
+          
+
+      
+        
+         <div ng-controller="PassResetModalCtrl" >
+                        <span ng-click="open('enteremail')" class="link" style="font-size: x-small;" translate="ForgotPassword"></span>
+
+        </div>
+        
+        
+
+    </div>
+
+
+    <div role="separator" class="line"></div>
+
+
+    <div class="btnright">
+
+
+        <div class="flex ng-scope blwbtn">
+
+             <button class="ownbtn btnblau leftbutton Synchbtn closeButton" data-dismiss="modal" translate="abort"></button>
+            <button ng-show="syncDisconnectModel.currentState !== 'state3'" class="ownbtn btngrau leftbutton"  data-ng-click="continueSyncDisconnect()">Forfahren</button>
+            <button ng-show="syncDisconnectModel.currentState === 'state3'" class="ownbtn btngrau leftbutton"  data-ng-click="continueSyncDisconnect()" translate="Clearconnectionnow"></button>
+            
+
+        </div>
+
+
+    </div>
+
+    </div>

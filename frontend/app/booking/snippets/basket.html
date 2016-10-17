@@ -1,0 +1,55 @@
+<div class="basket-headline">{{basketheadline}}</div>
+
+<div class="innercontainer">
+    <div class="top flex-center-all">
+        <div class="producttitle">Start</div>
+    </div>
+    <div class="bottom">
+       
+        <div class="textrow first">
+            <span class="left" translate="userex"></span>
+            <span class="right">{{pricedata.totalUsers}}</span>
+        </div>
+         <div class="textrow first">
+            <span class="left" translate="Runningtime"></span>
+            <span class="right">{{(subscriptiondata.billing_interval === "yearly" ? 'Jährlich' : 'Monatlich')}}</span>
+        </div>
+        <div ng-show="subscriptiondata.begins_at" class="textrow first">
+            <span class="left" translate="Contractstart"></span>
+            <span class="right">{{subscriptiondata.begins_at | date:'dd.MM.yy'}}</span>
+        </div>
+        
+        
+        
+        
+        
+         <div class="lightline"></div>
+        <div class="textrow">
+            <span class="left" translate="Basiccharge"><span class="hint"><normal translate="5usersincluded"></normal></span></span>
+            <span class="right">{{basketData.basicprice}} €</span>
+        </div>
+         <div class="textrow" ng-show="pricedata.amountOfUsers != 0">
+            <span class="left">{{pricedata.amountOfUsers}} <normal translate="zususers"></normal></span>
+            <span class="right">{{basketData.cumulatedAddUsersPrice |  germannumber}} €</span>
+        </div>
+          <div class="lightline"></div>
+          <div class="textrow">
+            <span class="left" translate="Net"></span>
+            <span class="right">{{basketData.priceWithoutMwst | germannumber}} €</span>
+        </div>
+          <div ng-show="basketData.discount > 0" class="textrow">
+            <span class="left text-bold schrift_blau" translate="Off17"></span>
+            <span class="right  text-bold schrift_blau">-{{basketData.discount | germannumber }} €</span>
+        </div>
+             <div class="textrow">
+                 <span class="left"><normal translate="VAT"></normal> <span ng-show="invoicedata.country === 'DE'">(19%)</span><span ng-show="invoicedata.country !== 'DE'">(0%):</span></span>
+            <span class="right">{{ basketData.mwst  | germannumber}} €</span>
+        </div>
+        <div class="fatline"></div>
+         <div   class="textrow bold last">
+            <span class="left" translate="total"></span>
+            <span class="right">{{basketData.total  | germannumber}} €</span>
+        </div>
+        
+    </div>
+</div>

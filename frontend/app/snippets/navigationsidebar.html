@@ -1,0 +1,223 @@
+  <!-- Page Sidebar -->
+  <div class="page-sidebar">
+  	<div class="sidebar-fixed">
+	
+		<!-- Site header  -->
+		<header class="site-header">
+		  <!--<div class="site-logo"><a ><img src="img/logo.png" alt="Mouldifi" title="Mouldifi"></a></div>-->
+                  <div class="site-logo"><a ><img src="img/navigation/logo_alt.png" alt="Mailtastic" title="Mailtastic"></a></div>
+		  <div class="sidebar-collapse hidden-xs"><a class="sidebar-collapse-icon"><i class="icon-menu"></i></a></div>
+		  <div class="sidebar-mobile-menu visible-xs"><a data-target="#side-nav" data-toggle="collapse" class="mobile-menu-icon" ><i class="icon-menu"></i></a></div>
+		</header>
+		<!-- /site header -->
+		
+		<!-- Main navigation -->
+		<ul id="side-nav" class="main-menu navbar-collapse collapse">
+			<li ng-class="getClass('/dashboard')" ui-sref="base.dashboard"  class=""><a class="closeonclick" ><i class=" icon-chart-area"></i><span class="title" translate="OVERVIEW"></span></a>
+				
+			</li>
+			<li  ui-sref="base.employees.employeelist"  ng-class="getClassEmp()" class=""><a  class="closeonclick" ><i class="icon-users"></i><span class="title" translate="EMPLOYEE"></span></a>
+				
+			</li>
+			<li  ng-class="getClassGroup()" ui-sref="base.employees.grouplist"  class=""><a><i class="icon-folder"></i><span class="title" translate="DEPARTMENTS"></span></a>
+				
+			</li>
+			<li ng-class="getClass('/campaigns')"  class="has-sub"><a><i class="icon-direction"></i><span class="title" translate="CAMPAIGNS"></span></a>
+				<ul class="nav collapse">
+					<li ui-sref="base.campaigns.campaignlist({mode : 'all'})" ui-sref-active="active"><a  class="closeonclick" ><span class="title" translate="All"></span></a></li>
+					<li ui-sref="base.campaigns.campaignlist({mode : 'active'})" ui-sref-active="active"><a  class="closeonclick" ><span class="title" translate="active">Installation</span></a></li>
+					<li ui-sref="base.campaigns.campaignlist({mode : 'inactive'})" ui-sref-active="active"><a  class="closeonclick" ><span class="title" translate="Inactive">Google Apps Sync</span></a></li>
+					
+				</ul>
+			</li>
+			<li ng-class="getClass('/signature')" ui-sref="base.signaturelist"  class=""><a class="closeonclick" ><i class="icon-vcard"></i><span class="title" translate="SIGNATURES"></span></a>
+			</li>
+			<li ng-class="getClassHelp()" class="has-sub"><a ><i class="icon-install"></i><span class="title">INSTALLATION</span><span class="label label-secondary pull-right">NEU</span></a>
+				<ul class="nav collapse">
+					<li ng-click="startTour()"><a  class="closeonclick" ><span class="title" translate="ViewTour"></span></a></li>
+					<li ng-class="getClassIntegration()" ng-click="openOwnIntegrationPage()"><a  class="closeonclick" ><span class="title">Installation</span></a></li>
+					<li ui-sref='base.googlesync' ng-class="getClass('/googleappsync')" ><a  class="closeonclick" ><span class="title">Google Apps Sync</span><span class="label label-secondary pull-right">NEU</span></a></li>
+					<li ui-sref='base.versacommerce' ng-class="getClass('/versacommerce')" ><a  class="closeonclick" ><span class="title">VersaCommerce</span><span class="label label-secondary pull-right">NEU</span></a></li>
+				</ul>
+			</li>
+                        
+                        
+<!--                        <li ng-class="getClassHelp()" class="has-sub"><a ><i class="icon-language"></i><span class="title" translate="language"></span></a>
+				<ul class="nav collapse">
+					<li ng-click="changeLanguage('de')"><a  class="closeonclick" ><span class="title" translate="german"></span></a></li>
+                                        <li ng-click="changeLanguage('en')"><a  class="closeonclick" ><span class="title" translate="english"></span></a></li>
+					
+				</ul>
+			</li>-->
+                        
+                        
+                        
+                        <li class=""><a href="https://www.mailtastic.de/ressourcen-kunden" target="_blank"><i class="icon-lamp"></i><span class="title" translate="resources"></span></a>
+				
+			</li>
+                        
+			<li class="has-sub"><a><i class="icon-cog"></i><span class="title" translate="preferences"></span></a>
+				<ul class="nav collapse">
+					
+					<li><a href="https://www.mailtastic.de/impressum" target="_blank"><span class="title" translate="imprint"></span></a></li>
+					<li ui-sref='base.account' ui-sref-active="active"><a  class="closeonclick" ><span class="title" translate="account"></span></a></li>
+                                        <li ng-click="logout()"><a ><span class="title" translate="logout"></span></a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	</div>
+		<!-- /main navigation -->		
+  </div>
+  <!-- /page sidebar -->
+  
+  <!-- Main container -->
+  <div class="main-container">
+  
+	
+	
+	<!-- Main content -->
+	<div class="main-content">
+		
+                <div ui-view></div>
+		
+	  </div>
+	  <!-- /main content -->
+	  
+  </div>
+  <!-- /main container -->
+  
+  
+  <script>
+       (function ($) {
+        $('#side-nav').metisMenu();
+
+        $(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        $(".mobile-menu-icon").click(function (event) {
+            event.preventDefault();
+        });
+
+        var $window = $(window), $container = $('div.page-container');
+
+        $(".sidebar-collapse-icon").click(function (event) {
+            event.preventDefault();
+            $container.toggleClass('sidebar-collapsed').toggleClass('can-resize');
+
+            /*if ($container.hasClass('can-resize')) {
+             setTimeout(function () {
+             $container.removeClass('can-resize');
+             }, 500);
+             } else {
+             setTimeout(function () {
+             $container.addClass('can-resize');
+             }, 500);
+             }*/
+        });
+
+        var $is_collapsed = false;
+        if ($container.hasClass('sidebar-collapsed')) {
+            $is_collapsed = true;
+        }
+        $window.resize(function resize() {
+
+            var window_width = $window.outerWidth();
+            //old one
+//            if (window_width < 951 && window_width > 767) {
+                
+                //new one
+              if (window_width < 1655 && window_width > 767) {  
+                if ($container.hasClass('can-resize') === false) {
+                    $container.addClass('sidebar-collapsed');
+                }
+            } else if (window_width < 767) {
+                $container.removeClass('sidebar-collapsed');
+                $container.removeClass('can-resize');
+            } else {
+                if ($container.hasClass('can-resize') === false && $is_collapsed === false) {
+                    $container.removeClass('sidebar-collapsed');
+                }
+            }
+
+        }).trigger('resize');
+
+//        $('body').on('click', '.panel > .panel-heading > .panel-tool-options li > a[data-rel="reload"]', function (ev)
+//        {
+//            ev.preventDefault();
+//
+//            var $this = $(this).closest('.panel');
+//
+//            $this.block({
+//                message: '',
+//                css: {
+//                    border: 'none',
+//                    padding: '15px',
+//                    backgroundColor: '#fff',
+//                    '-webkit-border-radius': '10px',
+//                    '-moz-border-radius': '10px',
+//                    opacity: .5,
+//                    color: '#fff',
+//                    width: '50%'
+//                },
+//                overlayCSS: {backgroundColor: '#FFF'}
+//            });
+//            $this.addClass('reloading');
+//
+//            setTimeout(function ()
+//            {
+//                $this.unblock();
+//                $this.removeClass('reloading');
+//            }, 900);
+//
+//        })
+
+
+
+  $("a.closeonclick").click(function (event) {
+        // check if window is small enough so dropdown is created
+//        var toggle = $(".navbar-toggle").is(":visible");
+//        if (toggle) {
+            $("#side-nav").collapse('hide');
+//        }
+    });
+
+
+
+    })(jQuery);
+
+
+
+//$(document).ready(function () {
+//		var $Window = $(window), $Container = $('div.page-container');
+//		
+//		$(".sidebar-collapse-icon").click(function (event) {
+//			event.preventDefault();
+//			
+//			if ($Container.hasClass('sidebar-collapsed')) {
+//				// destroy scrollbars
+//				$('.sidebar-fixed').perfectScrollbar('destroy');
+//			} else {
+//				// calling trigger resize
+//				$Window.trigger('resize');
+//			}
+//		});
+//		
+//		$Window.resize(function resizeScroll() {
+//			var windowWidth = $Window.width();
+//			if (windowWidth < 951) {
+//				// destroy scrollbars
+//				$('.sidebar-fixed').perfectScrollbar('destroy');
+//			} else {
+//				$('.sidebar-fixed').perfectScrollbar();
+//			}
+//		}).trigger('resize');
+//	});
+
+
+      </script>

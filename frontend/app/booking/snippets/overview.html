@@ -1,0 +1,64 @@
+
+ <div class="format1 innerheadline">
+                      
+                        <span ng-click="changeStep('product')" class="breadcrumpdone cursor-pointer" ><normal translate="selectedproduct"></normal><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+                            <span ng-click="changeStep('details')" class="breadcrumpdone cursor-pointer" ><normal translate="billingdetails"></normal><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+                    
+                        <span class="breadcrump" translate="CheckandOrder"></span>
+                    </div>
+                    <div  role="separator" class="line"></div> 
+
+
+
+<div class="flex" style="margin-bottom : 20px;">
+    <div style="margin:auto;margin-left : 0;" class="format2" translate="6CheckOrder"></div>
+    <!--<div style="margin:auto;margin-right : 0;font-family: roboto_regular;" class="format2">FAQ - Abo buchen</div>-->    
+</div>
+
+<div class="containerrow flex">
+    
+    <div class="containerarea left">
+        <div class="title" translate="accounting"></div>
+        <div class="param" translate="method"></div>
+         <div class="val" translate="bill"></div>
+        <button ng-click="changeStep('product')" type="button" class="btn btngrau btn-xs" translate="Change"></button>
+        <div class="param" style="margin-top : 15px;" translate="Runningtimes"></div>
+         <div class="val">{{subscriptiondata.billing_interval === 'yearly' ? '12 Monate' : '1 Monat'}}</div>
+          <div class="hint" translate="Yourtermautomaticallyrenewed"></div>
+        <button type="button" ng-click="changeStep('product')" class="btn btngrau btn-xs" translate="Change"></button>
+       
+    </div>
+    <div class="containerarea right">
+         <div class="title" translate="Billingaddress"></div>
+         <div class="val">
+             {{invoicedata.first_name + ' ' + invoicedata.last_name}}<br>
+              {{invoicedata.company }}<br>
+              {{invoicedata.street }}<br>
+              {{invoicedata.zip + ' ' + invoicedata.city}}<br>
+               {{invoicedata.country }}<br>
+              {{invoicedata.ustid }}<br>
+              {{invoicedata.email || userdata.email }}<br>
+        </div>
+           <button type="button" ng-click="changeStep('details')" class="btn btngrau btn-xs" translate="Change"></button>
+    </div>
+    
+</div>
+
+<div class="containerrow flex">
+    
+    <div class="containerarea left" style="margin-top : 10px;">
+        <div class="title" translate="account"></div>
+        <div class="val">
+            {{userdata.companyName}}<br>
+               {{userdata.email}}<br>
+              {{userdata.firstname + ' ' + userdata.lastname}}
+        </div>
+    </div>
+</div>
+
+  <div role="separator" class="line"></div> 
+  
+     <div class="flex-center-right">
+          <div ng-click="changeStep('details')"  class="ownbtn btngrau leftbutton" translate="Back"></div> 
+        <div ng-click="placeOrderInvoice()"  class="ownbtn btnblau" translate="Bookwithcosts"></div> 
+ </div>

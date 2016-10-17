@@ -1,0 +1,35 @@
+
+<div style="width : 400px;">
+
+<form>
+      <div class="form-group">
+    <label  translate="FirstgivennameStar"></label>
+    <input ng-model="betaUserData.firstname" type="text" class="form-control" placeholder="Vorname">
+  </div>
+      <div class="form-group">
+    <label translate="SurnameStar"></label>
+    <input ng-model="betaUserData.lastname"  type="text" class="form-control" placeholder="Nachname">
+  </div>
+  <div class="form-group">
+    <label >Email:</label>
+    <input  ng-model="betaUserData.email"  type="email" class="form-control"  placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label >Password:</label>
+    <input  ng-model="betaUserData.password"  type="password" class="form-control"  placeholder="Password">
+  </div>
+     <div class="form-group">
+    <label translate="companyexc"></label>
+    <input  ng-model="betaUserData.companyName"  type="text" class="form-control" placeholder="Unternehmen">
+  </div>
+    
+      <div class="form-group">
+    <label translate="Commentexc"></label>
+    <input  ng-model="betaUserData.key"  type="text" class="form-control" placeholder="Kommentar">
+  </div>
+ 
+ 
+    <button ng-disabled="!betaUserData.firstname || !betaUserData.lastname ||!betaUserData.email ||!betaUserData.companyName || !betaUserData.password " ng-click="createBetaUser()"  class="btn btn-success" translate="Save"></button>
+</form>
+
+</div>

@@ -1,0 +1,91 @@
+<nav class="navbar navbar-fixed-top navbar-custom-first box_blur_bottom_mainnavi" role="navigation">
+    <!--<div >-->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/start"><img alt="mailtastic.de" style="height:100%;" src="img/navigation/logo.png"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse full-width">
+
+        <ul class="nav navbar-nav navbar-left">
+
+
+
+            <li ng-class="getClass('/dashboard')">
+                <a ui-sref="base.dashboard" ui-sref-opts="{reload: true}" class="closeonclick">
+                    <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+                    <span translate="OVERVIEW"></span>
+                </a>
+            </li>
+            <li ng-class="getClassEmp()">
+                <a class="closeonclick" ui-sref="base.employees.employeelist" ui-sref-opts="{reload: true}">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span translate="EMPLOYEE"></span>
+                </a>
+            </li>
+            <li class="cursor-pointer" ng-class="getClassGroup()">
+                <a class="closeonclick" ui-sref="base.employees.grouplist" ui-sref-opts="{reload: true}">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    <span translate="DEPARTMENTS"></span>
+                </a>
+            </li>
+
+            <li ng-class="getClass('/campaigns')">
+                <a class="closeonclick" ui-sref="base.campaigns.campaignlist({mode : 'all'})" ui-sref-opts="{reload: true}">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                    <span translate="CAMPAIGNS"></span>
+                </a>
+            </li>
+            <li ng-class="getClass('/signature')">
+                <a class="closeonclick" ui-sref="base.signaturelist" ui-sref-opts="{reload: true}">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                    <span translate="SIGNATURES"></span> <img style="margin-bottom : 3px;" src="img/navigation/neu.png" />
+                </a>
+            </li>
+            <li class="dropdown hilfe" ng-class="getClassHelp()">
+
+                <a style="cursor:pointer;" ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> INSTALLATION <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li ng-click="startTour()"><a class="closeonclick" href="#" translate="ViewTour"></a></li>
+                    <!--<li ui-sref='base.starthelp' ui-sref-active="active"><a class="closeonclick" href="#">Erste Schritte</a></li>-->
+                    <li ng-click="openOwnIntegrationPage()" ng-class="getClassIntegration()"><a class="closeonclick">Installation</a></li>
+                    <li ui-sref='base.googlesync' ui-sref-active="active"><a class="closeonclick">GoogleApps Sync</a></li>
+                    <li ui-sref='base.versacommerce' ui-sref-active="active"><a class="closeonclick">Versa Commerce</a></li>
+
+                </ul>
+            </li>
+
+        </ul>
+
+        <ul style="padding-right : 15px;" class="nav navbar-nav navbar-right">
+
+            <li class="dropdown hilfe">
+
+                <a style="cursor:pointer;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <span translate="account"></span><span class="caret"></span></a>
+                <!--<a style="cursor:pointer;" ui-sref-active="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> INSTALLATION <span class="caret"></span></a>-->
+                <ul style="min-width : 104px !important;" class="dropdown-menu">
+                    <li ng-click="logout()"><a href="#">Logout</a></li>
+                    <!--<li><a target="_blank" href="https://www.mailtastic.de/#/agb">AGB</a></li>-->
+                    <!--<li><a target="_blank" href="https://www.mailtastic.de/#/datenschutz">Datenschutz</a></li>-->
+                    <li><a target="_blank" href="https://www.mailtastic.de/impressum" translate="imprint"></a></li>
+                    <li ui-sref='base.account' ui-sref-active="active"><a class="closeonclick">Account</a></li>
+                    <li><a target="_blank" href="https://www.mailtastic.de/ressourcen-kunden" translate="resources"></a></li>
+
+
+                </ul>
+            </li>
+
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<div ui-view></div>

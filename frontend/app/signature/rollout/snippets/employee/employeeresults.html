@@ -1,0 +1,49 @@
+<div> 
+
+    <div class="infobox infobox-grey" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="wassuccessfullycreated"></normal></div>
+
+        </div>
+    </div>
+    
+     <div class="infobox infobox-success" >
+        <span class="symbol glyphicon glyphicon-check"></span>
+        <div>
+            <div class="text"><normal translate="Thesignature"></normal> <strong>{{signatureData.title}}</strong> <normal translate="hasbeen"></normal> {{resultData.group.amountOfGroupsSet}} <normal translate="departments"></normal> ({{resultData.group.amountOfMembersGroupsSet}} <normal translate="Employeeassigned"></normal>
+                <div><strong>{{resultData.group.groupTitlesAdded}}</strong></div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="resultData.group.amountOfMembersGroupsSet === 0" class="infobox infobox-error" >
+        <span class="symbol glyphicon glyphicon-alert"></span>
+        <div class="contentarea">
+            <div class="text"><strong translate="Theassigneddepartmentsareempty"></strong></div>
+            <div class="additionaltext" translate="Atpresentthesignaturedepartmentsadded"></div>
+        </div>
+    </div>
+
+
+    <div role="separator" class="line"></div>  
+
+    <div  class="flex-center-left">
+        
+         <div  class="btn-group leftbutton" uib-dropdown>
+                    <button   type="button" class="btn ownbtn btnblau " uib-dropdown-toggle >
+                        <span class="" translate="Addemployees"></span>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="addEmployee('new')"><a translate="Createnew"></a></li>
+                        <li ng-click="addEmployee('existing')"><a translate="Chooseexisting"></a></li>
+                        <li ng-click="addEmployee('import')"><a translate="Import"></a></li>
+                    </ul>
+                </div>
+        
+        
+        <button  type="submit" ng-click="abort()" class="btn ownbtn btngrau " translate="endprematurely"></button> 
+    </div>
+
+</div> 

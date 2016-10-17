@@ -1,0 +1,35 @@
+<div cg-busy="loadingPromise" class="assistant employeemodal" >
+
+    <div class="modal-body" >
+      <form name="userDataForm">
+            <div class="form-group" ng-repeat="tag in data.userInfoFormFields | tagTypeFilter:'singlevalue'">
+
+                <label>{{tag.label}}</label>
+                <input ng-disabled="tag.label === 'E-Mail-Adresse'" type="text" class="form-control" name="{{tag.label}}" ng-model="tag.value">
+               
+
+            </div>
+            <div class="form-group" ng-repeat="tag in data.userInfoFormFields | tagTypeFilter:'image'">
+
+                <label>{{tag.label}} {{tag.label === 'Skype' ? '(Nutzername)' : '(Url)'}}</label>
+                <input type="text" class="form-control" name="{{tag.label}}" ng-model="tag.value.url">
+             
+
+            </div>
+            <div class="form-group" ng-repeat="tag in data.userInfoFormFields | tagTypeFilter:'link'">
+
+                <label>{{tag.label}} (Url) </label>
+                <input type="text" class="form-control" name="{{tag.label}}" ng-model="tag.value.url" >
+                
+
+            </div>
+        <div class="line"></div>
+            <div class="flex-center-left">
+                <div ng-click="cancel()" class="ownbtn btngrau leftbutton" translate="abort"></div>
+                <button ng-click="saveEmployeeInfoData()" class="ownbtn btnblau" translate="savedata"></button>
+            </div>
+    </form>
+    </div>
+
+</div>
+<!-- </script> -->

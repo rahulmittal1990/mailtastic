@@ -1,0 +1,264 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04.05.2016, 14:35:33
+    Author     : Andreas
+*/
+
+
+
+/*  	NAVIGATIONSLEISTE     First navbar on top */
+
+.navbar-right > a {
+  letter-spacing: 0.7px; }
+
+.navbar-custom-first {
+  background-color: #363f48;
+  border-color: #363f48; 
+  font-size : 14px;
+}
+
+.navbar-custom-first .navbar-brand {
+  color: #FFFFFF; }
+
+.navbar-custom-first .navbar-brand:hover,
+.navbar-custom-first .navbar-brand:focus {
+  color: #363f48;
+  background-color: transparent; }
+
+.navbar-custom-first .navbar-text {
+  color: #FFFFFF;
+  color: #e6e6e6; }
+
+.navbar-custom-first .navbar-nav > li > a {
+  color: #FFFFFF;
+  letter-spacing: 0.7px; }
+
+.navbar-custom-first .navbar-nav > li > a:hover,
+.navbar-custom-first .navbar-nav > li > a:focus {
+  
+  color: #009fe4;
+  /*font-weight: bold;*/
+  background-color: transparent; }
+
+.navbar-custom-first .navbar-nav > .current-menu-item > a,
+.navbar-custom-first .navbar-nav > .current-menu-item > a:hover,
+.navbar-custom-first .navbar-nav > .current-menu-item > a:focus {
+  /*font-weight: bold;*/
+  color: #009fe4;
+  /*background-color: #080808;*/ }
+
+.navbar-custom-first .navbar-nav > .disabled > a,
+.navbar-custom-first .navbar-nav > .disabled > a:hover,
+.navbar-custom-first .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  font-weight: bold;
+  background-color: transparent; }
+
+.navbar-custom-first .navbar-toggle {
+  border-color: #dddddd; }
+
+.navbar-custom-first .navbar-toggle:hover,
+.navbar-custom-first .navbar-toggle:focus {
+  background-color: #dddddd; }
+
+.navbar-custom-first .navbar-toggle .icon-bar {
+  background-color: #cccccc; }
+
+.navbar-custom-first .navbar-collapse,
+.navbar-custom-first .navbar-form {
+  border-color: #070707; 
+overflow-x: hidden;
+
+}
+
+.navbar-custom-first .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom-first .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff; }
+
+.navbar-custom-first .navbar-nav > .open > a,
+.navbar-custom-first .navbar-nav > .open > a:hover,
+.navbar-custom-first .navbar-nav > .open > a:focus {
+  background-color: #363f48;
+  color: #009fe4; }
+
+.navbar-custom-first .navbar-nav > .open > a .caret,
+.navbar-custom-first .navbar-nav > .open > a:hover .caret,
+.navbar-custom-first .navbar-nav > .open > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff; }
+
+.navbar-custom-first .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff; }
+
+@media (max-width: 767) {
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff; }
+
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: transparent; }
+
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .current-menu-item > a,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .current-menu-item > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .current-menu-item > a:focus {
+    color: #ffffff;
+    background-color: #363f48; }
+
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent; } }
+.navbar-custom-first .navbar-link {
+  color: #ffffff; }
+
+.navbar-custom-first .navbar-link:hover {
+  color: #ffffff; }
+
+.navbar-brand {
+  line-height: 71px !important;
+  height: 71px !important;
+  margin-right: 60px; 
+  max-width : 200px;
+}
+
+@media(min-width : 768px){
+    .navbar-nav li a {
+        line-height: 71px !important;
+        height: 71px;
+        padding-top: 0 !important; 
+        background-color : #363f48;
+        color : white;
+  
+    }
+}
+
+@media(max-width : 768px){
+    .navbar-nav li a {
+        line-height: 40px !important;
+        height: 40px;
+        padding-top: 0 !important; 
+        background-color : #363f48;
+        color : white;
+  
+    }
+
+   
+}
+
+
+
+.navbar-header {
+  line-height: 71px;
+  height: 71px;
+  margin-right: 60px; }
+
+.navbar-right {
+  line-height: 71px; }
+
+.navbar-toggle {
+  margin-top: 19px; }
+
+@media (max-width: 1200px) {
+  .navbar-header {
+    float: none; }
+
+  .navbar-left, .navbar-right {
+    float: none !important; }
+
+  .navbar-toggle {
+    display: block; }
+
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px; }
+
+  .navbar-collapse.collapse {
+    display: none !important; }
+
+  .navbar-nav {
+    float: none !important;
+    margin-top: 7.5px; }
+
+  .navbar-nav > li {
+    float: none; }
+
+  .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+
+  .collapse.in {
+    display: block !important; } }
+
+
+
+  .dropdown.hilfe ul {
+    min-width: 207px;
+    color: white;
+    border-top-width: 0;
+    border-left-width: 0;
+    background-color: #363f48 !important; }
+    .dropdown.hilfe ul li {
+      cursor: pointer;
+      background-color: #363f48 !important; }
+      .dropdown.hilfe ul li a {
+        color: white; }
+      .dropdown.hilfe ul li a:hover {
+        background-color: #fc5242 !important; }
+         .dropdown.hilfe ul li:hover {
+        background-color: #fc5242 !important; }
+    .dropdown.hilfe ul li.active a {
+      background-color: #363f48 !important; 
+      color : #009fe4;
+    
+    }
+    
+    
+    .menudropdownentry:hover{
+        background-color : #363f48 !important;
+        color : #009fe4;
+    }
+    .menudropdownentry:active{
+        background-color : #363f48 !important;
+        color : #009fe4;
+    }
+    
+    
+    .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a{
+        background-image : none;
+        color : blue;
+    }
+    
+    
+    
+    .dropdown-menu>li>a:hover{
+          background-color : #363f48 !important;
+        
+    }
+   
+    
+    .navbar-collapse.collapse.in{
+        padding-left : 15px;
+         padding-top : 10px;
+         padding-bottom : 10px;
+    }
+    
+    @media(max-width : 768px){
+        #navbar ul, menu-hauptmenue-container{
+            margin-top : 0;
+            margin-bottom : 0;
+        }
+    }
+    
+    

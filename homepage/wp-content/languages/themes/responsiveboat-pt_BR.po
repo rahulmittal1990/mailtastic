@@ -1,0 +1,143 @@
+# Translation of ResponsiveBoat in Portuguese (Brazil)
+# This file is distributed under the same license as the ResponsiveBoat package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-04-21 19:43:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.1.0-alpha\n"
+"Project-Id-Version: ResponsiveBoat\n"
+
+#. Theme Name of the plugin/theme
+msgid "ResponsiveBoat"
+msgstr "ResponsiveBoat"
+
+#. Description of the plugin/theme
+msgid "ResponsiveBoat is a free responsive WordPress theme, with a friendly and colorful design. It comes with a full-screen layout, a full-width homepage header, elegant parallax effect, and nice animations. It can be used web agencies, digital studios, corporate, product showcase, personal and business portfolio. Overall, ResponsiveBoat looks very modern and interactive."
+msgstr "ResponsiveBoat é um tema WordPress responsivo e gratuito, com um desenho colorido e amigável. Ele vem com um leiaute tela cheia, uma página inicial com um  cabeçalho de largura total, efeito paralaxe elegante e animações atraentes. Pode ser utilizado por agências web, estúdios digitais, empresas, para apresentação de produtos ou portfólios pessoais e de negócios. Enfim, o ResponsiveBoat é muito moderno e interativo."
+
+#: sections/latest_news.php:36
+msgid "LATEST NEWS"
+msgstr "ÚLTIMAS NOTÍCIAS"
+
+#: sections/latest_news.php:45
+msgid "Add a subtitle in Customizer, \"Latest news section\""
+msgstr "Adicione um subtítulo no Personalizador, na seção \"Últimas notícias\""
+
+#: front-page.php:79
+msgid "* Please enter your name."
+msgstr "* Por favor, digite seu nome."
+
+#: front-page.php:93
+msgid "* Please enter your email address."
+msgstr "* Por favor, digite seu endereço de e-mail."
+
+#: front-page.php:99
+msgid "* You entered an invalid email address."
+msgstr "* Você digitou um endereço de e-mail inválido."
+
+#: front-page.php:113
+msgid "* Please enter a subject."
+msgstr "* Por favor, digite um assunto."
+
+#: front-page.php:127
+msgid "* Please enter a message."
+msgstr "* Por favor, digite uma mensagem."
+
+#: front-page.php:383
+msgid "Thanks, your email was sent successfully!"
+msgstr "Obrigado, seu e-mail foi enviado com sucesso!"
+
+#: front-page.php:386
+msgid "Sorry, an error occured. The email could not be sent."
+msgstr "Desculpe, um erro ocorreu. O e-mail não pode ser enviado."
+
+#: sections/big_title.php:58
+msgid "To add a title here please go to Customizer, \"Big title section\""
+msgstr "Para adicionar um título aqui, por favor, vá ao Personalizador, na seção \"Título maior\""
+
+#: sections/big_title.php:79
+msgid "One button"
+msgstr "Um botão"
+
+#: sections/big_title.php:82
+msgid "Another button"
+msgstr "Outro botão"
+
+#: sections/testimonials.php:129
+msgid "Testimonials"
+msgstr "Depoimentos"
+
+#: sections/big_title.php:88
+msgid "What's inside"
+msgstr "O que está incluído"
+
+#: sections/latest_news.php:131
+msgid "Latest news"
+msgstr "Últimas notícias"
+
+#: sections/latest_news.php:88 sections/latest_news.php:178
+msgid "Read full article"
+msgstr "Ler o artigo completo"
+
+#: sections/big_title.php:85
+msgid "Features"
+msgstr "Recursos"
+
+#: sections/big_title.php:62
+msgid "ONE OF THE TOP 10 MOST POPULAR THEMES ON WORDPRESS.ORG"
+msgstr "UM DOS 10 MAIS POPULARES TEMAS NO WORDPRESS.ORG"
+
+#: functions.php:106
+msgid "Image"
+msgstr "Imagem"
+
+#: functions.php:98
+msgid "Text"
+msgstr "Texto"
+
+#: functions.php:90
+msgid "Subtitle"
+msgstr "Subtítulo"
+
+#: functions.php:96
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est."
+
+#: functions.php:88 sections/about_you.php:15
+msgid "Use this section to showcase important details about you."
+msgstr "Use essa seção para apresentar detalhes importantes sobre você."
+
+#: functions.php:82
+msgid "Title"
+msgstr "Título"
+
+#: functions.php:42 functions.php:51
+msgid "Header Logo"
+msgstr "Logo do Cabeçalho"
+
+#: functions.php:80 sections/about_you.php:8
+msgid "About you"
+msgstr "Sobre você"
+
+#: functions.php:73
+msgid "Hide about you section?"
+msgstr "Esconder seção \"Sobre você\"?"
+
+#: functions.php:63
+msgid "About you section"
+msgstr "Seção Sobre você"
+
+#. Theme URI of the plugin/theme
+msgid "http://themeisle.com/themes/responsiveboat-theme/"
+msgstr "http://themeisle.com/themes/responsiveboat-theme/"
+
+#. Author URI of the plugin/theme
+msgid "https://themeisle.com"
+msgstr "https://themeisle.com"
+
+#. Author of the plugin/theme
+msgid "Themeisle"
+msgstr "Themeisle"

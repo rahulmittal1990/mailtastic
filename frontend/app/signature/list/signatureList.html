@@ -1,0 +1,76 @@
+<div class="baseonecolumn signature" >
+
+    <div class="container">
+
+        <div class="headline format0" translate="yoursignatures">
+        </div> 
+
+        <div  class="panel" style="min-height : {{config.minheight}}px">
+            <div>
+                <div class="format1" translate="Allsignatures"></div>
+
+                <div style="width : 100%;" role="separator" class="line"></div>  
+                <div class="flex" style="justify-content : space-between;">
+                    <div class="flex">
+
+                        <div ng-click="selectAllOuter()"
+                             class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px">
+                            <!--<div class="checkbox no-margin">-->
+                            <!--<label>-->
+                            <input ng-click="selectAll($event);
+                                $event.stopPropagation();" ng-checked="isSelectedAll()" class="innercheckbox" type="checkbox" >
+                            <!--</label>-->
+                            <!--</div>-->
+                            <span class="margin-auto" translate="selectall"></span> 
+                        </div>
+                        <!--<div class="margin-auto">-->
+
+                        <div ng-show="data.selectedSigs.length > 1"  class="btn-group margin-auto optionbutton actiondropdown btnblau" uib-dropdown>
+                            <button ng-disabled="data.selectedSigs.length === 0"  type="button" class="btn btn-sm actiondropdown btnblau" uib-dropdown-toggle ng-disabled="disabled">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+                            </button>
+                            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                <li ng-click="deleteSigs()"><a  translate="Delete"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div  class="input-group searchfield leftbutton">
+                            <input  ng-model="data.filterText" type="text" class="form-control input-sm nooutline" placeholder="Signatur suchen" aria-describedby="basic-addon2">
+                            <span class="input-group-addon glyphicon glyphicon-search" ></span>
+                        </div>
+                        <div class="btn-group sort" uib-dropdown >
+                            <button  type="button" class="btn btn-sm nooutline leftbutton" uib-dropdown-toggle ng-disabled="disabled">
+                                <normal translate="sort"></normal> <span class="caret"></span>
+                            </button>
+                            <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                                <li role="menuitem">
+                                    <a ng-click="order('title')" translate="title"></a>
+                                </li>
+                                <li role="menuitem">
+                                    <a  ng-click="order('rolledOut')" translate="rolledout"></a>
+                                </li>
+                                <li role="menuitem">
+                                    <a ng-click="order('active')" translate="active"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div ui-sref="base.signaturedesigner({signatureId: 'create'})" class="ownbtn btnblau"><span style="font-size : 12px;margin-right: 7px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span><normal translate="Createasignature"></normal></div> 
+
+                    </div>
+                </div>
+
+
+                <ul style="min-height : {{config.listheight}}px;max-height : {{config.listheight}}px;" class="tablewrapper" ng-include src="'signature/list/snippets/signaturerow.html'">
+
+                </ul>
+                
+                
+                
+                
+            </div>
+
+        </div>
+    </div> 
+</div>

@@ -1,0 +1,46 @@
+
+
+
+<!-- <script type="text/ng-template" id="campaign_modal_tpl.html"> -->
+<div class="groupmodal assistant" cg-busy="loadingPromise"  >	
+<!--    <div class="modal-header group-modal-header">
+        <h3 ng-show="modaloptions.currentStep ==='new'" class="modal-title"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>{{modaloptions.heading}}</h3>
+        <h3 ng-show="modaloptions.currentStep ==='existing'" class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Vorhandene Abteilung hinzufügen</h3>
+
+        <h3 ng-show="modaloptions.currentStep ==='choose'" class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Fügen Sie Kampagne Abteilungen hinzu</h3>
+
+    </div>-->
+    <div class="modal-body">
+        <div ng-show="modaloptions.currentStep ==='new'" ng-include src="'groups/modal/snippets/createnew.html'">
+
+        </div>
+         <div class="existing" ng-show="modaloptions.currentStep ==='existing'"  ng-include src="'groups/modal/snippets/selectexisting.html'">
+
+        </div>
+          
+           <div ng-show="modaloptions.currentStep ==='choose'"  ng-include src="'groups/modal/snippets/selectmethod.html'">
+
+        </div>
+
+    </div>
+<!--    <div class="modal-footer">
+      
+        
+        
+        
+        
+        
+        
+        <button ng-show="modaloptions.cameFromChoose === true && modaloptions.currentStep !=='choose'" ng-click="(modaloptions.currentStep = 'choose')" class="btn btn-error" type="button" >Zurück</button>
+        <button class="btn btn-error" type="button" ng-click="cancel()">Abbrechen</button>
+        <button ng-show="modaloptions.currentStep ==='choose'" class="btn btn-error" type="button" ng-click="cancel()">Später</button>
+          <button ng-show="modaloptions.currentStep ==='new'" class="btn actionbutton" ng-disabled="(!groupdata.title)" type="button" ng-click="createGroup()">Speichern</button>
+      
+        <button ng-show="modaloptions.currentStep ==='existing'" class="btn actionbutton" type="button" ng-click="setCampaignForGroups()">Abteilungen zuweisen</button>
+        
+ 
+        
+    </div>-->
+
+</div>
+<!-- </script> -->

@@ -1,0 +1,84 @@
+﻿<div class="header">
+    <span><normal translate="Gmailusers"></normal>  ({{cuntasyncdt}}/{{groupMembersGoogle.length}} <normal translate="activebracket"></normal></span>
+</div>
+<div class="listpanel" cg-busy="loadingPromise">
+
+    <div>
+        <div class="flex" style="justify-content : space-between;">
+            <div class="flex">
+
+                <div 
+                     class="ownbtn btnblau flex-center-left leftbutton" style="padding-left : 25px;height : 32px;">
+                    <!--<div class="checkbox no-margin">-->
+                    <!--<label>-->
+                    <input  ng-change="isSelectedForAllUsers(rowCheckItems.allselectedUser)" class="innercheckbox" type="checkbox" data-ng-model="rowCheckItems.allselectedUser" data-ng-init ="allselectedUser = false"/>
+                    <!--</label>-->
+                    <!--</div>-->
+                    <span class="margin-auto" translate="selectall"></span> 
+                </div>
+                <!--<div class="margin-auto">-->
+                
+                
+                 <div ng-show="isMultiSelected() === true"  class="btn-group margin-auto optionbutton actiondropdown aktiongroup hidden-xs" uib-dropdown>
+                    <button ng-disabled="data.selectedGroups.length === 0"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                          <li ng-click="importAllSelectedFromList()"><a translate="Import All"></a></li>
+                          <li ng-click="activateAllSelectedFromList()"><a translate="Activate All"></a></li>
+                          <li ng-click="deactivateAllSelectedFromList()"><a translate="Deactivate All"></a></li>
+                    </ul>
+                </div>
+
+             
+            </div>
+
+            <div class="flex">
+                <div  class="input-group searchfield leftbutton">
+                    <input   ng-model="filterText" type="text" class="form-control input-sm nooutline" placeholder="Suchen" aria-describedby="basic-addon2">
+                    <span class="input-group-addon glyphicon glyphicon-search" ></span>
+                </div>
+                
+                 <div ng-show="data.selectedGroups.length > 1"  class="btn-group margin-auto optionbutton actiondropdown aktiongroup hidden-xs" uib-dropdown>
+                    <button ng-disabled="data.selectedGroups.length === 0"  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <normal translate="action"></normal>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li ng-click="deleteGroups()"><a translate="Delete"></a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="btn-group sort" uib-dropdown >
+                    <button  type="button" class="btn btn-sm btn-default nooutline leftbutton" uib-dropdown-toggle ng-disabled="disabled">
+                        <normal translate="sort"></normal> <span class="caret"></span>
+                    </button>
+                    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                        <li role="menuitem">
+                            <a ng-click="sortBy('email')">Email</a>
+                        </li>
+                        <li role="menuitem">
+                            <a  ng-click="sortBy('firstname')" translate="firstgivenname"></a>
+                        </li>
+                        <li role="menuitem">
+                            <a ng-click="sortBy('lastname')"  translate="Surname"></a>
+                        </li>
+                         <li role="menuitem">
+                            <a ng-click="sortBy('isNotYetImported')" translate="Imported"></a>
+                        </li>
+                         <li role="menuitem">
+                            <a ng-click="sortBy('isSyncActivated')" translate="Synchronized"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <ul style="max-height : 400px;height : auto !important;" class="tablewrapper" ng-include src="'googlesync/snippets/syncemployeerow.html'">
+
+        </ul>
+    </div>
+
+</div>

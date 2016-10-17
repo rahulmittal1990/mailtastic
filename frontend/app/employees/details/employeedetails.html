@@ -1,0 +1,42 @@
+<div class="baseonecolumn employee-details">
+
+    <div class="container topdetails">
+        <div class="flex-center-left ">
+            <div class="headline format0 leftbutton" translate="Employee">
+
+            </div>
+
+            <div class="signaturetitle leftbutton flex-center-left">
+                <img class="img-circle profile-picture-details leftbutton hidden-xs" letters="{{!employeeDetailData.firstname ? (employeeDetailData.email | limitTo:1) : ((employeeDetailData.firstname | limitTo:1) + (employeeDetailData.lastname | limitTo:1))}}" />
+                <span class="title">{{(!employeeDetailData.firstname) ? employeeDetailData.email : (employeeDetailData.firstname + ' ' + employeeDetailData.lastname)}}</span>
+            </div>
+
+            <!--<div class="margin-auto">-->
+            <div class="btn-group ownddbtn dddarkgrey" uib-dropdown>
+                <button type="button" class="btn btn-sm" uib-dropdown-toggle>
+                    <span class="glyphicon own-glyph glyphicon-cog" aria-hidden="true"></span>
+                    <normal translate="Edit"></normal> <span class="caret"></span>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li role="menuitem"> <a ng-controller="EmployeeUserInfoEditModalCtrl" ng-click="open(employeeDetailData.id)" translate="Edit"></a>  </li>
+                    <li role="menuitem"> <a ng-show="employeeDetailData.isAdmin === 0" ng-click="deleteEmployee(employeeDetailData.id)" translate="Delete"></a>  </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div ng-include src="'employees/details/snippets/userdata.html'" class="detailpanel userdata">
+
+        </div>
+
+        <div ng-include src="'employees/details/snippets/signature.html'" class="detailpanel signature">
+
+        </div>
+        <div ng-include src="'employees/details/snippets/campaign.html'" class="detailpanel campaign">
+
+        </div>
+
+
+
+    </div>

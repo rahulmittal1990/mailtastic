@@ -1,0 +1,175 @@
+<div class="header">
+                <span translate="SharetheDepartmentofcurrentcampaignperformance"></span>
+            </div>
+            <div ng-show="data.groupDetail.campaignTitle" class="content">
+
+
+
+                <div class="row controlrow">
+                    <div class="col-lg-5 col-md-6">   </div>
+                    <div class="col-lg-7 col-md-6">  
+                        <div class="flex-center-all piecontrolarea">
+                            <div  class="btn-group down martop75sm" >
+                                <button type="button" ng-click="changeStatSource('views')" ng-class="(pieGraph.currentShown ==='views' ? 'darkbutton' : '' )" class="btn btn-default smallfontgroupb"><span style="font-size : 10px;">{{labels.views}}</span></button>
+                                <button type="button" ng-click="changeStatSource('clicks')" ng-class="(pieGraph.currentShown ==='clicks' ? 'darkbutton' : '' )" class="btn btn-default smallfontgroupb">{{labels.clicks}}</button>
+                                <button type="button" ng-click="changeStatSource('rate')"  ng-class="(pieGraph.currentShown ==='rate' ? 'darkbutton' : '' )" class="btn btn-default smallfontgroupb">{{labels.rate}}</button>
+                            </div>  
+
+
+                            <form  ng-hide="((pieGraph.currentShown === 'views') && pieGraph.progressViews.length === 0) ||
+                                                                ((pieGraph.currentShown === 'clicks') && pieGraph.progressClicks.length === 0) ||
+                                                                ((pieGraph.currentShown === 'rate') && pieGraph.progressRate.length === 0)" class="flex-center-all switchform">
+                                <div translate="Absolute"></div>
+                                <switch id="enabled" name="enabled"  ng-model="toggleButton.value" class="green"></switch>
+                                <div translate="Relative"></div>
+                                <!--<br>{{ enabled }}-->
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+        
+                
+
+        <div ng-show="data.groupDetail.activeCampaign && !((pieGraph.currentShown ==='views' && pieGraph.progressViews.length === 0) || (pieGraph.currentShown ==='clicks' && pieGraph.progressClicks.length === 0) || (pieGraph.currentShown ==='rate' && pieGraph.progressRate.length === 0)) " class="row row-eq-height-lg row-eq-height-md row-eq-height-sm margin-hor-0">
+            <div class="col-lg-5 col-md-6 piechart-col" align="right" style="text-align: right;">
+                <chartist class="ct-chart" chartist-data="pieGraph.data" chartist-events="pieGraph.events" chartist-chart-options="pieGraph.options" chartist-chart-type="Pie"></chartist>
+            </div>
+
+            <div class="col-lg-7 col-md-6 progress-bar-col">
+                <!--<div align="center" style="text-align: center;" class="progressbar_area">-->
+               
+                
+                
+                <div class="full-width">
+               
+                    
+                    
+                    
+                    
+                    
+                <div style="min-height : 190px;" class="bar_areas">
+                    <div ng-show="(pieGraph.currentShown ==='views')">
+                        <!--<div ng-show="pieGraph.progressViews.length === 0">Keine Daten vorhanden</div>-->
+                        <div ng-repeat="item in pieGraph.progressViews">
+                            <div class="progress_title">
+                               <span>#{{$index +1}} <span  class="glyphicon groupgraphglyph glyphicon-folder-open" aria-hidden="true"></span> <span class="grouptitle"> {{item.title}}</span> ({{item.amountOfMembers}})</span><!--<span>100%</span> -->
+                                 <span ng-show="toggleButton.value === false" class="total_number">{{item.anzahl}}</span>
+                                <span ng-show="toggleButton.value === true" class="total_number"> {{((item.anzahl / pieGraph.accumulatedViews) * 100) | number:2}} %</span>
+                        
+                            </div>
+                            <div  class="progress">
+
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{Math.floor((item.anzahl / pieGraph.accumulatedViews) * 100)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Math.floor((item.anzahl / pieGraph.accumulatedViews) * 100)}}%;background-color: {{item.color}};">
+                                    <!--{{((item.anzahl / pieGraph.accumulatedViews) * 100) | number:2}} %-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="(pieGraph.currentShown ==='clicks')">
+   <!--<div ng-show="pieGraph.progressClicks.length === 0">Keine Daten vorhanden</div>-->
+                        <div ng-repeat="item in pieGraph.progressClicks">
+                            <div class="progress_title">
+                                <span>#{{$index +1}} <span class="glyphicon glyphicon-folder-open groupgraphglyph" aria-hidden="true"></span><span class="grouptitle"> {{item.title}}</span> ({{item.amountOfMembers}})</span><!--<span>100%</span> -->
+                                     <span ng-show="toggleButton.value === false" class="total_number">{{item.anzahl}}</span>
+                                <span ng-show="toggleButton.value === true" class="total_number"> {{((item.anzahl / pieGraph.accumulatedClicks) * 100) | number:2}} %</span>
+                        
+                            </div>
+                            <div  class="progress">
+
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{Math.floor((item.anzahl / pieGraph.accumulatedClicks) * 100)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Math.floor((item.anzahl / pieGraph.accumulatedClicks) * 100)}}%;background-color: {{item.color}};">
+                                    <!--{{Math.floor((item.anzahl / pieGraph.accumulatedClicks) * 100)}} %-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="(pieGraph.currentShown ==='rate')">
+   <!--<div  ng-show="pieGraph.progressRate.length === 0">Keine Daten vorhanden</div>-->
+                        <div ng-repeat="item in pieGraph.progressRate">
+                            <div class="progress_title">
+                                <span>#{{$index +1}} <span class="glyphicon glyphicon-folder-open groupgraphglyph" aria-hidden="true"></span> <span class="grouptitle"> {{item.title}}</span> ({{item.amountOfMembers}})</span><!--<span>100%</span> -->
+                                <span ng-show="toggleButton.value === false" class="total_number">{{item.anzahl | number:2}}</span>
+                                <span ng-show="toggleButton.value === true" class="total_number"> {{((item.anzahl / pieGraph.accumulatedRate) * 100) | number:2}} %</span>
+                        
+                            </div>
+                            <div  class="progress">
+
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{Math.floor((item.anzahl / pieGraph.accumulatedRate) * 100)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{Math.floor((item.anzahl / pieGraph.accumulatedRate) * 100)}}%;background-color: {{item.color}};">
+                                    <!--{{Math.floor((item.anzahl / pieGraph.accumulatedRate) * 100)}} %-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                
+                
+                   
+                </div>
+  
+               </div>
+
+            
+         
+            
+        </div>
+         
+            
+        
+
+
+         
+         
+         
+<!--         <div style="margin-top : 15px;" class="nodataarea" ng-show="!data.groupDetail.activeCampaign">
+                        <img src="img/emptystates/redonwhite/r_Campaign_Missing.png">
+                        <div class="placeholderheadlinetext">
+                            Aktuell ist in der Gruppe "{{data.groupDetail.title}}" keine Kampagne zugewiesen.
+                        </div>
+                          <div class="placeholderdesc">
+                            Weisen Sie dieser Gruppe eine Kampagne zu, um einen Kampagnenbanner in der E-Mail dieses Gruppenmitglieds anzeigen zu lassen.
+                        </div>
+                        
+                    </div>-->
+         
+         
+          <div style="margin-top : 15px;" class="nodataarea" ng-show="(((pieGraph.currentShown ==='views' && pieGraph.progressViews.length === 0) || (pieGraph.currentShown ==='clicks' && pieGraph.progressClicks.length === 0) || (pieGraph.currentShown ==='rate' && pieGraph.progressRate.length === 0)) || !data.groupDetail.activeCampaign)">
+                        <img src="img/emptystates/lightonwhite/w_Statistic_Missing.png">
+                        <div class="placeholderheadlinetext" translate="Currentlyarenodata">
+                          
+                        </div>
+                          <div class="placeholderdesc" translate="Oncefirstdataareavailableyoucansee">
+                        </div>
+                        
+                    </div>
+    
+                
+                
+                
+                
+                
+                
+            </div>  
+
+
+<div ng-show="!data.groupDetail.campaignTitle" class="content">
+    
+     <div class="nodataarea dashboardgroups"  >
+                <img src="img/emptystates/lightonwhite/w_Statistic_Missing.png">
+                <div class="rightside">
+                    <div class="placeholderheadlinetext" translate="Currentlyarenodata"></div>
+                    <div class="placeholderdesc" translate="Oncefirstdataperformanceofdepartments"></div>
+                    <!--<button  ng-click="open()" ng-controller="CampaignModalCtrl"   type="button" class="btn btn-sm actionbutton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kampagne erstellen</button>-->
+
+                </div>
+            </div>
+    
+</div>
+
+
+
+
+

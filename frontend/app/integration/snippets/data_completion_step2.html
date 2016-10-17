@@ -1,0 +1,56 @@
+<div class="format1 innerheadline">
+<span ng-hide="datacompletiononly" ng-click="workflow.step = 'explanation'" class="breadcrumpdone cursor-pointer" translate="introduction"><span class="glyphicon first glyphicon-ok" aria-hidden="true"></span><span class="glyphicon second glyphicon-arrow-right" aria-hidden="true"></span></span>
+<span class="breadcrump" translate="completedata"></span>
+</div>
+<div  role="separator" class="line"></div> 
+
+<div class="format3 schrift_blau_imp roboto_bold"> {{(!admindata.firstname) ? admindata.email : (admindata.firstname + ' ' + admindata.lastname)}}  <normal translate="askspersonaldatasheet"></normal></div>
+
+<div ng-show="formData.tagsToComplete.length > 0" class="infobox infobox-info martop20" >
+    <span class="symbol glyphicon glyphicon-info-sign"></span>
+    <div>
+        <div class="additionaltext nomargin" translate="Donotworrycompanyemailsignature">
+        </div>
+    </div>
+</div>
+
+<div ng-show="formData.tagsToComplete.length === 0" class="infobox infobox-success martop20" >
+    <span class="symbol glyphicon glyphicon-check"></span>
+    <div>
+        <div class="text nomargin" translate="Alldataarealreadycomplete">
+        </div>
+    </div>
+</div>
+
+<form name="userDataForm">
+    <div class="form-group" ng-repeat="tag in formData.tagsToComplete | tagTypeFilter:'singlevalue'">
+      
+        <label>{{tag.label}}</label>
+        <input type="text" class="form-control" name="{{tag.label}}" ng-model="tag.value" required>
+        <p class="help-block" ng-show="userForm.email.$invalid">Valid Email Address Required</p>
+       
+    </div>
+    <div class="form-group" ng-repeat="tag in formData.tagsToComplete | tagTypeFilter:'image'">
+         
+        <label>{{tag.label}} {{tag.label === 'Skype' ? '(Nutzername)' : '(Url)'}}</label>
+        <input type="text" class="form-control" name="{{tag.label}}" ng-model="tag.value.url" required>
+        <p class="help-block" ng-show="userForm.email.$invalid">Valid Email Address Required</p>
+        
+    </div>
+    <div class="form-group" ng-repeat="tag in formData.tagsToComplete | tagTypeFilter:'link'">
+        
+        <label>{{tag.label}} (Url)</label>
+        <input type="text" class="form-control" name="{{tag.label}}" ng-model="tag.value.url" required>
+        <p class="help-block" ng-show="userForm.email.$invalid">Valid Email Address Required</p>
+      
+    </div>
+<div class="line"></div>
+    <div class="flex-center-left">
+              <div ng-hide="datacompletiononly" class="ownbtn btngrau leftbutton" ng-click="workflow.step = 'explanation'" translate="Back"></div>
+
+            <div ng-click="openHelpModal()" class="ownbtn btngrau leftbutton" translate="Ineedhelp"></div>
+               <button ng-hide="formData.tagsToComplete.length === 0 && datacompletiononly" ng-click="userDataForm.$valid && saveDataAndGenerateSignature()" class="ownbtn btnblau" translate="storedataandtothenextstep"></button>
+
+    </div>
+</form>
+

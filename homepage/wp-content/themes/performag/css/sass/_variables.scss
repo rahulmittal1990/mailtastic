@@ -1,0 +1,40 @@
+$normal-size: 1em; /*15px;*/
+$text-gray: #333;
+$black: #000;
+$white: #fff;
+$gray: #999;
+$input-gray: #666;
+$dark-gray: #343434;
+
+$color-pallete :
+  'blue' #2e7da4 #3398cc #d6ebf5 #4493ba #2a7296,
+  'dark' #000000 #292929 #858585 #313131 #161616,
+  'green' #668a1d #99cc33 #ebf5d6 #7fa336 #668a1d,
+  'light' #b5b4b4 #e1e1e8 #f5f3f3 #a7a5a5 #8b8a8a,
+  'purple' #5a597c #6e6c9c #e1e1e8 #6c6b8f #494868,
+  'red' #993333 #cc3333 #fbdfdf #c44545 #912323,
+  'teal' #289595 #33cbcc #e5efef #3facac #208585,
+  'orange' #cc9900 #ffcc01 #fff5cc #ebc21c #cfa600;
+
+$social-icons :
+  'dribble' #f46899 '\f17d',
+  'fb' #3b5999 '\f09a',
+  'g_plus' #252223 '\f0d5',
+  'linkedin' #1385c4 '\f0e1',
+  'prinster' #f13434 '\e600',
+  'rss' #f6a42b '\f09e',
+  'twitter' #00bbf5 '\f099',
+  'vimeo' #5dc8ff '\e602',
+  'behance' #1376ff '\e601',
+  'youtube' #fe0000 '\f167',
+  'is' #b19b84 '\f16d',
+  'xi' #006567 '\f168';
+
+$categories-colors :
+  'blue' #3398cc,
+  'def' #cccccc,
+  'green' #99cc33,
+  'purple' #6e6c9c,
+  'red' #cc3333,
+  'teal' #33cbcc,
+  'orange' #ffcc01;

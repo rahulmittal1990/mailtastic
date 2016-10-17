@@ -1,0 +1,56 @@
+<div cg-busy="loadingPromise"   class="middlecontainer">
+    
+    
+    <div class="toparea">
+         <img  src="img/register/Steps_1.png" class="img-responsive" />
+    </div>
+    
+    
+    <div class="formarea">
+      <div class="headline" translate="Equalwego"></div>
+        <div class="formlabel">Name</div>
+        <div class="row topformrow">
+            <div class="col-lg-6 no_padding leftcol form-group-lg">
+               <input type="text" ng-model="registerdata.firstname" placeholder="Vorname*" class="form-control form-group-lg leftbutton"/>
+            </div>
+            <div class="col-lg-6 no_padding rightcol form-group-lg">
+               <input type="text" ng-model="registerdata.lastname"  placeholder="Nachname*" class="form-control form-group-lg"/>
+            </div>
+        </div>
+        
+        
+           <div  class="formlabel" translate="company"></div>
+        <div class="row">
+            <div class="col-lg-12 no_padding leftcol form-group-lg">
+               <input type="text" ng-model="registerdata.companyName" placeholder="Name des Unternehmens*" class="form-control"/>
+            </div>
+        </div>
+           
+        <div ng-hide="refererField.hide"  class="formlabel" translate="recommender"></div>
+        <div ng-hide="refererField.hide" class="row">
+            <div class="col-lg-12 no_padding leftcol form-group-lg">
+               <input type="text" ng-model="registerdata.referer" placeholder="ID (optional)" class="form-control"/>
+            </div>
+        </div>
+        
+           <button ng-click="register()" ng-disabled="!registerdata.companyName || !registerdata.email || !registerdata.firstname || !registerdata.lastname || !registerdata.password || !registerdata.passwordrep" type="button" class="btn btn-lg  btn-block actionbutton_green">Account <span class="hidden-xs"><normal translate="now"></normal></span> <normal translate="create"></normal></button>
+
+    </div>
+    
+ 
+    
+</div>
+
+
+
+
+
+
+<style>
+    body {
+      
+        background-image : url("../img/register/Hintergrund.jpg");
+        background-size: cover;
+    }
+
+</style>

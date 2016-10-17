@@ -1,0 +1,40 @@
+.nsd.blue .pbf {
+    background: #3398cc;
+}
+.nsd.dark .pbf {
+    background: #292929;
+}
+.nsd.green .pbf {
+    background: #99cc33;
+}
+.nsd.light .pbf {
+    background: #e1e1e8;
+}
+.nsd.purple .pbf {
+    background: #6e6c9c;
+}
+.nsd.red .pbf {
+    background: #cc3333;
+}
+.nsd.teal .pbf {
+    background: #33cbcc;
+}
+.nsd.orange .pbf {
+    background: #ffcc01;
+}
+.bp-t {
+    display: block;
+    text-align: center;
+}
+.bp-t:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    margin-right: -.25em;
+    vertical-align: middle;
+}
+.bp-t .wrp {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}

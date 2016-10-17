@@ -1,0 +1,311 @@
+
+/*To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+ 
+    Created on : 03.11.2015, 17:35:52
+    Author     : kippple
+
+
+*
+ * 	NAVIGATIONSLEISTE*/
+ 
+
+$navbarcolor :  $dunkelgrau;
+$navischrift : #FFFFFF;
+$navischrift_hover : white;
+$navi-height : 60px;
+$navi-background-hover : $rot;
+$navi-active-schrift : white;
+$navi-active-background : $rot;
+
+/**
+ * 	First navbar on top
+ 
+*
+ * 	First navbar on top*/
+ 
+.navbar-fixed-top{
+    border-bottom-width : 0 !important;
+}
+
+.navbar-custom-first.navbar-right > a{
+	
+	letter-spacing: 0.7px;
+}
+
+.navbar-custom-first {
+    z-index : 1003;
+  background-color: $navbarcolor;
+  border-color: $navbarcolor;
+ 
+}
+.navbar-custom-first .navbar-brand {
+    padding-top : 10px;
+    padding-bottom : 10px;
+  color: $navischrift;
+}
+.navbar-custom-first .navbar-brand:hover,
+.navbar-custom-first .navbar-brand:focus {
+  color: $navbarcolor;
+  background-color: transparent;
+}
+.navbar-custom-first .navbar-text {
+  color: $navischrift;
+  color: #e6e6e6;
+}
+.navbar-custom-first .navbar-nav > li > a {
+  color: $navischrift;
+  letter-spacing: 0.7px;
+  font-family : roboto_medium;
+  
+}
+.navbar-custom-first .navbar-nav > li > a:hover,
+.navbar-custom-first .navbar-nav > li > a:focus {
+  color: #ffffff;
+  color: $navischrift_hover;
+ 
+  background-color: $navi-background-hover;
+}
+.navbar-custom-first .navbar-nav > .active > a,
+.navbar-custom-first .navbar-nav > .active > a:hover,
+.navbar-custom-first .navbar-nav > .active > a:focus {
+  
+  background-color: $navi-active-background;
+}
+.navbar-custom-first .navbar-nav > .disabled > a,
+.navbar-custom-first .navbar-nav > .disabled > a:hover,
+.navbar-custom-first .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  font-weight: bold;
+  background-color: transparent;
+}
+.navbar-custom-first .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-custom-first .navbar-toggle:hover,
+.navbar-custom-first .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-custom-first .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+.navbar-custom-first .navbar-collapse,
+.navbar-custom-first .navbar-form {
+  border-color: #070707;
+}
+.navbar-custom-first .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom-first .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 0;
+}
+.navbar-custom-first .navbar-nav > .open > a,
+.navbar-custom-first .navbar-nav > .open > a:hover,
+.navbar-custom-first .navbar-nav > .open > a:focus {
+  background-color: $navi-background-hover;
+  color: #ffffff;
+}
+.navbar-custom-first .navbar-nav > .open > a .caret,
+.navbar-custom-first .navbar-nav > .open > a:hover .caret,
+.navbar-custom-first .navbar-nav > .open > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 0;
+}
+.navbar-custom-first .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 0;
+}
+@media (max-width: 767) {
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color:  $navi-background-hover;
+  }
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom-first .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-custom-first .navbar-link {
+  color: #ffffff;
+}
+.navbar-custom-first .navbar-link:hover {
+  color: #ffffff;
+}
+
+
+
+.navbar-brand{
+	line-height: $navi-height;
+    height: $navi-height;
+    @media (min-width :  1300){
+          margin-right : 60px;
+    }
+    
+     @media (max-width : $screen-md-min){
+         position:absolute;
+         left : 50%;
+         right : 50%;
+          -webkit-transform: translate(-300%);
+   -moz-transform: translate(-300%) ;
+   -o-transform: translate(-300%) ;
+   -ms-transform: translate(-300%) ;
+   transform: translate(-300%) ;
+    }
+  
+	
+}
+
+.navbar-nav li a {
+    line-height: $navi-height;
+    height: $navi-height;
+    padding-top: 0;
+}
+
+ .navbar-custom-first .navbar-header{
+	line-height: $navi-height;
+    height: $navi-height;
+     @media (min-width : 1300){
+         width: 285px;
+    }
+       
+    
+}
+.installationnav .navbar-header{
+    width : auto;
+    height : auto;
+}
+
+.navbar-right{
+    line-height : $navi-height;
+}
+
+.navbar-toggle{
+    margin-top : 12px;
+}
+
+
+/*li, a {
+    display:inline-block;
+    text-align:center;
+}
+a:hover {
+    font-weight:bold;
+}
+a::after {
+    display:block;
+    content:attr(title);
+    font-weight:bold;
+    height:1px;
+    color:transparent;
+    overflow:hidden;
+    visibility:hidden;
+    margin-bottom:-1px;
+}*/
+
+
+
+//Navbar soll schon viel früher collapsen
+@media (max-width: 1300px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
+}
+
+
+.dropdown.hilfe{
+    min-width : 117px;
+/*    >a:focus{
+         background-color : $navi-background-hover !important;
+    }*/
+        
+    
+    ul{
+        min-width : 207px;
+         color : white;
+         border-top-width : 0;
+         border-left-width : 0;
+            background-color : $navbarcolor;
+        li{
+            cursor : pointer;
+            a{
+                  color : white;
+                }
+                a:hover{
+                     background-color : $navi-background-hover;
+                }
+             
+            background-color : $navbarcolor;
+        }
+        li.active{
+            a{
+                background-color : $navi-background-hover;  //wenn der dropdown unter navi menü punkt aktiv ist
+            }
+        }
+        
+        
+    }
+}
+
+
+@media (max-width: 1300px){
+.navbar-collapse.collapse {
+   
+    max-height: 340px;
+    padding-left : 15px;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+.navbar-custom-first{
+    overflow-x : hidden !important;
+}
+
+}
+

@@ -1,0 +1,430 @@
+@import url(footer.css);
+@import url(slider.css);
+@import url(newsletterarea.css);
+@import url(livedemoarea.css);
+
+.row{
+    margin : 0;
+    box-sizing: border-box;
+}
+.top{
+    margin : 0;
+}
+
+
+.link {
+  cursor: pointer; }
+
+.link:hover {
+  text-decoration: underline; }
+
+.ownbtn .tve_btn{
+    font-family: roboto_regular;
+    box-shadow: none;
+    cursor: pointer;
+    text-shadow: none;
+    font-weight: 300;
+    text-align: center;
+    border-radius : 4px !important;
+}
+
+.ownbtn .tve_btn_txt{
+     text-shadow: none;
+}
+
+
+
+
+.ownbtn.btn-blau .tve_btn{
+     background: #009fe4 !important;
+     color: white !important; 
+    
+}
+
+.ownbtn.btn-blau .tve_btn:hover{
+    background: #008ac6 !important;
+    color: white;
+    
+}
+
+.ownbtn.btn-weis .tve_btn{
+     background: white !important;
+     background-color : white !important;
+     
+}
+.ownbtn.btn-weis .tve_btn .tve_btn_txt{
+   
+     color: #009fe4 !important; 
+    
+}
+
+.ownbtn.btn-weis .tve_btn:hover{
+    background: white !important;
+    color: #008ac6;
+    
+}
+.ownbtn.btn-weis .tve_btn:hover .tve_btn_txt{
+    
+     color: #008ac6 !important; 
+    
+}
+
+
+   
+.btn{
+     font-family: 'Roboto', sans-serif;
+    box-shadow: none;
+   text-shadow: none;
+    cursor: pointer;
+   
+    font-weight: 300;
+    margin : 0;
+    text-align: center;
+    
+}
+
+
+.actionbutton {
+  background: #009fe4;
+  color: white; 
+}
+
+.actionbutton:hover{
+  background: #008ac6 !important;
+  color: white; 
+ 
+}
+
+.actionbutton:active {
+  color: #27272a; }
+
+.actionbutton:activated {
+  color: white !important; }
+.actionbutton > .tve_btn{
+       background: #009fe4 !important;
+        color: white; 
+}
+.actionbutton:hover > .tve_btn{
+       background: #008ac6 !important;
+       color: white; 
+}
+
+
+
+
+
+
+
+
+.actionbutton_white:hover{
+  background: white !important;
+  color: #008ac6; 
+ 
+}
+
+.actionbutton_white:active {
+  color: #27272a; }
+
+.actionbutton_white:activated {
+  color: white !important; }
+.actionbutton_white > .tve_btn{
+       background: #009fe4 !important;
+        color: white; 
+}
+.actionbutton_white:hover > .tve_btn{
+       background: #008ac6 !important;
+        color: white; 
+}
+
+
+
+
+
+.actionbutton_green {
+  background: #9bdb42;
+  color: white; }
+
+.actionbutton_green:hover {
+  background: #8bc53b;
+  color: white; }
+
+.actionbutton_green:active {
+  color: white !important; }
+
+.actionbutton_green:focus {
+  color: white !important; }
+
+.actionbutton_green:activated {
+  color: white !important; }
+
+.actionbutton_green:active {
+  color: #27272a; }
+
+.actionbutton_green:activated {
+  color: white !important; }
+.actionbutton_green > .tve_btn{
+       background: #9bdb42 !important;
+        color: white; 
+}
+.actionbutton_green:hover > .tve_btn{
+       background: #8bc53b !important;
+        color: white; 
+}
+
+
+/* centered columns styles */
+.row-centered {
+  text-align: center; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: center;
+  /* inline-block space fix */
+  margin-right: -4px; }
+
+.margin-auto {
+  margin: auto; }
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.flex-center-all {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center; }
+
+.flex-center-left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center; }
+
+.cursor-pointer {
+  cursor: pointer; }
+
+
+.schrift_rot {
+  color: #e6391e; }
+
+
+
+.schrift_rot {
+  color: #fc5242; }
+
+.schrift_rot_imp {
+  color: #fc5242 !important; }
+
+.schrift_blau {
+  color: #009fe4; }
+
+.schrift_blau_imp {
+  color: #009fe4 !important; }
+
+.schrift_weis {
+  color: white; }
+
+.schrift_gruen {
+  color: #a6ca10; }
+
+.weis_hintergrund {
+  background-color: white; }
+
+
+
+.hintergrund_gruen {
+  background-color: #a6ca10; 
+
+}
+
+.hintergrund_blau{
+    
+     background-color: #009fe4; 
+}
+
+
+
+.hintergrund_picto_blau{
+    background: #009fe4;
+    background-image: url("https:/www.mailtastic.de/img/login/Schatten.png"), url("https:/www.mailtastic.de/img/login/Picto_Teppich_eng-1.png");
+    background-attachment: fixed;
+}
+
+
+
+.awr{
+    margin-bottom : 0;
+    padding-bottom : 0
+}
+
+
+
+#scrollpfeil {
+  position: fixed;
+  bottom: 50px;
+  width: 60px;
+  left: 60px;
+  z-index: 10;
+  cursor: pointer;
+  animation: myfirst 3s;
+  -moz-animation: myfirst 3s infinite;
+  /* Firefox */
+  -webkit-animation: myfirst 3s infinite;
+  /* Safari and Chrome */ }
+
+.schrift_rot {
+  color: #e6391e; }
+
+/**
+ * 	Pfeil Animation
+ */
+@-moz-keyframes myfirst /* Firefox */ {
+  0% {
+    bottom: 50px; }
+  50% {
+    bottom: 70px; }
+  100% {
+    bottom: 50px; } }
+@-webkit-keyframes myfirst /* Firefox */ {
+  0% {
+    bottom: 50px; }
+  50% {
+    bottom: 70px; }
+  100% {
+    bottom: 50px; } }
+@keyframes myfirst {
+  0% {
+    bottom: 50px; }
+  50% {
+    bottom: 70px; }
+  100% {
+    bottom: 50px; } }
+
+
+
+  .dropdown.hilfe ul {
+    min-width: 207px;
+    color: white;
+    border-top-width: 0;
+    border-left-width: 0;
+    background-color: #363f48 !important; }
+    .dropdown.hilfe ul li {
+      cursor: pointer;
+      background-color: #363f48 !important; }
+      .dropdown.hilfe ul li a {
+        color: white; }
+      .dropdown.hilfe ul li a:hover {
+        background-color: #fc5242 !important; }
+         .dropdown.hilfe ul li:hover {
+        background-color: #fc5242 !important; }
+    .dropdown.hilfe ul li.active a {
+      background-color: #363f48 !important; 
+      color : #009fe4;
+    
+    }
+    
+    
+    .menudropdownentry:hover{
+        background-color : #363f48 !important;
+        color : #009fe4;
+    }
+    .menudropdownentry:active{
+        background-color : #363f48 !important;
+        color : #009fe4;
+    }
+    
+    
+    .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a{
+        background-image : none;
+        color : blue;
+    }
+    
+    
+    
+    .dropdown-menu>li>a:hover{
+          background-color : #363f48 !important;
+        
+    }
+    
+    /*
+    Top bar on blog page from parent theme should not be displayed
+    */
+    .brd{
+        padding : 0 !important;
+        
+    }
+    /*
+    Im Blog sind die Ränder im Mailtastic Blau
+    */
+    .sAsCont section .scn:before{
+        background : #009fe4 !important;
+    }
+    
+    .wrp.cnt.gin .gr-i:after{
+            background : #009fe4 !important;
+    }
+    
+    .met{
+        border-bottom: 1px solid #009fe4;
+    }
+    
+    .rltpi h4{
+            border-bottom: 3px solid #009fe4;
+    }
+    
+   
+    
+    
+    .h1{
+        font-size : 40px !important;
+        line-height : 46px !important;
+        font-family : roboto_regular !important;
+    }
+    .h2{
+        font-size : 34px !important;
+        line-height : 47px !important;
+        font-family : roboto_regular !important;
+        
+    }
+    
+    .h3{
+        font-size : 25px !important;
+        line-height : 30px !important;
+        font-family : roboto_light !important;
+        
+    }
+    
+    .paragraph{
+         font-size : 19px !important;
+        line-height : 29px !important;
+        font-family : roboto_light !important;
+    }
+    
+    
+    #start_top_area > .out{
+        background-image: url("http://testblog.mailtastic.de/wordpress/wp-content/uploads/2016/05/kachel-f__r-wp-seite-1.png") !important;
+        background-repeat: repeat  !important;
+        background-size: inherit  !important;
+        background-attachment: fixed  !important;
+        
+    }

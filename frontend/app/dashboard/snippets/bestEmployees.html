@@ -1,0 +1,47 @@
+<div id="top3emp" class="panel custompanel top3groupcomp">
+    <div class="panel-heading button-panel-header">
+        <h5 class="panelheading" translate="bestemployee"></h5>
+        <!--<button ng-click="open()" ng-controller="EmployeeModalCtrl"   type="button" class="btn btn-sm actionbutton">Mitarbeiter hinzufügen</button>-->
+        <!--          <div class="btn-group btn-group-sm margin-auto optionbutton actiondropdown" style="margin-right : 0;" uib-dropdown>
+                <button  type="button" class="btn  optionbutton actiondropdown" uib-dropdown-toggle ng-disabled="disabled">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mitarbeiter hinzufügen
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="sort-button">
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, null, 'new')"><a >Neu erstellen</a></li>
+                    <li ng-controller="EmployeeModalCtrl" ng-click="open(null, null, 'import')"><a >Importieren</a></li>
+                </ul>
+            </div>-->
+    </div>
+    <div cg-busy="loadingPromise" class="panel-body">
+
+        <div class="top3empitem flex-center-left cursor-pointer" ng-click="showUserDetails(item.id)" ng-repeat="item in topThreeEmployees">
+
+            <div class="flex col-lg-6 col-md-6 col-sm-6 col-xs-9 namecol">
+                <img class="img-circle user" letters="{{!item.firstname ? (item.email | limitTo:1) : ((item.firstname | limitTo:1) + (item.lastname | limitTo:1)) }}" />
+                <div class="overflowxhidden">
+                    <div class="place">#{{$index+1}}</div>
+                    <div class="name overflowxhidden"><span class="link">{{!item.firstname ? item.email : item.firstname + ' ' + item.lastname}}</span></div>
+                    <div class="group overflowxhidden"><div class="link " ng-click="showGroupDetails(item.currentGroup); $event.stopPropagation();"><span class="glyphicon glyphicon-folder-open " aria-hidden="true"></span> {{item.groupTitle}}</div></div>
+                </div>
+            </div>
+            <div ui-sref="base.employees.employeedetail({employeeId: item.id})" class="statsitem col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                <div class="up">{{item.views}}</div>
+                <div class="down overflowxhidden">{{labels.views}}</div>
+
+            </div>
+            <div ui-sref="base.employees.employeedetail({employeeId: item.id})" class="statsitem col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                <div class="up">{{item.clicks}}</div>
+                <div class="down">{{labels.clicks}}</div>
+
+            </div>
+            <div ui-sref="base.employees.employeedetail({employeeId: item.id})" class="statsitem col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <div class="up">{{(item.views===0 || item.clicks===0) ? 0 : (item.clicks / item.views)*100 | number:2}}%</div>
+                <div class="down">{{labels.rate}}</div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
